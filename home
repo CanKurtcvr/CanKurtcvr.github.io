@@ -1,72 +1,86 @@
 ---
 layout: default
-title: Can Kurt - Portfolio
+title: Portfolio | Can Kurt
 ---
 
-# Can Kurt
-**MSc i Software Design Student & IT-konsulent**
-
-København, Danmark | [cankurtcvr@gmail.com](mailto:cankurtcvr@gmail.com) | [LinkedIn](https://linkedin.com/in/canxkurt)
+<div style="text-align: center;">
+    <img src="1764232742594.jpeg" alt="Can Kurt" width="180" style="border-radius: 50%; box-shadow: 0 4px 12px rgba(0,0,0,0.1); margin-bottom: 20px;"/>
+    
+    <h1>Can Kurt</h1>
+    <p style="font-size: 1.2em; color: #555;">
+        <b>MSc-studerende i Software Design & IT-konsulent</b>
+    </p>
+    <p>
+        København, Danmark • <a href="mailto:cankurtcvr@gmail.com">cankurtcvr@gmail.com</a> • <a href="https://linkedin.com/in/canxkurt">LinkedIn</a>
+    </p>
+</div>
 
 ---
-
-<img src="1764232742594.jpeg" alt="Can Kurt" width="200" style="border-radius: 50%; display: block; margin-left: auto; margin-right: auto;"/>
 
 ## Om Mig
 
-Hej igen, og velkommen til mit personlige portefølje. Grunden til at jeg lavede denne hjemmeside var fordi at jeg ikke følte at jeg kunne vise nok af hvad jeg egentlig har udarbejdet på et kort CV. Derfor inviteres i til at se min lille udstilling. 
+Velkommen til mit portfolio. Som kandidatstuderende i Software Design med en baggrund i Informatik, arbejder jeg i spændingsfeltet mellem **teknisk udvikling** og **forretningsforståelse**. 
+
+Dette site fungerer som en udvidelse af mit CV, hvor jeg dykker ned i de projekter og teknologier, jeg arbejder med. Jeg har en passion for at løse komplekse problemstillinger – uanset om det handler om IT-sikkerhedskultur, UX-design eller datadrevet analyse.
+
+---
+
+## Kompetencer
+
+| Programmering & Data | Design & UX | Forretning & Proces |
+| :--- | :--- | :--- |
+| Python, SQL, Excel (Avanceret) | Figma, Prototyping, User Research | IT-sikkerhed, Procesoptimering, Scrum |
+
 ---
 
 ## Udvalgte Projekter
 
-Her er et udpluk af akademiske projekter, hvor jeg har arbejdet med komplekse IT-problemstillinger:
+Her er et udpluk af akademiske projekter, hvor jeg har kombineret teori med praktisk problemløsning:
 
-### IT-Sikkerhed & Human Factors (Bachelorprojekt)
-* **Fokus:** Analyse af medarbejdernes betydning for IT-sikkerheden i virksomheden Westcon-Comstor.
-* **Resultat:** Undersøgelse af, hvordan sikkerhed ikke kun er kode, men også adfærd og kultur i en organisatorisk kontekst. Projektet udarbejdede jeg alene og dykkede ned i bl.a Cisco
-* **Karakter:** 10
+### IT-Sikkerhed & Human Factors
+*Bachelorprojekt | Karakter: 10*
+> *"Sikkerhed er ikke kun kode, men også kultur."*
+
+* **Problemstilling:** Analyse af medarbejdernes rolle i IT-sikkerhedslandskabet hos Westcon-Comstor, med fokus på Cisco-teknologier.
+* **Løsning:** Et dybdegående studie af "Human Factors" i cybersikkerhed. Jeg kortlagde, hvordan organisatorisk adfærd påvirker sikkerhedsniveauet og udarbejdede anbefalinger til adfærdsændringer frem for blot tekniske restriktioner.
 
 ### UX-Optimering af Webshops
-* **Fokus:** Optimering af brugeroplevelse og design af webshops.
-* **Metode:** Brugerdrevet analyse og designprincipper for at forbedre interaktionen mellem system og bruger.
-* **Karakter:** 7
+*Kursusprojekt | Karakter: 7*
+* **Fokus:** Forbedring af brugerrejsen (User Journey) gennem datadrevet design.
+* **Metode:** Udførte brugertests og implementerede designprincipper for at mindske friktion mellem system og bruger, hvilket resulterede i konkrete designforslag til konverteringsoptimering.
 
 ### Algoritmer & Filterbobler
-* **Fokus:** Undersøgelse af YouTubes anbefalingsalgoritmer.
-* **Resultat:** Analyse af hvordan algoritmer skaber filterbobler og påvirker brugerens informationsstrøm.
-* **Karakter:** 10
+*Analyseprojekt | Karakter: 10*
+* **Fokus:** Kritisk analyse af YouTubes anbefalingsalgoritmer.
+* **Resultat:** Dokumenterede hvordan algoritmiske valg skaber "filterbobler", der indsnævrer brugerens informationsstrøm, og diskuterede de etiske implikationer for platformsdesign.
 
 ---
 
 ## Erhvervserfaring
 
-**IT-konsulent (Full-time / Try & Hire)** | *Danske Bank (via EY / M Networks)*
-*2022 – 2023*
-* Håndtering og analyse af store datamængder via avancerede Excel-skabeloner i Inkassoafdelingen.
-* Ansvarlig for juridisk dokumentation og sikring af korrekt kompensation til kunder.
-* Undervisning og onboarding af nye kollegaer på projektet.
+**IT-konsulent (Full-time / Try & Hire)** *Danske Bank (via EY / M Networks) | 2022 – 2023*
+* **Dataanalyse:** Håndtering og rensning af store datasæt i Inkassoafdelingen via avancerede Excel-modeller.
+* **Compliance:** Ansvarlig for juridisk dokumentation og sikring af korrekt kompensation til kunder i henhold til gældende lovgivning.
+* **Onboarding:** Oplæring af nye kollegaer i interne systemer og processer.
 
-**Tolk (Deltid)** | *Tolk Danmark*
-*2021 – 2024*
-* Dansk-engelsk tolkning ved kommunale møder, med fokus på præcis og upartisk formidling.
-* Kompetencer inden for etik og håndtering af følsomme situationer.
+**Tolk (Deltid)** *Tolk Danmark | 2021 – 2024*
+* **Kommunikation:** Dansk-engelsk tolkning ved kommunale møder med krav om høj præcision og neutralitet.
+* **Etik:** Håndtering af fortrolige oplysninger og følsomme situationer.
 
 ---
 
 ## Uddannelse
 
-**MSc i Software Design** | *IT-Universitetet i København*
-*2025 – 2027 (Forventet)*
-Specialisering i softwareudvikling, design af apps og systemarkitektur.
+**MSc i Software Design** *IT-Universitetet i København | 2025 – 2027 (Forventet)*
+* Specialisering i softwarearkitektur, systemudvikling og interaktionsdesign.
 
-**BSc i Informatik & Virksomhedsstudier** | *Roskilde Universitet*
-*2021 – 2024*
-Fokus på programmering, UX-design, dataanalyse og organisationsforståelse.
+**BSc i Informatik & Virksomhedsstudier** *Roskilde Universitet | 2021 – 2024*
+* Fokus på programmering, organisationsanalyse og digital transformation.
 
 ---
 
-## Kontakt
-Du er velkommen til at kontakte mig, hvis du vil høre mere om min profil eller diskutere et potentielt samarbejde.
-
-**Email:** [cankurtcvr@gmail.com](mailto:cankurtcvr@gmail.com)
-**LinkedIn:** [linkedin.com/in/canxkurt](https://linkedin.com/in/canxkurt)
+<div style="text-align: center; margin-top: 40px;">
+    <h3>Skal vi samarbejde?</h3>
+    <p>Jeg er altid åben for en snak om nye muligheder eller projekter.</p>
+    <a href="mailto:cankurtcvr@gmail.com" style="background-color: #0077b5; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px; font-weight: bold;">Kontakt Mig</a>
+</div>
