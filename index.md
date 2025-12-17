@@ -17,72 +17,71 @@ title: Portfolio | Can Kurt
 
 ---
 
-## Om Mig
+## Introduktion til denne hjemmeside
 
-Velkommen til mit portfolio. Som kandidatstuderende i Software Design med en baggrund i Informatik, arbejder jeg i spændingsfeltet mellem **teknisk udvikling** og **forretningsforståelse**.
+Velkommen til! 👋
 
-Dette site fungerer som en udvidelse af mit CV, hvor jeg dykker ned i de projekter og teknologier, jeg arbejder med. Jeg er engageret og lærenem med en passion for at løse komplekse problemstillinger – uanset om det handler om IT-sikkerhedskultur, UX-design eller datadrevet analyse.
+Tænk på det her site som "Director’s Cut"-udgaven af mit CV. Her er lidt mere plads til at folde tingene ud, end der er på et tørt A4-ark.
 
----
+Kort fortalt: Jeg læser Software Design, fordi jeg elsker at bygge løsninger, der rent faktisk virker i virkeligheden (og ikke kun på en powerpoint). Jeg har en baggrund i Informatik, så jeg ved, hvad der foregår nede i maskinrummet, men jeg brænder mindst lige så meget for **forretningen** og **menneskerne**, der skal bruge systemerne.
 
-## Bag Skærmen
-
-Når jeg ikke sidder begravet i kode eller systemarkitektur, finder du mig sandsynligvis i gang med at **træne**, fordybet i en bog eller midt i en livlig diskussion med vennerne.
-
-Jeg går meget op i at give tilbage til fællesskabet, hvorfor jeg i min fritid arbejder frivilligt som **lektieven**. Her hjælper jeg en dreng i 5. klasse et par timer om ugen med alt fra matematik til dansk, hvilket holder mine pædagogiske evner skarpe.
-
-Ellers er jeg drevet af en umættelig nysgerrighed og ligger inde med en stor mængde "random facts". Min helt store passion er dog **historie og filosofi**. Jeg bruger meget tid på at studere tankesættene hos historiens mest markante skikkelser – fra **Aristoteles'** logik og **Kants** etik til **Søren Kierkegaards** eksistentialisme. Jeg fascineres af strategierne hos ledere som **Alexander den Store** og **Genghis Khan** for at forstå, hvad der skabte deres succes.
+Jeg er nysgerrig af natur og går op i at løse problemer – uanset om det handler om at få folk til at forstå IT-sikkerhed, optimere en brugerrejse eller grave guld frem i store datamængder.
 
 ---
 
-## Udvalgte Projekter
+## Bag Skærmen 🏋️‍♂️📚
+
+Når jeg ikke har hovedet nede i en terminal eller et Excel-ark, finder du mig højst sandsynligt i træningscentret i forsøget på at løfte tunge ting, eller begravet i en god bog.
+
+Jeg bruger også et par timer om ugen som **lektieven** for en gut i 5. klasse. Vi kæmper os igennem alt fra brøker til dansk stil, og det er med til at holde mine egne pædagogiske evner helt skarpe (man har ikke forstået noget, før man kan forklare det til en 11-årig).
+
+Ellers er jeg ham i vennegruppen, der altid ligger inde med en "random fact". Min helt store passion er **historie og filosofi**. Jeg bruger en del tid på at lure strategier af fra typer som **Alexander den Store** og **Genghis Khan**, mens jeg forsøger at forstå meningen med det hele gennem **Søren Kierkegaard**. Det er en sær cocktail, men det holder hjernen i gang!
+
+---
+
+## Udvalgte Projekter 💻
 
 ### IT-Sikkerhed & Human Factors
 *Bachelorprojekt | Karakter: 10*
-> *"Sikkerhed er ikke kun kode, men også kultur."*
-* **Fokus:** Analyse af medarbejdernes rolle i IT-sikkerhedslandskabet hos Westcon-Comstor.
-* **Løsning:** Et dybdegående studie af "Human Factors" i cybersikkerhed med anbefalinger til adfærdsændringer.
+> *"Sikkerhed er ikke kun kode, det er mennesker."*
+* **Hvad gik det ud på?** En dybdegående analyse af medarbejdernes rolle i IT-sikkerheden hos Westcon-Comstor.
+* **Det spændende:** Jeg dykkede ned i "Human Factors" for at forstå, hvorfor vi klikker på links, vi ikke burde, og kom med konkrete bud på adfærdsændringer.
 
-### UX-Optimering af Webshops
+### UX-Optimering af Webshops (Vikingrens.dk)
 *Kursusprojekt | Karakter: 7*
-* **Fokus:** Forbedring af brugerrejsen (User Journey) gennem datadrevet design.
-* **Resultat:** Konkrete designforslag til konverteringsoptimering baseret på brugertests.
+* **Projekt:** Sammen med to studiekammerater designede og byggede jeg **vikingrens.dk** for en fælles bekendt, der manglede en skarp online tilstedeværelse.
+* **Proces:** Det var ikke bare "pynt" – vi dokumenterede hele processen i en rapport med fokus på User Journey og datadrevet design for at sikre, at kunderne faktisk trykkede på "køb".
 
 ### Algoritmer & Filterbobler
 *Analyseprojekt | Karakter: 10*
-* **Fokus:** Kritisk analyse af YouTubes anbefalingsalgoritmer og deres etiske implikationer.
+* **Fokus:** En kritisk (og lidt skræmmende) analyse af YouTubes anbefalingsalgoritmer og de etiske konsekvenser, de har for os brugere.
 
 ---
 
-## Erhvervserfaring
+## Erhvervserfaring 💼
 
 **Tolk (deltid)** *TolkDanmark | 2024 – Nuværende*
-* **Sproglig formidling:** Arbejder som dansk–engelsk tolk ved siden af studierne og yder præcis, upartisk og fortrolig tolkning ved kommunale møder.
-* **Social indsats:** Støtter primært indvandrere og flygtninge i København og omegn, herunder Høje-Taastrup og Vallensbæk.
-* **Kompetencer:** Har opbygget stærke kompetencer inden for kommunikation, etik og håndtering af følsomme situationer.
+* **Sproglig ninja:** Jeg arbejder som dansk–engelsk tolk ved siden af studierne. Det handler om præcision, etik og om at holde hovedet koldt i følsomme situationer hos kommunen.
+* **Impact:** Jeg hjælper borgere og myndigheder med at forstå hinanden – bogstaveligt talt.
 
 **Import/Export Assistent** *Nordele Gastro | 02/2024 – 03/2025*
-* **Logistik & Processer:** Håndtering af import- og eksportprocesser, herunder toldklarering, dokumentation og logistikkoordination.
-* **Kundestyring:** Ansvarlig for ordrebehandling, sporingsnumre og løbende opdatering af kunder samt leverandørkommunikation.
+* **Logistik:** Håndtering af alt det bøvlede med told, papirarbejde og logistik, så varerne kommer frem til tiden.
+* **Kunder:** Sørgede for at kunderne var glade, informerede og opdaterede på deres ordrer.
 
 **Webudvikler (Uofficiel Praktik)** *Starpack ApS | Glostrup*
-* **Udvikling:** Design og opbygning af hjemmesider med fokus på brugervenlighed og visuel identitet.
-* **Drift:** Vedligeholdelse og optimering af web-løsninger.
+* **Hands-on:** Design og opbygning af hjemmesider. Jeg stod for både koden og drift, så det hele spillede.
 
 **IT-konsulent (Full-time / Try & Hire)** *Danske Bank (via EY / M Networks) | 06/2022 – 12/2023*
-* **Sagsbehandling:** Ansat i et *Try & Hire*-forløb med ansvar for håndtering af fejlagtige kundesager i Inkassoafdelingen.
-* **Dataanalyse:** Arbejdede med analyse og behandling af store datamængder ved hjælp af avancerede Excel-skabeloner.
-* **Compliance:** Håndterede juridisk dokumentation og sikrede korrekt kompensation til berørte kunder.
-* **Vidensdeling:** Havde ansvar for undervisning og onboarding af nye kollegaer på projektet.
-* **Erfaring:** Opnåede solid erfaring med arbejde på professionelt niveau i en stor, reguleret organisation.
+* **Sagsbehandling:** Startede i et *Try & Hire*-forløb og fik hurtigt ansvar for at rydde op i fejlagtige kundesager i Inkassoafdelingen.
+* **Data-detektiv:** Arbejdede med analyse af store datamængder og byggede avancerede Excel-skabeloner for at gøre arbejdet smartere.
+* **Compliance & Oplæring:** Håndterede juraen, sikrede kunderne fik deres penge, og endte med at stå for oplæring af nye kollegaer i teamet.
 
 **Pædagogmedhjælper** *Ole Rømer Skole | 02/2020 – 05/2022*
-* **Ansvar:** Havde ansvar for en elev med særlige behov, herunder faglig støtte og konflikthåndtering for at sikre et trygt læringsmiljø.
-* **Kommunikation:** Udviklede stærke samarbejdsevner gennem daglig dialog med lærere, forældre og elever.
+* **Ansvar:** Jeg var "wingman" for en elev med særlige behov. Det lærte mig utroligt meget om tålmodighed, konflikthåndtering og tydelig kommunikation – evner jeg bruger hver dag i IT-verdenen også.
 
 ---
 
-## Uddannelse
+## Uddannelse 🎓
 
 **MSc i Software Design** *IT-Universitetet i København | 2025 – 2027 (Forventet)*
 * Specialisering i softwarearkitektur, systemudvikling og interaktionsdesign.
@@ -93,9 +92,9 @@ Ellers er jeg drevet af en umættelig nysgerrighed og ligger inde med en stor m�
 ---
 
 <div style="text-align: center; margin-top: 50px; margin-bottom: 50px;">
-    <h3>Kontakt</h3>
+    <h3>Skal vi tage en snak? ☕</h3>
     <p>
-        Jeg er altid åben for en snak om nye muligheder eller projekter.
+        Jeg er altid frisk på at høre om nye projekter eller muligheder.
     </p>
     <p style="font-size: 1.1em;">
         <b>Can Kurt</b><br>
