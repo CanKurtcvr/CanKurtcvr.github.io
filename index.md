@@ -23,7 +23,7 @@ Velkommen til! 👋
 
 Tænk på det her site som "Director’s Cut"-udgaven af mit CV. Her er lidt mere plads til at folde tingene ud, end der er på et tørt A4-ark.
 
-Kort fortalt: Jeg læser Software Design, fordi jeg elsker at bygge løsninger, der rent faktisk virker i virkeligheden (og ikke kun på en powerpoint). Jeg har en baggrund i Informatik, så jeg ved, hvad der foregår nede i maskinrummet, men jeg brænder mindst lige så meget for **forretningen** og **menneskerne**, der skal bruge systemerne.
+Kort fortalt: Jeg læser Software Design, fordi jeg elsker at bygge løsninger, der rent faktisk virker i virkeligheden (og ikke kun på en powerpoint). Jeg har en baggrund i Informatik og virksomhedsledelse, så jeg ved, hvad der foregår nede i maskinrummet, men jeg brænder mindst lige så meget for **forretningen** og **menneskerne**, der skal bruge systemerne.
 
 Jeg er nysgerrig af natur og går op i at løse problemer – uanset om det handler om at få folk til at forstå IT-sikkerhed, optimere en brugerrejse eller grave guld frem i store datamængder.
 
@@ -31,11 +31,11 @@ Jeg er nysgerrig af natur og går op i at løse problemer – uanset om det hand
 
 ## Bag Skærmen 🏋️‍♂️📚
 
-Når jeg ikke har hovedet nede i en terminal eller et Excel-ark, finder du mig højst sandsynligt i træningscentret i forsøget på at løfte tunge ting, eller begravet i en god bog.
+Når jeg ikke har hovedet nede i en terminal eller et Excel-ark, finder du mig højst sandsynligt i træningscentret i forsøget på at løfte tunge ting, eller begravet i en god selvudviklingsbog såsom Atomic Habits eller 48 laws of power. (Rule nr. 1: never outshine the master)🫢
 
 Jeg bruger også et par timer om ugen som **lektieven** for en gut i 5. klasse. Vi kæmper os igennem alt fra brøker til dansk stil, og det er med til at holde mine egne pædagogiske evner helt skarpe (man har ikke forstået noget, før man kan forklare det til en 11-årig).
 
-Ellers er jeg ham i vennegruppen, der altid ligger inde med en "random fact". Min helt store passion er **historie og filosofi**. Jeg bruger en del tid på at lure strategier af fra typer som **Alexander den Store** og **Genghis Khan**, mens jeg forsøger at forstå meningen med det hele gennem **Søren Kierkegaard**. Det er en sær cocktail, men det holder hjernen i gang!
+Ellers er jeg ham i vennegruppen, der altid ligger inde med en "random fact". Min helt store passion er **historie og filosofi**. Jeg bruger en del tid på at lure strategier af fra typer som **Alexander den Store** og **Genghis Khan**, mens jeg forsøger at forstå meningen med det hele gennem **Marcus Aurelius**. Jeg elsker de dybe samtaler, men holder mig helst væk fra at tale om følelsesprægede emner såsom politik religion eller den helt slemme - fodboldhold😬
 
 ---
 
