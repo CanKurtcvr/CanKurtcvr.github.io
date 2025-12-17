@@ -19,9 +19,9 @@ title: Portfolio | Can Kurt
 
 ## Om Mig
 
-Velkommen til mit portfolio. [cite_start]Som kandidatstuderende i Software Design med en baggrund i Informatik, arbejder jeg i spændingsfeltet mellem **teknisk udvikling** og **forretningsforståelse**[cite: 26].
+Velkommen til mit portfolio. Som kandidatstuderende i Software Design med en baggrund i Informatik, arbejder jeg i spændingsfeltet mellem **teknisk udvikling** og **forretningsforståelse**.
 
-Dette site fungerer som en udvidelse af mit CV, hvor jeg dykker ned i de projekter og teknologier, jeg arbejder med. [cite_start]Jeg er engageret og lærenem med en passion for at løse komplekse problemstillinger – uanset om det handler om IT-sikkerhedskultur, UX-design eller datadrevet analyse[cite: 4].
+Dette site fungerer som en udvidelse af mit CV, hvor jeg dykker ned i de projekter og teknologier, jeg arbejder med. Jeg er engageret og lærenem med en passion for at løse komplekse problemstillinger – uanset om det handler om IT-sikkerhedskultur, UX-design eller datadrevet analyse.
 
 ---
 
@@ -56,21 +56,26 @@ Ellers er jeg drevet af en umættelig nysgerrighed og ligger inde med en stor m�
 
 ## Erhvervserfaring
 
-**Import/Export Assistent** *Nordele Gastro | 02/2024 – 03/2025* [cite: 7, 8]
-* [cite_start]**Logistik & Processer:** Håndtering af import- og eksportprocesser, herunder toldklarering, dokumentation og logistikkoordination[cite: 9].
-* [cite_start]**Kundestyring:** Ansvarlig for ordrebehandling, sporingsnumre og løbende opdatering af kunder samt leverandørkommunikation[cite: 10, 11].
+**Tolk (deltid)** *TolkDanmark | 2024 – Nuværende*
+* **Sproglig formidling:** Arbejder som dansk–engelsk tolk ved siden af studierne og yder præcis, upartisk og fortrolig tolkning ved kommunale møder.
+* **Social indsats:** Støtter primært indvandrere og flygtninge i København og omegn, herunder Høje-Taastrup og Vallensbæk.
+* **Kompetencer:** Har opbygget stærke kompetencer inden for kommunikation, etik og håndtering af følsomme situationer.
+
+**Import/Export Assistent** *Nordele Gastro | 02/2024 – 03/2025*
+* **Logistik & Processer:** Håndtering af import- og eksportprocesser, herunder toldklarering, dokumentation og logistikkoordination.
+* **Kundestyring:** Ansvarlig for ordrebehandling, sporingsnumre og løbende opdatering af kunder samt leverandørkommunikation.
 
 **Webudvikler (Uofficiel Praktik)** *Starpack ApS | Glostrup*
 * **Udvikling:** Design og opbygning af hjemmesider med fokus på brugervenlighed og visuel identitet.
 * **Drift:** Vedligeholdelse og optimering af web-løsninger.
 
-**IT-konsulent (Full-time / Try & Hire)** *Danske Bank (via EY / M Networks) | 06/2022 – 12/2023* [cite: 12, 13]
-* [cite_start]**Dataanalyse:** Behandlede og optimerede +400 kundecases i Inkassoafdelingen via Excel og interne systemer[cite: 15].
-* [cite_start]**Vidensdeling:** Fungerede som floorwalker og stod for oplæring af nye medarbejdere i teamet[cite: 16].
+**IT-konsulent (Full-time / Try & Hire)** *Danske Bank (via EY / M Networks) | 06/2022 – 12/2023*
+* **Dataanalyse:** Behandlede og optimerede +400 kundecases i Inkassoafdelingen via Excel og interne systemer.
+* **Vidensdeling:** Fungerede som floorwalker og stod for oplæring af nye medarbejdere i teamet.
 
-**Pædagogmedhjælper** *Ole Rømer Skole | 02/2020 – 05/2022* [cite: 17, 18]
-* [cite_start]**Ansvar:** Havde ansvar for en elev med særlige behov, herunder faglig støtte og konflikthåndtering for at sikre et trygt læringsmiljø[cite: 20, 21].
-* [cite_start]**Kommunikation:** Udviklede stærke samarbejdsevner gennem daglig dialog med lærere, forældre og elever[cite: 22].
+**Pædagogmedhjælper** *Ole Rømer Skole | 02/2020 – 05/2022*
+* **Ansvar:** Havde ansvar for en elev med særlige behov, herunder faglig støtte og konflikthåndtering for at sikre et trygt læringsmiljø.
+* **Kommunikation:** Udviklede stærke samarbejdsevner gennem daglig dialog med lærere, forældre og elever.
 
 ---
 
@@ -79,13 +84,20 @@ Ellers er jeg drevet af en umættelig nysgerrighed og ligger inde med en stor m�
 **MSc i Software Design** *IT-Universitetet i København | 2025 – 2027 (Forventet)*
 * Specialisering i softwarearkitektur, systemudvikling og interaktionsdesign.
 
-**BSc i Informatik & Virksomhedsstudier** *Roskilde Universitet | 09/2021 – 06/2024* [cite: 24, 25]
-* [cite_start]Fokus på programmering, organisationsanalyse og digital transformation[cite: 26].
+**BSc i Informatik & Virksomhedsstudier** *Roskilde Universitet | 09/2021 – 06/2024*
+* Fokus på programmering, organisationsanalyse og digital transformation.
 
 ---
 
-<div style="text-align: center; margin-top: 40px;">
-    <h3>Skal vi samarbejde?</h3>
-    <p>Jeg er altid åben for en snak om nye muligheder eller projekter.</p>
-    <a href="mailto:cankurtcvr@gmail.com" style="background-color: #0077b5; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px; font-weight: bold;">Kontakt Mig</a>
+<div style="text-align: center; margin-top: 50px; margin-bottom: 50px;">
+    <h3>Kontakt</h3>
+    <p>
+        Jeg er altid åben for en snak om nye muligheder eller projekter.
+    </p>
+    <p style="font-size: 1.1em;">
+        <b>Can Kurt</b><br>
+        København, Danmark<br>
+        <a href="tel:+4528701213" style="text-decoration: none; color: inherit;">+45 28 70 12 13</a> • 
+        <a href="mailto:cankurtcvr@gmail.com">cankurtcvr@gmail.com</a>
+    </p>
 </div>
