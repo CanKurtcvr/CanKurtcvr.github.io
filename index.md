@@ -28,9 +28,9 @@ title: Portefølje | Can Kurt
 
 ## Faglig Profil
 
-Som kandidatstuderende i Software Design med en baggrund i Informatik og Virksomhedsstudier, kombinerer jeg teknisk indsigt med forretningsforståelse. Min tilgang er centreret omkring at skabe værdiskabende løsninger, der fungerer i praksis – ikke kun i teorien.
+Som kandidatstuderende i Software Design med en baggrund i Informatik og Virksomhedsstudier, kombinerer jeg teknisk indsigt med forretningsforståelse. Min tilgang er centreret omkring at skabe værdiskabende løsninger, der fungerer i praksis.
 
-Jeg har en holistisk forståelse for IT-udvikling; fra den tekniske arkitektur i "maskinrummet" til de forretningsmæssige og menneskelige processer, systemerne skal understøtte. Mine kernekompetencer ligger i krydsfeltet mellem teknisk problemløsning, brugerinddragelse og optimering af forretningsprocesser. Jeg arbejder analytisk og målrettet, uanset om opgaven omhandler IT-sikkerhed, optimering af brugerrejser eller dataanalyse.
+Mine kernekompetencer ligger i krydsfeltet mellem teknisk problemløsning, brugerinddragelse og optimering af forretningsprocesser. Jeg arbejder analytisk og målrettet, uanset om opgaven omhandler IT-sikkerhed, optimering af brugerrejser, dataanalyse eller noget andet.
 
 ---
 
