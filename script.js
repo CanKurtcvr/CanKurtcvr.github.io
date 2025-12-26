@@ -1,4 +1,6 @@
-// --- FANE FUNKTIONALITET ---
+/* ------------------------------
+   FANE FUNKTIONALITET
+   ------------------------------ */
 function openCity(evt, tabName) {
     var i, tabcontent, tablinks;
     
@@ -21,21 +23,32 @@ function openCity(evt, tabName) {
     }
 }
 
-// --- HABIT TRACKER FUNKTIONALITET ---
+/* ------------------------------
+   HABIT TRACKER FUNKTIONALITET
+   ------------------------------ */
 function toggleDone(boxId) {
     var box = document.getElementById(boxId);
+    var checkbox = box.querySelector('input[type="checkbox"]');
+    
+    // Toggle visuel klasse
     box.classList.toggle("completed");
+    
+    // Synkroniser checkbox status (hvis man klikker på div'en og ikke checkboxen)
+    if (box.classList.contains("completed")) {
+        checkbox.checked = true;
+    } else {
+        checkbox.checked = false;
+    }
 }
 
-// --- SPIL MENU STYRING ---
+/* ------------------------------
+   SPIL MENU STYRING
+   ------------------------------ */
 function showGame(gameName) {
     // 1. Skjul ALLE spil først
     document.getElementById('game-snake').style.display = 'none';
     document.getElementById('game-blackjack').style.display = 'none';
-    
-    // Vi tjekker lige om tetris-elementet findes før vi prøver at skjule det (for en sikkerheds skyld)
-    var tetrisGame = document.getElementById('game-tetris');
-    if(tetrisGame) tetrisGame.style.display = 'none';
+    document.getElementById('game-tetris').style.display = 'none';
     
     // Stop snake loop hvis den kørte
     clearInterval(gameInterval);
@@ -46,11 +59,8 @@ function showGame(gameName) {
         initSnake(); 
     } else if (gameName === 'blackjack') {
         document.getElementById('game-blackjack').style.display = 'block';
-        document.getElementById('bj-message').innerText = "Tryk 'Start Spil' for at give kort";
     } else if (gameName === 'tetris') {
-        // Vis tetris
-        if(tetrisGame) tetrisGame.style.display = 'block';
-        // (Tetris starter sig selv inde i iframen, så vi behøver ikke kalde en funktion)
+        document.getElementById('game-tetris').style.display = 'block';
     }
 }
 
@@ -74,6 +84,7 @@ var inputQueue = [];
 
 function initSnake() {
     canvas = document.getElementById('snakeCanvas');
+    if(!canvas) return; // Sikkerhed hvis canvas ikke findes
     ctx = canvas.getContext('2d');
     
     // Reset værdier
@@ -106,7 +117,6 @@ function gameLoop() {
         return;
     }
 
-    // Håndter input fra køen
     if (inputQueue.length > 0) {
         var nextMove = inputQueue.shift();
         velocityX = nextMove.x;
@@ -129,10 +139,8 @@ function gameLoop() {
     // Tegn slange
     ctx.fillStyle = "#2ecc71";
     for(var i=0; i<trail.length; i++) {
-        // Lidt mellemrum mellem led
         ctx.fillRect(trail[i].x * snakeSize + 1, trail[i].y * snakeSize + 1, snakeSize-2, snakeSize-2);
         
-        // Kollision med sig selv
         if(trail[i].x == playerX && trail[i].y == playerY) {
             if(velocityX !== 0 || velocityY !== 0) {
                 gameOver();
@@ -158,6 +166,7 @@ function gameLoop() {
         tail++;
         score++;
         updateScoreBoard();
+        // Placer nyt æble (undgå at placere på slangen)
         var validSpawn = false;
         while(!validSpawn) {
             appleX = Math.floor(Math.random() * tileCount);
@@ -198,19 +207,23 @@ function drawGameOver() {
     
     ctx.font = "16px Arial";
     ctx.fillText("Score: " + score, canvas.width/2, canvas.height/2 + 20);
-    ctx.fillText("Tryk på 'Start Nyt Spil'", canvas.width/2, canvas.height/2 + 50);
+    ctx.fillText("Tryk 'R' eller en piletast for at genstarte", canvas.width/2, canvas.height/2 + 50);
 }
 
 function keyPush(evt) {
+    // Forhindre scroll med piletaster
     if([37,38,39,40].indexOf(evt.keyCode) > -1) {
         evt.preventDefault();
     }
 
-    if(isGameOver) return;
+    if(isGameOver) {
+        // Genstart ved tryk
+        initSnake();
+        return;
+    }
 
     var lastMoveX = inputQueue.length > 0 ? inputQueue[inputQueue.length-1].x : velocityX;
     var lastMoveY = inputQueue.length > 0 ? inputQueue[inputQueue.length-1].y : velocityY;
-
     var nextX = 0, nextY = 0;
 
     switch(evt.keyCode) {
@@ -218,9 +231,11 @@ function keyPush(evt) {
         case 38: nextX = 0; nextY = -1; break; // Op
         case 39: nextX = 1; nextY = 0; break; // Højre
         case 40: nextX = 0; nextY = 1; break; // Ned
+        case 82: initSnake(); return; // 'R' for reset
         default: return;
     }
 
+    // Forhindre at gå direkte tilbage (selvmord)
     if ((lastMoveX !== 0 && nextX === -lastMoveX) || (lastMoveY !== 0 && nextY === -lastMoveY)) {
         return;
     }
@@ -231,7 +246,7 @@ function keyPush(evt) {
 }
 
 /* ------------------------------
-   BLACKJACK LOGIK (Fixet)
+   BLACKJACK LOGIK
    ------------------------------ */
 var suits = ["♠", "♥", "♦", "♣"];
 var values = ["2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K", "A"];
@@ -247,6 +262,7 @@ function createDeck() {
             var weight = parseInt(values[i]);
             if (["J", "Q", "K"].includes(values[i])) weight = 10;
             if (values[i] == "A") weight = 11;
+            
             var color = (suits[x] == "♥" || suits[x] == "♦") ? "red" : "black";
             var card = { Value: values[i], Suit: suits[x], Weight: weight, Color: color };
             deck.push(card);
@@ -275,8 +291,7 @@ function startBlackjack() {
     document.getElementById('btn-hit').disabled = false;
     document.getElementById('btn-stand').disabled = false;
     document.getElementById('bj-message').innerText = "Vælg Hit eller Stand";
-    document.getElementById('bj-message').style.color = "white";
-
+    
     playerHand.push(deck.pop());
     dealerHand.push(deck.pop());
     playerHand.push(deck.pop());
@@ -292,7 +307,6 @@ function hit() {
         renderBJ(false);
         if (getPoints(playerHand) > 21) {
             document.getElementById('bj-message').innerText = "Du gik over 21! Huset vinder.";
-            document.getElementById('bj-message').style.color = "#ffcccc";
             endBlackjackGame(true); 
         }
     }
@@ -323,7 +337,10 @@ function getPoints(hand) {
 }
 
 function renderCard(cardObj) {
-    return `<div class="card ${cardObj.Color}">${cardObj.Value}<br>${cardObj.Suit}</div>`;
+    return `<div class="card ${cardObj.Color}">
+                <span>${cardObj.Value}</span>
+                <span class="suit">${cardObj.Suit}</span>
+            </div>`;
 }
 
 function renderBJ(showAllDealerCards) {
@@ -331,18 +348,21 @@ function renderBJ(showAllDealerCards) {
     var playerDiv = document.getElementById('player-cards');
     
     var dealerHtml = "";
+    // Vis første kort
     if(dealerHand.length > 0) {
         dealerHtml += renderCard(dealerHand[0]);
     }
     
     if (showAllDealerCards) {
+        // Vis resten
         for(var i=1; i<dealerHand.length; i++) {
             dealerHtml += renderCard(dealerHand[i]);
         }
         document.getElementById('dealer-score').innerText = "Score: " + getPoints(dealerHand);
     } else {
+        // Skjul andet kort
         if(dealerHand.length > 1) {
-            dealerHtml += `<div class="card" style="background:#2c3e50; border:2px solid white;">?</div>`;
+            dealerHtml += `<div class="card" style="background:#2c3e50; border:2px solid white; color:white;">?</div>`;
         }
         if(dealerHand.length > 0) {
             document.getElementById('dealer-score').innerText = "Score: " + dealerHand[0].Weight + " + ?";
