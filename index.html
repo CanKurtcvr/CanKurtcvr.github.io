@@ -1,24 +1,24 @@
 <!DOCTYPE html>
 <html lang="da">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Can Kurt - CV, Tracker & Spil</title>
-<link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Can Kurt - CV, Tracker & Spil</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
 <div class="main-container">
 
     <div class="header">
-        <img src="profile.jpeg" alt="Can Kurt" class="profile-image">
+        <img src="profile.jpeg" alt="Can Kurt" class="profile-image" onerror="this.style.display='none'">
         
         <h1>Can Kurt</h1>
         <div class="sub-header">MSc-studerende i Software Design & IT-konsulent</div>
         <div class="contact-info">
             København, Danmark • <a href="tel:+4528701213">+45 28 70 12 13</a> • 
             <a href="mailto:cankurtcvr@gmail.com">cankurtcvr@gmail.com</a> • 
-            <a href="https://linkedin.com/in/canxkurt">LinkedIn</a>
+            <a href="https://linkedin.com/in/canxkurt" target="_blank">LinkedIn</a>
         </div>
     </div>
 
@@ -28,173 +28,106 @@
         <button class="tablinks" onclick="openCity(event, 'Spil')">Spil</button>
     </div>
 
-    <div id="CV" class="tabcontent">
-        <div class="no-break">
+    <div id="CV" class="tabcontent" style="display:block;">
+        <div class="section">
             <h2>Faglig Profil</h2>
-            <p>Som kandidatstuderende i Software Design med baggrund i Informatik og Virksomhedsstudier, kombinerer jeg teknisk indsigt med forretningsforståelse. Mine kernekompetencer ligger i krydsfeltet mellem teknisk problemløsning, brugerinddragelse og optimering af forretningsprocesser. Jeg arbejder analytisk og målrettet, uanset om opgaven omhandler IT-sikkerhed, optimering af brugerrejser eller dataanalyse.</p>
+            <p>Som kandidatstuderende i Software Design med baggrund i Informatik og Virksomhedsstudier, kombinerer jeg teknisk indsigt med forretningsforståelse. Mine kernekompetencer ligger i krydsfeltet mellem teknisk problemløsning, brugerinddragelse og optimering af forretningsprocesser.</p>
         </div>
 
-        <div class="no-break">
+        <div class="section">
             <h2>Uddannelse</h2>
-            
-            <div class="no-break">
+            <div class="item">
                 <h3>MSc i Software Design</h3>
                 <span class="meta">IT-Universitetet i København | 2025 – 2027 (Forventet)</span>
-                <ul>
-                    <li>Specialisering: Softwarearkitektur, systemudvikling og interaktionsdesign.</li>
-                </ul>
+                <ul><li>Specialisering: Softwarearkitektur, systemudvikling og interaktionsdesign.</li></ul>
             </div>
-
-            <div class="no-break">
+            <div class="item">
                 <h3>BSc i Informatik & Virksomhedsstudier</h3>
                 <span class="meta">Roskilde Universitet | 09/2021 – 06/2024</span>
-                <ul>
-                    <li>Fokus: Programmering, organisationsanalyse og digital transformation.</li>
-                </ul>
+                <ul><li>Fokus: Programmering, organisationsanalyse og digital transformation.</li></ul>
             </div>
         </div>
 
-        <div class="no-break">
+        <div class="section">
             <h2>Erhvervserfaring</h2>
-
-            <div class="no-break">
+            <div class="item">
                 <h3>Tolk</h3>
                 <span class="meta">TolkDanmark | 2024 – Nuværende</span>
-                <ul>
-                    <li>Dansk–engelsk tolkning for kommunale instanser.</li>
-                    <li>Kræver høj præcision, etik og evnen til at navigere neutralt i komplekse samtaler.</li>
-                </ul>
+                <ul><li>Dansk–engelsk tolkning for kommunale instanser med høj præcision og etik.</li></ul>
             </div>
-
-            <div class="no-break">
-                <h3>Import/Export Assistent</h3>
-                <span class="meta">Nordele Gastro | 02/2024 – 03/2025</span>
-                <ul>
-                    <li>Ansvarlig for toldbehandling, dokumentation og logistikkoordinering.</li>
-                    <li>Sikring af rettidig information og proaktiv opfølgning over for kunder.</li>
-                </ul>
-            </div>
-
-            <div class="no-break">
+            <div class="item">
                 <h3>IT-konsulent (Full-time / Try & Hire)</h3>
                 <span class="meta">Danske Bank (via EY / M Networks) | 06/2022 – 12/2023</span>
                 <ul>
-                    <li><strong>Procesoptimering:</strong> Analyse af store datamængder og udvikling af Excel-modeller til effektivisering.</li>
-                    <li><strong>Sagsbehandling & Compliance:</strong> Håndtering af kundesager i Inkassoafdelingen med fokus på jura.</li>
-                    <li><strong>Oplæring:</strong> Ansvarlig for on-boarding og faglig oplæring af nye medarbejdere.</li>
+                    <li><strong>Procesoptimering:</strong> Analyse af data og Excel-modeller.</li>
+                    <li><strong>Sagsbehandling:</strong> Håndtering af kundesager i Inkassoafdelingen.</li>
                 </ul>
             </div>
-
-            <div class="no-break">
-                <h3>Webudvikler</h3>
-                <span class="meta">Starpack ApS | Glostrup</span>
-                <ul>
-                    <li>Design, kodning og drift af virksomhedens digitale platform fra kravspecifikation til implementering.</li>
-                </ul>
-            </div>
-        </div>
-
-        <div class="no-break">
-            <h2>Udvalgte Projekter</h2>
-
-            <div class="no-break">
-                <h3>IT-Sikkerhed & Human Factors (Bachelorprojekt)</h3>
-                <span class="meta">Karakter: 10</span>
-                <ul>
-                    <li>Dybdegående analyse af medarbejderadfærd og IT-sikkerhedskultur hos Westcon-Comstor.</li>
-                    <li>Leverede konkrete anbefalinger til adfærdsændringer for at minimere sikkerhedsrisici.</li>
-                </ul>
-            </div>
-
-            <div class="no-break">
-                <h3>UX-Optimering & Webudvikling</h3>
-                <span class="meta">Vikingrens.dk | Karakter: 7</span>
-                <ul>
-                    <li>Design, udvikling og lancering af website med fokus på digital tilstedeværelse for en SMV.</li>
-                    <li>Baseret på User Journey-analyse og datadrevet design for at maksimere konverteringsraten.</li>
-                </ul>
-            </div>
-        </div>
-
-        <div class="no-break">
-            <h2>Kompetencer & Frivilligt arbejde</h2>
-            <ul>
-                <li><strong>Personlig udvikling:</strong> Arbejder struktureret med strategi og adfærdspsykologi, hvilket styrker min strategiske tænkning i pressede situationer.</li>
-                <li><strong>Frivillig lektiehjælper (Red Barnet Ungdom):</strong> Skærper pædagogiske evner og formidling af komplekst stof – kompetencer jeg bruger direkte i IT-konsulentrollen.</li>
-            </ul>
         </div>
     </div> 
 
     <div id="HabitTracker" class="tabcontent">
         <h2>Daglig Habit Tracker</h2>
-        <p style="color: #666; margin-bottom: 20px;">Hold styr på dine daglige mål for personlig og faglig udvikling.</p>
+        <p style="color: #666; margin-bottom: 20px;">Klik på boksene når du har nået dine mål.</p>
 
         <div class="habit-container">
-            <div class="habit-item" id="habitBox1">
-                <label for="habit1">Kode i mindst 1 time (Faglig udvikling)</label>
-                <input type="checkbox" id="habit1" onclick="toggleDone('habitBox1')">
+            <div class="habit-item" id="habitBox1" onclick="toggleDone('habitBox1')">
+                <input type="checkbox" id="habit1">
+                <label for="habit1">Kode i mindst 1 time</label>
             </div>
             
-            <div class="habit-item" id="habitBox2">
-                <label for="habit2">Læse 20 sider faglitteratur/strategi</label>
-                <input type="checkbox" id="habit2" onclick="toggleDone('habitBox2')">
+            <div class="habit-item" id="habitBox2" onclick="toggleDone('habitBox2')">
+                <input type="checkbox" id="habit2">
+                <label for="habit2">Læse 20 sider faglitteratur</label>
             </div>
             
-            <div class="habit-item" id="habitBox3">
-                <label for="habit3">Opdatere LinkedIn eller netværke</label>
-                <input type="checkbox" id="habit3" onclick="toggleDone('habitBox3')">
-            </div>
-            
-            <div class="habit-item" id="habitBox4">
-                <label for="habit4">Reflektere over dagens læring (10 min)</label>
-                <input type="checkbox" id="habit4" onclick="toggleDone('habitBox4')">
+            <div class="habit-item" id="habitBox3" onclick="toggleDone('habitBox3')">
+                <input type="checkbox" id="habit3">
+                <label for="habit3">Opdatere LinkedIn / Netværke</label>
             </div>
 
-             <div class="habit-item" id="habitBox5">
-                <label for="habit5">Træning / Fysisk aktivitet</label>
-                <input type="checkbox" id="habit5" onclick="toggleDone('habitBox5')">
+            <div class="habit-item" id="habitBox4" onclick="toggleDone('habitBox4')">
+                <input type="checkbox" id="habit4">
+                <label for="habit4">Fysisk træning</label>
             </div>
         </div>
     </div> 
 
     <div id="Spil" class="tabcontent">
         <h2>Pause & Spil</h2>
-        <p style="color: #666; margin-bottom: 20px;">Har du brug for en pause? Tag et spil her.</p>
+        
+        <div class="game-menu">
+            <button class="game-btn" onclick="showGame('snake')">Snake 2.0</button>
+            <button class="game-btn" onclick="showGame('blackjack')">Blackjack</button>
+            <button class="game-btn" onclick="showGame('tetris')">Tetris</button>
+        </div>
 
-      <div class="game-menu">
-    <button class="game-btn" onclick="showGame('snake')">Snake 2.0</button>
-    <button class="game-btn" onclick="showGame('blackjack')">Blackjack</button>
-    <button class="game-btn" onclick="showGame('tetris')">Tetris</button>
-</div>
+        <div id="game-snake" class="game-area" style="display:none;">
+            <h3>Snake 2.0</h3>
+            <div class="score-board">
+                <span id="scoreText">Score: 0</span>
+                <span id="highScoreText">Highscore: 0</span>
+            </div>
+            <canvas id="snakeCanvas" width="400" height="400"></canvas>
+            <p class="instruction">Brug piletasterne til at styre</p>
+        </div>
 
-<div id="game-tetris" class="game-area" style="display:none;">
-    <h3>Tetris</h3>
-    <p style="font-size: 0.9em; margin-bottom: 15px;">
-        Klassisk Tetris integreret fra Open Source. <br>
-        <span style="font-size: 0.8em; color: #777;">(Kredit: Jake Gordon)</span>
-    </p>
-    
-    <iframe src="spil/tetris/index.html" width="100%" height="600px" style="border:none; overflow:hidden;"></iframe>
-    
-    <button class="game-btn" onclick="showGame('menu')" style="margin-top:10px; background-color: #7f8c8d;">Luk Spil</button>
-</div>
-
-        <div id="game-blackjack" class="game-area">
+        <div id="game-blackjack" class="game-area" style="display:none;">
             <h3>Blackjack</h3>
             <div class="bj-table">
-                <div class="bj-area">
-                    <p style="margin:0; font-size:0.9em; opacity:0.8;">Dealerens Kort:</p>
+                <div class="bj-row">
+                    <p>Dealer:</p>
                     <div id="dealer-cards" class="bj-cards"></div>
-                    <p id="dealer-score" style="margin:0; font-weight:bold;">Score: ?</p>
+                    <p id="dealer-score">Score: ?</p>
                 </div>
-                <hr style="border-color: rgba(255,255,255,0.2); width:80%;">
-                <div class="bj-area">
-                    <p style="margin:0; font-size:0.9em; opacity:0.8;">Dine Kort:</p>
+                <hr>
+                <div class="bj-row">
+                    <p>Dig:</p>
                     <div id="player-cards" class="bj-cards"></div>
-                    <p id="player-score" style="margin:0; font-weight:bold;">Score: 0</p>
+                    <p id="player-score">Score: 0</p>
                 </div>
                 
-                <div id="bj-message">Tryk "Start Spil" for at begynde</div>
+                <div id="bj-message" class="bj-msg">Tryk "Start Spil"</div>
                 
                 <div class="bj-controls">
                     <button id="btn-deal" class="bj-btn" onclick="startBlackjack()">Start Spil</button>
@@ -204,11 +137,15 @@
             </div>
         </div>
 
+        <div id="game-tetris" class="game-area" style="display:none;">
+            <h3>Tetris</h3>
+            <p>Henter Tetris fra <code>spil/tetris/index.html</code>...</p>
+            <iframe src="spil/tetris/index.html" width="100%" height="500px" style="border:none;"></iframe>
+        </div>
     </div>
 
 </div> 
 
 <script src="script.js"></script>
-
 </body>
 </html>
