@@ -26,14 +26,14 @@ const CVSection = () => {
       <motion.section variants={item} className="bg-card rounded-lg p-6 shadow-sm border border-border">
         <h2 className="text-xl font-display font-bold mb-4 text-foreground flex items-center gap-2">
           <span className="w-1 h-6 bg-accent rounded-full" />
-          Profile
+          Profil
         </h2>
         <p className="text-muted-foreground leading-relaxed">
-          Ambitious and solution-oriented candidate with a solid background in IT and business. 
-          I combine technical knowledge with strong collaboration and communication skills. 
-          Experience from customer service, teaching, and technical IT consultancy roles has 
-          provided me with a versatile toolkit. I am structured, curious, and goal-oriented, 
-          passionate about learning new things and creating value in practice.
+          Ambitiøs og løsningsorienteret kandidat med en solid baggrund inden for IT og forretning. 
+          Jeg kombinerer teknisk viden med stærke samarbejds- og kommunikationsevner. 
+          Erfaring fra kundeservice, undervisning og teknisk IT-konsulentarbejde har 
+          givet mig en alsidig værktøjskasse. Jeg er struktureret, nysgerrig og målrettet, 
+          passioneret omkring at lære nyt og skabe værdi i praksis.
         </p>
       </motion.section>
 
@@ -41,25 +41,25 @@ const CVSection = () => {
       <motion.section variants={item} className="bg-card rounded-lg p-6 shadow-sm border border-border">
         <h2 className="text-xl font-display font-bold mb-6 text-foreground flex items-center gap-2">
           <GraduationCap className="w-5 h-5 text-accent" />
-          Education
+          Uddannelse
         </h2>
         
         <div className="space-y-6">
           <div className="relative pl-6 border-l-2 border-accent/30">
             <div className="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-accent" />
-            <h3 className="font-semibold text-foreground">MSc in Software Design (Cand.it)</h3>
-            <p className="text-sm text-accent mb-2">IT University of Copenhagen | 2025 – 2027</p>
+            <h3 className="font-semibold text-foreground">Kandidat i Softwaredesign (Cand.it)</h3>
+            <p className="text-sm text-accent mb-2">IT-Universitetet i København | 2025 – 2027</p>
             <p className="text-muted-foreground text-sm">
-              Specialization in App and Web Development as well as Software Architecture.
+              Specialisering i App- og Webudvikling samt Softwarearkitektur.
             </p>
           </div>
           
           <div className="relative pl-6 border-l-2 border-accent/30">
             <div className="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-accent/60" />
-            <h3 className="font-semibold text-foreground">BSc in Informatics and Business Studies</h3>
-            <p className="text-sm text-accent mb-2">Roskilde University | 2021 – 2024</p>
+            <h3 className="font-semibold text-foreground">Bachelor i Datalogi og Virksomhedsstudier</h3>
+            <p className="text-sm text-accent mb-2">Roskilde Universitet | 2021 – 2024</p>
             <p className="text-muted-foreground text-sm">
-              Focus on programming, data analysis, UX design, and organizational learning.
+              Fokus på programmering, dataanalyse, UX-design og organisatorisk læring.
             </p>
           </div>
         </div>
@@ -69,34 +69,34 @@ const CVSection = () => {
       <motion.section variants={item} className="bg-card rounded-lg p-6 shadow-sm border border-border">
         <h2 className="text-xl font-display font-bold mb-6 text-foreground flex items-center gap-2">
           <Briefcase className="w-5 h-5 text-accent" />
-          Relevant Experience
+          Relevant Erfaring
         </h2>
         
         <div className="space-y-6">
           <div className="group">
             <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-2">
-              <h3 className="font-semibold text-foreground">Interpreter (Part-time)</h3>
-              <span className="text-sm text-accent">2024 – Present</span>
+              <h3 className="font-semibold text-foreground">Tolk (Deltid)</h3>
+              <span className="text-sm text-accent">2024 – I dag</span>
             </div>
             <p className="text-sm text-muted-foreground mb-2 italic">Tolk Danmark</p>
             <ul className="text-sm text-muted-foreground space-y-1 list-disc list-inside">
-              <li>Danish-English interpreting at municipal meetings with a focus on precision and ethics</li>
-              <li>Facilitating communication for citizens in Copenhagen and surrounding areas</li>
-              <li>Strong competencies in handling sensitive situations professionally</li>
+              <li>Dansk-Engelsk tolkning ved kommunale møder med fokus på præcision og etik</li>
+              <li>Facilitering af kommunikation for borgere i København og omegn</li>
+              <li>Stærke kompetencer i at håndtere følsomme situationer professionelt</li>
             </ul>
           </div>
           
           <div className="border-t border-border pt-6">
             <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-2">
-              <h3 className="font-semibold text-foreground">IT Consultant (Full-time)</h3>
+              <h3 className="font-semibold text-foreground">IT-Konsulent (Fuldtid)</h3>
               <span className="text-sm text-accent">2022 – 2023</span>
             </div>
             <p className="text-sm text-muted-foreground mb-2 italic">Danske Bank (via EY / M Networks)</p>
             <ul className="text-sm text-muted-foreground space-y-1 list-disc list-inside">
-              <li><strong className="text-foreground">Try Hire engagement:</strong> Responsible for error correction in complex customer cases</li>
-              <li>Analysis and processing of large data sets via advanced Excel solutions</li>
-              <li>Ensured legal documentation and correct compensation for customers</li>
-              <li>Responsible for training and onboarding new colleagues in the team</li>
+              <li><strong className="text-foreground">Try Hire-forløb:</strong> Ansvarlig for fejlretning i komplekse kundesager</li>
+              <li>Analyse og behandling af store datasæt via avancerede Excel-løsninger</li>
+              <li>Sikring af lovpligtig dokumentation og korrekt kompensation til kunder</li>
+              <li>Ansvarlig for oplæring og onboarding af nye kolleger i teamet</li>
             </ul>
           </div>
         </div>
@@ -106,18 +106,18 @@ const CVSection = () => {
       <motion.section variants={item} className="bg-card rounded-lg p-6 shadow-sm border border-border">
         <h2 className="text-xl font-display font-bold mb-6 text-foreground flex items-center gap-2">
           <Heart className="w-5 h-5 text-accent" />
-          Volunteering
+          Frivilligt Arbejde
         </h2>
         
         <div>
           <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-2">
-            <h3 className="font-semibold text-foreground">Homework Tutor / Mentor</h3>
-            <span className="text-sm text-accent">2024 – Present</span>
+            <h3 className="font-semibold text-foreground">Lektiehjælper / Mentor</h3>
+            <span className="text-sm text-accent">2024 – I dag</span>
           </div>
-          <p className="text-sm text-muted-foreground mb-2 italic">Save the Children Youth (Red Barnet Ungdom)</p>
+          <p className="text-sm text-muted-foreground mb-2 italic">Red Barnet Ungdom</p>
           <ul className="text-sm text-muted-foreground space-y-1 list-disc list-inside">
-            <li>Volunteer mentor for a boy in 5th grade</li>
-            <li>Support academic learning and strengthen the student's motivation and self-confidence</li>
+            <li>Frivillig mentor for en dreng i 5. klasse</li>
+            <li>Støtte til faglig læring og styrkelse af elevens motivation og selvtillid</li>
           </ul>
         </div>
       </motion.section>
@@ -126,16 +126,16 @@ const CVSection = () => {
       <motion.section variants={item} className="bg-card rounded-lg p-6 shadow-sm border border-border">
         <h2 className="text-xl font-display font-bold mb-4 text-foreground flex items-center gap-2">
           <Globe className="w-5 h-5 text-accent" />
-          Additional Information
+          Yderligere Information
         </h2>
         
         <div className="grid sm:grid-cols-2 gap-4">
           <div className="flex items-start gap-3">
             <Languages className="w-5 h-5 text-accent mt-0.5" />
             <div>
-              <h4 className="font-medium text-foreground text-sm">Languages</h4>
+              <h4 className="font-medium text-foreground text-sm">Sprog</h4>
               <p className="text-sm text-muted-foreground">
-                Danish (Native), English (Fluent), German (Intermediate)
+                Dansk (Modersmål), Engelsk (Flydende), Tysk (Kendskab)
               </p>
             </div>
           </div>
@@ -143,8 +143,8 @@ const CVSection = () => {
           <div className="flex items-start gap-3">
             <Car className="w-5 h-5 text-accent mt-0.5" />
             <div>
-              <h4 className="font-medium text-foreground text-sm">Driving License</h4>
-              <p className="text-sm text-muted-foreground">Category B (Passenger Car)</p>
+              <h4 className="font-medium text-foreground text-sm">Kørekort</h4>
+              <p className="text-sm text-muted-foreground">Kategori B (Almindelig bil)</p>
             </div>
           </div>
         </div>
