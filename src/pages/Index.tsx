@@ -6,8 +6,9 @@ import CVSection from "@/components/CVSection";
 import WeatherSection from "@/components/WeatherSection";
 import NewsSection from "@/components/NewsSection";
 import GamesSection from "@/components/GamesSection";
+import BusinessProjectsSection from "@/components/BusinessProjectsSection";
 
-type TabType = "cv" | "weather" | "news" | "games";
+type TabType = "cv" | "weather" | "news" | "games" | "projects";
 
 const Index = () => {
   const [activeTab, setActiveTab] = useState<TabType>("cv");
@@ -28,6 +29,7 @@ const Index = () => {
               transition={{ duration: 0.3 }}
             >
               {activeTab === "cv" && <CVSection />}
+              {activeTab === "projects" && <BusinessProjectsSection />}
               {activeTab === "weather" && <WeatherSection />}
               {activeTab === "news" && <NewsSection />}
               {activeTab === "games" && <GamesSection />}
