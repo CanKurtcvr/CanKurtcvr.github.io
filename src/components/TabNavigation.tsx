@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
-import { FileText, Cloud, Newspaper, Gamepad2 } from "lucide-react";
+import { FileText, Cloud, Newspaper, Gamepad2, Briefcase } from "lucide-react";
 
-type TabType = "cv" | "weather" | "news" | "games";
+type TabType = "cv" | "weather" | "news" | "games" | "projects";
 
 interface TabNavigationProps {
   activeTab: TabType;
@@ -10,6 +10,7 @@ interface TabNavigationProps {
 
 const tabs = [
   { id: "cv" as TabType, label: "My CV", icon: FileText },
+  { id: "projects" as TabType, label: "Erhvervsprojekter", icon: Briefcase },
   { id: "weather" as TabType, label: "Weather", icon: Cloud },
   { id: "news" as TabType, label: "News", icon: Newspaper },
   { id: "games" as TabType, label: "Games", icon: Gamepad2 },
