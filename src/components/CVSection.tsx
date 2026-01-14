@@ -45,14 +45,7 @@ const CVSection = () => {
         </h2>
         
         <div className="space-y-6">
-          <div className="relative pl-6 border-l-2 border-accent/30">
-            <div className="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-accent" />
-            <h3 className="font-semibold text-foreground">Kandidat i Softwaredesign (Cand.it)</h3>
-            <p className="text-sm text-accent mb-2">IT-Universitetet i København | 2025 – 2027</p>
-            <p className="text-muted-foreground text-sm">
-              Specialisering i App- og Webudvikling samt Softwarearkitektur.
-            </p>
-          </div>
+          {/* ITU Kandidat removed here */}
           
           <div className="relative pl-6 border-l-2 border-accent/30">
             <div className="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-accent/60" />
