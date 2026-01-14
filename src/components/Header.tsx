@@ -50,7 +50,7 @@ const Header = () => {
           transition={{ delay: 0.4, duration: 0.5 }}
           className="text-lg md:text-xl text-header-foreground/70 mb-6 font-medium"
         >
-          MSc Student in Software Design & IT Consultant
+          Passioneret indenfor IT og Virksomhed
         </motion.p>
 
         {/* Contact Links */}
