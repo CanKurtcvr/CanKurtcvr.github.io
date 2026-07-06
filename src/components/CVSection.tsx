@@ -1,147 +1,116 @@
-import { motion } from "framer-motion";
-import { GraduationCap, Briefcase, Heart, Globe, Car, Languages } from "lucide-react";
+import React from "react";
 
-const container = {
-  hidden: { opacity: 0 },
-  show: {
-    opacity: 1,
-    transition: { staggerChildren: 0.1 }
-  }
-};
+const educationData = [
+  {
+    period: "Sep. 2021 – Jun. 2024",
+    title: "Bachelor i Informatik og Virksomhedsstudier",
+    institution: "Roskilde Universitet",
+    description: "Fokus på programmering (Java, Python), dataanalyse, bogføring, UX-design og organisatorisk filosofi.",
+  },
+];
 
-const item = {
-  hidden: { opacity: 0, y: 20 },
-  show: { opacity: 1, y: 0 }
-};
+const experienceData = [
+  {
+    period: "Marts 2025 – Nuværende",
+    title: "Frivillig Lektiehjælper",
+    company: "Red Barnet Ungdom",
+    tasks: [
+      "Hjælper børn og unge med lektielæsning og skaber et trygt og motiverende læringsrum."
+    ],
+  },
+  {
+    period: "Jan. 2024 – Nuværende",
+    title: "Omsorgsmedarbejder (Vikariat)",
+    company: "Forsorgshjemmet Absalon",
+    tasks: [
+      "Yder administrativ støtte og personlig omsorg til udsatte borgere og håndterer komplekse sociale situationer med ro og empati.",
+    ],
+  },
+  {
+    period: "Feb. 2024 – Nuværende",
+    title: "Tolk (Vikariat)",
+    company: "Tolk Danmark",
+    tasks: [
+      "Formidler præcis dansk-engelsk kommunikation ved kritiske møder med fokus på etik og professionalisme.",
+    ],
+  },
+  {
+    period: "Jun. 2022 – Dec. 2023",
+    title: "IT-konsulent (fuldtid)",
+    company: "Danske Bank (via EY / M Networks)",
+    tasks: [
+      "Håndterede fejlretning i komplekse kundesager, analyserede store datamængder i Excel og stod for teknisk onboarding.",
+    ],
+  },
+  {
+    period: "Okt. 2021 – Maj 2022",
+    title: "Lagermedarbejder",
+    company: "Lyreco",
+    tasks: [
+      "Fysisk arbejde med pluk, effektiv pakning og logistik under stramme deadlines.",
+    ],
+  },
+  {
+    period: "Aug. 2019 – Okt. 2021",
+    title: "Pædagogmedhjælper",
+    company: "Ole Rømer Skolen - Høje Taastrup",
+    tasks: [
+      "Understøttede undervisning og agerede støttepædagog for elever med sociale udfordringer.",
+    ],
+  },
+];
 
-const CVSection = () => {
+export const CVSection = () => {
   return (
-    <motion.div
-      variants={container}
-      initial="hidden"
-      animate="show"
-      className="space-y-8"
-    >
-      {/* Profile */}
-      <motion.section variants={item} className="bg-card rounded-lg p-6 shadow-sm border border-border">
-        <h2 className="text-xl font-display font-bold mb-4 text-foreground flex items-center gap-2">
-          <span className="w-1 h-6 bg-accent rounded-full" />
-          Profil
-        </h2>
-        <p className="text-muted-foreground leading-relaxed">
-          Fagligt stærk og alsidig profil med baggrund inden for IT, analyse og formidling.
-          Jeg trives i roller med stort ansvar, hvor jeg kan bringe min tekniske forståelse og menneskelige empati i spil.
-          Mit mål er at finde en langsigtet arbejdsplads med en sund balance mellem professionalisme og et godt kollegialt fællesskab.
-          Til holdet bidrager jeg med et bredt kompetencespænd og et stort drive for at skabe resultater.
-        </p>
-      </motion.section>
+    <section className="max-w-4xl mx-auto py-12 px-4 sm:px-6 lg:px-8 text-gray-800">
+      <h2 className="text-3xl font-bold mb-8 text-gray-900 border-b pb-2">CV</h2>
 
-      {/* Education */}
-      <motion.section variants={item} className="bg-card rounded-lg p-6 shadow-sm border border-border">
-        <h2 className="text-xl font-display font-bold mb-6 text-foreground flex items-center gap-2">
-          <GraduationCap className="w-5 h-5 text-accent" />
-          Uddannelse
-        </h2>
-        
+      {/* Uddannelse Sektion */}
+      <div className="mb-12">
+        <h3 className="text-2xl font-semibold mb-6 text-gray-800">Uddannelse</h3>
         <div className="space-y-6">
-          {/* ITU Kandidat removed here */}
-          
-          <div className="relative pl-6 border-l-2 border-accent/30">
-            <div className="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-accent/60" />
-            <h3 className="font-semibold text-foreground">Bachelor i IT og Virksomhedsstudier</h3>
-            <p className="text-sm text-accent mb-2">Roskilde Universitet | 2021 – 2024</p>
-            <p className="text-muted-foreground text-sm">
-              Fokus på programmering, dataanalyse, hjemmeside-design og IT-sikkerhed.
-            </p>
-          </div>
+          {educationData.map((item, index) => (
+            <div key={index} className="flex flex-col sm:flex-row sm:justify-between">
+              <div className="sm:w-3/4">
+                <h4 className="text-lg font-bold text-gray-900">{item.title}</h4>
+                <p className="text-md text-gray-600 font-medium">{item.institution}</p>
+                <p className="mt-2 text-gray-700">{item.description}</p>
+              </div>
+              <div className="mt-2 sm:mt-0 sm:w-1/4 sm:text-right">
+                <span className="inline-block bg-gray-100 text-gray-700 text-sm px-3 py-1 rounded-full font-medium">
+                  {item.period}
+                </span>
+              </div>
+            </div>
+          ))}
         </div>
-      </motion.section>
+      </div>
 
-      {/* Experience */}
-      <motion.section variants={item} className="bg-card rounded-lg p-6 shadow-sm border border-border">
-        <h2 className="text-xl font-display font-bold mb-6 text-foreground flex items-center gap-2">
-          <Briefcase className="w-5 h-5 text-accent" />
-          Relevant Erfaring
-        </h2>
-        
-        <div className="space-y-6">
-          <div className="group">
-            <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-2">
-              <h3 className="font-semibold text-foreground">Tolk (Deltid)</h3>
-              <span className="text-sm text-accent">2024 – I dag</span>
+      {/* Erhvervserfaring Sektion */}
+      <div>
+        <h3 className="text-2xl font-semibold mb-6 text-gray-800">Erhvervserfaring & Frivilligt Arbejde</h3>
+        <div className="space-y-8">
+          {experienceData.map((item, index) => (
+            <div key={index} className="flex flex-col sm:flex-row sm:justify-between">
+              <div className="sm:w-3/4">
+                <h4 className="text-lg font-bold text-gray-900">{item.title}</h4>
+                <p className="text-md text-gray-600 font-medium">{item.company}</p>
+                <ul className="mt-2 list-disc list-inside text-gray-700 space-y-1">
+                  {item.tasks.map((task, taskIndex) => (
+                    <li key={taskIndex}>{task}</li>
+                  ))}
+                </ul>
+              </div>
+              <div className="mt-2 sm:mt-0 sm:w-1/4 sm:text-right">
+                <span className="inline-block bg-gray-100 text-gray-700 text-sm px-3 py-1 rounded-full font-medium">
+                  {item.period}
+                </span>
+              </div>
             </div>
-            <p className="text-sm text-muted-foreground mb-2 italic">Tolk Danmark</p>
-            <ul className="text-sm text-muted-foreground space-y-1 list-disc list-inside">
-              <li>Dansk-Engelsk tolkning ved kommunale møder med fokus på præcision og etik</li>
-              <li>Facilitering af kommunikation for borgere i København og omegn</li>
-              <li>Stærke kompetencer i at håndtere følsomme situationer professionelt</li>
-            </ul>
-          </div>
-          
-          <div className="border-t border-border pt-6">
-            <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-2">
-              <h3 className="font-semibold text-foreground">IT-Konsulent (Fuldtid)</h3>
-              <span className="text-sm text-accent">2022 – 2023</span>
-            </div>
-            <p className="text-sm text-muted-foreground mb-2 italic">Danske Bank (via EY / M Networks)</p>
-            <ul className="text-sm text-muted-foreground space-y-1 list-disc list-inside">
-              <li><strong className="text-foreground">Try Hire-forløb:</strong> Ansvarlig for fejlretning i komplekse kundesager</li>
-              <li>Analyse og behandling af store datasæt via avancerede Excel-løsninger</li>
-              <li>Sikring af lovpligtig dokumentation og korrekt kompensation til kunder</li>
-              <li>Ansvarlig for oplæring og onboarding af nye kolleger i teamet</li>
-            </ul>
-          </div>
+          ))}
         </div>
-      </motion.section>
-
-      {/* Volunteering */}
-      <motion.section variants={item} className="bg-card rounded-lg p-6 shadow-sm border border-border">
-        <h2 className="text-xl font-display font-bold mb-6 text-foreground flex items-center gap-2">
-          <Heart className="w-5 h-5 text-accent" />
-          Frivilligt Arbejde
-        </h2>
-        
-        <div>
-          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-2">
-            <h3 className="font-semibold text-foreground">Lektiehjælper / Mentor</h3>
-            <span className="text-sm text-accent">2024 – I dag</span>
-          </div>
-          <p className="text-sm text-muted-foreground mb-2 italic">Red Barnet Ungdom</p>
-          <ul className="text-sm text-muted-foreground space-y-1 list-disc list-inside">
-            <li>Frivillig mentor for en dreng i 5. klasse</li>
-            <li>Støtte til faglig læring og styrkelse af elevens motivation og selvtillid</li>
-          </ul>
-        </div>
-      </motion.section>
-
-      {/* Additional Info */}
-      <motion.section variants={item} className="bg-card rounded-lg p-6 shadow-sm border border-border">
-        <h2 className="text-xl font-display font-bold mb-4 text-foreground flex items-center gap-2">
-          <Globe className="w-5 h-5 text-accent" />
-          Yderligere Information
-        </h2>
-        
-        <div className="grid sm:grid-cols-2 gap-4">
-          <div className="flex items-start gap-3">
-            <Languages className="w-5 h-5 text-accent mt-0.5" />
-            <div>
-              <h4 className="font-medium text-foreground text-sm">Sprog</h4>
-              <p className="text-sm text-muted-foreground">
-                Dansk (Modersmål), Engelsk (Flydende), Tysk (Kendskab)
-              </p>
-            </div>
-          </div>
-          
-          <div className="flex items-start gap-3">
-            <Car className="w-5 h-5 text-accent mt-0.5" />
-            <div>
-              <h4 className="font-medium text-foreground text-sm">Kørekort</h4>
-              <p className="text-sm text-muted-foreground">Kategori B (Almindelig bil)</p>
-            </div>
-          </div>
-        </div>
-      </motion.section>
-    </motion.div>
+      </div>
+    </section>
   );
 };
 
