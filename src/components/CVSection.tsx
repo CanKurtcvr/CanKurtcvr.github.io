@@ -6,7 +6,7 @@ const educationData = [
     title: "Bachelor i Informatik og Virksomhedsstudier",
     institution: "Roskilde Universitet",
     description: "Fokus på programmering (Java, Python), dataanalyse, bogføring, UX-design og organisatorisk filosofi.",
-  },
+  }
 ];
 
 const experienceData = [
@@ -19,19 +19,19 @@ const experienceData = [
     ],
   },
   {
-    period: "Jan. 2024 – Nuværende",
-    title: "Omsorgsmedarbejder (Vikariat)",
-    company: "Forsorgshjemmet Absalon",
-    tasks: [
-      "Yder administrativ støtte og personlig omsorg til udsatte borgere og håndterer komplekse sociale situationer med ro og empati.",
-    ],
-  },
-  {
     period: "Feb. 2024 – Nuværende",
     title: "Tolk (Vikariat)",
     company: "Tolk Danmark",
     tasks: [
       "Formidler præcis dansk-engelsk kommunikation ved kritiske møder med fokus på etik og professionalisme.",
+    ],
+  },
+  {
+    period: "Jan. 2024 – Nuværende",
+    title: "Omsorgsmedarbejder (Vikariat)",
+    company: "Forsorgshjemmet Absalon",
+    tasks: [
+      "Yder administrativ støtte og personlig omsorg til udsatte borgere og håndterer komplekse sociale situationer med ro og empati.",
     ],
   },
   {
@@ -58,6 +58,21 @@ const experienceData = [
       "Understøttede undervisning og agerede støttepædagog for elever med sociale udfordringer.",
     ],
   },
+];
+
+const additionalInfo = [
+  {
+    category: "Sprog",
+    details: "Dansk (Modersmål), Engelsk (Flydende), Tysk (Samtaleniveau)",
+  },
+  {
+    category: "Kørekort",
+    details: "Kategori B (Siden 2019) – Egen bil til rådighed",
+  },
+  {
+    category: "IT-kompetencer",
+    details: "Java, Python, Dataanalyse (Excel), Bogføring, UX-design",
+  }
 ];
 
 export const CVSection = () => {
@@ -87,7 +102,7 @@ export const CVSection = () => {
       </div>
 
       {/* Erhvervserfaring Sektion */}
-      <div>
+      <div className="mb-12">
         <h3 className="text-2xl font-semibold mb-6 text-gray-800">Erhvervserfaring & Frivilligt Arbejde</h3>
         <div className="space-y-8">
           {experienceData.map((item, index) => (
@@ -106,6 +121,19 @@ export const CVSection = () => {
                   {item.period}
                 </span>
               </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Yderligere Information Sektion */}
+      <div>
+        <h3 className="text-2xl font-semibold mb-6 text-gray-800">Yderligere Information</h3>
+        <div className="bg-gray-50 rounded-lg p-6 space-y-4">
+          {additionalInfo.map((info, index) => (
+            <div key={index} className="flex flex-col sm:flex-row">
+              <span className="sm:w-1/4 font-semibold text-gray-900">{info.category}:</span>
+              <span className="sm:w-3/4 text-gray-700">{info.details}</span>
             </div>
           ))}
         </div>
