@@ -29,11 +29,10 @@ const CVSection = () => {
           Profil
         </h2>
         <p className="text-muted-foreground leading-relaxed">
-          Ambitiøs og løsningsorienteret kandidat med en solid baggrund inden for IT og forretning. 
-          Jeg kombinerer teknisk viden med stærke samarbejds- og kommunikationsevner. 
-          Erfaring fra kundeservice, undervisning og teknisk IT-konsulentarbejde har 
-          givet mig en alsidig værktøjskasse. Jeg er struktureret, nysgerrig og målrettet, 
-          passioneret omkring at lære nyt og skabe værdi i praksis.
+          Fagligt stærk og alsidig profil med baggrund inden for IT, analyse og formidling.
+          Jeg trives i roller med stort ansvar, hvor jeg kan bringe min tekniske forståelse og menneskelige empati i spil.
+          Mit mål er at finde en langsigtet arbejdsplads med en sund balance mellem professionalisme og et godt kollegialt fællesskab.
+          Til holdet bidrager jeg med et bredt kompetencespænd og et stort drive for at skabe resultater.
         </p>
       </motion.section>
 
