@@ -1,4 +1,5 @@
 import React from "react";
+import { Mail, Phone, MapPin, Linkedin, Download, Briefcase, GraduationCap, User, Globe, Star, Car, Heart } from "lucide-react";
 
 const profileText =
   "Fagligt stærk og alsidig profil med baggrund inden for IT, analyse og formidling. Jeg trives i roller med stort ansvar, hvor jeg kan bringe min tekniske forståelse og menneskelige empati i spil. Mit mål er at finde en langsigtet arbejdsplads med en sund balance mellem professionalisme og et godt kollegialt fællesskab. Til holdet bidrager jeg med et bredt kompetencespænd og et stort drive for at skabe resultater.";
@@ -13,14 +14,6 @@ const educationData = [
 ];
 
 const experienceData = [
-  {
-    period: "Marts 2025 – Nuværende",
-    title: "Frivillig Lektiehjælper",
-    company: "Red Barnet Ungdom",
-    tasks: [
-      "Hjælper børn og unge med lektielæsning og skaber et trygt og motiverende læringsrum."
-    ],
-  },
   {
     period: "Feb. 2024 – Nuværende",
     title: "Tolk (Vikariat)",
@@ -63,82 +56,222 @@ const experienceData = [
   },
 ];
 
-const additionalInfo = [
+const volunteerData = [
   {
-    category: "Sprog",
-    details: "Dansk (Modersmål), Engelsk (Flydende), Tysk (Samtaleniveau)",
-  },
-  {
-    category: "Kørekort",
-    details: "Kategori B (Siden 2019) – Egen bil til rådighed",
-  },
-  {
-    category: "IT-kompetencer",
-    details: "Java, Python, Dataanalyse (Excel), Bogføring, UX-design",
+    period: "Marts 2025 – Nuværende",
+    title: "Frivillig Lektiehjælper",
+    company: "Red Barnet Ungdom",
+    tasks: [
+      "Hjælper børn og unge med lektielæsning og skaber et trygt og motiverende læringsrum."
+    ],
   }
 ];
 
+const skills = ["Java", "Python", "Dataanalyse (Excel)", "Bogføring", "UX-design"];
+const languages = ["Dansk (Modersmål)", "Engelsk (Flydende)", "Tysk (Samtaleniveau)"];
+
 export const CVSection = () => {
+  const handlePrint = () => {
+    window.print();
+  };
+
   return (
-    <section className="max-w-4xl mx-auto py-12 px-4 sm:px-6 lg:px-8 text-gray-800">
-      <h2 className="text-3xl font-bold mb-8 text-gray-900 border-b pb-2">CV</h2>
-
-      {/* Uddannelse Sektion */}
-      <div className="mb-12">
-        <h3 className="text-2xl font-semibold mb-6 text-gray-800">Uddannelse</h3>
-        <div className="space-y-6">
-          {educationData.map((item, index) => (
-            <div key={index} className="flex flex-col sm:flex-row sm:justify-between">
-              <div className="sm:w-3/4">
-                <h4 className="text-lg font-bold text-gray-900">{item.title}</h4>
-                <p className="text-md text-gray-600 font-medium">{item.institution}</p>
-                <p className="mt-2 text-gray-700">{item.description}</p>
-              </div>
-              <div className="mt-2 sm:mt-0 sm:w-1/4 sm:text-right">
-                <span className="inline-block bg-gray-100 text-gray-700 text-sm px-3 py-1 rounded-full font-medium">
-                  {item.period}
-                </span>
-              </div>
-            </div>
-          ))}
-        </div>
+    <section className="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden print:border-none print:shadow-none print:bg-transparent">
+      
+      {/* Top Bar med Download Knap (Skjult når der printes) */}
+      <div className="flex justify-end p-4 bg-gray-50 border-b border-gray-100 print:hidden">
+        <button
+          onClick={handlePrint}
+          className="flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-5 py-2.5 rounded-lg text-sm font-semibold transition-all shadow-sm hover:shadow-md"
+        >
+          <Download className="w-4 h-4" />
+          Download som PDF
+        </button>
       </div>
 
-      {/* Erhvervserfaring Sektion */}
-      <div className="mb-12">
-        <h3 className="text-2xl font-semibold mb-6 text-gray-800">Erhvervserfaring & Frivilligt Arbejde</h3>
-        <div className="space-y-8">
-          {experienceData.map((item, index) => (
-            <div key={index} className="flex flex-col sm:flex-row sm:justify-between">
-              <div className="sm:w-3/4">
-                <h4 className="text-lg font-bold text-gray-900">{item.title}</h4>
-                <p className="text-md text-gray-600 font-medium">{item.company}</p>
-                <ul className="mt-2 list-disc list-inside text-gray-700 space-y-1">
-                  {item.tasks.map((task, taskIndex) => (
-                    <li key={taskIndex}>{task}</li>
-                  ))}
-                </ul>
-              </div>
-              <div className="mt-2 sm:mt-0 sm:w-1/4 sm:text-right">
-                <span className="inline-block bg-gray-100 text-gray-700 text-sm px-3 py-1 rounded-full font-medium">
-                  {item.period}
-                </span>
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
+      <div className="flex flex-col md:flex-row">
+        
+        {/* Venstre Kolonne - Sidebar profil */}
+        <div className="md:w-1/3 bg-gray-50 p-6 md:p-8 border-r border-gray-100 print:bg-transparent print:border-r-2 print:border-gray-200">
+          
+          {/* Header kun synlig i Print PDF, da appens main header er skjult */}
+          <div className="hidden print:block mb-10">
+            <h1 className="text-4xl font-bold text-gray-900 mb-2">Can Kurt</h1>
+            <p className="text-lg text-blue-600 font-semibold tracking-wide">IT, Analyse & Formidling</p>
+          </div>
 
-      {/* Yderligere Information Sektion */}
-      <div>
-        <h3 className="text-2xl font-semibold mb-6 text-gray-800">Yderligere Information</h3>
-        <div className="bg-gray-50 rounded-lg p-6 space-y-4">
-          {additionalInfo.map((info, index) => (
-            <div key={index} className="flex flex-col sm:flex-row">
-              <span className="sm:w-1/4 font-semibold text-gray-900">{info.category}:</span>
-              <span className="sm:w-3/4 text-gray-700">{info.details}</span>
+          {/* Kontakt */}
+          <div className="mb-8">
+            <h3 className="text-lg font-bold text-gray-900 flex items-center gap-2 mb-4 border-b pb-2">
+              <User className="w-5 h-5 text-blue-600" />
+              Kontakt
+            </h3>
+            <ul className="space-y-3 text-sm text-gray-700 font-medium">
+              <li className="flex items-center gap-3">
+                <Phone className="w-4 h-4 text-gray-400" />
+                +45 28 70 12 13
+              </li>
+              <li className="flex items-center gap-3">
+                <Mail className="w-4 h-4 text-gray-400" />
+                cankurtcvr@gmail.com
+              </li>
+              <li className="flex items-center gap-3">
+                <Linkedin className="w-4 h-4 text-gray-400" />
+                linkedin.com/in/canxkurt
+              </li>
+              <li className="flex items-center gap-3">
+                <MapPin className="w-4 h-4 text-gray-400" />
+                København, Danmark
+              </li>
+            </ul>
+          </div>
+
+          {/* Profil */}
+          <div className="mb-8">
+            <h3 className="text-lg font-bold text-gray-900 flex items-center gap-2 mb-4 border-b pb-2">
+              <Star className="w-5 h-5 text-blue-600" />
+              Profil
+            </h3>
+            <p className="text-sm text-gray-700 leading-relaxed font-medium">
+              {profileText}
+            </p>
+          </div>
+
+          {/* IT Kompetencer */}
+          <div className="mb-8">
+            <h3 className="text-lg font-bold text-gray-900 flex items-center gap-2 mb-4 border-b pb-2">
+              <Briefcase className="w-5 h-5 text-blue-600" />
+              Kompetencer
+            </h3>
+            <div className="flex flex-wrap gap-2">
+              {skills.map((skill, index) => (
+                <span key={index} className="bg-white border border-gray-200 text-gray-700 text-xs px-3 py-1.5 rounded-md font-semibold shadow-sm print:shadow-none print:border-gray-300">
+                  {skill}
+                </span>
+              ))}
             </div>
-          ))}
+          </div>
+
+          {/* Sprog */}
+          <div className="mb-8">
+            <h3 className="text-lg font-bold text-gray-900 flex items-center gap-2 mb-4 border-b pb-2">
+              <Globe className="w-5 h-5 text-blue-600" />
+              Sprog
+            </h3>
+            <ul className="space-y-2 text-sm text-gray-700 font-medium">
+              {languages.map((lang, index) => (
+                <li key={index} className="flex items-center gap-2">
+                  <div className="w-1.5 h-1.5 rounded-full bg-blue-500"></div>
+                  {lang}
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Andet */}
+          <div>
+            <h3 className="text-lg font-bold text-gray-900 flex items-center gap-2 mb-4 border-b pb-2">
+              <Car className="w-5 h-5 text-blue-600" />
+              Andet
+            </h3>
+            <p className="text-sm text-gray-700 font-medium">
+              Kørekort: Kategori B (Egen bil)
+            </p>
+          </div>
+        </div>
+
+        {/* Højre Kolonne - Hovedindhold */}
+        <div className="md:w-2/3 p-6 md:p-10">
+          
+          {/* Erhvervserfaring */}
+          <div className="mb-10">
+            <h3 className="text-2xl font-bold text-gray-900 flex items-center gap-2 mb-8">
+              <Briefcase className="w-7 h-7 text-blue-600 print:text-gray-800" />
+              Erhvervserfaring
+            </h3>
+            
+            {/* Timeline Wrapper */}
+            <div className="border-l-2 border-gray-200 pl-6 space-y-8 print:border-gray-300">
+              {experienceData.map((item, index) => (
+                <div key={index} className="relative">
+                  {/* Timeline Dot */}
+                  <div className="absolute w-3.5 h-3.5 bg-white border-2 border-blue-600 rounded-full -left-[32px] top-1.5 print:border-gray-600"></div>
+                  
+                  <div className="flex flex-col sm:flex-row sm:justify-between sm:items-baseline mb-1.5">
+                    <h4 className="text-lg font-bold text-gray-900">{item.title}</h4>
+                    <span className="text-xs font-bold tracking-wide text-blue-700 bg-blue-50 px-2.5 py-1 rounded-md print:bg-transparent print:text-gray-600 print:p-0">
+                      {item.period}
+                    </span>
+                  </div>
+                  <p className="text-sm font-semibold text-gray-600 mb-3">{item.company}</p>
+                  <ul className="text-sm text-gray-700 space-y-2">
+                    {item.tasks.map((task, taskIndex) => (
+                      <li key={taskIndex} className="flex items-start gap-2.5">
+                        <span className="mt-1.5 w-1 h-1 rounded-full bg-gray-400 shrink-0"></span>
+                        <span className="leading-relaxed">{task}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Uddannelse */}
+          <div className="mb-10">
+            <h3 className="text-2xl font-bold text-gray-900 flex items-center gap-2 mb-8">
+              <GraduationCap className="w-7 h-7 text-blue-600 print:text-gray-800" />
+              Uddannelse
+            </h3>
+            <div className="border-l-2 border-gray-200 pl-6 space-y-8 print:border-gray-300">
+              {educationData.map((item, index) => (
+                <div key={index} className="relative">
+                  <div className="absolute w-3.5 h-3.5 bg-white border-2 border-blue-600 rounded-full -left-[32px] top-1.5 print:border-gray-600"></div>
+                  <div className="flex flex-col sm:flex-row sm:justify-between sm:items-baseline mb-1.5">
+                    <h4 className="text-lg font-bold text-gray-900">{item.title}</h4>
+                    <span className="text-xs font-bold tracking-wide text-blue-700 bg-blue-50 px-2.5 py-1 rounded-md print:bg-transparent print:text-gray-600 print:p-0">
+                      {item.period}
+                    </span>
+                  </div>
+                  <p className="text-sm font-semibold text-gray-600 mb-3">{item.institution}</p>
+                  <p className="text-sm text-gray-700 leading-relaxed">
+                    {item.description}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Frivilligt Arbejde */}
+          <div>
+            <h3 className="text-2xl font-bold text-gray-900 flex items-center gap-2 mb-8">
+              <Heart className="w-7 h-7 text-blue-600 print:text-gray-800" />
+              Frivilligt Arbejde
+            </h3>
+            <div className="border-l-2 border-gray-200 pl-6 space-y-8 print:border-gray-300">
+              {volunteerData.map((item, index) => (
+                <div key={index} className="relative">
+                  <div className="absolute w-3.5 h-3.5 bg-white border-2 border-blue-600 rounded-full -left-[32px] top-1.5 print:border-gray-600"></div>
+                  <div className="flex flex-col sm:flex-row sm:justify-between sm:items-baseline mb-1.5">
+                    <h4 className="text-lg font-bold text-gray-900">{item.title}</h4>
+                    <span className="text-xs font-bold tracking-wide text-blue-700 bg-blue-50 px-2.5 py-1 rounded-md print:bg-transparent print:text-gray-600 print:p-0">
+                      {item.period}
+                    </span>
+                  </div>
+                  <p className="text-sm font-semibold text-gray-600 mb-3">{item.company}</p>
+                  <ul className="text-sm text-gray-700 space-y-2">
+                    {item.tasks.map((task, taskIndex) => (
+                      <li key={taskIndex} className="flex items-start gap-2.5">
+                        <span className="mt-1.5 w-1 h-1 rounded-full bg-gray-400 shrink-0"></span>
+                        <span className="leading-relaxed">{task}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
+            </div>
+          </div>
+
         </div>
       </div>
     </section>
