@@ -1,5 +1,8 @@
 import React from "react";
 
+const profileText =
+  "Fagligt stærk og alsidig profil med baggrund inden for IT, analyse og formidling. Jeg trives i roller med stort ansvar, hvor jeg kan bringe min tekniske forståelse og menneskelige empati i spil. Mit mål er at finde en langsigtet arbejdsplads med en sund balance mellem professionalisme og et godt kollegialt fællesskab. Til holdet bidrager jeg med et bredt kompetencespænd og et stort drive for at skabe resultater.";
+
 const educationData = [
   {
     period: "Sep. 2021 – Jun. 2024",
