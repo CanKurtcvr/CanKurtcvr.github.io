@@ -14,12 +14,20 @@ const Index = () => {
   const [activeTab, setActiveTab] = useState<TabType>("cv");
 
   return (
-    <div className="min-h-screen bg-background">
-      <div className="max-w-4xl mx-auto bg-card shadow-xl min-h-screen">
-        <Header />
-        <TabNavigation activeTab={activeTab} onTabChange={setActiveTab} />
+    <div className="min-h-screen bg-background print:bg-white print:min-h-0">
+      <div className="max-w-4xl mx-auto bg-card shadow-xl min-h-screen print:shadow-none print:max-w-none print:w-full print:m-0">
         
-        <main className="p-6 md:p-8">
+        {/* Header skjules ved print */}
+        <div className="print:hidden">
+          <Header />
+        </div>
+        
+        {/* Navigation skjules ved print */}
+        <div className="print:hidden">
+          <TabNavigation activeTab={activeTab} onTabChange={setActiveTab} />
+        </div>
+        
+        <main className="p-6 md:p-8 print:p-0">
           <AnimatePresence mode="wait">
             <motion.div
               key={activeTab}
@@ -27,6 +35,7 @@ const Index = () => {
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: -20 }}
               transition={{ duration: 0.3 }}
+              className="print:block"
             >
               {activeTab === "cv" && <CVSection />}
               {activeTab === "projects" && <BusinessProjectsSection />}
@@ -37,7 +46,8 @@ const Index = () => {
           </AnimatePresence>
         </main>
 
-        <footer className="border-t border-border py-6 px-8 text-center text-sm text-muted-foreground">
+        {/* Footer skjules ved print */}
+        <footer className="border-t border-border py-6 px-8 text-center text-sm text-muted-foreground print:hidden">
           <p>© {new Date().getFullYear()} Can Kurt. Built with ❤️</p>
         </footer>
       </div>
