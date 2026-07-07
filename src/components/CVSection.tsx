@@ -1,5 +1,5 @@
 import React from "react";
-import { Mail, Phone, MapPin, Linkedin, Download, Briefcase, GraduationCap, User, Globe, Star, Car, Heart } from "lucide-react";
+import { Mail, Phone, MapPin, Linkedin, Briefcase, GraduationCap, User, Globe, Star, Car, Heart } from "lucide-react";
 
 const profileText =
   "Fagligt stærk og alsidig profil med baggrund inden for IT, analyse og formidling. Jeg trives i roller med stort ansvar, hvor jeg kan bringe min tekniske forståelse og menneskelige empati i spil. Mit mål er at finde en langsigtet arbejdsplads med en sund balance mellem professionalisme og et godt kollegialt fællesskab. Til holdet bidrager jeg med et bredt kompetencespænd og et stort drive for at skabe resultater.";
@@ -71,24 +71,9 @@ const skills = ["Java", "Python", "Dataanalyse (Excel)", "Bogføring", "UX-desig
 const languages = ["Dansk (Modersmål)", "Engelsk (Flydende)", "Tysk (Samtaleniveau)"];
 
 export const CVSection = () => {
-  const handlePrint = () => {
-    window.print();
-  };
-
   return (
     <section className="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden print:border-none print:shadow-none print:bg-transparent">
       
-      {/* Top Bar med Download Knap (Skjult når der printes) */}
-      <div className="flex justify-end p-4 bg-gray-50 border-b border-gray-100 print:hidden">
-        <button
-          onClick={handlePrint}
-          className="flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-5 py-2.5 rounded-lg text-sm font-semibold transition-all shadow-sm hover:shadow-md"
-        >
-          <Download className="w-4 h-4" />
-          Download som PDF
-        </button>
-      </div>
-
       <div className="flex flex-col md:flex-row">
         
         {/* Venstre Kolonne - Sidebar profil */}
