@@ -17,7 +17,7 @@ function App() {
         <Sonner />
         <BrowserRouter>
           <Routes>
-            <Route element="{<CVDetail" path="/cv/:id"/>} />
+            <Route path="/cv/:id" element={<CVDetail />} />
             <Route path="/" element={<Index />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
