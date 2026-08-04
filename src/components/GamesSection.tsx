@@ -1,10 +1,12 @@
 import React from 'react';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-// 1. Import your existing games
-import { BlackjackGame } from "./games/BlackjackGame";
-import { PongGame } from "./games/PongGame";
-import { SnakeGame } from "./games/SnakeGame";
-// 2. Import the new Vanekort game
+
+// 1. Import your existing games (Fjernet krøllede parenteser her)
+import BlackjackGame from "./games/BlackjackGame";
+import PongGame from "./games/PongGame";
+import SnakeGame from "./games/SnakeGame";
+
+// 2. Import the new Vanekort game (Beholdt krøllede parenteser her)
 import { VanekortGame } from "./games/VanekortGame";
 
 export function GamesSection() {
