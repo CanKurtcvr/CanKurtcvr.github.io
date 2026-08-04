@@ -9,7 +9,7 @@ import SnakeGame from "./games/SnakeGame";
 // 2. Import the new Vanekort game (Beholdt krøllede parenteser her)
 import { VanekortGame } from "./games/VanekortGame";
 
-export function GamesSection() {
+export default function GamesSection() {
   return (
     <section id="games" className="py-12">
       <div className="container mx-auto px-4">
