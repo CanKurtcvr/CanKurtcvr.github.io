@@ -4,44 +4,67 @@ import { Badge } from "@/components/ui/badge";
 
 const cvItems = [
   {
-    id: "danske-bank-it-consultant",
-    title: "IT Consultant",
-    organization: "Danske Bank (via EY / M Networks)",
-    period: "Jun 2022 - Dec 2023",
-    type: "Erfaring",
-    tags: ["IT Support", "Workflows", "Automation"]
-  },
-  {
     id: "forsorgshjemmet-absalon",
-    title: "Care Worker",
+    title: "Omsorgsmedarbejder (Vikariat)",
     organization: "Forsorgshjemmet Absalon",
-    period: "Jan 2024 - Present",
+    period: "Jan. 2024 - Nuværende",
     type: "Erfaring",
-    tags: ["Socialt arbejde", "Ansvar"]
+    description: "Yder administrativ støtte og personlig omsorg til udsatte borgere og håndterer komplekse sociale situationer med ro og empati.",
+    tags: ["Socialt arbejde", "Administration", "Empati"]
   },
   {
-    id: "tolkdanmark-interpreter",
-    title: "Danish-to-English Interpreter",
-    organization: "TolkDanmark",
-    period: "Feb 2024 - Present",
+    id: "tolk-danmark",
+    title: "Tolk (Vikariat)",
+    organization: "Tolk Danmark",
+    period: "Feb. 2024 - Nuværende",
     type: "Erfaring",
-    tags: ["Sprog", "Kommunikation"]
+    description: "Formidler præcis dansk-engelsk kommunikation ved kritiske møder med fokus på etik og professionalisme.",
+    tags: ["Sprog", "Kommunikation", "Etik"]
   },
   {
-    id: "ruc-bsc",
-    title: "BSc in Informatics and Business Studies",
-    organization: "Roskilde University",
-    period: "Sep 2021 - Jun 2024",
+    id: "danske-bank-it",
+    title: "IT-konsulent (fuldtid)",
+    organization: "Danske Bank (via EY / M Networks)",
+    period: "Jun. 2022 - Dec. 2023",
+    type: "Erfaring",
+    description: "Ansvarlig for fejlretning i komplekse kundesager, analyse af store datamængder i Excel og onboarding.",
+    tags: ["Dataanalyse", "Fejlretning", "Onboarding"]
+  },
+  {
+    id: "ruc-bachelor",
+    title: "Bachelor i Informatik og Virksomhedsstudier",
+    organization: "Roskilde Universitet",
+    period: "Sep. 2021 - Jun. 2024",
     type: "Uddannelse",
-    tags: ["Informatics", "Business"]
+    description: "Lærte programmering, bogholderi dataanalyse, UX-design og organisatorisk filosofi.",
+    tags: ["Informatik", "Virksomhedsstudier", "UX-design"]
+  },
+  {
+    id: "lyreco-lager",
+    title: "Lagermedarbejder",
+    organization: "Lyreco",
+    period: "Okt. 2021 - Maj 2022",
+    type: "Erfaring",
+    description: "Fysisk arbejde med pluk, effektiv pakning og logistik under stramme deadlines.",
+    tags: ["Logistik", "Effektivitet"]
+  },
+  {
+    id: "ole-romer-skole",
+    title: "Pædagogmedhjælper",
+    organization: "Ole-Rømer skolen - Høje Taastrup",
+    period: "Aug. 2019 - Okt. 2021",
+    type: "Erfaring",
+    description: "Understøttede undervisning og agerede støttepædagog for elever med sociale udfordringer.",
+    tags: ["Undervisning", "Pædagogik"]
   },
   {
     id: "red-barnet-ungdom",
-    title: "Homework Tutor & Mentor",
+    title: "Lektiehjælper",
     organization: "Red Barnet Ungdom",
-    period: "Mar 2025 - Present",
-    type: "Frivillig",
-    tags: ["Undervisning", "Mentorskab"]
+    period: "Mar. 2025 - Nuv.",
+    type: "Frivilligt arbejde",
+    description: "Frivillig mentor for elev i 5. klasse med fokus på faglig indlæring og selvtillid.",
+    tags: ["Mentorskab", "Formidling"]
   }
 ];
 
@@ -49,12 +72,15 @@ export default function CVSection() {
   return (
     <section id="cv" className="py-12 bg-slate-50 dark:bg-slate-900/50">
       <div className="container mx-auto px-4 max-w-4xl">
-        <h2 className="text-3xl font-bold mb-8 text-center">Erfaring & Uddannelse</h2>
-        <p className="text-center text-muted-foreground mb-8">Klik på et segment for at se mere uddybende materiale.</p>
+        <h2 className="text-3xl font-bold mb-8 text-center">Profil & Erfaring</h2>
+        <p className="text-center text-muted-foreground mb-8">
+          Ambitiøs profil med en stærk og alsidig baggrund inden for IT, analyse og formidling. Klik på et kort for at dykke ned i detaljerne.
+        </p>
         
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           {cvItems.map((item) => (
-            <Link key={item.id} to={`/cv/${item.id}`} className="block transition-transform hover:-translate-y-1">
+            /* Vi sender hele 'item'-objektet med over til detaljesiden via 'state' */
+            <Link key={item.id} to={`/cv/${item.id}`} state={{ cvData: item }} className="block transition-transform hover:-translate-y-1">
               <Card className="h-full hover:border-primary/50 hover:shadow-md cursor-pointer transition-colors">
                 <CardHeader>
                   <div className="flex justify-between items-start mb-2">
