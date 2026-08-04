@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import SnakeGame from "./games/SnakeGame";
 import PongGame from "./games/PongGame";
 import BlackjackGame from "./games/BlackjackGame";
+import { VanekortGame } from "./games/VanekortGame";
 
 type GameType = "snake" | "pong" | "blackjack";
 
