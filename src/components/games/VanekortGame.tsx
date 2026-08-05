@@ -12,7 +12,7 @@ const initialHabits = [
     description: "Krav: Gennemfør ugens planlagte styrketræninger og hold kroppen i gang.",
     quote: "Det er en skam for et menneske at blive gammelt uden at indse det fulde potentiale, dets krop er i stand til.",
     quoteAuthor: "Sokrates",
-    imageUrl: "/cards/TheBodybuilder.png",
+    imageUrl: "/cards/TheBodybuilder.jpg",
     streak: 0,
     lastCompleted: null
   },
@@ -22,7 +22,7 @@ const initialHabits = [
     description: "Krav: Brug mindst 30 minutter dagligt på at læse en bog eller lytte til en lærerig podcast.",
     quote: "Jeg har intet særligt talent. Jeg er kun lidenskabeligt nysgerrig.",
     quoteAuthor: "Albert Einstein",
-    imageUrl: "/cards/ThePhilosopher.png",
+    imageUrl: "/cards/ThePhilosopher.jpg",
     streak: 0,
     lastCompleted: null
   },
@@ -32,7 +32,7 @@ const initialHabits = [
     description: "Krav: Tag 10 minutter til meditation, mindfulness eller dyb refleksion dagligt.",
     quote: "Et stille sind er som blikstille vand, der afspejler alt omkring sig.",
     quoteAuthor: "Japansk Zen-ordsprog",
-    imageUrl: "/cards/TheMeditator.png",
+    imageUrl: "/cards/TheMeditator.jpg",
     streak: 0,
     lastCompleted: null
   },
@@ -42,7 +42,7 @@ const initialHabits = [
     description: "Krav: Tilbered et sundt og nærende måltid fra bunden af friske råvarer.",
     quote: "Lad mad være din medicin.",
     quoteAuthor: "Hippokrates",
-    imageUrl: "/cards/TheMasterchef.png",
+    imageUrl: "/cards/TheMasterchef.jpg",
     streak: 0,
     lastCompleted: null
   },
@@ -52,7 +52,7 @@ const initialHabits = [
     description: "Krav: Få pulsen op eller gå mindst 10.000 skridt i løbet af dagen.",
     quote: "Smerte er uundgåeligt. Lidelse er valgfrit.",
     quoteAuthor: "Haruki Murakami",
-    imageUrl: "/cards/TheRunner.png",
+    imageUrl: "/cards/TheRunner.jpg",
     streak: 0,
     lastCompleted: null
   },
@@ -62,7 +62,7 @@ const initialHabits = [
     description: "Krav: Brug tid på at øve et instrument, et sprog eller en anden kreativ hobby.",
     quote: "Musikken ligger ikke i noderne, men i stilheden imellem dem.",
     quoteAuthor: "Wolfgang Amadeus Mozart",
-    imageUrl: "/cards/TheMusician.png",
+    imageUrl: "/cards/TheMusician.jpg",
     streak: 0,
     lastCompleted: null
   },
@@ -72,7 +72,7 @@ const initialHabits = [
     description: "Krav: Gør en god gerning, hjælp en anden, eller udfør frivilligt arbejde.",
     quote: "Find dig selv ved at tjene andre.",
     quoteAuthor: "Mahatma Gandhi",
-    imageUrl: "/cards/ThePhilanthropist.png",
+    imageUrl: "/cards/ThePhilanthropist.jpg",
     streak: 0,
     lastCompleted: null
   },
@@ -82,7 +82,7 @@ const initialHabits = [
     description: "Krav: Track dagens forbrug systematisk eller tag et bevidst valg om at spare op.",
     quote: "Spar op før du bruger.",
     quoteAuthor: "Warren Buffett",
-    imageUrl: "/cards/TheAdvisor.png",
+    imageUrl: "/cards/TheAdvisor.jpg",
     streak: 0,
     lastCompleted: null
   },
@@ -92,7 +92,7 @@ const initialHabits = [
     description: "Krav: Brug 5 minutter om aftenen på at planlægge morgendagens vigtigste opgaver.",
     quote: "Der er intet umuligt for den, der vil prøve.",
     quoteAuthor: "Alexander den Store",
-    imageUrl: "/cards/TheStrategist.png",
+    imageUrl: "/cards/TheStrategist.jpg",
     streak: 0,
     lastCompleted: null
   }
