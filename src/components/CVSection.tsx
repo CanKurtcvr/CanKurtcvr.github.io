@@ -4,6 +4,24 @@ import { Badge } from "@/components/ui/badge";
 
 const cvItems = [
   {
+    id: "kaerbo-omsorgscenter",
+    title: "Plejehjælper",
+    organization: "Kærbo Omsorgscenter, Ishøj",
+    period: "Jun. 2026 - Sep. 2026",
+    type: "Erfaring",
+    description: "Hjulpet ældre mennesker med de daglige rutiner og udført journalføring af diverse.",
+    tags: ["Ældrepleje", "Journalføring", "Omsorg"]
+  },
+  {
+    id: "ruc-kandidat",
+    title: "Kandidat i Digital Transformation",
+    organization: "Roskilde Universitet (RUC)",
+    period: "Start Sep. 2026",
+    type: "Uddannelse",
+    description: "Videreuddannelse med fokus på digital omstilling, teknologi, strategisk ledelse og it-systemer i organisationer.",
+    tags: ["Digital Transformation", "It-strategi", "RUC"]
+  },
+  {
     id: "forsorgshjemmet-absalon",
     title: "Omsorgsmedarbejder (Vikariat)",
     organization: "Forsorgshjemmet Absalon",
@@ -79,7 +97,6 @@ export default function CVSection() {
         
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           {cvItems.map((item) => (
-            /* Vi sender hele 'item'-objektet med over til detaljesiden via 'state' */
             <Link key={item.id} to={`/cv/${item.id}`} state={{ cvData: item }} className="block transition-transform hover:-translate-y-1">
               <Card className="h-full hover:border-primary/50 hover:shadow-md cursor-pointer transition-colors">
                 <CardHeader>
