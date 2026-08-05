@@ -2,20 +2,110 @@ import { useState, useEffect } from "react";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Flame, CheckCircle, Zap, Shield, Trophy, Star } from "lucide-react";
+import { Flame, CheckCircle, Zap, Shield, Trophy, Star, ImageIcon } from "lucide-react";
 
-// De 10 eksempelkort
+// De 10 RPG-inspirerede vanekort med almene mål og opdaterede citater
 const initialHabits = [
-  { id: "1", title: "Klassisk Tænkning", description: "Læs 10 minutters historie, filosofi eller personlig udvikling.", streak: 0, lastCompleted: null },
-  { id: "2", title: "Jern & Vilje", description: "Gennemfør dagens styrketræning og hold de 105 kg ved lige.", streak: 0, lastCompleted: null },
-  { id: "3", title: "Kode Kata", description: "Brug 30 minutter på at bygge noget i React eller opsæt et n8n workflow.", streak: 0, lastCompleted: null },
-  { id: "4", title: "RUC Pensum", description: "Læs op på materialet til Kandidaten i Digital Transformation.", streak: 0, lastCompleted: null },
-  { id: "5", title: "Strategisk Sejr", description: "Vind en match i League of Legends, Hearthstone eller WoW.", streak: 0, lastCompleted: null },
-  { id: "6", title: "Omsorgs-refleksion", description: "Tag et øjeblik til at reflektere over en god interaktion fra plejehjemmet eller Forsorgshjemmet Absalon.", streak: 0, lastCompleted: null },
-  { id: "7", title: 'Tolkens Skarphed', description: "Hold sprogøret skarpt: Læs eller lyt til en kompleks engelsk tekst.", streak: 0, lastCompleted: null },
-  { id: "8", title: "Wolt Hustle", description: "Tag en aktiv kurer-vagt i byen.", streak: 0, lastCompleted: null },
-  { id: "9", title: "Forberedelse til Red Barnet", description: "Planlæg materialet til den næste lektiehjælps-session.", streak: 0, lastCompleted: null },
-  { id: "10", title: "Mester-systemet", description: "Gennemgå morgendagens rutine, ligesom Alexander den Store ville have planlagt sit næste træk.", streak: 0, lastCompleted: null }
+  {
+    id: "1",
+    title: "The Bodybuilder",
+    description: "Krav: Gennemfør ugens planlagte styrketræninger og hold kroppen i gang.",
+    quote: "Det er en skam for et menneske at blive gammelt uden at indse det fulde potentiale, dets krop er i stand til.",
+    quoteAuthor: "Sokrates",
+    imageUrl: "/cards/bodybuilder.png",
+    streak: 0,
+    lastCompleted: null
+  },
+  {
+    id: "2",
+    title: "The Scholar",
+    description: "Krav: Brug mindst 30 minutter dagligt på at læse en bog eller lytte til en lærerig podcast.",
+    quote: "Jeg har intet særligt talent. Jeg er kun lidenskabeligt nysgerrig.",
+    quoteAuthor: "Albert Einstein",
+    imageUrl: "/cards/scholar.png",
+    streak: 0,
+    lastCompleted: null
+  },
+  {
+    id: "3",
+    title: "The Meditator",
+    description: "Krav: Tag 10 minutter til meditation, mindfulness eller dyb refleksion dagligt.",
+    quote: "Et stille sind er som blikstille vand, der afspejler alt omkring sig.",
+    quoteAuthor: "Japansk Zen-ordsprog",
+    imageUrl: "/cards/meditator.png",
+    streak: 0,
+    lastCompleted: null
+  },
+  {
+    id: "4",
+    title: "The Master Chef",
+    description: "Krav: Tilbered et sundt og nærende måltid fra bunden af friske råvarer.",
+    quote: "Lad mad være din medicin.",
+    quoteAuthor: "Hippokrates",
+    imageUrl: "/cards/chef.png",
+    streak: 0,
+    lastCompleted: null
+  },
+  {
+    id: "5",
+    title: "The Marathon Runner",
+    description: "Krav: Få pulsen op eller gå mindst 10.000 skridt i løbet af dagen.",
+    quote: "Smerte er uundgåeligt. Lidelse er valgfrit.",
+    quoteAuthor: "Haruki Murakami",
+    imageUrl: "/cards/marathon.png",
+    streak: 0,
+    lastCompleted: null
+  },
+  {
+    id: "6",
+    title: "The Musician",
+    description: "Krav: Brug tid på at øve et instrument, et sprog eller en anden kreativ hobby.",
+    quote: "Musikken ligger ikke i noderne, men i stilheden imellem dem.",
+    quoteAuthor: "Wolfgang Amadeus Mozart",
+    imageUrl: "/cards/musician.png",
+    streak: 0,
+    lastCompleted: null
+  },
+  {
+    id: "7",
+    title: "The Yogi",
+    description: "Krav: Brug 15 minutter på yoga, udstrækning eller at forbedre din mobilitet.",
+    quote: "Yoga er selve rejsen ind i selvet...",
+    quoteAuthor: "Bhagavad Gita",
+    imageUrl: "/cards/yogi.png",
+    streak: 0,
+    lastCompleted: null
+  },
+  {
+    id: "8",
+    title: "The Philanthropist",
+    description: "Krav: Gør en god gerning, hjælp en anden, eller udfør frivilligt arbejde.",
+    quote: "Find dig selv ved at tjene andre.",
+    quoteAuthor: "Mahatma Gandhi",
+    imageUrl: "/cards/philanthropist.png",
+    streak: 0,
+    lastCompleted: null
+  },
+  {
+    id: "9",
+    title: "The Financial Advisor",
+    description: "Krav: Track dagens forbrug systematisk eller tag et bevidst valg om at spare op.",
+    quote: "Spar op før du bruger.",
+    quoteAuthor: "Warren Buffett",
+    imageUrl: "/cards/financial.png",
+    streak: 0,
+    lastCompleted: null
+  },
+  {
+    id: "10",
+    title: "The Strategist",
+    description: "Krav: Brug 5 minutter om aftenen på at planlægge morgendagens vigtigste opgaver.",
+    quote: "Der er intet umuligt for den, der vil prøve.",
+    quoteAuthor: "Alexander den Store",
+    imageUrl: "/cards/strategist.png",
+    streak: 0,
+    lastCompleted: null
+  }
 ];
 
 // Hjælpefunktioner til dato-tjek
@@ -26,21 +116,17 @@ const getYesterday = () => {
   return d.toISOString().split('T')[0];
 };
 
-// Ændret fra "export default function Vanekort()" til "export function VanekortGame()"
 export function VanekortGame() {
-  // Hent fra localStorage eller brug start-kortene
   const [habits, setHabits] = useState(() => {
     const saved = localStorage.getItem("vanekort-data");
     if (saved) return JSON.parse(saved);
     return initialHabits;
   });
 
-  // Gem til localStorage hver gang state ændrer sig
   useEffect(() => {
     localStorage.setItem("vanekort-data", JSON.stringify(habits));
   }, [habits]);
 
-  // Logikken for kortenes sjældenhed
   const getRarityInfo = (streak: number) => {
     if (streak >= 90) return { label: "Legendary", color: "border-orange-500 bg-orange-50 dark:bg-orange-950/20 text-orange-600", icon: <Star className="h-4 w-4" /> };
     if (streak >= 30) return { label: "Epic", color: "border-purple-500 bg-purple-50 dark:bg-purple-950/20 text-purple-600", icon: <Trophy className="h-4 w-4" /> };
@@ -52,10 +138,9 @@ export function VanekortGame() {
     setHabits(prev => prev.map(habit => {
       if (habit.id === id) {
         const today = getToday();
-        if (habit.lastCompleted === today) return habit; // Allerede klaret i dag
+        if (habit.lastCompleted === today) return habit;
 
         const yesterday = getYesterday();
-        // Hvis man glemmer en dag (og det hverken er i går eller i dag man sidst trykkede), nulstilles streak'en
         const isStreakAlive = habit.lastCompleted === yesterday || habit.lastCompleted === today;
         const newStreak = isStreakAlive ? habit.streak + 1 : 1;
 
@@ -65,7 +150,6 @@ export function VanekortGame() {
     }));
   };
 
-  // Cheat-funktion så du kan teste farveskiftet!
   const addTenDays = (id: string) => {
     setHabits(prev => prev.map(habit => {
       if (habit.id === id) {
@@ -75,14 +159,13 @@ export function VanekortGame() {
     }));
   };
 
-  // Nulstil alt for at starte forfra
   const resetAll = () => {
     setHabits(initialHabits);
   };
 
   return (
     <div className="container mx-auto px-4 py-12 max-w-6xl">
-      <div className="flex justify-between items-end mb-8">
+      <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-8 gap-4">
         <div>
           <h2 className="text-3xl font-bold text-slate-900 dark:text-slate-100 flex items-center gap-2">
             <Zap className="text-yellow-500" /> Daglig Quest Log
@@ -96,15 +179,15 @@ export function VanekortGame() {
         </Button>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
         {habits.map(habit => {
           const isDoneToday = habit.lastCompleted === getToday();
           const rarity = getRarityInfo(habit.streak);
 
           return (
-            <Card key={habit.id} className={`transition-all duration-300 border-2 ${rarity.color} ${isDoneToday ? 'opacity-75 scale-[0.98]' : 'hover:shadow-lg'}`}>
-              <CardHeader className="pb-3">
-                <div className="flex justify-between items-start mb-2">
+            <Card key={habit.id} className={`flex flex-col transition-all duration-300 border-2 overflow-hidden ${rarity.color} ${isDoneToday ? 'opacity-75 scale-[0.98]' : 'hover:shadow-lg'}`}>
+              <CardHeader className="pb-3 flex-1 flex flex-col">
+                <div className="flex justify-between items-start mb-3">
                   <Badge variant="secondary" className="flex items-center gap-1 font-semibold">
                     {rarity.icon} {rarity.label}
                   </Badge>
@@ -112,12 +195,41 @@ export function VanekortGame() {
                     <Flame className="h-4 w-4" /> {habit.streak}
                   </div>
                 </div>
-                <CardTitle className="text-xl">{habit.title}</CardTitle>
+                
+                {/* Billede Placeholder */}
+                <div className="w-full aspect-[4/3] bg-slate-200 dark:bg-slate-800 rounded-md mb-4 overflow-hidden border border-slate-300 dark:border-slate-700 relative flex items-center justify-center">
+                  {habit.imageUrl ? (
+                    <img 
+                      src={habit.imageUrl} 
+                      alt={habit.title} 
+                      className="w-full h-full object-cover absolute inset-0"
+                      onError={(e) => {
+                        e.currentTarget.style.display = 'none';
+                        e.currentTarget.parentElement?.classList.add('fallback-visible');
+                      }}
+                    />
+                  ) : null}
+                  <div className="fallback-text flex flex-col items-center justify-center text-slate-400">
+                    <ImageIcon className="h-8 w-8 mb-2 opacity-50" />
+                    <span className="text-xs font-medium">Billede mangler</span>
+                  </div>
+                </div>
+
+                <CardTitle className="text-xl mb-1">{habit.title}</CardTitle>
                 <CardDescription className="text-sm font-medium">
                   {habit.description}
                 </CardDescription>
+
+                {/* Design til citatet */}
+                <div className="mt-auto pt-4">
+                  <div className="p-3 bg-slate-100 dark:bg-slate-800/60 rounded-md border-l-4 border-orange-400 dark:border-orange-500">
+                    <p className="text-xs italic text-slate-700 dark:text-slate-300">"{habit.quote}"</p>
+                    <p className="text-[10px] font-bold text-slate-500 dark:text-slate-400 mt-1 uppercase tracking-wider">— {habit.quoteAuthor}</p>
+                  </div>
+                </div>
               </CardHeader>
-              <CardContent className="pt-0 flex gap-2">
+              
+              <CardContent className="pt-0 flex gap-2 mt-auto">
                 <Button 
                   onClick={() => handleComplete(habit.id)} 
                   disabled={isDoneToday}
@@ -127,7 +239,6 @@ export function VanekortGame() {
                   {isDoneToday ? "Klaret for i dag!" : "Fuldfør Quest"}
                 </Button>
                 
-                {/* DEV KNAP: Klik på denne for lynhurtigt at give kortet +10 dage og se det ændre farve */}
                 <Button 
                   onClick={() => addTenDays(habit.id)} 
                   variant="outline"
