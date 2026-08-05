@@ -26,7 +26,8 @@ const getYesterday = () => {
   return d.toISOString().split('T')[0];
 };
 
-export default function Vanekort() {
+// Ændret fra "export default function Vanekort()" til "export function VanekortGame()"
+export function VanekortGame() {
   // Hent fra localStorage eller brug start-kortene
   const [habits, setHabits] = useState(() => {
     const saved = localStorage.getItem("vanekort-data");
