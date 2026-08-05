@@ -20,42 +20,42 @@ export default function CVDetail() {
         <CardHeader>
           <CardTitle className="text-xl flex items-center gap-2">
             <Film className="h-5 w-5 text-primary" />
-            Visuel dokumentation & videoer fra ansættelsen
+            Gode stunder fra Kærbo Omsorgscenter
           </CardTitle>
           <CardDescription>
-            Herunder vises tre videoklip relateret til hverdagen og opgaverne som plejehjælper i perioden juni 2026 til september 2026.
+            Herunder er tre sjove videoklip fra min tid med borgerne Oluf, Poul-Erik og Peter. Videoerne deles med fuldt samtykke fra dem alle tre.
           </CardDescription>
         </CardHeader>
         <CardContent className="space-y-8">
-          {/* Video 1 */}
+          {/* Video 1: Oluf */}
           <div className="space-y-2">
-            <h3 className="font-semibold text-base">1. Ankomst og professionel mobilitet</h3>
+            <h3 className="font-semibold text-base">Oluf</h3>
             <div className="overflow-hidden rounded-lg border bg-black aspect-video flex items-center justify-center">
               <video controls className="w-full h-full object-contain">
-                <source src="https://example.com/video1.mp4" type="video/mp4" />
-                Din browser understøtter ikke video-tagget. (Indsæt videokilde her)
+                <source src="/gemini_generated_video_5E4FD344.mp4" type="video/mp4" />
+                Din browser understøtter ikke video-tagget.
               </video>
             </div>
           </div>
 
-          {/* Video 2 */}
+          {/* Video 2: Poul-Erik */}
           <div className="space-y-2">
-            <h3 className="font-semibold text-base">2. Aktivering og fysisk støtte af beboere</h3>
+            <h3 className="font-semibold text-base">Poul-Erik</h3>
             <div className="overflow-hidden rounded-lg border bg-black aspect-video flex items-center justify-center">
               <video controls className="w-full h-full object-contain">
-                <source src="https://example.com/video2.mp4" type="video/mp4" />
-                Din browser understøtter ikke video-tagget. (Indsæt videokilde her)
+                <source src="/gemini_generated_video_82CE1AEF.mp4" type="video/mp4" />
+                Din browser understøtter ikke video-tagget.
               </video>
             </div>
           </div>
 
-          {/* Video 3 */}
+          {/* Video 3: Peter */}
           <div className="space-y-2">
-            <h3 className="font-semibold text-base">3. Socialt samvær og daglige rutiner</h3>
+            <h3 className="font-semibold text-base">Peter</h3>
             <div className="overflow-hidden rounded-lg border bg-black aspect-video flex items-center justify-center">
               <video controls className="w-full h-full object-contain">
-                <source src="https://example.com/video3.mp4" type="video/mp4" />
-                Din browser understøtter ikke video-tagget. (Indsæt videokilde her)
+                <source src="/gemini_generated_video_AB45BC40.mp4" type="video/mp4" />
+                Din browser understøtter ikke video-tagget.
               </video>
             </div>
           </div>
