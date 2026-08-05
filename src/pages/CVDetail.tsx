@@ -1,6 +1,6 @@
 import { useLocation, Link, Navigate, useParams } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { ArrowLeft, ExternalLink, Briefcase, User, Phone, CheckCircle2, Film } from "lucide-react";
+import { ArrowLeft, ExternalLink, Briefcase, User, Phone, CheckCircle2, Film, BookOpen, BadgeCheck } from "lucide-react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 
@@ -13,7 +13,59 @@ export default function CVDetail() {
     return <Navigate to="/" replace />;
   }
 
-  // Specielt indhold for Kærbo Omsorgscenter med de 3 videoer
+  // Specielt indhold for Kandidatuddannelsen (RUC)
+  const renderKandidatContent = () => (
+    <div className="space-y-6 mt-8 animate-in fade-in slide-in-from-bottom-4 duration-500">
+      <Card>
+        <CardHeader>
+          <CardTitle className="text-xl flex items-center gap-2">
+            <BookOpen className="h-5 w-5 text-primary" />
+            Kursusbeskrivelse
+          </CardTitle>
+          <CardDescription>
+            Officiel oversigt over uddannelsens faglige indhold og kompetencemål.
+          </CardDescription>
+        </CardHeader>
+        <CardContent>
+          <div className="overflow-hidden rounded-lg border bg-slate-100 dark:bg-slate-800/50 flex items-center justify-center p-2">
+            <img 
+              src="/kursusbeskrivelse.jpg" 
+              alt="Kursusbeskrivelse for Digital Transformation på RUC" 
+              className="max-w-full h-auto max-h-[800px] object-contain rounded-md shadow-sm"
+            />
+          </div>
+        </CardContent>
+      </Card>
+    </div>
+  );
+
+  // Specielt indhold for Tolk Danmark
+  const renderTolkContent = () => (
+    <div className="space-y-6 mt-8 animate-in fade-in slide-in-from-bottom-4 duration-500">
+      <Card>
+        <CardHeader>
+          <CardTitle className="text-xl flex items-center gap-2">
+            <BadgeCheck className="h-5 w-5 text-blue-600" />
+            Officielt Tolke-ID
+          </CardTitle>
+          <CardDescription>
+            Identifikation og certificering udstedt af TolkDanmark for professionel virke.
+          </CardDescription>
+        </CardHeader>
+        <CardContent>
+          <div className="overflow-hidden rounded-lg border bg-slate-100 dark:bg-slate-800/50 flex items-center justify-center p-6">
+            <img 
+              src="/tolke-id.jpg" 
+              alt="Mit officielle Tolke-ID fra TolkDanmark" 
+              className="max-w-full h-auto max-h-[400px] object-contain rounded-md shadow-sm"
+            />
+          </div>
+        </CardContent>
+      </Card>
+    </div>
+  );
+
+  // Specielt indhold for Kærbo Omsorgscenter
   const renderKaerboContent = () => (
     <div className="space-y-6 mt-8 animate-in fade-in slide-in-from-bottom-4 duration-500">
       <Card>
@@ -27,7 +79,6 @@ export default function CVDetail() {
           </CardDescription>
         </CardHeader>
         <CardContent className="space-y-8">
-          {/* Video 1: Oluf */}
           <div className="space-y-2">
             <h3 className="font-semibold text-base">Oluf</h3>
             <div className="overflow-hidden rounded-lg border bg-black aspect-video flex items-center justify-center">
@@ -38,7 +89,6 @@ export default function CVDetail() {
             </div>
           </div>
 
-          {/* Video 2: Poul-Erik */}
           <div className="space-y-2">
             <h3 className="font-semibold text-base">Poul-Erik</h3>
             <div className="overflow-hidden rounded-lg border bg-black aspect-video flex items-center justify-center">
@@ -49,7 +99,6 @@ export default function CVDetail() {
             </div>
           </div>
 
-          {/* Video 3: Peter */}
           <div className="space-y-2">
             <h3 className="font-semibold text-base">Peter</h3>
             <div className="overflow-hidden rounded-lg border bg-black aspect-video flex items-center justify-center">
@@ -64,7 +113,7 @@ export default function CVDetail() {
     </div>
   );
 
-  // Specielt indhold for Danske Bank-segmentet
+  // Specielt indhold for Danske Bank
   const renderDanskeBankContent = () => (
     <div className="space-y-6 mt-8 animate-in fade-in slide-in-from-bottom-4 duration-500">
       <Card className="border-l-4 border-l-blue-600 dark:border-l-blue-500">
@@ -191,11 +240,15 @@ export default function CVDetail() {
           </p>
         </div>
         
-        {/* Vælg indhold baseret på ID */}
+        {/* Vælg indhold baseret på ID fra URL'en */}
         {id === 'danske-bank-it' ? (
           renderDanskeBankContent()
         ) : id === 'kaerbo-omsorgscenter' ? (
           renderKaerboContent()
+        ) : id === 'tolk-danmark' ? (
+          renderTolkContent()
+        ) : id === 'ruc-kandidat' ? (
+          renderKandidatContent()
         ) : (
           <div className="border-2 border-dashed border-slate-300 dark:border-slate-700 rounded-xl p-12 text-center flex flex-col items-center justify-center min-h-[300px] bg-slate-50/50 dark:bg-slate-900/20 mt-8">
             <h3 className="text-xl font-semibold mb-2 text-slate-700 dark:text-slate-300">
