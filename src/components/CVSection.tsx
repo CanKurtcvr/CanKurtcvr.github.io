@@ -3,15 +3,7 @@ import { Card, CardHeader, CardTitle, CardDescription, CardContent } from "@/com
 import { Badge } from "@/components/ui/badge";
 
 const cvItems = [
-  {
-    id: "kaerbo-omsorgscenter",
-    title: "Plejehjælper",
-    organization: "Kærbo Omsorgscenter, Ishøj",
-    period: "Jun. 2026 - Sep. 2026",
-    type: "Erfaring",
-    description: "Hjulpet ældre mennesker med de daglige rutiner og udført journalføring af diverse.",
-    tags: ["Ældrepleje", "Journalføring", "Omsorg"]
-  },
+  // --- UDDANNELSER ---
   {
     id: "ruc-kandidat",
     title: "Kandidat i Digital Transformation",
@@ -22,23 +14,16 @@ const cvItems = [
     tags: ["Digital Transformation", "It-strategi", "RUC"]
   },
   {
-    id: "forsorgshjemmet-absalon",
-    title: "Omsorgsmedarbejder (Vikariat)",
-    organization: "Forsorgshjemmet Absalon",
-    period: "Jan. 2024 - Nuværende",
-    type: "Erfaring",
-    description: "Yder administrativ støtte og personlig omsorg til udsatte borgere og håndterer komplekse sociale situationer med ro og empati.",
-    tags: ["Socialt arbejde", "Administration", "Empati"]
+    id: "ruc-bachelor",
+    title: "Bachelor i Informatik og Virksomhedsstudier",
+    organization: "Roskilde Universitet",
+    period: "Sep. 2021 - Jun. 2024",
+    type: "Uddannelse",
+    description: "Lærte programmering, bogholderi dataanalyse, UX-design og organisatorisk filosofi.",
+    tags: ["Informatik", "Virksomhedsstudier", "UX-design"]
   },
-  {
-    id: "tolk-danmark",
-    title: "Tolk (Vikariat)",
-    organization: "Tolk Danmark",
-    period: "Feb. 2024 - Nuværende",
-    type: "Erfaring",
-    description: "Formidler præcis dansk-engelsk kommunikation ved kritiske møder med fokus på etik og professionalisme.",
-    tags: ["Sprog", "Kommunikation", "Etik"]
-  },
+
+  // --- IT ERFARING ---
   {
     id: "danske-bank-it",
     title: "IT-konsulent (fuldtid)",
@@ -48,23 +33,36 @@ const cvItems = [
     description: "Ansvarlig for fejlretning i komplekse kundesager, analyse af store datamængder i Excel og onboarding.",
     tags: ["Dataanalyse", "Fejlretning", "Onboarding"]
   },
+
+  // --- PLEJE & OMSORG ---
   {
-    id: "ruc-bachelor",
-    title: "Bachelor i Informatik og Virksomhedsstudier",
-    organization: "Roskilde Universitet",
-    period: "Sep. 2021 - Jun. 2024",
-    type: "Uddannelse",
-    description: "Lærte programmering, bogholderi dataanalyse, UX-design og organisatorisk filosofi.",
-    tags: ["Informatik", "Virksomhedsstudier", "UX-design"]
+    id: "kaerbo-omsorgscenter",
+    title: "Plejehjælper",
+    organization: "Kærbo Omsorgscenter, Ishøj",
+    period: "Jun. 2026 - Sep. 2026",
+    type: "Erfaring",
+    description: "Hjulpet ældre mennesker med de daglige rutiner og udført journalføring af diverse.",
+    tags: ["Ældrepleje", "Journalføring", "Omsorg"]
   },
   {
-    id: "lyreco-lager",
-    title: "Lagermedarbejder",
-    organization: "Lyreco",
-    period: "Okt. 2021 - Maj 2022",
+    id: "forsorgshjemmet-absalon",
+    title: "Omsorgsmedarbejder (Vikariat)",
+    organization: "Forsorgshjemmet Absalon",
+    period: "Jan. 2024 - Nuværende",
     type: "Erfaring",
-    description: "Fysisk arbejde med pluk, effektiv pakning og logistik under stramme deadlines.",
-    tags: ["Logistik", "Effektivitet"]
+    description: "Yder administrativ støtte og personlig omsorg til udsatte borgere og håndterer komplekse sociale situationer med ro og empati.",
+    tags: ["Socialt arbejde", "Administration", "Empati"]
+  },
+
+  // --- ØVRIGE ERFARINGER ---
+  {
+    id: "tolk-danmark",
+    title: "Tolk (Vikariat)",
+    organization: "Tolk Danmark",
+    period: "Feb. 2024 - Nuværende",
+    type: "Erfaring",
+    description: "Formidler præcis dansk-engelsk kommunikation ved kritiske møder med fokus på etik og professionalisme.",
+    tags: ["Sprog", "Kommunikation", "Etik"]
   },
   {
     id: "ole-romer-skole",
