@@ -29,7 +29,7 @@ export default function CVDetail() {
         <CardContent>
           <div className="overflow-hidden rounded-lg border bg-slate-100 dark:bg-slate-800/50 flex items-center justify-center p-2">
             <img 
-              src="/kursusbeskrivelse.jpg" 
+              src="/Screenshot 2026-08-05 at 21.00.42.png" 
               alt="Kursusbeskrivelse for Digital Transformation på RUC" 
               className="max-w-full h-auto max-h-[800px] object-contain rounded-md shadow-sm"
             />
@@ -55,7 +55,7 @@ export default function CVDetail() {
         <CardContent>
           <div className="overflow-hidden rounded-lg border bg-slate-100 dark:bg-slate-800/50 flex items-center justify-center p-6">
             <img 
-              src="/tolke-id.jpg" 
+              src="/TOLK.jpg" 
               alt="Mit officielle Tolke-ID fra TolkDanmark" 
               className="max-w-full h-auto max-h-[400px] object-contain rounded-md shadow-sm"
             />
