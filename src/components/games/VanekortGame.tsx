@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Flame, CheckCircle, Zap, Shield, Trophy, Star, ImageIcon } from "lucide-react";
 
-// De 10 RPG-inspirerede vanekort med almene mål og opdaterede citater
+// De 9 RPG-inspirerede vanekort, der matcher dine billedfiler
 const initialHabits = [
   {
     id: "1",
@@ -12,17 +12,17 @@ const initialHabits = [
     description: "Krav: Gennemfør ugens planlagte styrketræninger og hold kroppen i gang.",
     quote: "Det er en skam for et menneske at blive gammelt uden at indse det fulde potentiale, dets krop er i stand til.",
     quoteAuthor: "Sokrates",
-    imageUrl: "/cards/bodybuilder.png",
+    imageUrl: "/cards/TheBodybuilder.png",
     streak: 0,
     lastCompleted: null
   },
   {
     id: "2",
-    title: "The Scholar",
+    title: "The Philosopher",
     description: "Krav: Brug mindst 30 minutter dagligt på at læse en bog eller lytte til en lærerig podcast.",
     quote: "Jeg har intet særligt talent. Jeg er kun lidenskabeligt nysgerrig.",
     quoteAuthor: "Albert Einstein",
-    imageUrl: "/cards/scholar.png",
+    imageUrl: "/cards/ThePhilosopher.png",
     streak: 0,
     lastCompleted: null
   },
@@ -32,27 +32,27 @@ const initialHabits = [
     description: "Krav: Tag 10 minutter til meditation, mindfulness eller dyb refleksion dagligt.",
     quote: "Et stille sind er som blikstille vand, der afspejler alt omkring sig.",
     quoteAuthor: "Japansk Zen-ordsprog",
-    imageUrl: "/cards/meditator.png",
+    imageUrl: "/cards/TheMeditator.png",
     streak: 0,
     lastCompleted: null
   },
   {
     id: "4",
-    title: "The Master Chef",
+    title: "The Masterchef",
     description: "Krav: Tilbered et sundt og nærende måltid fra bunden af friske råvarer.",
     quote: "Lad mad være din medicin.",
     quoteAuthor: "Hippokrates",
-    imageUrl: "/cards/chef.png",
+    imageUrl: "/cards/TheMasterchef.png",
     streak: 0,
     lastCompleted: null
   },
   {
     id: "5",
-    title: "The Marathon Runner",
+    title: "The Runner",
     description: "Krav: Få pulsen op eller gå mindst 10.000 skridt i løbet af dagen.",
     quote: "Smerte er uundgåeligt. Lidelse er valgfrit.",
     quoteAuthor: "Haruki Murakami",
-    imageUrl: "/cards/marathon.png",
+    imageUrl: "/cards/TheRunner.png",
     streak: 0,
     lastCompleted: null
   },
@@ -62,17 +62,7 @@ const initialHabits = [
     description: "Krav: Brug tid på at øve et instrument, et sprog eller en anden kreativ hobby.",
     quote: "Musikken ligger ikke i noderne, men i stilheden imellem dem.",
     quoteAuthor: "Wolfgang Amadeus Mozart",
-    imageUrl: "/cards/musician.png",
-    streak: 0,
-    lastCompleted: null
-  },
-  {
-    id: "7",
-    title: "The Yogi",
-    description: "Krav: Brug 15 minutter på yoga, udstrækning eller at forbedre din mobilitet.",
-    quote: "Yoga er selve rejsen ind i selvet...",
-    quoteAuthor: "Bhagavad Gita",
-    imageUrl: "/cards/yogi.png",
+    imageUrl: "/cards/TheMusician.png",
     streak: 0,
     lastCompleted: null
   },
@@ -82,17 +72,17 @@ const initialHabits = [
     description: "Krav: Gør en god gerning, hjælp en anden, eller udfør frivilligt arbejde.",
     quote: "Find dig selv ved at tjene andre.",
     quoteAuthor: "Mahatma Gandhi",
-    imageUrl: "/cards/philanthropist.png",
+    imageUrl: "/cards/ThePhilanthropist.png",
     streak: 0,
     lastCompleted: null
   },
   {
     id: "9",
-    title: "The Financial Advisor",
+    title: "The Advisor",
     description: "Krav: Track dagens forbrug systematisk eller tag et bevidst valg om at spare op.",
     quote: "Spar op før du bruger.",
     quoteAuthor: "Warren Buffett",
-    imageUrl: "/cards/financial.png",
+    imageUrl: "/cards/TheAdvisor.png",
     streak: 0,
     lastCompleted: null
   },
@@ -102,7 +92,7 @@ const initialHabits = [
     description: "Krav: Brug 5 minutter om aftenen på at planlægge morgendagens vigtigste opgaver.",
     quote: "Der er intet umuligt for den, der vil prøve.",
     quoteAuthor: "Alexander den Store",
-    imageUrl: "/cards/strategist.png",
+    imageUrl: "/cards/TheStrategist.png",
     streak: 0,
     lastCompleted: null
   }
