@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Flame, CheckCircle, Zap, Shield, Trophy, Star, ImageIcon } from "lucide-react";
+import { Flame, CheckCircle, Zap, Shield, Trophy, Star, ImageIcon, X } from "lucide-react";
 
 // De 9 RPG-inspirerede vanekort, der matcher dine billedfiler
 const initialHabits = [
@@ -98,7 +98,6 @@ const initialHabits = [
   }
 ];
 
-// Hjælpefunktioner til dato-tjek
 const getToday = () => new Date().toISOString().split('T')[0];
 const getYesterday = () => {
   const d = new Date();
@@ -113,6 +112,9 @@ export function VanekortGame() {
     return initialHabits;
   });
 
+  // Tilføjet state til at holde styr på det billede, der skal poppe op
+  const [selectedImage, setSelectedImage] = useState<string | null>(null);
+
   useEffect(() => {
     localStorage.setItem("vanekort-data", JSON.stringify(habits));
   }, [habits]);
@@ -125,7 +127,7 @@ export function VanekortGame() {
   };
 
   const handleComplete = (id: string) => {
-    setHabits(prev => prev.map(habit => {
+    setHabits((prev: any[]) => prev.map(habit => {
       if (habit.id === id) {
         const today = getToday();
         if (habit.lastCompleted === today) return habit;
@@ -141,7 +143,7 @@ export function VanekortGame() {
   };
 
   const addTenDays = (id: string) => {
-    setHabits(prev => prev.map(habit => {
+    setHabits((prev: any[]) => prev.map(habit => {
       if (habit.id === id) {
         return { ...habit, streak: habit.streak + 10, lastCompleted: getToday() };
       }
@@ -154,14 +156,14 @@ export function VanekortGame() {
   };
 
   return (
-    <div className="container mx-auto px-4 py-12 max-w-6xl">
+    <div className="container mx-auto px-4 py-12 max-w-6xl relative">
       <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-8 gap-4">
         <div>
           <h2 className="text-3xl font-bold text-slate-900 dark:text-slate-100 flex items-center gap-2">
             <Zap className="text-yellow-500" /> Daglig Quest Log
           </h2>
           <p className="text-muted-foreground mt-2">
-            Kortene opgraderes over tid: Common ➔ Rare (7 dage) ➔ Epic (30 dage) ➔ Legendary (90 dage).
+            Kortene opgraderes over tid: Common ➔ Rare (7 dage) ➔ Epic (30 dage) ➔ Legendary (90 dage). Klik på billederne for at se dem tæt på.
           </p>
         </div>
         <Button variant="outline" size="sm" onClick={resetAll} className="text-xs">
@@ -186,20 +188,31 @@ export function VanekortGame() {
                   </div>
                 </div>
                 
-                {/* Billede Placeholder */}
-                <div className="w-full aspect-[4/3] bg-slate-200 dark:bg-slate-800 rounded-md mb-4 overflow-hidden border border-slate-300 dark:border-slate-700 relative flex items-center justify-center">
+                {/* Opdateret Billede med aspect-[2/3] og knap til popup */}
+                <div 
+                  className="w-full aspect-[2/3] bg-slate-900 rounded-md mb-4 overflow-hidden border border-slate-300 dark:border-slate-700 relative flex items-center justify-center cursor-pointer group"
+                  onClick={() => habit.imageUrl && setSelectedImage(habit.imageUrl)}
+                >
                   {habit.imageUrl ? (
                     <img 
                       src={habit.imageUrl} 
                       alt={habit.title} 
-                      className="w-full h-full object-cover absolute inset-0"
+                      className="w-full h-full object-cover absolute inset-0 transition-transform duration-300 group-hover:scale-105"
                       onError={(e) => {
                         e.currentTarget.style.display = 'none';
                         e.currentTarget.parentElement?.classList.add('fallback-visible');
                       }}
                     />
                   ) : null}
-                  <div className="fallback-text flex flex-col items-center justify-center text-slate-400">
+                  
+                  {/* Et lille ikon der viser at man kan klikke */}
+                  <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors flex items-center justify-center">
+                    <div className="bg-black/60 text-white px-3 py-1 rounded-full opacity-0 group-hover:opacity-100 transition-opacity text-xs font-semibold backdrop-blur-sm">
+                      Forstør
+                    </div>
+                  </div>
+
+                  <div className="fallback-text flex flex-col items-center justify-center text-slate-400 absolute z-[-1]">
                     <ImageIcon className="h-8 w-8 mb-2 opacity-50" />
                     <span className="text-xs font-medium">Billede mangler</span>
                   </div>
@@ -210,7 +223,6 @@ export function VanekortGame() {
                   {habit.description}
                 </CardDescription>
 
-                {/* Design til citatet */}
                 <div className="mt-auto pt-4">
                   <div className="p-3 bg-slate-100 dark:bg-slate-800/60 rounded-md border-l-4 border-orange-400 dark:border-orange-500">
                     <p className="text-xs italic text-slate-700 dark:text-slate-300">"{habit.quote}"</p>
@@ -242,6 +254,31 @@ export function VanekortGame() {
           );
         })}
       </div>
+
+      {/* Fullscreen Image Modal / Popup */}
+      {selectedImage && (
+        <div 
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm p-4 animate-in fade-in duration-200 cursor-pointer"
+          onClick={() => setSelectedImage(null)}
+        >
+          <div className="relative max-w-2xl w-full flex justify-center">
+            <img 
+              src={selectedImage} 
+              alt="Kort forstørret" 
+              className="max-w-full max-h-[90vh] object-contain rounded-xl shadow-2xl"
+            />
+            <button 
+              className="absolute top-2 right-2 md:-top-4 md:-right-4 bg-red-500 hover:bg-red-600 text-white rounded-full p-2 transition-colors shadow-lg"
+              onClick={(e) => {
+                e.stopPropagation();
+                setSelectedImage(null);
+              }}
+            >
+              <X className="h-5 w-5" />
+            </button>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
