@@ -1,16 +1,105 @@
-import { useLocation, Link, Navigate } from "react-router-dom";
+import { useLocation, Link, Navigate, useParams } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { ArrowLeft } from "lucide-react";
+import { ArrowLeft, ExternalLink, Briefcase, User, Phone } from "lucide-react";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
 
 export default function CVDetail() {
-  // useLocation griber den data, vi sendte fra CVSection
   const location = useLocation();
+  const { id } = useParams();
   const cvData = location.state?.cvData;
 
-  // Hvis man tilgår URL'en direkte uden at have klikket på et kort, sendes man til forsiden
   if (!cvData) {
     return <Navigate to="/" replace />;
   }
+
+  // Specielt indhold for Danske Bank-segmentet
+  const renderDanskeBankContent = () => (
+    <div className="space-y-6 mt-8 animate-in fade-in slide-in-from-bottom-4 duration-500">
+      
+      {/* Kontekst om sagen */}
+      <Card className="border-l-4 border-l-blue-600 dark:border-l-blue-500">
+        <CardHeader>
+          <CardTitle className="text-xl flex items-center gap-2">
+            <Briefcase className="h-5 w-5 text-blue-600" />
+            Sagens Kerne: Inkasso-oprydningen
+          </CardTitle>
+          <CardDescription>
+            Arbejdet relaterede sig til en af de største it- og dataskandaler i dansk finanshistorie.
+          </CardDescription>
+        </CardHeader>
+        <CardContent className="space-y-4 text-sm text-slate-700 dark:text-slate-300">
+          <p>
+            Som led i oprydningen af Danske Banks fejlramte inkassosystemer, var jeg en del af det eksterne team, der analyserede datamængder og foretog fejlretning i komplekse kundesager. 
+          </p>
+          <div className="bg-slate-100 dark:bg-slate-800 p-4 rounded-md">
+            <p className="font-semibold mb-2">Baggrund for projektet:</p>
+            <p className="mb-3">
+              I 2022 kom det frem, at systemfejl havde ført til uretmæssig inddrivelse af gæld. Som følge af oprydningsarbejdet slettede banken gæld for over 20 milliarder kroner hos inkassokunder.
+            </p>
+            <a 
+              href="https://nyheder.tv2.dk/2022-08-31-danske-bank-har-slettet-gaeld-for-over-20-milliarder-kroner-hos-inkassokunder-viser-laekkede-dokumenter" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="inline-flex items-center text-blue-600 dark:text-blue-400 hover:underline font-medium"
+            >
+              Læs TV2's dækning af sagen her <ExternalLink className="ml-1 h-3 w-3" />
+            </a>
+          </div>
+        </CardContent>
+      </Card>
+
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        {/* Ansættelsesforhold */}
+        <Card>
+          <CardHeader>
+            <CardTitle className="text-lg">Ansættelsesstruktur</CardTitle>
+          </CardHeader>
+          <CardContent className="space-y-4">
+            <p className="text-sm text-muted-foreground">
+              Projektet krævede ekstern ekspertise og blev faciliteret gennem en treparts-struktur for at sikre uafhængig databehandling og konsulentbistand.
+            </p>
+            <ul className="space-y-2 text-sm">
+              <li className="flex items-center gap-2">
+                <Badge variant="outline">Slutkunde</Badge> Danske Bank
+              </li>
+              <li className="flex items-center gap-2">
+                <Badge variant="outline">Kontraktør</Badge> EY (Ernst & Young)
+              </li>
+              <li className="flex items-center gap-2">
+                <Badge variant="outline">Ansættelse</Badge> M-Networks
+              </li>
+            </ul>
+          </CardContent>
+        </Card>
+
+        {/* Reference */}
+        <Card>
+          <CardHeader>
+            <CardTitle className="text-lg flex items-center gap-2">
+              <User className="h-5 w-5" />
+              Kontaktperson
+            </CardTitle>
+          </CardHeader>
+          <CardContent>
+            <div className="space-y-3">
+              <p className="font-semibold text-base">Kim Nilsson Nilsson</p>
+              <div className="space-y-1 text-sm text-muted-foreground">
+                <div className="flex items-center gap-2">
+                  <Phone className="h-4 w-4" />
+                  <a href="tel:+4527113728" className="hover:text-primary transition-colors">+45 27 11 37 28</a>
+                </div>
+                <div className="flex items-center gap-2">
+                  <Phone className="h-4 w-4" />
+                  <a href="tel:+4531138577" className="hover:text-primary transition-colors">+45 31 13 85 77</a>
+                </div>
+              </div>
+            </div>
+          </CardContent>
+        </Card>
+      </div>
+    </div>
+  );
 
   return (
     <div className="container mx-auto px-4 py-12 max-w-4xl">
@@ -21,7 +110,7 @@ export default function CVDetail() {
       </Button>
       
       <div className="space-y-8">
-        {/* CV Data Sektionen */}
+        {/* Den generelle overskrift fra cvData */}
         <div>
           <h1 className="text-4xl font-bold text-slate-900 dark:text-slate-100 mb-2">
             {cvData.title}
@@ -34,15 +123,19 @@ export default function CVDetail() {
           </p>
         </div>
         
-        {/* Den "blanke" kasse til dit fremtidige indhold */}
-        <div className="border-2 border-dashed border-slate-300 dark:border-slate-700 rounded-xl p-12 text-center flex flex-col items-center justify-center min-h-[300px] bg-slate-50/50 dark:bg-slate-900/20">
-          <h3 className="text-xl font-semibold mb-2 text-slate-700 dark:text-slate-300">
-            Ekstra Kontekst
-          </h3>
-          <p className="text-muted-foreground max-w-md">
-            Denne sektion er klar til at blive udvidet. Her kan du tilføje en videopræsentation for din tid som {cvData.title.toLowerCase()}, fremvise uddannelsesbeviser eller linke til n8n workflows.
-          </p>
-        </div>
+        {/* Hvis URL ID'et er "danske-bank-it", vis det specialdesignede indhold. Ellers vis den blanke kasse. */}
+        {id === 'danske-bank-it' ? (
+          renderDanskeBankContent()
+        ) : (
+          <div className="border-2 border-dashed border-slate-300 dark:border-slate-700 rounded-xl p-12 text-center flex flex-col items-center justify-center min-h-[300px] bg-slate-50/50 dark:bg-slate-900/20 mt-8">
+            <h3 className="text-xl font-semibold mb-2 text-slate-700 dark:text-slate-300">
+              Ekstra Kontekst
+            </h3>
+            <p className="text-muted-foreground max-w-md">
+              Denne sektion er klar til at blive udvidet. Her kan du tilføje en videopræsentation for din tid som {cvData.title.toLowerCase()}, fremvise uddannelsesbeviser eller linke til n8n workflows.
+            </p>
+          </div>
+        )}
       </div>
     </div>
   );
