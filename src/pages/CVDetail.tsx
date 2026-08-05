@@ -1,6 +1,6 @@
 import { useLocation, Link, Navigate, useParams } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { ArrowLeft, ExternalLink, Briefcase, User, Phone } from "lucide-react";
+import { ArrowLeft, ExternalLink, Briefcase, User, Phone, CheckCircle2 } from "lucide-react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 
@@ -29,9 +29,6 @@ export default function CVDetail() {
           </CardDescription>
         </CardHeader>
         <CardContent className="space-y-4 text-sm text-slate-700 dark:text-slate-300">
-          <p>
-            Som led i oprydningen af Danske Banks fejlramte inkassosystemer, var jeg en del af det eksterne team, der analyserede datamængder og foretog fejlretning i komplekse kundesager. 
-          </p>
           <div className="bg-slate-100 dark:bg-slate-800 p-4 rounded-md">
             <p className="font-semibold mb-2">Baggrund for projektet:</p>
             <p className="mb-3">
@@ -46,6 +43,32 @@ export default function CVDetail() {
               Læs TV2's dækning af sagen her <ExternalLink className="ml-1 h-3 w-3" />
             </a>
           </div>
+        </CardContent>
+      </Card>
+
+      {/* Nøgleopgaver & Ansvarsområder */}
+      <Card>
+        <CardHeader>
+          <CardTitle className="text-lg flex items-center gap-2">
+            <CheckCircle2 className="h-5 w-5 text-green-600" />
+            Nøgleopgaver & Ansvarsområder
+          </CardTitle>
+        </CardHeader>
+        <CardContent>
+          <ul className="space-y-3 text-sm text-slate-700 dark:text-slate-300 list-disc pl-5 marker:text-slate-400">
+            <li>
+              <strong>Sagsrekonstruktion:</strong> Opbyggede det fulde sagsforløb for kunden med dyb indsigt i bankdokumenter, juridiske aktstykker, forlig og retsmøder for at sikre en korrekt sagsbehandling.
+            </li>
+            <li>
+              <strong>Kompleks databehandling:</strong> Håndterede manuel indtastning og validering af indbetalinger, udbetalinger, renter og rentepauser i avancerede Excel-ark for mere end 400 kunder.
+            </li>
+            <li>
+              <strong>Onboarding & Præsentation:</strong> Udarbejdede og fremlagde præsentationer samt fungerede som <em>floorwalker</em> for at sikre en effektiv og tryg oplæring af nyansatte kollegaer.
+            </li>
+            <li>
+              <strong>Fleksibel opgaveløsning:</strong> Udførte selvstændigt hjemmearbejde med de sager, der udelukkende kunne behandles digitalt og ikke krævede fysisk dokumentation.
+            </li>
+          </ul>
         </CardContent>
       </Card>
 
