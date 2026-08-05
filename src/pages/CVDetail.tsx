@@ -1,6 +1,6 @@
 import { useLocation, Link, Navigate, useParams } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { ArrowLeft, ExternalLink, Briefcase, User, Phone, CheckCircle2 } from "lucide-react";
+import { ArrowLeft, ExternalLink, Briefcase, User, Phone, CheckCircle2, Film } from "lucide-react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 
@@ -13,11 +13,60 @@ export default function CVDetail() {
     return <Navigate to="/" replace />;
   }
 
+  // Specielt indhold for Kærbo Omsorgscenter med de 3 videoer
+  const renderKaerboContent = () => (
+    <div className="space-y-6 mt-8 animate-in fade-in slide-in-from-bottom-4 duration-500">
+      <Card>
+        <CardHeader>
+          <CardTitle className="text-xl flex items-center gap-2">
+            <Film className="h-5 w-5 text-primary" />
+            Visuel dokumentation & videoer fra ansættelsen
+          </CardTitle>
+          <CardDescription>
+            Herunder vises tre videoklip relateret til hverdagen og opgaverne som plejehjælper i perioden juni 2026 til september 2026.
+          </CardDescription>
+        </CardHeader>
+        <CardContent className="space-y-8">
+          {/* Video 1 */}
+          <div className="space-y-2">
+            <h3 className="font-semibold text-base">1. Ankomst og professionel mobilitet</h3>
+            <div className="overflow-hidden rounded-lg border bg-black aspect-video flex items-center justify-center">
+              <video controls className="w-full h-full object-contain">
+                <source src="https://example.com/video1.mp4" type="video/mp4" />
+                Din browser understøtter ikke video-tagget. (Indsæt videokilde her)
+              </video>
+            </div>
+          </div>
+
+          {/* Video 2 */}
+          <div className="space-y-2">
+            <h3 className="font-semibold text-base">2. Aktivering og fysisk støtte af beboere</h3>
+            <div className="overflow-hidden rounded-lg border bg-black aspect-video flex items-center justify-center">
+              <video controls className="w-full h-full object-contain">
+                <source src="https://example.com/video2.mp4" type="video/mp4" />
+                Din browser understøtter ikke video-tagget. (Indsæt videokilde her)
+              </video>
+            </div>
+          </div>
+
+          {/* Video 3 */}
+          <div className="space-y-2">
+            <h3 className="font-semibold text-base">3. Socialt samvær og daglige rutiner</h3>
+            <div className="overflow-hidden rounded-lg border bg-black aspect-video flex items-center justify-center">
+              <video controls className="w-full h-full object-contain">
+                <source src="https://example.com/video3.mp4" type="video/mp4" />
+                Din browser understøtter ikke video-tagget. (Indsæt videokilde her)
+              </video>
+            </div>
+          </div>
+        </CardContent>
+      </Card>
+    </div>
+  );
+
   // Specielt indhold for Danske Bank-segmentet
   const renderDanskeBankContent = () => (
     <div className="space-y-6 mt-8 animate-in fade-in slide-in-from-bottom-4 duration-500">
-      
-      {/* Kontekst om sagen */}
       <Card className="border-l-4 border-l-blue-600 dark:border-l-blue-500">
         <CardHeader>
           <CardTitle className="text-xl flex items-center gap-2">
@@ -46,7 +95,6 @@ export default function CVDetail() {
         </CardContent>
       </Card>
 
-      {/* Nøgleopgaver & Ansvarsområder */}
       <Card>
         <CardHeader>
           <CardTitle className="text-lg flex items-center gap-2">
@@ -73,7 +121,6 @@ export default function CVDetail() {
       </Card>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        {/* Ansættelsesforhold */}
         <Card>
           <CardHeader>
             <CardTitle className="text-lg">Ansættelsesstruktur</CardTitle>
@@ -96,7 +143,6 @@ export default function CVDetail() {
           </CardContent>
         </Card>
 
-        {/* Reference */}
         <Card>
           <CardHeader>
             <CardTitle className="text-lg flex items-center gap-2">
@@ -133,7 +179,6 @@ export default function CVDetail() {
       </Button>
       
       <div className="space-y-8">
-        {/* Den generelle overskrift fra cvData */}
         <div>
           <h1 className="text-4xl font-bold text-slate-900 dark:text-slate-100 mb-2">
             {cvData.title}
@@ -146,16 +191,18 @@ export default function CVDetail() {
           </p>
         </div>
         
-        {/* Hvis URL ID'et er "danske-bank-it", vis det specialdesignede indhold. Ellers vis den blanke kasse. */}
+        {/* Vælg indhold baseret på ID */}
         {id === 'danske-bank-it' ? (
           renderDanskeBankContent()
+        ) : id === 'kaerbo-omsorgscenter' ? (
+          renderKaerboContent()
         ) : (
           <div className="border-2 border-dashed border-slate-300 dark:border-slate-700 rounded-xl p-12 text-center flex flex-col items-center justify-center min-h-[300px] bg-slate-50/50 dark:bg-slate-900/20 mt-8">
             <h3 className="text-xl font-semibold mb-2 text-slate-700 dark:text-slate-300">
               Ekstra Kontekst
             </h3>
             <p className="text-muted-foreground max-w-md">
-              Denne sektion er klar til at blive udvidet. Her kan du tilføje en videopræsentation for din tid som {cvData.title.toLowerCase()}, fremvise uddannelsesbeviser eller linke til n8n workflows.
+              Denne sektion er klar til at blive udvidet. Her kan du tilføje en videopræsentation for din tid som {cvData.title.toLowerCase()}, fremvise uddannelsesbeviser eller linke til relevante projekter.
             </p>
           </div>
         )}
