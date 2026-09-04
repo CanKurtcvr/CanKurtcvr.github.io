@@ -5,7 +5,7 @@ export default function WebShooterGame() {
         title="Spidey Web Shooter"
         src={`${import.meta.env.BASE_URL}games/web-shooter/index.html`}
         className="h-full w-full border-0"
-        allow="camera"
+        allow="camera *; microphone 'none'"
       />
     </div>
   );

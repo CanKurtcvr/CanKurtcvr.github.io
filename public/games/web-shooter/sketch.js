@@ -2,6 +2,8 @@ let video;
 let handPose;
 let hands = [];
 let modelLoaded = false;
+let setupError = "";
+let cameraReady = false;
 
 // Web mechanics
 let isShooting = false;
@@ -23,18 +25,35 @@ function loadMl5() {
 async function setup() {
     createCanvas(windowWidth, windowHeight);
 
-    video = createCapture(VIDEO, { flipped: true });
-    video.size(640, 480);
-    video.hide();
+    try {
+        if (!navigator.mediaDevices?.getUserMedia) {
+            throw new Error("Camera access requires HTTPS or localhost.");
+        }
 
-    await loadMl5();
-
-    handPose = ml5.handPose({ flipped: true }, () => {
-        modelLoaded = true;
-        handPose.detectStart(video, (results) => {
-            hands = results;
+        video = createCapture(VIDEO, { flipped: true });
+        video.size(640, 480);
+        video.hide();
+        video.elt.addEventListener("loadeddata", () => {
+            cameraReady = true;
         });
-    });
+        video.elt.addEventListener("error", () => {
+            setupError = "Camera could not be started. Check your browser permissions.";
+        });
+
+        await loadMl5();
+
+        handPose = ml5.handPose({ flipped: true }, () => {
+            modelLoaded = true;
+            handPose.detectStart(video, (results) => {
+                hands = results;
+            });
+        });
+    } catch (error) {
+        setupError = error instanceof Error
+            ? error.message
+            : "The camera or hand tracking could not be initialized.";
+        console.error("Web Shooter initialization failed:", error);
+    }
 }
 
 function draw() {
@@ -51,8 +70,16 @@ function draw() {
 
     drawCenterCrosshair();
 
-    if (!modelLoaded) {
-        drawStatus("Initializing ml5 HandPose...", "Please allow camera access.");
+    if (setupError) {
+        drawStatus("Web Shooter unavailable", setupError);
+        return;
+    }
+
+    if (!cameraReady || !modelLoaded) {
+        drawStatus(
+            cameraReady ? "Initializing ml5 HandPose..." : "Requesting camera access...",
+            "Allow camera access when your browser asks."
+        );
         return;
     }
 
