@@ -45,15 +45,19 @@ async function startCamera() {
         });
 
         video = createVideo();
-        video.elt.srcObject = cameraStream;
         video.elt.autoplay = true;
         video.elt.muted = true;
         video.elt.playsInline = true;
         video.size(640, 480);
         video.hide();
-        video.elt.addEventListener("loadeddata", () => {
-            cameraReady = true;
-        });
+        video.elt.addEventListener("loadedmetadata", () => {
+            video.elt.play().then(() => {
+                cameraReady = true;
+            }).catch(() => {
+                setupError = "Camera started but the video feed could not play.";
+            });
+        }, { once: true });
+        video.elt.srcObject = cameraStream;
         video.elt.addEventListener("error", () => {
             setupError = "Camera could not be started. Check your browser permissions.";
         });
