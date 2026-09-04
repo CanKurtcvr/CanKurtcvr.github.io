@@ -10,7 +10,7 @@ interface TabNavigationProps {
 
 const tabs = [
   { id: "cv" as TabType, label: "My CV", icon: FileText },
-  { id: "projects" as TabType, label: "Erhvervsprojekter", icon: Briefcase },
+  { id: "projects" as TabType, label: "Projekter", icon: Briefcase },
   { id: "weather" as TabType, label: "Weather", icon: Cloud },
   { id: "news" as TabType, label: "News", icon: Newspaper },
   { id: "games" as TabType, label: "Games", icon: Gamepad2 },

@@ -6,7 +6,7 @@ import CVSection from "@/components/CVSection";
 import WeatherSection from "@/components/WeatherSection";
 import NewsSection from "@/components/NewsSection";
 import GamesSection from "@/components/GamesSection";
-import BusinessProjectsSection from "@/components/BusinessProjectsSection";
+import ProjectsSection from "@/components/ProjectsSection";
 
 type TabType = "cv" | "weather" | "news" | "games" | "projects";
 
@@ -38,7 +38,7 @@ const Index = () => {
               className="print:block"
             >
               {activeTab === "cv" && <CVSection />}
-              {activeTab === "projects" && <BusinessProjectsSection />}
+              {activeTab === "projects" && <ProjectsSection />}
               {activeTab === "weather" && <WeatherSection />}
               {activeTab === "news" && <NewsSection />}
               {activeTab === "games" && <GamesSection />}

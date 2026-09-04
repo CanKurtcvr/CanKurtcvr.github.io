@@ -5,6 +5,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import BlackjackGame from "./games/BlackjackGame";
 import PongGame from "./games/PongGame";
 import SnakeGame from "./games/SnakeGame";
+import WebShooterGame from "./games/WebShooterGame";
 
 // 2. Import the new Vanekort game (Beholdt krøllede parenteser her)
 import { VanekortGame } from "./games/VanekortGame";
@@ -19,11 +20,12 @@ export default function GamesSection() {
         <Tabs defaultValue="vanekort" className="w-full max-w-4xl mx-auto">
           
           {/* 3. Add the Vanekort trigger to your TabsList */}
-          <TabsList className="grid w-full grid-cols-4 mb-8">
+          <TabsList className="grid w-full grid-cols-5 mb-8">
             <TabsTrigger value="vanekort">Vanekort</TabsTrigger>
             <TabsTrigger value="blackjack">Blackjack</TabsTrigger>
             <TabsTrigger value="pong">Pong</TabsTrigger>
             <TabsTrigger value="snake">Snake</TabsTrigger>
+            <TabsTrigger value="web-shooter">Web Shooter</TabsTrigger>
           </TabsList>
 
           {/* 4. Add the TabsContent block for Vanekort */}
@@ -42,6 +44,10 @@ export default function GamesSection() {
           
           <TabsContent value="snake" className="mt-4">
             <SnakeGame />
+          </TabsContent>
+
+          <TabsContent value="web-shooter" className="mt-4">
+            <WebShooterGame />
           </TabsContent>
           
         </Tabs>

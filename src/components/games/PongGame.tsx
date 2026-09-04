@@ -6,6 +6,8 @@ export default function PongGame() {
 
   useEffect(() => {
     if (!containerRef.current) return;
+    const container = containerRef.current;
+    let resizeGame: (() => void) | undefined;
 
     const sketch = (p: p5) => {
       // Ball
@@ -74,7 +76,7 @@ export default function PongGame() {
       };
 
       p.setup = () => {
-        p.createCanvas(p.windowWidth, p.windowHeight).parent(containerRef.current!);
+        p.createCanvas(container.clientWidth, container.clientHeight).parent(container);
         p.rectMode(p.CENTER);
         p.ellipseMode(p.CENTER);
         playerY = p.height / 2;
@@ -227,16 +229,28 @@ export default function PongGame() {
         }
       };
 
-      p.windowResized = () => {
-        p.resizeCanvas(p.windowWidth, p.windowHeight);
+      resizeGame = () => {
+        p.resizeCanvas(container.clientWidth, container.clientHeight);
+        playerY = p.constrain(playerY, paddleHeight / 2, p.height - paddleHeight / 2);
+        aiY = p.constrain(aiY, paddleHeight / 2, p.height - paddleHeight / 2);
       };
+      p.windowResized = resizeGame;
     };
 
     const instance = new p5(sketch);
+    const resizeObserver = new ResizeObserver(() => {
+      resizeGame?.();
+    });
     return () => {
+      resizeObserver.disconnect();
       instance.remove();
     };
   }, []);
 
-  return <div ref={containerRef} className="w-full h-full min-h-screen overflow-hidden" />;
+  return (
+    <div
+      ref={containerRef}
+      className="w-full aspect-video max-h-[70vh] min-h-[320px] overflow-hidden rounded-lg"
+    />
+  );
 }
