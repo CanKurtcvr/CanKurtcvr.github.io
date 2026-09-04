@@ -48,7 +48,7 @@ const Index = () => {
 
         {/* Footer skjules ved print */}
         <footer className="border-t border-border py-6 px-8 text-center text-sm text-muted-foreground print:hidden">
-          <p>© {new Date().getFullYear()} Can Kurt. Built with ❤️</p>
+          <p>© {new Date().getFullYear()} Can Kurt</p>
         </footer>
       </div>
     </div>
