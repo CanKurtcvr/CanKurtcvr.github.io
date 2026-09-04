@@ -5,6 +5,7 @@ let modelLoaded = false;
 let setupError = "";
 let cameraReady = false;
 let cameraStarted = false;
+let cameraStream;
 
 // Web mechanics
 let isShooting = false;
@@ -38,7 +39,16 @@ async function startCamera() {
             throw new Error("Camera access requires HTTPS or localhost.");
         }
 
-        video = createCapture(VIDEO, { flipped: true });
+        cameraStream = await navigator.mediaDevices.getUserMedia({
+            video: { width: { ideal: 640 }, height: { ideal: 480 } },
+            audio: false,
+        });
+
+        video = createVideo();
+        video.elt.srcObject = cameraStream;
+        video.elt.autoplay = true;
+        video.elt.muted = true;
+        video.elt.playsInline = true;
         video.size(640, 480);
         video.hide();
         video.elt.addEventListener("loadeddata", () => {
@@ -58,6 +68,8 @@ async function startCamera() {
         });
     } catch (error) {
         cameraStarted = false;
+        cameraStream?.getTracks().forEach((track) => track.stop());
+        cameraStream = undefined;
         document.getElementById("enable-camera").style.display = "block";
         setupError = error instanceof Error
             ? error.message
