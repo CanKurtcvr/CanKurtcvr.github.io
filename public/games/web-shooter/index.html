@@ -39,11 +39,27 @@
         #back-btn:hover {
             background: rgba(0, 230, 255, 0.2);
         }
+
+        #enable-camera {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            padding: 12px 20px;
+            background: #00d9ff;
+            color: #07111f;
+            border: 0;
+            border-radius: 6px;
+            font: 600 15px sans-serif;
+            cursor: pointer;
+            z-index: 10;
+        }
     </style>
 </head>
 
 <body>
     <a id="back-btn" href="/">← Return Home</a>
+    <button id="enable-camera" type="button">Enable Camera</button>
     <script src="sketch.js"></script>
 </body>
 

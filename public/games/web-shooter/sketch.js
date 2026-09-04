@@ -4,6 +4,7 @@ let hands = [];
 let modelLoaded = false;
 let setupError = "";
 let cameraReady = false;
+let cameraStarted = false;
 
 // Web mechanics
 let isShooting = false;
@@ -24,7 +25,14 @@ function loadMl5() {
 
 async function setup() {
     createCanvas(windowWidth, windowHeight);
+    document.getElementById("enable-camera").addEventListener("click", startCamera);
+}
 
+async function startCamera() {
+    if (cameraStarted) return;
+    cameraStarted = true;
+    setupError = "";
+    document.getElementById("enable-camera").style.display = "none";
     try {
         if (!navigator.mediaDevices?.getUserMedia) {
             throw new Error("Camera access requires HTTPS or localhost.");
@@ -49,6 +57,8 @@ async function setup() {
             });
         });
     } catch (error) {
+        cameraStarted = false;
+        document.getElementById("enable-camera").style.display = "block";
         setupError = error instanceof Error
             ? error.message
             : "The camera or hand tracking could not be initialized.";
@@ -72,6 +82,11 @@ function draw() {
 
     if (setupError) {
         drawStatus("Web Shooter unavailable", setupError);
+        return;
+    }
+
+    if (!cameraStarted) {
+        drawStatus("Camera access required", "Click Enable Camera to start the game.");
         return;
     }
 
