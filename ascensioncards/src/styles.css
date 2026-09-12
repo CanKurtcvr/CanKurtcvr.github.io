@@ -1,0 +1,233 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/*
+ * Design system definition.
+ *
+ * The @theme inline block maps CSS custom properties to Tailwind utility
+ * classes (e.g. --color-primary -> bg-primary, text-primary).
+ *
+ * The :root and .dark blocks define the actual color values using oklch.
+ * All colors MUST use oklch format.
+ *
+ * To add a new semantic color:
+ * 1. Add the variable to :root (light value) and .dark (dark value)
+ * 2. Register it in @theme inline as --color-<name>: var(--<name>)
+ */
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+  --radius-4xl: calc(var(--radius) + 16px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-ring-offset-background: var(--background);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-rarity-common: var(--rarity-common);
+  --color-rarity-rare: var(--rarity-rare);
+  --color-rarity-epic: var(--rarity-epic);
+  --color-rarity-legendary: var(--rarity-legendary);
+  --color-rarity-ascended: var(--rarity-ascended);
+  --font-display: "Cinzel", Georgia, serif;
+  --font-sans: "Manrope", ui-sans-serif, system-ui, sans-serif;
+}
+
+:root {
+  --radius: 0.5rem;
+
+  /* Ink-and-gold: dark by default, this app has one mood. */
+  --background: oklch(0.17 0.022 268);
+  --foreground: oklch(0.94 0.014 85);
+  --card: oklch(0.221 0.026 268);
+  --card-foreground: oklch(0.94 0.014 85);
+  --popover: oklch(0.221 0.026 268);
+  --popover-foreground: oklch(0.94 0.014 85);
+  --primary: oklch(0.79 0.13 82);
+  --primary-foreground: oklch(0.19 0.03 268);
+  --secondary: oklch(0.28 0.03 266);
+  --secondary-foreground: oklch(0.93 0.014 85);
+  --muted: oklch(0.26 0.026 266);
+  --muted-foreground: oklch(0.73 0.022 80);
+  --accent: oklch(0.32 0.045 200);
+  --accent-foreground: oklch(0.95 0.012 85);
+  --destructive: oklch(0.58 0.19 25);
+  --destructive-foreground: oklch(0.97 0.01 85);
+  --border: oklch(0.34 0.03 262);
+  --input: oklch(0.32 0.03 262);
+  --ring: oklch(0.79 0.13 82);
+  --chart-1: oklch(0.79 0.13 82);
+  --chart-2: oklch(0.7 0.1 200);
+  --chart-3: oklch(0.68 0.13 300);
+  --chart-4: oklch(0.72 0.14 40);
+  --chart-5: oklch(0.86 0.06 95);
+  --sidebar: oklch(0.2 0.026 268);
+  --sidebar-foreground: oklch(0.94 0.014 85);
+  --sidebar-primary: oklch(0.79 0.13 82);
+  --sidebar-primary-foreground: oklch(0.19 0.03 268);
+  --sidebar-accent: oklch(0.28 0.03 266);
+  --sidebar-accent-foreground: oklch(0.94 0.014 85);
+  --sidebar-border: oklch(0.34 0.03 262);
+  --sidebar-ring: oklch(0.79 0.13 82);
+
+  --rarity-common: oklch(0.75 0.02 250);
+  --rarity-rare: oklch(0.75 0.11 205);
+  --rarity-epic: oklch(0.72 0.14 305);
+  --rarity-legendary: oklch(0.83 0.14 85);
+  --rarity-ascended: oklch(0.85 0.11 25);
+
+  --shadow-card: 0 18px 40px -22px oklch(0 0 0 / 0.85);
+  --parchment: oklch(0.94 0.03 85);
+}
+
+.dark {
+  color-scheme: dark;
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  html {
+    color-scheme: dark;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    background-image:
+      radial-gradient(120% 60% at 50% 0%, oklch(0.26 0.05 262 / 0.85), transparent 70%),
+      radial-gradient(80% 50% at 100% 100%, oklch(0.28 0.06 60 / 0.35), transparent 70%);
+    background-attachment: fixed;
+  }
+
+  h1, h2, h3, .font-display {
+    font-family: var(--font-display);
+    letter-spacing: 0.02em;
+  }
+}
+
+/* ── Rarity frames: colour + geometry + texture + label (CVD dual-coding) ── */
+.rarity-frame {
+  position: relative;
+  border-width: 2px;
+  border-style: solid;
+  background-color: var(--card);
+}
+
+.frame-common {
+  --rarity: var(--rarity-common);
+  border-color: color-mix(in oklab, var(--rarity-common) 55%, transparent);
+  border-radius: 0.25rem;
+  border-style: solid;
+}
+.frame-rare {
+  --rarity: var(--rarity-rare);
+  border-color: color-mix(in oklab, var(--rarity-rare) 70%, transparent);
+  border-radius: 0.25rem;
+  border-style: double;
+  border-width: 4px;
+}
+.frame-epic {
+  --rarity: var(--rarity-epic);
+  border-color: color-mix(in oklab, var(--rarity-epic) 75%, transparent);
+  border-radius: 1rem 0.25rem 1rem 0.25rem;
+}
+.frame-legendary {
+  --rarity: var(--rarity-legendary);
+  border-color: color-mix(in oklab, var(--rarity-legendary) 85%, transparent);
+  border-radius: 0.25rem;
+  clip-path: polygon(0 12px, 12px 0, calc(100% - 12px) 0, 100% 12px, 100% calc(100% - 12px), calc(100% - 12px) 100%, 12px 100%, 0 calc(100% - 12px));
+  box-shadow: 0 0 0 1px color-mix(in oklab, var(--rarity-legendary) 40%, transparent);
+}
+.frame-ascended {
+  --rarity: var(--rarity-ascended);
+  border-color: color-mix(in oklab, var(--rarity-ascended) 90%, transparent);
+  border-radius: 1.25rem;
+  border-style: solid;
+  box-shadow: 0 0 24px -6px color-mix(in oklab, var(--rarity-ascended) 55%, transparent);
+}
+
+/* texture patterns — the second non-colour channel */
+.texture-common { background-image: radial-gradient(oklch(1 0 0 / 0.05) 1px, transparent 1px); background-size: 6px 6px; }
+.texture-rare { background-image: repeating-linear-gradient(45deg, oklch(1 0 0 / 0.06) 0 1px, transparent 1px 7px); }
+.texture-epic { background-image: repeating-linear-gradient(90deg, oklch(1 0 0 / 0.07) 0 2px, transparent 2px 9px); }
+.texture-legendary { background-image: repeating-linear-gradient(45deg, oklch(1 0 0 / 0.07) 0 1px, transparent 1px 6px), repeating-linear-gradient(-45deg, oklch(1 0 0 / 0.07) 0 1px, transparent 1px 6px); }
+.texture-ascended { background-image: radial-gradient(oklch(1 0 0 / 0.12) 1px, transparent 2px), radial-gradient(oklch(1 0 0 / 0.07) 1px, transparent 2px); background-size: 18px 18px, 11px 11px; background-position: 0 0, 6px 8px; }
+
+/* ── Juice ── */
+@keyframes scale-pop {
+  0% { transform: scale(1); }
+  35% { transform: scale(1.08); }
+  70% { transform: scale(0.97); }
+  100% { transform: scale(1); }
+}
+.animate-pop { animation: scale-pop 180ms cubic-bezier(0.34, 1.56, 0.64, 1); }
+
+@keyframes spark-out {
+  0% { transform: translate(0, 0) scale(1); opacity: 1; }
+  100% { transform: translate(var(--dx), var(--dy)) scale(0.2); opacity: 0; }
+}
+.animate-spark { animation: spark-out 620ms cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+
+@keyframes rise-fade {
+  0% { transform: translateY(6px); opacity: 0; }
+  20% { transform: translateY(-2px); opacity: 1; }
+  100% { transform: translateY(-26px); opacity: 0; }
+}
+.animate-rise { animation: rise-fade 1100ms ease-out forwards; }
+
+.press-pop { transition: transform 120ms cubic-bezier(0.34, 1.56, 0.64, 1); }
+.press-pop:active { transform: scale(0.96); }
+
+.reduce-motion *,
+.reduce-motion *::before,
+.reduce-motion *::after {
+  animation-duration: 1ms !important;
+  transition-duration: 1ms !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 1ms !important;
+    transition-duration: 1ms !important;
+  }
+}

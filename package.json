@@ -5,7 +5,8 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build": "vite build && npm run build:ascensioncards",
+    "build:ascensioncards": "npm --prefix ascensioncards run build && rm -rf dist/ascensioncards && mkdir -p dist/ascensioncards && cp -R ascensioncards/.output/public/. dist/ascensioncards/",
     "build:dev": "vite build --mode development",
     "lint": "eslint .",
     "preview": "vite preview"

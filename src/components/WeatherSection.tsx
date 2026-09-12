@@ -66,8 +66,8 @@ const WeatherSection = () => {
     >
       <div className="flex items-center justify-between">
         <div>
-          <h2 className="text-2xl font-display font-bold text-foreground">Copenhagen Weather</h2>
-          <p className="text-sm text-muted-foreground">Live data from Open-Meteo API</p>
+          <h2 className="text-2xl font-display font-bold text-foreground">Vejret i København</h2>
+          <p className="text-sm text-muted-foreground">Live data fra Open-Meteo API</p>
         </div>
         <Button
           onClick={fetchWeather}
@@ -77,7 +77,7 @@ const WeatherSection = () => {
           className="gap-2"
         >
           <RefreshCw className={`w-4 h-4 ${loading ? "animate-spin" : ""}`} />
-          Refresh
+          Opdater
         </Button>
       </div>
 
@@ -92,20 +92,20 @@ const WeatherSection = () => {
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: 0.1 }}
-            className="bg-gradient-to-br from-weather-cool to-weather-cool/80 rounded-2xl p-8 text-accent-foreground"
+            className="bg-gradient-to-br from-blue-600 to-indigo-700 rounded-2xl p-6 sm:p-8 text-white shadow-lg"
           >
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-sm opacity-80 mb-1">Current Weather</p>
-                <div className="text-6xl font-display font-bold">
+                <p className="text-sm text-blue-100 mb-1 font-medium">Aktuel temperatur</p>
+                <div className="text-5xl sm:text-6xl font-display font-bold">
                   {loading ? "--" : `${weather?.current.temperature}°C`}
                 </div>
               </div>
               <div className="text-right">
-                <ThermometerSun className="w-16 h-16 opacity-80 mb-2" />
-                <div className="flex items-center gap-2 text-sm opacity-80">
+                <ThermometerSun className="w-14 h-14 sm:w-16 sm:h-16 text-amber-300 mb-2 inline-block" />
+                <div className="flex items-center justify-end gap-2 text-sm text-blue-100">
                   <Wind className="w-4 h-4" />
-                  {loading ? "--" : `${weather?.current.windspeed} km/h`}
+                  {loading ? "--" : `${weather?.current.windspeed} km/t`}
                 </div>
               </div>
             </div>
@@ -113,10 +113,10 @@ const WeatherSection = () => {
 
           {/* 5-Day Forecast */}
           <div>
-            <h3 className="text-lg font-display font-semibold mb-4 text-foreground">5-Day Forecast</h3>
-            <div className="grid grid-cols-5 gap-3">
+            <h3 className="text-lg font-display font-semibold mb-4 text-foreground">5-dages vejrudsigt</h3>
+            <div className="grid grid-cols-5 gap-2 sm:gap-3">
               {weather?.daily.time.slice(0, 5).map((date, index) => {
-                const dayName = new Date(date).toLocaleDateString("en-US", { weekday: "short" });
+                const dayName = new Date(date).toLocaleDateString("da-DK", { weekday: "short" });
                 const WeatherIcon = getWeatherIcon(weather.daily.weathercode[index]);
                 
                 return (
@@ -125,14 +125,14 @@ const WeatherSection = () => {
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.2 + index * 0.1 }}
-                    className="bg-card rounded-xl p-4 text-center border border-border shadow-sm hover:shadow-md transition-shadow"
+                    className="bg-card rounded-xl p-3 sm:p-4 text-center border border-border shadow-xs hover:shadow-md transition-shadow"
                   >
-                    <p className="text-sm font-medium text-muted-foreground mb-2">{dayName}</p>
-                    <WeatherIcon className="w-8 h-8 mx-auto text-weather-cool mb-2" />
-                    <p className="text-lg font-bold text-weather-warm">
+                    <p className="text-xs sm:text-sm font-medium text-muted-foreground mb-2 capitalize">{dayName}</p>
+                    <WeatherIcon className="w-6 h-6 sm:w-8 sm:h-8 mx-auto text-blue-500 mb-2" />
+                    <p className="text-base sm:text-lg font-bold text-amber-600 dark:text-amber-400">
                       {weather.daily.temperature_2m_max[index]}°
                     </p>
-                    <p className="text-sm text-muted-foreground">
+                    <p className="text-xs sm:text-sm text-muted-foreground">
                       {weather.daily.temperature_2m_min[index]}°
                     </p>
                   </motion.div>

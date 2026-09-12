@@ -1,28 +1,44 @@
 import { useState } from "react";
-import { ArrowLeft, Bird, CircleDot, Gamepad2, Grid3X3, Spade, Target } from "lucide-react";
+import { ArrowLeft, CircleDot, Gamepad2, Grid3X3, Target } from "lucide-react";
 import BlackjackGame from "./games/BlackjackGame";
 import PongGame from "./games/PongGame";
 import SnakeGame from "./games/SnakeGame";
 import WebShooterGame from "./games/WebShooterGame";
-import { AscensionGame } from "./ascension/AscensionGame";
-import { VanekortGame } from "./games/VanekortGame";
 
 const games = [
-  { id: "ascension", title: "Ascension Archipelago", description: "Explore, reflect, and build a steadier daily practice.", icon: Bird, tone: "from-sky-500/20 to-indigo-500/20" },
-  { id: "vanekort", title: "Vanekort", description: "Turn meaningful habits into a small daily quest.", icon: Spade, tone: "from-amber-500/20 to-orange-500/20" },
+  { id: "ascension-cards", title: "Ascension Cards", description: "Turn daily habits into collectible cards, quests, and character progress.", icon: Gamepad2, tone: "from-amber-500/20 to-indigo-500/20" },
   { id: "blackjack", title: "Blackjack", description: "Test your luck and judgment against the dealer.", icon: CircleDot, tone: "from-emerald-500/20 to-teal-500/20" },
   { id: "pong", title: "Pong", description: "A focused arcade duel against the machine.", icon: Target, tone: "from-cyan-500/20 to-blue-500/20" },
   { id: "snake", title: "Snake", description: "Grow carefully, move deliberately, stay alive.", icon: Grid3X3, tone: "from-lime-500/20 to-green-500/20" },
   { id: "web-shooter", title: "Superhero Hand Powers", description: "Choose Spider-Man or Wolverine, then use your camera-powered ability.", icon: Gamepad2, tone: "from-rose-500/20 to-purple-500/20" },
 ] as const;
 
-export default function GamesSection() {
-  const [selectedGame, setSelectedGame] = useState<string | null>(null);
+interface GamesSectionProps {
+  selectedGame?: string | null;
+  onSelectGame?: (gameId: string | null) => void;
+}
+
+export default function GamesSection({ selectedGame: controlledGame, onSelectGame }: GamesSectionProps = {}) {
+  const [internalGame, setInternalGame] = useState<string | null>(null);
+  const selectedGame = controlledGame !== undefined ? controlledGame : internalGame;
+  const setSelectedGame = (id: string | null) => {
+    if (onSelectGame) {
+      onSelectGame(id);
+    } else {
+      setInternalGame(id);
+    }
+  };
 
   const renderGame = () => {
     switch (selectedGame) {
-      case "ascension": return <AscensionGame />;
-      case "vanekort": return <VanekortGame />;
+      case "ascension-cards":
+        return (
+          <iframe
+            title="Ascension Cards"
+            src={`${import.meta.env.BASE_URL}ascensioncards/`}
+            className="h-[min(78vh,900px)] min-h-[700px] w-full rounded-2xl border border-border bg-slate-950 shadow-xl"
+          />
+        );
       case "blackjack": return <BlackjackGame />;
       case "pong": return <PongGame />;
       case "snake": return <SnakeGame />;
@@ -60,7 +76,7 @@ export default function GamesSection() {
           </div>
           <h2 className="text-4xl font-bold">Choose your game</h2>
           <p className="mt-3 text-muted-foreground">
-            Pick a short challenge or enter Ascension Archipelago for a slower, more reflective journey.
+            Pick a short challenge or enter Ascension Cards for a slower, more reflective journey.
           </p>
         </div>
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">

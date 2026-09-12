@@ -1,16 +1,32 @@
-import { useLocation, Link, Navigate, useParams } from "react-router-dom";
+import { useLocation, Link, useParams } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { ArrowLeft, ExternalLink, Briefcase, User, Phone, CheckCircle2, Film, BookOpen, BadgeCheck } from "lucide-react";
+import { ArrowLeft, ExternalLink, Briefcase, User, Phone, CheckCircle2, Film, BookOpen, BadgeCheck, FileQuestion } from "lucide-react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import { getCVItemById } from "@/data/cvData";
 
 export default function CVDetail() {
   const location = useLocation();
-  const { id } = useParams();
-  const cvData = location.state?.cvData;
+  const { id } = useParams<{ id: string }>();
+  const cvData = location.state?.cvData || (id ? getCVItemById(id) : undefined);
 
   if (!cvData) {
-    return <Navigate to="/" replace />;
+    return (
+      <div className="container mx-auto px-4 py-16 max-w-2xl text-center space-y-6">
+        <div className="inline-flex h-16 w-16 items-center justify-center rounded-full bg-muted text-muted-foreground">
+          <FileQuestion className="h-8 w-8" />
+        </div>
+        <h1 className="text-3xl font-bold">Erfaring ikke fundet</h1>
+        <p className="text-muted-foreground">
+          Den ønskede profil eller erfaring kunne desværre ikke findes.
+        </p>
+        <Button asChild>
+          <Link to="/">
+            <ArrowLeft className="mr-2 h-4 w-4" /> Tilbage til oversigten
+          </Link>
+        </Button>
+      </div>
+    );
   }
 
   // Specielt indhold for Kandidatuddannelsen (RUC)
@@ -196,21 +212,17 @@ export default function CVDetail() {
           <CardHeader>
             <CardTitle className="text-lg flex items-center gap-2">
               <User className="h-5 w-5" />
-              Kontaktperson
+              Referencer & Kontakt
             </CardTitle>
           </CardHeader>
           <CardContent>
             <div className="space-y-3">
-              <p className="font-semibold text-base">Kim Nilsson Nilsson</p>
-              <div className="space-y-1 text-sm text-muted-foreground">
-                <div className="flex items-center gap-2">
-                  <Phone className="h-4 w-4" />
-                  <a href="tel:+4527113728" className="hover:text-primary transition-colors">+45 27 11 37 28</a>
-                </div>
-                <div className="flex items-center gap-2">
-                  <Phone className="h-4 w-4" />
-                  <a href="tel:+4531138577" className="hover:text-primary transition-colors">+45 31 13 85 77</a>
-                </div>
+              <p className="text-sm text-muted-foreground">
+                Uddybende dokumentation for sagsarbejdet samt kontaktinformation til tidligere kollegaer og ledere fremsendes gerne efter aftale.
+              </p>
+              <div className="inline-flex items-center gap-2 text-sm font-medium text-emerald-600 dark:text-emerald-400">
+                <CheckCircle2 className="h-4 w-4" />
+                Referencer oplyses ved henvendelse
               </div>
             </div>
           </CardContent>
@@ -229,13 +241,17 @@ export default function CVDetail() {
       
       <div className="space-y-8">
         <div>
-          <h1 className="text-4xl font-bold text-slate-900 dark:text-slate-100 mb-2">
+          <div className="flex flex-wrap items-center gap-2 mb-3">
+            <Badge variant="secondary">{cvData.type}</Badge>
+            <span className="text-sm text-muted-foreground font-medium">{cvData.period}</span>
+          </div>
+          <h1 className="text-3xl md:text-4xl font-bold text-slate-900 dark:text-slate-100 mb-2">
             {cvData.title}
           </h1>
-          <h2 className="text-2xl text-muted-foreground mb-4">
-            {cvData.organization} <span className="text-base font-normal ml-2">({cvData.period})</span>
+          <h2 className="text-xl md:text-2xl text-muted-foreground mb-4">
+            {cvData.organization}
           </h2>
-          <p className="text-lg leading-relaxed text-slate-700 dark:text-slate-300 bg-slate-50 dark:bg-slate-900/50 p-6 rounded-lg border">
+          <p className="text-base md:text-lg leading-relaxed text-slate-700 dark:text-slate-300 bg-slate-50 dark:bg-slate-900/50 p-6 rounded-lg border">
             {cvData.description}
           </p>
         </div>
@@ -249,13 +265,36 @@ export default function CVDetail() {
           renderTolkContent()
         ) : id === 'ruc-kandidat' ? (
           renderKandidatContent()
+        ) : cvData.bullets && cvData.bullets.length > 0 ? (
+          <div className="space-y-6 mt-8 animate-in fade-in slide-in-from-bottom-4 duration-500">
+            <Card>
+              <CardHeader>
+                <CardTitle className="text-xl flex items-center gap-2">
+                  <CheckCircle2 className="h-5 w-5 text-primary" />
+                  Nøgleopgaver & Læringspunkter
+                </CardTitle>
+                <CardDescription>
+                  Væsentlige ansvarsområder og faglige kompetencer opbygget i forløbet.
+                </CardDescription>
+              </CardHeader>
+              <CardContent>
+                <ul className="space-y-3 text-sm md:text-base text-slate-700 dark:text-slate-300 list-disc pl-5 marker:text-primary">
+                  {cvData.bullets.map((bullet, index) => (
+                    <li key={index} className="leading-relaxed">
+                      {bullet}
+                    </li>
+                  ))}
+                </ul>
+              </CardContent>
+            </Card>
+          </div>
         ) : (
-          <div className="border-2 border-dashed border-slate-300 dark:border-slate-700 rounded-xl p-12 text-center flex flex-col items-center justify-center min-h-[300px] bg-slate-50/50 dark:bg-slate-900/20 mt-8">
+          <div className="border-2 border-dashed border-slate-300 dark:border-slate-700 rounded-xl p-12 text-center flex flex-col items-center justify-center min-h-[250px] bg-slate-50/50 dark:bg-slate-900/20 mt-8">
             <h3 className="text-xl font-semibold mb-2 text-slate-700 dark:text-slate-300">
-              Ekstra Kontekst
+              Yderligere Dokumentation
             </h3>
             <p className="text-muted-foreground max-w-md">
-              Denne sektion er klar til at blive udvidet. Her kan du tilføje en videopræsentation for din tid som {cvData.title.toLowerCase()}, fremvise uddannelsesbeviser eller linke til relevante projekter.
+              Relevante certifikater og udtalelser for denne stilling kan fremsendes ved henvendelse.
             </p>
           </div>
         )}

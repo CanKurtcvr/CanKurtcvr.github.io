@@ -1,7 +1,20 @@
+import { useState } from "react";
 import { motion } from "framer-motion";
-import { MapPin, Phone, Mail, Linkedin } from "lucide-react";
+import { MapPin, Phone, Mail, Linkedin, Github, Printer, Copy, Check } from "lucide-react";
+import { ThemeToggle } from "./ThemeToggle";
+import { toast } from "sonner";
+import { Button } from "@/components/ui/button";
 
 const Header = () => {
+  const [copiedField, setCopiedField] = useState<string | null>(null);
+
+  const copyToClipboard = (text: string, label: string) => {
+    navigator.clipboard.writeText(text);
+    setCopiedField(label);
+    toast.success(`${label} kopieret til udklipsholder!`);
+    setTimeout(() => setCopiedField(null), 2000);
+  };
+
   return (
     <motion.header
       initial={{ opacity: 0, y: -20 }}
@@ -17,17 +30,32 @@ const Header = () => {
           backgroundSize: '40px 40px'
         }} />
       </div>
+
+      {/* Top action bar: Theme toggle & Print */}
+      <div className="relative z-20 flex justify-end items-center gap-2 px-6 pt-4 max-w-4xl mx-auto">
+        <Button
+          variant="ghost"
+          size="sm"
+          onClick={() => window.print()}
+          className="text-header-foreground/70 hover:text-header-foreground hover:bg-white/10 gap-1.5 text-xs md:text-sm"
+          title="Udskriv eller gem som PDF"
+        >
+          <Printer className="w-3.5 h-3.5" />
+          <span className="hidden sm:inline">Hent / Print CV</span>
+        </Button>
+        <ThemeToggle />
+      </div>
       
-      <div className="relative z-10 px-6 py-12 md:py-16 text-center max-w-4xl mx-auto">
-        {/* Profile Image */}
+      <div className="relative z-10 px-6 pb-12 pt-4 md:pb-16 text-center max-w-4xl mx-auto">
+        {/* Profile Image / Monogram */}
         <motion.div
           initial={{ scale: 0.8, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
           transition={{ delay: 0.2, duration: 0.5 }}
           className="mb-6"
         >
-          <div className="w-28 h-28 md:w-32 md:h-32 mx-auto rounded-full bg-gradient-to-br from-accent to-accent/80 p-1 shadow-xl">
-            <div className="w-full h-full rounded-full bg-header flex items-center justify-center text-4xl font-display font-bold text-accent">
+          <div className="w-28 h-28 md:w-32 md:h-32 mx-auto rounded-full bg-gradient-to-br from-accent to-accent/80 p-1 shadow-xl overflow-hidden">
+            <div className="w-full h-full rounded-full bg-header flex items-center justify-center text-4xl font-display font-bold text-accent select-none">
               CK
             </div>
           </div>
@@ -48,9 +76,17 @@ const Header = () => {
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.4, duration: 0.5 }}
-          className="text-lg md:text-xl text-header-foreground/70 mb-6 font-medium"
+          className="text-base md:text-lg text-header-foreground/80 mb-2 font-medium max-w-2xl mx-auto"
         >
-          Udvikling er mit mindset – IT og forretning er mine værktøjer.
+          Kandidatstuderende i Digital Transformation & IT-konsulent
+        </motion.p>
+        <motion.p
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.45, duration: 0.5 }}
+          className="text-sm md:text-base text-header-foreground/60 mb-6 italic"
+        >
+          "Udvikling er mit mindset – IT og forretning er mine værktøjer."
         </motion.p>
 
         {/* Contact Links */}
@@ -58,37 +94,67 @@ const Header = () => {
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.5, duration: 0.5 }}
-          className="flex flex-wrap justify-center items-center gap-4 md:gap-6 text-sm md:text-base"
+          className="flex flex-wrap justify-center items-center gap-3 md:gap-5 text-sm md:text-base"
         >
-          <span className="flex items-center gap-2 text-header-foreground/60">
-            <MapPin className="w-4 h-4" />
-            Copenhagen, Denmark
+          <span className="flex items-center gap-1.5 text-header-foreground/60">
+            <MapPin className="w-4 h-4 text-accent/80" />
+            København, Danmark
           </span>
           
-          <a
-            href="tel:+4528701213"
-            className="flex items-center gap-2 text-accent hover:text-accent/80 transition-colors"
-          >
-            <Phone className="w-4 h-4" />
-            +45 28 70 12 13
-          </a>
+          <div className="flex items-center gap-1">
+            <a
+              href="tel:+4528701213"
+              className="flex items-center gap-1.5 text-accent hover:text-accent/80 transition-colors"
+            >
+              <Phone className="w-4 h-4" />
+              +45 28 70 12 13
+            </a>
+            <button
+              onClick={() => copyToClipboard("+4528701213", "Telefonnummer")}
+              className="p-1 text-header-foreground/40 hover:text-accent transition-colors"
+              title="Kopiér telefonnummer"
+              aria-label="Kopiér telefonnummer"
+            >
+              {copiedField === "Telefonnummer" ? <Check className="w-3.5 h-3.5 text-green-400" /> : <Copy className="w-3.5 h-3.5" />}
+            </button>
+          </div>
           
-          <a
-            href="mailto:cankurtcvr@gmail.com"
-            className="flex items-center gap-2 text-accent hover:text-accent/80 transition-colors"
-          >
-            <Mail className="w-4 h-4" />
-            Email
-          </a>
+          <div className="flex items-center gap-1">
+            <a
+              href="mailto:cankurtcvr@gmail.com"
+              className="flex items-center gap-1.5 text-accent hover:text-accent/80 transition-colors"
+            >
+              <Mail className="w-4 h-4" />
+              cankurtcvr@gmail.com
+            </a>
+            <button
+              onClick={() => copyToClipboard("cankurtcvr@gmail.com", "Email")}
+              className="p-1 text-header-foreground/40 hover:text-accent transition-colors"
+              title="Kopiér email"
+              aria-label="Kopiér email"
+            >
+              {copiedField === "Email" ? <Check className="w-3.5 h-3.5 text-green-400" /> : <Copy className="w-3.5 h-3.5" />}
+            </button>
+          </div>
           
           <a
             href="https://linkedin.com/in/canxkurt"
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-2 text-accent hover:text-accent/80 transition-colors"
+            className="flex items-center gap-1.5 text-accent hover:text-accent/80 transition-colors"
           >
             <Linkedin className="w-4 h-4" />
             LinkedIn
+          </a>
+
+          <a
+            href="https://github.com/CanKurtcvr"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-1.5 text-accent hover:text-accent/80 transition-colors"
+          >
+            <Github className="w-4 h-4" />
+            GitHub
           </a>
         </motion.div>
       </div>
