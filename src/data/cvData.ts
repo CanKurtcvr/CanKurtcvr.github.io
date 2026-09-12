@@ -1,9 +1,12 @@
+export type CVCategory = "all" | "it" | "uddannelse" | "omsorg";
+
 export interface CVItem {
   id: string;
   title: string;
   organization: string;
   period: string;
   type: "Uddannelse" | "Erfaring" | "Frivilligt arbejde";
+  category: "it" | "uddannelse" | "omsorg";
   description: string;
   tags: string[];
   bullets?: string[];
@@ -17,6 +20,7 @@ export const cvItems: CVItem[] = [
     organization: "Roskilde Universitet (RUC)",
     period: "Start Sep. 2026",
     type: "Uddannelse",
+    category: "uddannelse",
     description: "Videreuddannelse med fokus på digital omstilling, teknologi, strategisk ledelse og it-systemer i organisationer.",
     tags: ["Digital Transformation", "It-strategi", "RUC"],
     bullets: [
@@ -31,6 +35,7 @@ export const cvItems: CVItem[] = [
     organization: "Roskilde Universitet",
     period: "Sep. 2021 - Jun. 2024",
     type: "Uddannelse",
+    category: "uddannelse",
     description: "Tværfaglig uddannelse der kombinerer datalogi, programmering, databasedesign, regnskab og organisatorisk udvikling.",
     tags: ["Informatik", "Virksomhedsstudier", "UX-design", "Dataanalyse"],
     bullets: [
@@ -47,6 +52,7 @@ export const cvItems: CVItem[] = [
     organization: "Danske Bank (via EY / M Networks)",
     period: "Jun. 2022 - Dec. 2023",
     type: "Erfaring",
+    category: "it",
     description: "Ansvarlig for fejlretning i komplekse kundesager, analyse af store datamængder i Excel og onboarding i forbindelse med gældssanering og inkasso-oprydning.",
     tags: ["Dataanalyse", "Fejlretning", "Excel", "Onboarding"],
     bullets: [
@@ -63,6 +69,7 @@ export const cvItems: CVItem[] = [
     organization: "Kærbo Omsorgscenter, Ishøj",
     period: "Jun. 2026 - Sep. 2026",
     type: "Erfaring",
+    category: "omsorg",
     description: "Hjælp til ældre borgere med daglige rutiner, personlig pleje, aktivisering og digital journalføring.",
     tags: ["Ældrepleje", "Journalføring", "Omsorg", "Empati"],
     bullets: [
@@ -77,6 +84,7 @@ export const cvItems: CVItem[] = [
     organization: "Forsorgshjemmet Absalon",
     period: "Jan. 2024 - Nuværende",
     type: "Erfaring",
+    category: "omsorg",
     description: "Yder administrativ støtte og personlig omsorg til socialt udsatte borgere og håndterer komplekse sociale situationer med ro og empati.",
     tags: ["Socialt arbejde", "Administration", "Empati", "Konflikthåndtering"],
     bullets: [
@@ -93,6 +101,7 @@ export const cvItems: CVItem[] = [
     organization: "Tolk Danmark",
     period: "Feb. 2024 - Nuværende",
     type: "Erfaring",
+    category: "omsorg",
     description: "Formidler præcis tolkning og kommunikation ved kritiske møder med fokus på etik, diskretion og professionalisme.",
     tags: ["Sprog", "Kommunikation", "Etik", "Diskretion"],
     bullets: [
@@ -107,6 +116,7 @@ export const cvItems: CVItem[] = [
     organization: "Ole-Rømer skolen - Høje Taastrup",
     period: "Aug. 2019 - Okt. 2021",
     type: "Erfaring",
+    category: "omsorg",
     description: "Understøttede undervisning og agerede støttepædagog for elever med faglige og sociale udfordringer.",
     tags: ["Undervisning", "Pædagogik", "Klasseledelse"],
     bullets: [
@@ -120,6 +130,7 @@ export const cvItems: CVItem[] = [
     organization: "Red Barnet Ungdom",
     period: "Mar. 2025 - Nuv.",
     type: "Frivilligt arbejde",
+    category: "omsorg",
     description: "Frivillig mentor med fokus på faglig indlæring, motivation og selvtillid hos skoleelever.",
     tags: ["Frivilligt", "Mentorskab", "Formidling"],
     bullets: [

@@ -39,6 +39,7 @@ export default function PongGame() {
       let goalFlashAlpha = 0;
       let goalFlashColor = [255, 255, 255];
       let serveDelayTimer = 45;
+      let targetTouchY: number | null = null;
 
       const resetBall = () => {
         ballX = p.width / 2;
@@ -128,8 +129,17 @@ export default function PongGame() {
         }
 
         // Move Player
-        if (p.keyIsDown(p.UP_ARROW) || p.keyIsDown(87)) playerY -= 8;
-        if (p.keyIsDown(p.DOWN_ARROW) || p.keyIsDown(83)) playerY += 8;
+        if (p.keyIsDown(p.UP_ARROW) || p.keyIsDown(87)) {
+          playerY -= 8;
+          targetTouchY = null;
+        }
+        if (p.keyIsDown(p.DOWN_ARROW) || p.keyIsDown(83)) {
+          playerY += 8;
+          targetTouchY = null;
+        }
+        if (targetTouchY !== null) {
+          playerY += (targetTouchY - playerY) * 0.35;
+        }
         playerY = p.constrain(playerY, paddleHeight / 2, p.height - paddleHeight / 2);
 
         // Move AI
@@ -223,7 +233,22 @@ export default function PongGame() {
           p.fill(goalFlashColor[0], goalFlashColor[1], goalFlashColor[2], goalFlashAlpha);
           p.rect(p.width / 2, p.height / 2, p.width, p.height);
           goalFlashAlpha -= 12;
-        }
+        p.touchStarted = () => {
+          if (p.touches && p.touches.length > 0) {
+            targetTouchY = (p.touches[0] as { x: number; y: number }).y;
+          }
+        };
+
+        p.touchMoved = () => {
+          if (p.touches && p.touches.length > 0) {
+            targetTouchY = (p.touches[0] as { x: number; y: number }).y;
+            return false;
+          }
+        };
+
+        p.touchEnded = () => {
+          targetTouchY = null;
+        };
       };
 
       resizeGame = () => {
@@ -245,11 +270,17 @@ export default function PongGame() {
   }, []);
 
   return (
-    <div className="w-full overflow-hidden rounded-lg">
-      <div ref={containerRef} className="aspect-video max-h-[70vh] min-h-[320px]" />
-      <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 border-t border-slate-800 bg-slate-950 px-4 py-3 text-sm text-slate-300">
-        <span><strong className="text-cyan-400">W / S</strong> or <strong className="text-cyan-400">↑ / ↓</strong> Move paddle</span>
-        <span><strong className="text-rose-400">Score</strong> first to 10 wins</span>
+    <div className="w-full overflow-hidden rounded-xl border border-border shadow-xl bg-slate-950">
+      <div ref={containerRef} className="aspect-video max-h-[70vh] min-h-[320px] touch-none" />
+      <div className="flex flex-wrap items-center justify-between gap-2 border-t border-slate-800 bg-slate-950 px-4 py-3 text-xs sm:text-sm text-slate-300">
+        <div className="flex items-center gap-3">
+          <span><strong className="text-cyan-400 font-mono">W / S</strong> eller <strong className="text-cyan-400 font-mono">↑ / ↓</strong></span>
+          <span className="text-slate-500">|</span>
+          <span className="text-muted-foreground sm:inline">Træk med fingeren på mobil</span>
+        </div>
+        <div>
+          <span className="text-rose-400 font-semibold">Først til 10 vinder</span>
+        </div>
       </div>
     </div>
   );

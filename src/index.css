@@ -143,3 +143,29 @@
     box-shadow: var(--shadow-glow);
   }
 }
+
+@media print {
+  @page {
+    margin: 1.2cm;
+    size: A4 portrait;
+  }
+  
+  body, html {
+    background: #ffffff !important;
+    color: #0f172a !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  /* Prevent awkward page breaks inside articles and sections */
+  article, section {
+    break-inside: avoid !important;
+    page-break-inside: avoid !important;
+  }
+
+  /* Hide interactive controls and screen navigation */
+  button, [role="tablist"], nav, .print-hide {
+    display: none !important;
+  }
+}
+

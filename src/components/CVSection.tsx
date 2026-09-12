@@ -1,44 +1,127 @@
+import { useState, useMemo } from "react";
 import { Link } from "react-router-dom";
 import { Card, CardHeader, CardTitle, CardDescription, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { cvItems } from "@/data/cvData";
+import { Button } from "@/components/ui/button";
+import { cvItems, CVCategory } from "@/data/cvData";
+import SkillsSection from "./SkillsSection";
+import { motion, AnimatePresence } from "framer-motion";
+import { Sparkles, Briefcase, GraduationCap, HeartHandshake } from "lucide-react";
 
 export default function CVSection() {
+  const [selectedCategory, setSelectedCategory] = useState<CVCategory>("all");
+
+  const categories = useMemo(() => [
+    { id: "all" as CVCategory, label: "Alle", icon: Sparkles, count: cvItems.length },
+    { id: "it" as CVCategory, label: "IT & Digitalisering", icon: Briefcase, count: cvItems.filter(i => i.category === "it").length },
+    { id: "uddannelse" as CVCategory, label: "Uddannelse", icon: GraduationCap, count: cvItems.filter(i => i.category === "uddannelse").length },
+    { id: "omsorg" as CVCategory, label: "Omsorg & Formidling", icon: HeartHandshake, count: cvItems.filter(i => i.category === "omsorg").length },
+  ], []);
+
+  const filteredItems = useMemo(() => {
+    if (selectedCategory === "all") return cvItems;
+    return cvItems.filter(item => item.category === selectedCategory);
+  }, [selectedCategory]);
+
   return (
-    <section id="cv" className="py-12 bg-slate-50 dark:bg-slate-900/50">
-      <div className="container mx-auto px-4 max-w-4xl">
-        <h2 className="text-3xl font-bold mb-8 text-center">Profil & Erfaring</h2>
-        <p className="text-center text-muted-foreground mb-8">
-          Ambitiøs profil med en stærk og alsidig baggrund inden for IT, analyse og formidling. Klik på et kort for at dykke ned i detaljerne.
-        </p>
-        
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          {cvItems.map((item) => (
-            <Link key={item.id} to={`/cv/${item.id}`} state={{ cvData: item }} className="block transition-transform hover:-translate-y-1">
-              <Card className="h-full hover:border-primary/50 hover:shadow-md cursor-pointer transition-colors">
-                <CardHeader>
-                  <div className="flex justify-between items-start mb-2">
-                    <Badge variant="secondary">{item.type}</Badge>
-                    <span className="text-xs text-muted-foreground font-medium">{item.period}</span>
-                  </div>
-                  <CardTitle className="text-xl">{item.title}</CardTitle>
-                  <CardDescription className="text-base text-foreground/80 font-medium">
-                    {item.organization}
-                  </CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <div className="flex flex-wrap gap-2">
-                    {item.tags.map(tag => (
-                      <span key={tag} className="text-xs bg-slate-100 dark:bg-slate-800 px-2 py-1 rounded-md">
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
-                </CardContent>
-              </Card>
-            </Link>
-          ))}
+    <section id="cv" className="py-6 space-y-12">
+      {/* Faglige Kompetencer */}
+      <SkillsSection />
+
+      {/* Profil & Erfaring */}
+      <div className="space-y-6">
+        <div className="text-center max-w-2xl mx-auto space-y-2">
+          <h2 className="text-3xl font-display font-bold text-foreground">
+            Erfaring & Uddannelsesforløb
+          </h2>
+          <p className="text-sm md:text-base text-muted-foreground leading-relaxed">
+            Ambitiøs profil med en stærk og alsidig baggrund inden for IT, dataanalyse og formidling. Klik på et kort for at dykke ned i detaljerne.
+          </p>
         </div>
+
+        {/* Filter Chips */}
+        <div className="flex flex-wrap items-center justify-center gap-2 pt-2">
+          {categories.map((cat) => {
+            const Icon = cat.icon;
+            const isActive = selectedCategory === cat.id;
+            return (
+              <Button
+                key={cat.id}
+                variant={isActive ? "default" : "outline"}
+                size="sm"
+                onClick={() => setSelectedCategory(cat.id)}
+                className={`gap-2 rounded-full text-xs md:text-sm transition-all ${
+                  isActive ? "bg-accent text-accent-foreground hover:bg-accent/90" : "hover:bg-muted"
+                }`}
+              >
+                <Icon className="w-3.5 h-3.5" />
+                <span>{cat.label}</span>
+                <span className={`text-[11px] px-1.5 py-0.2 rounded-full font-bold ${
+                  isActive ? "bg-black/20 text-white" : "bg-muted text-muted-foreground"
+                }`}>
+                  {cat.count}
+                </span>
+              </Button>
+            );
+          })}
+        </div>
+        
+        {/* Experience Cards Grid */}
+        <motion.div layout className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <AnimatePresence mode="popLayout">
+            {filteredItems.map((item) => (
+              <motion.div
+                key={item.id}
+                layout
+                initial={{ opacity: 0, scale: 0.96 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.96 }}
+                transition={{ duration: 0.2 }}
+                className="h-full"
+              >
+                <Link
+                  to={`/cv/${item.id}`}
+                  state={{ cvData: item }}
+                  className="block h-full transition-transform hover:-translate-y-1 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-accent rounded-xl"
+                >
+                  <Card className="h-full hover:border-primary/50 hover:shadow-md cursor-pointer transition-colors flex flex-col justify-between">
+                    <CardHeader className="space-y-2">
+                      <div className="flex justify-between items-start">
+                        <Badge variant="secondary" className="text-xs">
+                          {item.type}
+                        </Badge>
+                        <span className="text-xs text-muted-foreground font-medium">
+                          {item.period}
+                        </span>
+                      </div>
+                      <CardTitle className="text-lg md:text-xl font-bold">
+                        {item.title}
+                      </CardTitle>
+                      <CardDescription className="text-sm font-medium text-foreground/80">
+                        {item.organization}
+                      </CardDescription>
+                      <p className="text-xs md:text-sm text-muted-foreground line-clamp-2 leading-relaxed pt-1">
+                        {item.description}
+                      </p>
+                    </CardHeader>
+                    <CardContent className="pt-0">
+                      <div className="flex flex-wrap gap-1.5">
+                        {item.tags.map((tag) => (
+                          <span
+                            key={tag}
+                            className="text-[11px] bg-slate-100 dark:bg-slate-800 px-2 py-0.5 rounded-md font-medium text-muted-foreground"
+                          >
+                            {tag}
+                          </span>
+                        ))}
+                      </div>
+                    </CardContent>
+                  </Card>
+                </Link>
+              </motion.div>
+            ))}
+          </AnimatePresence>
+        </motion.div>
       </div>
     </section>
   );

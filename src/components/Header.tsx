@@ -5,7 +5,13 @@ import { ThemeToggle } from "./ThemeToggle";
 import { toast } from "sonner";
 import { Button } from "@/components/ui/button";
 
-const Header = () => {
+import ContactDialog from "./ContactDialog";
+
+interface HeaderProps {
+  onPrintCV?: () => void;
+}
+
+const Header = ({ onPrintCV }: HeaderProps = {}) => {
   const [copiedField, setCopiedField] = useState<string | null>(null);
 
   const copyToClipboard = (text: string, label: string) => {
@@ -13,6 +19,14 @@ const Header = () => {
     setCopiedField(label);
     toast.success(`${label} kopieret til udklipsholder!`);
     setTimeout(() => setCopiedField(null), 2000);
+  };
+
+  const handlePrint = () => {
+    if (onPrintCV) {
+      onPrintCV();
+    } else {
+      window.print();
+    }
   };
 
   return (
@@ -36,7 +50,7 @@ const Header = () => {
         <Button
           variant="ghost"
           size="sm"
-          onClick={() => window.print()}
+          onClick={handlePrint}
           className="text-header-foreground/70 hover:text-header-foreground hover:bg-white/10 gap-1.5 text-xs md:text-sm"
           title="Udskriv eller gem som PDF"
         >
@@ -84,10 +98,20 @@ const Header = () => {
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.45, duration: 0.5 }}
-          className="text-sm md:text-base text-header-foreground/60 mb-6 italic"
+          className="text-sm md:text-base text-header-foreground/60 mb-5 italic"
         >
           "Udvikling er mit mindset – IT og forretning er mine værktøjer."
         </motion.p>
+
+        {/* Contact CTA */}
+        <motion.div
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.48, duration: 0.5 }}
+          className="mb-6 flex justify-center"
+        >
+          <ContactDialog />
+        </motion.div>
 
         {/* Contact Links */}
         <motion.div
