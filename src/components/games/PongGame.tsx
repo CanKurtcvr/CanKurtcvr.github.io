@@ -233,22 +233,24 @@ export default function PongGame() {
           p.fill(goalFlashColor[0], goalFlashColor[1], goalFlashColor[2], goalFlashAlpha);
           p.rect(p.width / 2, p.height / 2, p.width, p.height);
           goalFlashAlpha -= 12;
-        p.touchStarted = () => {
-          if (p.touches && p.touches.length > 0) {
-            targetTouchY = (p.touches[0] as { x: number; y: number }).y;
-          }
-        };
+        }
+      };
 
-        p.touchMoved = () => {
-          if (p.touches && p.touches.length > 0) {
-            targetTouchY = (p.touches[0] as { x: number; y: number }).y;
-            return false;
-          }
-        };
+      p.touchStarted = () => {
+        if (p.touches && p.touches.length > 0) {
+          targetTouchY = (p.touches[0] as { x: number; y: number }).y;
+        }
+      };
 
-        p.touchEnded = () => {
-          targetTouchY = null;
-        };
+      p.touchMoved = () => {
+        if (p.touches && p.touches.length > 0) {
+          targetTouchY = (p.touches[0] as { x: number; y: number }).y;
+          return false;
+        }
+      };
+
+      p.touchEnded = () => {
+        targetTouchY = null;
       };
 
       resizeGame = () => {
