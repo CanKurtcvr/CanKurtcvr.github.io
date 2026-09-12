@@ -146,7 +146,6 @@ const SnakeGame = () => {
     return () => clearInterval(interval);
   }, [isPlaying, gameLoop]);
 
-  useEffect(() => {
   const handleDirection = useCallback((nextX: number, nextY: number) => {
     if (!isPlaying && !isGameOver) {
       resetGame();
