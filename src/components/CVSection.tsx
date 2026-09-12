@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button";
 import { cvItems, CVCategory } from "@/data/cvData";
 import SkillsSection from "./SkillsSection";
 import { motion, AnimatePresence } from "framer-motion";
-import { Sparkles, Briefcase, GraduationCap, HeartHandshake } from "lucide-react";
+import { Sparkles, Briefcase, GraduationCap, HeartHandshake, Printer } from "lucide-react";
 
 export default function CVSection() {
   const [selectedCategory, setSelectedCategory] = useState<CVCategory>("all");
@@ -30,13 +30,24 @@ export default function CVSection() {
 
       {/* Profil & Erfaring */}
       <div className="space-y-6">
-        <div className="text-center max-w-2xl mx-auto space-y-2">
+        <div className="text-center max-w-2xl mx-auto space-y-3">
           <h2 className="text-3xl font-display font-bold text-foreground">
             Erfaring & Uddannelsesforløb
           </h2>
           <p className="text-sm md:text-base text-muted-foreground leading-relaxed">
-            Ambitiøs profil med en stærk og alsidig baggrund inden for IT, dataanalyse og formidling. Klik på et kort for at dykke ned i detaljerne.
+            Ambitiøs profil med en stærk og alsidig baggrund inden for IT, dataanalyse og formidling. Klik på et kort for at dykke ned i detaljerne, eller download det komplette CV som selvstændigt PDF-dokument.
           </p>
+          <div className="pt-1">
+            <Button
+              variant="outline"
+              size="sm"
+              onClick={() => window.print()}
+              className="gap-2 rounded-full border-primary/30 hover:border-primary text-xs md:text-sm hover:bg-primary/5 shadow-xs"
+            >
+              <Printer className="w-3.5 h-3.5 text-primary" />
+              <span>Hent / Print CV (Standalone PDF med interaktivt indeks)</span>
+            </Button>
+          </div>
         </div>
 
         {/* Filter Chips */}

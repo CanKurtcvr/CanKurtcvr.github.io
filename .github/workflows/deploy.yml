@@ -30,9 +30,6 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Install Ascension Cards dependencies
-        run: npm --prefix ascensioncards install
-
       - name: Build
         run: npm run build
 

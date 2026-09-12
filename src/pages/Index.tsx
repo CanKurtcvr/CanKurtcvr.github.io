@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import Header from "@/components/Header";
 import TabNavigation from "@/components/TabNavigation";
@@ -15,6 +15,18 @@ type TabType = "cv" | "weather" | "news" | "games" | "projects";
 const Index = () => {
   const [activeTab, setActiveTab] = useState<TabType>("cv");
   const [selectedGame, setSelectedGame] = useState<string | null>(null);
+
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    const tabParam = params.get("tab") as TabType | null;
+    const gameParam = params.get("game");
+    if (tabParam && ["cv", "weather", "news", "games", "projects"].includes(tabParam)) {
+      setActiveTab(tabParam);
+    }
+    if (gameParam) {
+      setSelectedGame(gameParam);
+    }
+  }, []);
 
   const handleNavigateToGame = (gameId: string) => {
     setSelectedGame(gameId);

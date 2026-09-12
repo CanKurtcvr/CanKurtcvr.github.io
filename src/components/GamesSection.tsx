@@ -4,6 +4,10 @@ import BlackjackGame from "./games/BlackjackGame";
 import PongGame from "./games/PongGame";
 import SnakeGame from "./games/SnakeGame";
 import WebShooterGame from "./games/WebShooterGame";
+import { VanekortGame } from "./games/VanekortGame";
+import { AscensionGame } from "./ascension/AscensionGame";
+import { Button } from "@/components/ui/button";
+import { Sparkles, Compass } from "lucide-react";
 
 const games = [
   { id: "ascension-cards", title: "Ascension Cards", description: "Turn daily habits into collectible cards, quests, and character progress.", icon: Gamepad2, tone: "from-amber-500/20 to-indigo-500/20" },
@@ -20,6 +24,7 @@ interface GamesSectionProps {
 
 export default function GamesSection({ selectedGame: controlledGame, onSelectGame }: GamesSectionProps = {}) {
   const [internalGame, setInternalGame] = useState<string | null>(null);
+  const [ascensionSubView, setAscensionSubView] = useState<"cards" | "world">("cards");
   const selectedGame = controlledGame !== undefined ? controlledGame : internalGame;
   const setSelectedGame = (id: string | null) => {
     if (onSelectGame) {
@@ -33,11 +38,30 @@ export default function GamesSection({ selectedGame: controlledGame, onSelectGam
     switch (selectedGame) {
       case "ascension-cards":
         return (
-          <iframe
-            title="Ascension Cards"
-            src={`${import.meta.env.BASE_URL}ascensioncards/`}
-            className="h-[min(78vh,900px)] min-h-[700px] w-full rounded-2xl border border-border bg-slate-950 shadow-xl"
-          />
+          <div className="space-y-6">
+            <div className="flex justify-center items-center gap-2 bg-muted/60 p-1.5 rounded-full max-w-sm mx-auto border border-border/80 shadow-xs">
+              <Button
+                variant={ascensionSubView === "cards" ? "default" : "ghost"}
+                size="sm"
+                onClick={() => setAscensionSubView("cards")}
+                className="flex-1 rounded-full text-xs sm:text-sm font-semibold gap-1.5"
+              >
+                <Sparkles className="w-3.5 h-3.5 text-amber-500" />
+                <span>RPG Vanekort</span>
+              </Button>
+              <Button
+                variant={ascensionSubView === "world" ? "default" : "ghost"}
+                size="sm"
+                onClick={() => setAscensionSubView("world")}
+                className="flex-1 rounded-full text-xs sm:text-sm font-semibold gap-1.5"
+              >
+                <Compass className="w-3.5 h-3.5 text-sky-500" />
+                <span>3D Flight World</span>
+              </Button>
+            </div>
+
+            {ascensionSubView === "cards" ? <VanekortGame /> : <AscensionGame />}
+          </div>
         );
       case "blackjack": return <BlackjackGame />;
       case "pong": return <PongGame />;
