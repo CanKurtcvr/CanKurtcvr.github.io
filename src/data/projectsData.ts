@@ -6,6 +6,14 @@ export interface ProjectItem {
   description: string;
   tags: string[];
   highlights: string[];
+  previewImage?: string;
+  titleEn?: string;
+  shortTitleEn?: string;
+  categoryEn?: string;
+  descriptionEn?: string;
+  tagsEn?: string[];
+  highlightsEn?: string[];
+  actionTextEn?: string;
   actionText?: string;
   demoId?: "debt-simulator" | "process-visualizer" | "compliance-inspector";
   gameId?: string;
@@ -21,16 +29,28 @@ export const projectsData: ProjectItem[] = [
     id: "24support-julekalender",
     title: "24Support Julekalender 2026",
     shortTitle: "Interaktiv julekalender",
+    titleEn: "24Support Christmas Calendar 2026",
+    shortTitleEn: "Interactive Christmas calendar",
     category: "Freelance & Webudvikling",
-    description: "En komplet digital julekalender udviklet som en selvstændig HTML/CSS/JavaScript-løsning for 24Support med 24 interaktive låger, dansk datostyring, keyboard-navigation og et separat administratormodul til opdatering af spørgsmål.",
+    categoryEn: "Freelance & Web Development",
+    description: "En komplet digital julekalender udviklet for 24Support. Åbn demoen for at prøve kalenderens design og interaktioner med eksempelindhold. Den fulde løsning bruger en separat Node.js-server til datostyring og et loginbeskyttet adminværktøj.",
+    descriptionEn: "A complete digital Christmas calendar created for 24Support. Open the demo to try the calendar design and interactions with sample content. The full solution uses a separate Node.js server for date control and a login-protected admin tool.",
     tags: ["Freelance", "HTML", "CSS", "JavaScript", "Accessibility", "Responsive Design"],
+    tagsEn: ["Freelance", "HTML", "CSS", "JavaScript", "Accessibility", "Responsive Design"],
     highlights: [
       "Designede en skalerbar 16:9-oplevelse med danske byhuse, animationer, snefald og interaktioner",
-      "Implementerede dato- og localStorage-logik, så låger åbner korrekt og huskes pr. bruger",
-      "Leverede et lokalt admin-værktøj, der genererer den offentlige kalenderfil uden backend"
+      "Udviklede 24 interaktive låger med tastaturbetjening og gemt demo-fremdrift",
+      "Den offentlige portfolio-demo bruger kun eksempelindhold; produktionsversionens admin/API hostes separat"
     ],
-    actionText: "Åbn julekalender",
-    href: "/freelance/24support-julekalender/julekalender.html",
+    highlightsEn: [
+      "Designed a responsive 16:9 experience with Danish townhouses, animation, snowfall, and interactions",
+      "Built 24 interactive doors with keyboard support and saved demo progress",
+      "The public portfolio demo uses sample content only; the production admin/API is hosted separately"
+    ],
+    actionText: "Åbn kalenderdemo",
+    actionTextEn: "Open calendar demo",
+    href: "/freelance/24support-julekalender/index.html",
+    previewImage: "/freelance/24support-julekalender/preview.png",
     githubUrl: "https://github.com/NassimElH01",
     iconName: "Sparkles",
     iconColor: "text-red-500"

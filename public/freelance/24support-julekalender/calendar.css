@@ -1,0 +1,325 @@
+/*
+ * 24Support julekalender 2026 – styling
+ * =====================================
+ * Farver og typografi samles som variabler herunder, så de nemt kan
+ * tilpasses 24Supports brand. Alle mål inde i scenen bruger "cqw"
+ * (procent af scenens bredde), så kalenderen skalerer ens på alle skærme.
+ */
+
+:root {
+  --night-top: #0A1733;      /* himmel, øverst */
+  --night-bottom: #1D3A6B;   /* himmel, nederst */
+  --house-red: #9C2A33;
+  --house-blue: #2A5A92;
+  --shutter-on-red: #1F4274; /* låger på røde huse er blå */
+  --shutter-on-blue: #8C2530;/* låger på blå huse er røde */
+  --cream: #F4ECDD;          /* rammer, tal, kort */
+  --warm: #FFC56A;           /* varmt lys */
+  --gold: #E7B24C;           /* dagens låge og "åbnet"-mærke */
+  --snow: #F3F7FC;
+  --ink: #14233F;            /* tekst på kortet */
+
+  --font-numbers: "Young Serif", Georgia, "Times New Roman", serif;
+  --font-text: "Figtree", system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  min-height: 100%;
+  /* Gennemsigtig baggrund, så kalenderen kan ligge som overlay i en iframe. */
+  background: transparent;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(10px, 2vh, 20px);
+  min-height: 100vh;
+  min-height: 100svh;
+  overflow-x: hidden;
+  overflow-y: auto;
+  padding: clamp(10px, 2vw, 24px);
+  font-family: var(--font-text);
+}
+
+.demo-banner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px 20px;
+  width: min(100%, 1600px);
+  padding: 12px 16px;
+  border: 1px solid rgba(231, 178, 76, 0.5);
+  border-radius: 12px;
+  background: rgba(20, 35, 63, 0.94);
+  color: var(--cream);
+  font-size: clamp(12px, 1.1vw, 15px);
+  line-height: 1.5;
+}
+
+.demo-banner p { margin: 0; }
+.demo-banner a { flex: 0 0 auto; color: var(--warm); font-weight: 600; }
+.demo-banner a:focus-visible { outline: 2px solid var(--warm); outline-offset: 3px; }
+
+/* ---------- Scenen (16:9) ---------- */
+
+.stage {
+  position: relative;
+  /* Så stor som muligt, men altid 16:9 og altid inden for vinduet. */
+  width: min(100%, 1600px, calc((100svh - 150px) * 16 / 9));
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  border-radius: 1.2cqw;
+  container-type: inline-size;
+  background: var(--night-top);
+  box-shadow: 0 1.5cqw 4cqw rgba(5, 12, 30, 0.35);
+  isolation: isolate;
+}
+
+@media (max-width: 600px) {
+  .demo-banner {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 6px;
+    padding: 10px 12px;
+  }
+}
+
+.scenery,
+.snow,
+.doors {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* ---------- Snefald ---------- */
+
+.snow { pointer-events: none; z-index: 1; }
+
+.flake {
+  position: absolute;
+  top: -2%;
+  border-radius: 50%;
+  background: var(--snow);
+  opacity: 0.5;
+  animation: fall linear infinite;
+}
+
+@keyframes fall {
+  to { transform: translate3d(var(--drift, 0), 110cqh, 0); }
+}
+
+/* ---------- Låger ---------- */
+
+.doors { z-index: 2; }
+
+/*
+ * Hver låge er en <button>. Positionen sættes inline i procent af scenen
+ * af calendar.js, så den passer præcist over vinduet i SVG-baggrunden.
+ */
+.door {
+  position: absolute;
+  padding: 0;
+  margin: 0;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  perspective: 40cqw;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Skodden – den del der svinger op. */
+.shutter {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  border: 0.22cqw solid var(--cream);
+  border-radius: 0.3cqw;
+  background-color: var(--shutter-color);
+  /* Diskrete fyldninger, som på en træskodde. */
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.07), rgba(0, 0, 0, 0.12)),
+    linear-gradient(var(--shutter-color), var(--shutter-color));
+  box-shadow:
+    inset 0 0 0 0.45cqw var(--shutter-color),
+    inset 0 0 0 0.55cqw rgba(244, 236, 221, 0.35),
+    0 0.25cqw 0.5cqw rgba(0, 0, 0, 0.35);
+  transform-origin: left center;
+  transition: transform 0.8s cubic-bezier(0.3, 0.7, 0.2, 1), filter 0.3s;
+  backface-visibility: hidden;
+}
+
+.door[data-house="red"]  { --shutter-color: var(--shutter-on-red); }
+.door[data-house="blue"] { --shutter-color: var(--shutter-on-blue); }
+
+/* Låge 24 er ekstra festlig. */
+.door[data-day="24"] { --shutter-color: #7A5A1E; }
+.door[data-day="24"] .shutter { border-color: var(--gold); }
+
+.num {
+  font-family: var(--font-numbers);
+  font-size: 3.1cqw;
+  line-height: 1;
+  color: var(--cream);
+  text-shadow: 0 0.12cqw 0 rgba(0, 0, 0, 0.3);
+  user-select: none;
+}
+
+/* Låst: lidt dæmpet, men tallet er stadig tydeligt. */
+.door.is-locked { cursor: default; }
+.door.is-locked .shutter { filter: saturate(0.6) brightness(0.78); }
+
+/* Tilgængelig i dag: guldkant der pulserer roligt. */
+.door.is-today .shutter {
+  border-color: var(--gold);
+  animation: glow 2.4s ease-in-out infinite;
+}
+
+@keyframes glow {
+  0%, 100% { box-shadow: inset 0 0 0 0.45cqw var(--shutter-color), 0 0 0.4cqw 0.1cqw rgba(231, 178, 76, 0.45); }
+  50%      { box-shadow: inset 0 0 0 0.45cqw var(--shutter-color), 0 0 1.4cqw 0.35cqw rgba(231, 178, 76, 0.75); }
+}
+
+/* Hover/fokus på låger der kan åbnes. */
+.door:not(.is-locked):not(.is-opened):hover .shutter {
+  transform: rotateY(-14deg);
+}
+.door:focus-visible { outline: none; }
+.door:focus-visible .shutter,
+.door.is-opened:focus-visible .opened-mark {
+  outline: 0.25cqw solid var(--gold);
+  outline-offset: 0.3cqw;
+}
+
+/* Åbnet: skodden svinger ud og det varme vindue kommer til syne. */
+.door.is-opened .shutter {
+  transform: rotateY(-108deg);
+  box-shadow: none;
+  animation: none;
+}
+
+/* "Åbnet"-mærke: lille guldstjerne på vinduet. */
+.opened-mark {
+  position: absolute;
+  right: 8%;
+  top: 6%;
+  width: 34%;
+  aspect-ratio: 1;
+  background: var(--gold);
+  clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+  filter: drop-shadow(0 0 0.3cqw rgba(255, 197, 106, 0.9));
+  opacity: 0;
+  transform: scale(0.4);
+  transition: opacity 0.4s 0.5s, transform 0.4s 0.5s;
+}
+.door.is-opened .opened-mark { opacity: 1; transform: scale(1); }
+
+/* Det lille tal der også står i det åbne vindue. */
+.opened-num {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 8%;
+  text-align: center;
+  font-family: var(--font-numbers);
+  font-size: 1.7cqw;
+  color: #6B3B12;
+  opacity: 0;
+  transition: opacity 0.4s 0.5s;
+}
+.door.is-opened .opened-num { opacity: 0.85; }
+
+/* Låst låge rystes let ved klik. */
+.door.shake .shutter { animation: shake 0.4s; }
+@keyframes shake {
+  20% { transform: translateX(-0.35cqw); }
+  40% { transform: translateX(0.35cqw); }
+  60% { transform: translateX(-0.2cqw); }
+  80% { transform: translateX(0.2cqw); }
+}
+
+/* ---------- Spørgsmålskort ---------- */
+
+/*
+ * Kortet ligger uden for scenen (position: fixed), så det dækker hele
+ * vinduet/iframen og har læsbar størrelse på både computer og mobil.
+ */
+.card-layer {
+  position: fixed;
+  inset: 0;
+  z-index: 10;
+  display: grid;
+  place-items: center;
+  padding: 16px;
+  background: rgba(6, 14, 34, 0.55);
+  backdrop-filter: blur(4px);
+  animation: fade 0.3s ease-out;
+}
+.card-layer[hidden] { display: none; }
+
+@keyframes fade { from { opacity: 0; } }
+
+.card {
+  position: relative;
+  width: min(640px, 100%);
+  max-height: 100%;
+  overflow-y: auto;
+  padding: clamp(24px, 4vw, 48px) clamp(20px, 4vw, 52px) clamp(22px, 3.6vw, 44px);
+  border-radius: 10px;
+  background: var(--cream);
+  color: var(--ink);
+  border-top: clamp(6px, 0.8vw, 10px) solid var(--house-red);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.45);
+  text-align: center;
+  animation: rise 0.45s cubic-bezier(0.3, 0.7, 0.2, 1);
+}
+
+@keyframes rise { from { transform: translateY(24px) scale(0.97); opacity: 0; } }
+
+.card-number {
+  font-family: var(--font-numbers);
+  font-size: clamp(44px, 7vw, 104px);
+  line-height: 1;
+  color: var(--house-red);
+  margin-bottom: clamp(12px, 1.6vw, 22px);
+}
+
+.card-question {
+  margin: 0 auto;
+  max-width: 34em;
+  font-size: clamp(16px, 1.8vw, 24px);
+  line-height: 1.5;
+  white-space: pre-line; /* bevarer linjeskift fra admin */
+}
+
+.card-close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 40px;
+  height: 40px;
+  padding: 9px;
+  border: 0;
+  border-radius: 50%;
+  background: transparent;
+  color: var(--ink);
+  cursor: pointer;
+}
+.card-close svg { width: 100%; height: 100%; stroke: currentColor; stroke-width: 2; fill: none; stroke-linecap: round; }
+.card-close:hover { background: rgba(20, 35, 63, 0.08); }
+.card-close:focus-visible { outline: 2px solid var(--house-blue); outline-offset: 2px; }
+
+/* ---------- Reduceret bevægelse ---------- */
+
+@media (prefers-reduced-motion: reduce) {
+  .shutter, .opened-mark, .opened-num { transition: none; }
+  .door.is-today .shutter, .door.shake .shutter, .card, .card-layer { animation: none; }
+  .flake { display: none; }
+}

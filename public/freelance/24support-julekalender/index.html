@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<!--
+  24Support julekalender 2026 – statisk portfolio-demo
+  ----------------------------------------
+  Siden er bevidst tom for synlig UI-tekst. Alt indhold (baggrund, huse og
+  24 låger) bygges af calendar.js ud fra konfigurationen øverst i den fil.
+  Kalenderen bruger kun fiktivt eksempelindhold. Den fulde serverversion
+  med admin-login og rigtig datostyring er ikke en del af denne demo.
+-->
+<html lang="da">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex">
+  <title>24Support julekalender 2026 · Portfolio-demo</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Young+Serif&family=Figtree:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="calendar.css">
+</head>
+<body>
+  <aside class="demo-banner" role="status">
+    <p><strong>Portfolio-demo</strong> · Alle låger er åbne, og spørgsmålene er kun eksempler. Den fulde kalender bruger en separat server og et loginbeskyttet adminværktøj.</p>
+    <a href="/">Tilbage til portfolio</a>
+  </aside>
+  <!-- Scenen: altid 16:9 og skaleret til den plads, den får. -->
+  <div class="stage" id="stage" role="region" aria-label="Julekalender">
+    <!-- Baggrund (himmel, huse, lys) tegnes her som SVG. -->
+    <svg class="scenery" id="scenery" viewBox="0 0 1600 900" aria-hidden="true"></svg>
+
+    <!-- Diskret snefald. -->
+    <div class="snow" id="snow" aria-hidden="true"></div>
+
+    <!-- De 24 klikbare låger placeres her oven på husene. -->
+    <div class="doors" id="doors"></div>
+  </div>
+
+  <!-- Spørgsmålskort: vises når en låge åbnes. Ligger uden for scenen,
+       så det også er læsbart på små skærme. -->
+  <div class="card-layer" id="cardLayer" hidden>
+    <div class="card" role="dialog" aria-modal="true" aria-labelledby="cardNumber" aria-describedby="cardQuestion">
+      <button class="card-close" id="cardClose" type="button" aria-label="Luk">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+      </button>
+      <div class="card-number" id="cardNumber"></div>
+      <p class="card-question" id="cardQuestion"></p>
+    </div>
+  </div>
+
+  <script src="calendar.js"></script>
+</body>
+</html>
