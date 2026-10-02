@@ -49,7 +49,10 @@ export const projectsData: ProjectItem[] = [
       "Progress dashboard, mobility/rehabilitation, and read-only sharing with a coach or physiotherapist",
       "The source code is in a private repository"
     ],
-    githubUrl: "https://github.com/NassimElH01",
+    actionText: "Åbn privat repository",
+    actionTextEn: "Open private repository",
+    href: "https://github.com/NassimElH01/Strength-Conditioning-Tracking-SCT-",
+    githubUrl: "https://github.com/NassimElH01/Strength-Conditioning-Tracking-SCT-",
     iconName: "Workflow",
     iconColor: "text-emerald-500"
   },
