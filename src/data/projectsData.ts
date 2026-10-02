@@ -49,9 +49,9 @@ export const projectsData: ProjectItem[] = [
       "Progress dashboard, mobility/rehabilitation, and read-only sharing with a coach or physiotherapist",
       "The source code is in a private repository"
     ],
-    actionText: "Åbn privat repository",
-    actionTextEn: "Open private repository",
-    href: "https://github.com/NassimElH01/Strength-Conditioning-Tracking-SCT-",
+    actionText: "Åbn SCT-webappen",
+    actionTextEn: "Open the SCT app",
+    href: "https://strength-conditioning-tracking-sct.vercel.app/",
     githubUrl: "https://github.com/NassimElH01/Strength-Conditioning-Tracking-SCT-",
     iconName: "Workflow",
     iconColor: "text-emerald-500"
