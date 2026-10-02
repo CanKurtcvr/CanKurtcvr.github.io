@@ -26,6 +26,34 @@ export interface ProjectItem {
 
 export const projectsData: ProjectItem[] = [
   {
+    id: "strength-conditioning-tracking",
+    title: "Strength & Conditioning Tracking (SCT)",
+    shortTitle: "SCT trænings- og sundhedsapp",
+    titleEn: "Strength & Conditioning Tracking (SCT)",
+    shortTitleEn: "SCT training and health app",
+    category: "Sundhed & Træning",
+    categoryEn: "Health & Fitness",
+    description: "En dansk, mobilvenlig webapp, der samler styrketræning, mobilitet og genoptræning, kostregistrering, madplaner og personlig progression. Appen forklarer sine anbefalinger og indeholder tydelige forbehold om, at den ikke erstatter sundhedsfaglig rådgivning.",
+    descriptionEn: "A Danish, mobile-first web app bringing strength training, mobility and rehabilitation, nutrition logging, meal planning, and personal progress tracking together. It explains its recommendations and clearly states that it does not replace professional healthcare advice.",
+    tags: ["Next.js", "React", "TypeScript", "Supabase", "PWA", "WCAG 2.2 AA", "Træning & sundhed"],
+    tagsEn: ["Next.js", "React", "TypeScript", "Supabase", "PWA", "WCAG 2.2 AA", "Fitness & health"],
+    highlights: [
+      "Træningsprogrammer og træningslog med offline-gemning",
+      "Kostlog, makromål og ugentlig madplan med indkøbsliste",
+      "Fremskridtsdashboard, mobilitet/genoptræning og mulighed for skrivebeskyttet deling med træner eller fysioterapeut",
+      "Kildekoden er i et privat repository"
+    ],
+    highlightsEn: [
+      "Training plans and workout logging with offline support",
+      "Nutrition logging, macro goals, and weekly meal plans with shopping lists",
+      "Progress dashboard, mobility/rehabilitation, and read-only sharing with a coach or physiotherapist",
+      "The source code is in a private repository"
+    ],
+    githubUrl: "https://github.com/NassimElH01",
+    iconName: "Workflow",
+    iconColor: "text-emerald-500"
+  },
+  {
     id: "24support-julekalender",
     title: "24Support Julekalender 2026",
     shortTitle: "Interaktiv julekalender",

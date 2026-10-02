@@ -54,6 +54,7 @@ export default function ProjectsSection({ language = "da", onNavigateToGame }: P
     { value: "Digital Transformation", label: "Digital Transformation" },
     { value: "AI & Data Analytics", label: "AI & Data Analytics" },
     { value: "Legal Tech & AI", label: "Legal Tech & AI" },
+    { value: "Sundhed & Træning", label: language === "da" ? "Sundhed & Træning" : "Health & Fitness" },
     { value: "Full Stack & Web App", label: "Full Stack & Web App" },
   ];
 
