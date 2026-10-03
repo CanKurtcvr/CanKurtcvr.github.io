@@ -24,8 +24,6 @@ export default function CVSection({ language = "da" }: { language?: Language }) 
     { id: "uddannelse" as CVCategory, label: t.education, icon: GraduationCap, count: cvItems.filter(i => i.category === "uddannelse").length },
     { id: "omsorg" as CVCategory, label: t.care, icon: HeartHandshake, count: cvItems.filter(i => i.category === "omsorg").length },
   ], [t]);
-  const profileIcons = [Briefcase, Briefcase, GraduationCap];
-
   const filteredItems = useMemo(() => {
     if (selectedCategory === "all") return cvItems;
     if (selectedCategory === "it") {
@@ -36,34 +34,42 @@ export default function CVSection({ language = "da" }: { language?: Language }) 
 
   return (
     <section id="cv" className="py-6 space-y-12">
-      <section aria-labelledby="profile-overview-title" className="relative overflow-hidden rounded-2xl border border-border bg-gradient-to-br from-card via-card to-accent/[0.06] p-5 shadow-sm sm:p-8 md:p-10">
-        <div aria-hidden="true" className="absolute inset-y-0 left-0 w-1.5 bg-accent" />
-        <div className="relative z-10 space-y-5">
-          <div className="space-y-2">
-            <p className="text-[11px] font-bold uppercase tracking-[0.2em] text-accent">{t.profileEyebrow}</p>
-            <h2 id="profile-overview-title" className="max-w-3xl font-display text-3xl font-bold leading-tight tracking-tight text-foreground sm:text-4xl">
-              {t.profileTitle}
-            </h2>
-            <p className="max-w-3xl pt-1 text-sm leading-7 text-muted-foreground sm:text-base">
-              {t.profileDescription}
-            </p>
+      <section aria-labelledby="profile-overview-title" className="relative overflow-hidden rounded-2xl border border-border bg-card p-5 shadow-sm sm:p-8 md:p-10">
+        <div aria-hidden="true" className="absolute inset-y-0 left-0 w-1 bg-accent/70" />
+        <div className="relative z-10 grid gap-8 md:grid-cols-[0.9fr_1.1fr] md:gap-10">
+          <div className="space-y-5">
+            <div className="space-y-3">
+              <p className="text-[11px] font-bold uppercase tracking-[0.2em] text-accent">{t.profileEyebrow}</p>
+              <h2 id="profile-overview-title" className="max-w-xl font-display text-3xl font-bold leading-tight tracking-tight text-foreground sm:text-4xl">
+                {t.profileTitle}
+              </h2>
+              <p className="max-w-xl text-sm leading-7 text-muted-foreground sm:text-base">
+                {t.profileDescription}
+              </p>
+            </div>
+            <div className="flex flex-wrap gap-2" aria-label={language === "da" ? "Faglige fokusområder" : "Areas of expertise"}>
+              {t.profileCapabilities.map((capability) => (
+                <span key={capability} className="rounded-full border border-border bg-background px-3 py-1.5 text-xs font-medium text-foreground/75">
+                  {capability}
+                </span>
+              ))}
+            </div>
           </div>
 
-          <div className="grid gap-3 border-t border-border/80 pt-5 md:grid-cols-3">
-            {t.profileHighlights.map((highlight, index) => {
-              const Icon = profileIcons[index] ?? GraduationCap;
-              return (
-                <article key={highlight.label} className="group rounded-xl border border-transparent bg-background/65 p-4 transition-colors hover:border-border hover:bg-background">
-                  <div className="mb-3 flex items-center gap-2">
-                    <Icon aria-hidden="true" className="h-4 w-4 shrink-0 text-accent" />
-                    <span className="text-[10px] font-bold uppercase tracking-[0.14em] text-muted-foreground">{highlight.label}</span>
+          <div className="border-t border-border pt-5 md:border-l md:border-t-0 md:pl-8 md:pt-1">
+            <p className="mb-2 text-[10px] font-bold uppercase tracking-[0.18em] text-muted-foreground">{t.profileProofLabel}</p>
+            <div className="divide-y divide-border/80">
+              {t.profileHighlights.map((highlight, index) => (
+                <article key={highlight.label} className="grid grid-cols-[2rem_1fr] gap-3 py-4 first:pt-3 last:pb-1">
+                  <span aria-hidden="true" className="pt-0.5 font-mono text-xs font-semibold text-accent/80">0{index + 1}</span>
+                  <div>
+                    <p className="text-[10px] font-semibold uppercase tracking-[0.12em] text-muted-foreground">{highlight.label}</p>
+                    <h3 className="mt-1 text-sm font-semibold leading-snug text-foreground sm:text-base">{highlight.title}</h3>
+                    <p className="mt-1 text-xs leading-relaxed text-muted-foreground sm:text-sm">{highlight.detail}</p>
                   </div>
-                  <h3 className="text-sm font-semibold leading-snug text-foreground sm:text-base">{highlight.title}</h3>
-                  <p className="mt-1.5 text-xs leading-relaxed text-muted-foreground sm:text-sm">{highlight.detail}</p>
-                  <p className="mt-3 text-[11px] font-semibold text-accent">{highlight.period}</p>
                 </article>
-              );
-            })}
+              ))}
+            </div>
           </div>
         </div>
       </section>
