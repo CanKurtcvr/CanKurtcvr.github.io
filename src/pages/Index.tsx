@@ -44,6 +44,12 @@ const Index = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
+  const handleNavigateToProjects = () => {
+    setSelectedGame(null);
+    setActiveTab("projects");
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
   const handleTabChange = (tab: TabType) => {
     setActiveTab(tab);
     if (tab !== "games") {
@@ -62,7 +68,12 @@ const Index = () => {
     <div className="min-h-screen bg-background text-foreground print:bg-white print:min-h-0 transition-colors duration-300">
       {/* Screen View: Interactive Portfolio */}
       <div className="print:hidden max-w-4xl mx-auto bg-card shadow-xl min-h-screen border-x border-border/40">
-        <Header onPrintCV={handlePrintCV} language={language} onLanguageChange={setLanguage} />
+        <Header
+          onPrintCV={handlePrintCV}
+          onNavigateToProjects={handleNavigateToProjects}
+          language={language}
+          onLanguageChange={setLanguage}
+        />
         <TabNavigation activeTab={activeTab} onTabChange={handleTabChange} language={language} />
         
         <main 

@@ -102,11 +102,14 @@ export default function ProjectsSection({ language = "da", onNavigateToGame }: P
           const highlights = language === "en" ? project.highlightsEn || project.highlights : project.highlights;
           const tags = language === "en" ? project.tagsEn || project.tags : project.tags;
           const actionText = language === "en" ? project.actionTextEn || project.actionText : project.actionText;
+          const statusLabel = language === "en" ? project.statusLabelEn || project.statusLabel : project.statusLabel;
 
           return (
             <Card
               key={project.id}
-              className="flex flex-col justify-between overflow-hidden hover:border-primary/40 hover:shadow-lg transition-all duration-300 group"
+              className={`flex flex-col justify-between overflow-hidden transition-all duration-300 group hover:border-primary/40 hover:shadow-lg ${
+                project.featured ? "md:col-span-2 border-primary/30 bg-gradient-to-br from-card via-card to-primary/5 shadow-sm" : ""
+              }`}
             >
               {project.previewImage && (
                 <img
@@ -131,11 +134,11 @@ export default function ProjectsSection({ language = "da", onNavigateToGame }: P
                     <Badge variant="default" className="text-xs font-semibold bg-primary/15 text-primary border-primary/30">
                       <Play className="w-3 h-3 mr-1 fill-current" /> {t.interactive}
                     </Badge>
-                  ) : (
+                  ) : statusLabel ? (
                     <Badge variant="outline" className="text-xs font-normal">
-                      {t.featured}
+                      {statusLabel}
                     </Badge>
-                  )}
+                  ) : null}
                 </div>
 
                 <CardTitle className="text-xl md:text-2xl font-bold group-hover:text-accent transition-colors">

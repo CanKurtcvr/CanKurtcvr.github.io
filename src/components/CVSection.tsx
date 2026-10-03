@@ -23,7 +23,8 @@ export default function CVSection({ language = "da" }: { language?: Language }) 
     },
     { id: "uddannelse" as CVCategory, label: t.education, icon: GraduationCap, count: cvItems.filter(i => i.category === "uddannelse").length },
     { id: "omsorg" as CVCategory, label: t.care, icon: HeartHandshake, count: cvItems.filter(i => i.category === "omsorg").length },
-  ], []);
+  ], [t]);
+  const profileIcons = [Briefcase, Briefcase, GraduationCap];
 
   const filteredItems = useMemo(() => {
     if (selectedCategory === "all") return cvItems;
@@ -35,8 +36,36 @@ export default function CVSection({ language = "da" }: { language?: Language }) 
 
   return (
     <section id="cv" className="py-6 space-y-12">
-      {/* Faglige Kompetencer */}
-      <SkillsSection language={language} />
+      <section aria-labelledby="profile-overview-title" className="relative overflow-hidden rounded-2xl border border-primary/20 bg-gradient-to-br from-primary/10 via-card to-accent/5 p-5 sm:p-7">
+        <div className="relative z-10 space-y-5">
+          <div className="space-y-2">
+            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-primary">{t.profileEyebrow}</p>
+            <h2 id="profile-overview-title" className="max-w-3xl text-2xl font-display font-bold leading-tight text-foreground sm:text-3xl">
+              {t.profileTitle}
+            </h2>
+            <p className="max-w-3xl text-sm leading-relaxed text-muted-foreground sm:text-base">
+              {t.profileDescription}
+            </p>
+          </div>
+
+          <div className="grid gap-3 md:grid-cols-3">
+            {t.profileHighlights.map((highlight, index) => {
+              const Icon = profileIcons[index] ?? GraduationCap;
+              return (
+                <article key={highlight.label} className="rounded-xl border border-border/70 bg-background/75 p-4 shadow-xs">
+                  <div className="mb-3 flex items-center justify-between gap-3">
+                    <span className="text-[11px] font-semibold uppercase tracking-wider text-muted-foreground">{highlight.label}</span>
+                    <Icon aria-hidden="true" className="h-4 w-4 shrink-0 text-primary" />
+                  </div>
+                  <h3 className="text-sm font-semibold leading-snug text-foreground">{highlight.title}</h3>
+                  <p className="mt-1 text-xs leading-relaxed text-muted-foreground">{highlight.detail}</p>
+                  <p className="mt-3 text-[11px] font-medium text-primary">{highlight.period}</p>
+                </article>
+              );
+            })}
+          </div>
+        </div>
+      </section>
 
       {/* Profil & Erfaring */}
       <div className="space-y-6">
@@ -144,6 +173,8 @@ export default function CVSection({ language = "da" }: { language?: Language }) 
           </AnimatePresence>
         </motion.div>
       </div>
+
+      <SkillsSection language={language} />
     </section>
   );
 }

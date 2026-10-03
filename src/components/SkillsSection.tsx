@@ -1,6 +1,5 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Code2, Database, Cpu, Languages, GraduationCap, BrainCircuit } from "lucide-react";
-import { Badge } from "@/components/ui/badge";
+import { Code2, Database, Cpu, Languages, BrainCircuit } from "lucide-react";
 import { Language, translations } from "@/lib/translations";
 
 export interface SkillCategory {
@@ -119,47 +118,6 @@ export default function SkillsSection({ language = "da" }: { language?: Language
             ? "Et overblik over min tekniske værktøjskasse, analytiske profil og forretningsforståelse."
             : "An overview of my technical toolkit, analytical profile, and business understanding."}
         </p>
-      </div>
-
-      {/* Akademisk IT-Uddannelsesfundament */}
-      <div className="p-4 md:p-5 rounded-xl border border-primary/25 bg-primary/5 shadow-xs space-y-3">
-        <div className="flex items-center justify-between">
-          <div className="flex items-center gap-2 text-foreground font-semibold text-sm md:text-base">
-            <div className="p-1.5 rounded-md bg-primary/15 text-primary">
-              <GraduationCap className="w-4 h-4" />
-            </div>
-            <span>{isDanish ? "Akademisk fundament & professionel positionering" : "Academic foundation & professional positioning"}</span>
-          </div>
-          <Badge variant="outline" className="border-primary/40 text-primary text-xs font-semibold">
-            RUC & Zealand
-          </Badge>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-3 pt-1">
-          <div className="p-3 rounded-lg bg-background/80 border border-border/60 space-y-1">
-            <div className="flex justify-between items-baseline">
-              <span className="text-xs font-bold text-foreground">MSc Digital Transformation</span>
-              <span className="text-[11px] font-mono text-muted-foreground">2026 - 2028</span>
-            </div>
-            <p className="text-xs text-muted-foreground leading-relaxed">
-              {isDanish
-                ? "Roskilde Universitet (RUC) — fokus på digital transformation, teknologistrategi og forretningsudvikling."
-                : "Roskilde University (RUC) — focus on digital transformation, technology strategy, and change-led business development."}
-            </p>
-          </div>
-
-          <div className="p-3 rounded-lg bg-background/80 border border-border/60 space-y-1">
-            <div className="flex justify-between items-baseline">
-              <span className="text-xs font-bold text-foreground">Professionsbachelor i Økonomi & IT</span>
-              <span className="text-[11px] font-mono text-muted-foreground">2022 - 2026</span>
-            </div>
-            <p className="text-xs text-muted-foreground leading-relaxed">
-              {isDanish
-                ? "Zealand – praktisk business- og IT-uddannelse med økonomi, projektarbejde, dataanalyse og digitale systemer."
-                : "Zealand – practical business and IT education combining economics, project work, data analysis, and digital systems."}
-            </p>
-          </div>
-        </div>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">

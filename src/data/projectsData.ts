@@ -13,6 +13,9 @@ export interface ProjectItem {
   descriptionEn?: string;
   tagsEn?: string[];
   highlightsEn?: string[];
+  featured?: boolean;
+  statusLabel?: string;
+  statusLabelEn?: string;
   actionTextEn?: string;
   actionText?: string;
   demoId?: "debt-simulator" | "process-visualizer" | "compliance-inspector";
@@ -27,6 +30,9 @@ export interface ProjectItem {
 export const projectsData: ProjectItem[] = [
   {
     id: "strength-conditioning-tracking",
+    featured: true,
+    statusLabel: "Live webapp",
+    statusLabelEn: "Live web app",
     title: "Strength & Conditioning Tracking (SCT)",
     shortTitle: "SCT trænings- og sundhedsapp",
     titleEn: "Strength & Conditioning Tracking (SCT)",

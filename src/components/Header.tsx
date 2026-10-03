@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { MapPin, Phone, Mail, Linkedin, Github, Printer, Copy, Check } from "lucide-react";
+import { MapPin, Phone, Mail, Linkedin, Github, Printer, Copy, Check, Briefcase } from "lucide-react";
 import { ThemeToggle } from "./ThemeToggle";
 import { toast } from "sonner";
 import { Button } from "@/components/ui/button";
@@ -10,11 +10,12 @@ import ContactDialog from "./ContactDialog";
 
 interface HeaderProps {
   onPrintCV?: () => void;
+  onNavigateToProjects?: () => void;
   language?: Language;
   onLanguageChange?: (language: Language) => void;
 }
 
-const Header = ({ onPrintCV, language = "da", onLanguageChange }: HeaderProps = {}) => {
+const Header = ({ onPrintCV, onNavigateToProjects, language = "da", onLanguageChange }: HeaderProps = {}) => {
   const [copiedField, setCopiedField] = useState<string | null>(null);
   const t = translations[language];
 
@@ -129,9 +130,20 @@ const Header = ({ onPrintCV, language = "da", onLanguageChange }: HeaderProps = 
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.48, duration: 0.5 }}
-          className="mb-6 flex justify-center"
+          className="mb-6 flex flex-wrap justify-center gap-2.5"
         >
           <ContactDialog language={language} />
+          {onNavigateToProjects && (
+            <Button
+              variant="outline"
+              size="sm"
+              onClick={onNavigateToProjects}
+              className="gap-2 rounded-full border-white/20 bg-white/5 font-semibold text-header-foreground hover:bg-white/10 hover:text-header-foreground"
+            >
+              <Briefcase className="w-4 h-4" />
+              <span>{t.projectsCta}</span>
+            </Button>
+          )}
         </motion.div>
 
         <motion.div
