@@ -4,24 +4,24 @@
 
 @layer base {
   :root {
-    /* Core palette - Deep slate with warm amber accent */
-    --background: 220 20% 97%;
-    --foreground: 222 47% 11%;
+    /* Warm paper, ink, and amber palette */
+    --background: 38 28% 96%;
+    --foreground: 222 36% 12%;
 
     --card: 0 0% 100%;
-    --card-foreground: 222 47% 11%;
+    --card-foreground: 222 36% 12%;
 
     --popover: 0 0% 100%;
     --popover-foreground: 222 47% 11%;
 
-    --primary: 222 47% 11%;
+    --primary: 222 36% 12%;
     --primary-foreground: 210 40% 98%;
 
-    --secondary: 220 14% 96%;
-    --secondary-foreground: 222 47% 11%;
+    --secondary: 38 18% 93%;
+    --secondary-foreground: 222 36% 12%;
 
-    --muted: 220 14% 96%;
-    --muted-foreground: 220 9% 46%;
+    --muted: 38 18% 93%;
+    --muted-foreground: 220 9% 42%;
 
     --accent: 32 95% 55%;
     --accent-foreground: 0 0% 100%;
@@ -29,9 +29,9 @@
     --destructive: 0 84% 60%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 220 13% 91%;
-    --input: 220 13% 91%;
-    --ring: 222 47% 11%;
+    --border: 35 16% 87%;
+    --input: 35 16% 87%;
+    --ring: 222 36% 12%;
 
     --radius: 0.75rem;
 
@@ -47,13 +47,13 @@
     /* Gradients */
     --gradient-header: linear-gradient(135deg, hsl(222, 47%, 11%) 0%, hsl(220, 40%, 18%) 100%);
     --gradient-accent: linear-gradient(135deg, hsl(32, 95%, 55%) 0%, hsl(28, 95%, 50%) 100%);
-    --gradient-card: linear-gradient(180deg, hsl(0, 0%, 100%) 0%, hsl(220, 20%, 99%) 100%);
+    --gradient-card: linear-gradient(180deg, hsl(0, 0%, 100%) 0%, hsl(38, 28%, 99%) 100%);
     
     /* Shadows */
-    --shadow-sm: 0 1px 2px 0 hsl(220 20% 10% / 0.05);
-    --shadow-md: 0 4px 6px -1px hsl(220 20% 10% / 0.1), 0 2px 4px -2px hsl(220 20% 10% / 0.1);
-    --shadow-lg: 0 10px 15px -3px hsl(220 20% 10% / 0.1), 0 4px 6px -4px hsl(220 20% 10% / 0.1);
-    --shadow-xl: 0 20px 25px -5px hsl(220 20% 10% / 0.1), 0 8px 10px -6px hsl(220 20% 10% / 0.1);
+    --shadow-sm: 0 1px 2px 0 hsl(30 20% 10% / 0.05);
+    --shadow-md: 0 4px 6px -1px hsl(30 20% 10% / 0.08), 0 2px 4px -2px hsl(30 20% 10% / 0.08);
+    --shadow-lg: 0 10px 15px -3px hsl(30 20% 10% / 0.08), 0 4px 6px -4px hsl(30 20% 10% / 0.08);
+    --shadow-xl: 0 20px 25px -5px hsl(30 20% 10% / 0.1), 0 8px 10px -6px hsl(30 20% 10% / 0.08);
     --shadow-glow: 0 0 40px -10px hsl(32, 95%, 55% / 0.3);
 
     --sidebar-background: 0 0% 98%;
@@ -225,4 +225,3 @@
     display: none !important;
   }
 }
-

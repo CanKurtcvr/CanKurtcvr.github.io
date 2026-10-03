@@ -2,9 +2,13 @@ export type Language = "da" | "en";
 
 export const translations = {
   da: {
+    heroEyebrow: "Digital transformation · Projektledelse · Data & AI",
+    heroHeadline: "Jeg forbinder forretning, data og teknologi.",
     heroTitle: "Digital transformation MSc student • PMO / Data & AI / Business-Technology bridge",
-    heroQuote: '"Forbinder forretning, data og teknologi i praksis."',
+    heroQuote: "MSc-studerende med praktisk erfaring fra projektstyring, Power BI og digitalisering.",
     heroAvailability: "Søger studiejob, deltidsjob eller freelanceopgaver",
+    heroFocusTitle: "Mit fokus",
+    heroFocusAreas: ["PMO & projektledelse", "Power BI & dataanalyse", "AI & digitalisering"],
     projectsCta: "Se projekter",
     location: "København",
     contactButton: "Kontakt",
@@ -85,9 +89,13 @@ export const translations = {
     footer: "MSc Digital Transformation student · Roskilde University"
   },
   en: {
+    heroEyebrow: "Digital transformation · Project delivery · Data & AI",
+    heroHeadline: "I connect business, data, and technology.",
     heroTitle: "Digital transformation MSc student • PMO / Data & AI / Business-Technology bridge",
-    heroQuote: '"Connecting business, data, and technology in practice."',
+    heroQuote: "MSc student with hands-on experience in project delivery, Power BI, and digitalisation.",
     heroAvailability: "Open to student jobs, part-time roles, or freelance work",
+    heroFocusTitle: "My focus",
+    heroFocusAreas: ["PMO & project delivery", "Power BI & data analytics", "AI & digitalisation"],
     projectsCta: "Explore projects",
     location: "Copenhagen",
     contactButton: "Contact",

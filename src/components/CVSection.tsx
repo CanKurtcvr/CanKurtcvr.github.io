@@ -36,30 +36,31 @@ export default function CVSection({ language = "da" }: { language?: Language }) 
 
   return (
     <section id="cv" className="py-6 space-y-12">
-      <section aria-labelledby="profile-overview-title" className="relative overflow-hidden rounded-2xl border border-primary/20 bg-gradient-to-br from-primary/10 via-card to-accent/5 p-5 sm:p-7">
+      <section aria-labelledby="profile-overview-title" className="relative overflow-hidden rounded-2xl border border-border bg-gradient-to-br from-card via-card to-accent/[0.06] p-5 shadow-sm sm:p-8 md:p-10">
+        <div aria-hidden="true" className="absolute inset-y-0 left-0 w-1.5 bg-accent" />
         <div className="relative z-10 space-y-5">
           <div className="space-y-2">
-            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-primary">{t.profileEyebrow}</p>
-            <h2 id="profile-overview-title" className="max-w-3xl text-2xl font-display font-bold leading-tight text-foreground sm:text-3xl">
+            <p className="text-[11px] font-bold uppercase tracking-[0.2em] text-accent">{t.profileEyebrow}</p>
+            <h2 id="profile-overview-title" className="max-w-3xl font-display text-3xl font-bold leading-tight tracking-tight text-foreground sm:text-4xl">
               {t.profileTitle}
             </h2>
-            <p className="max-w-3xl text-sm leading-relaxed text-muted-foreground sm:text-base">
+            <p className="max-w-3xl pt-1 text-sm leading-7 text-muted-foreground sm:text-base">
               {t.profileDescription}
             </p>
           </div>
 
-          <div className="grid gap-3 md:grid-cols-3">
+          <div className="grid gap-3 border-t border-border/80 pt-5 md:grid-cols-3">
             {t.profileHighlights.map((highlight, index) => {
               const Icon = profileIcons[index] ?? GraduationCap;
               return (
-                <article key={highlight.label} className="rounded-xl border border-border/70 bg-background/75 p-4 shadow-xs">
-                  <div className="mb-3 flex items-center justify-between gap-3">
-                    <span className="text-[11px] font-semibold uppercase tracking-wider text-muted-foreground">{highlight.label}</span>
-                    <Icon aria-hidden="true" className="h-4 w-4 shrink-0 text-primary" />
+                <article key={highlight.label} className="group rounded-xl border border-transparent bg-background/65 p-4 transition-colors hover:border-border hover:bg-background">
+                  <div className="mb-3 flex items-center gap-2">
+                    <Icon aria-hidden="true" className="h-4 w-4 shrink-0 text-accent" />
+                    <span className="text-[10px] font-bold uppercase tracking-[0.14em] text-muted-foreground">{highlight.label}</span>
                   </div>
-                  <h3 className="text-sm font-semibold leading-snug text-foreground">{highlight.title}</h3>
-                  <p className="mt-1 text-xs leading-relaxed text-muted-foreground">{highlight.detail}</p>
-                  <p className="mt-3 text-[11px] font-medium text-primary">{highlight.period}</p>
+                  <h3 className="text-sm font-semibold leading-snug text-foreground sm:text-base">{highlight.title}</h3>
+                  <p className="mt-1.5 text-xs leading-relaxed text-muted-foreground sm:text-sm">{highlight.detail}</p>
+                  <p className="mt-3 text-[11px] font-semibold text-accent">{highlight.period}</p>
                 </article>
               );
             })}
@@ -69,11 +70,12 @@ export default function CVSection({ language = "da" }: { language?: Language }) 
 
       {/* Profil & Erfaring */}
       <div className="space-y-6">
-        <div className="text-center max-w-2xl mx-auto space-y-3">
-          <h2 className="text-3xl font-display font-bold text-foreground">
+        <div className="max-w-2xl space-y-3">
+          <p className="text-[11px] font-bold uppercase tracking-[0.2em] text-accent">{language === "da" ? "Karriere & uddannelse" : "Career & education"}</p>
+          <h2 className="font-display text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
             {t.title}
           </h2>
-          <p className="text-sm md:text-base text-muted-foreground leading-relaxed">
+          <p className="text-sm leading-7 text-muted-foreground md:text-base">
             {t.description}
           </p>
           <div className="pt-1">
@@ -90,7 +92,7 @@ export default function CVSection({ language = "da" }: { language?: Language }) 
         </div>
 
         {/* Filter Chips */}
-        <div className="flex flex-wrap items-center justify-center gap-2 pt-2">
+        <div className="flex flex-wrap items-center gap-2 pt-1">
           {categories.map((cat) => {
             const Icon = cat.icon;
             const isActive = selectedCategory === cat.id;

@@ -20,8 +20,8 @@ const TabNavigation = ({ activeTab, onTabChange, language }: TabNavigationProps)
     { id: "news" as TabType, label: t.news, icon: Newspaper },
   ];
   return (
-    <nav className="sticky top-0 z-40 bg-card/95 backdrop-blur-sm border-b border-border shadow-xs" aria-label="Hovednavigation">
-      <div className="max-w-4xl mx-auto overflow-x-auto">
+    <nav className="sticky top-0 z-40 border-b border-border/80 bg-card/95 backdrop-blur-md" aria-label={language === "da" ? "Hovednavigation" : "Main navigation"}>
+      <div className="mx-auto max-w-6xl overflow-x-auto px-2 sm:px-6 lg:px-10">
         <div className="flex min-w-max overflow-x-auto" role="tablist" aria-orientation="horizontal">
           {tabs.map((tab) => {
             const Icon = tab.icon;
@@ -36,9 +36,9 @@ const TabNavigation = ({ activeTab, onTabChange, language }: TabNavigationProps)
                 aria-controls={`panel-${tab.id}`}
                 tabIndex={isActive ? 0 : -1}
                 onClick={() => onTabChange(tab.id)}
-                className={`relative flex-1 flex items-center justify-center gap-2 px-3 sm:px-4 py-4 text-xs sm:text-sm md:text-base font-medium transition-colors focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-accent ${
+                className={`relative flex-1 flex items-center justify-center gap-2 px-4 sm:px-5 py-4 text-xs sm:text-sm font-medium transition-colors focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-accent ${
                   isActive
-                    ? "text-accent font-semibold"
+                    ? "font-semibold text-foreground"
                     : "text-muted-foreground hover:text-foreground"
                 }`}
               >
@@ -48,7 +48,7 @@ const TabNavigation = ({ activeTab, onTabChange, language }: TabNavigationProps)
                 {isActive && (
                   <motion.div
                     layoutId="activeTab"
-                    className="absolute bottom-0 left-0 right-0 h-0.5 bg-accent"
+                    className="absolute bottom-0 left-3 right-3 h-[3px] rounded-full bg-accent"
                     transition={{ type: "spring", stiffness: 400, damping: 30 }}
                   />
                 )}

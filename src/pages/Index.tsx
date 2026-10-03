@@ -67,7 +67,7 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-background text-foreground print:bg-white print:min-h-0 transition-colors duration-300">
       {/* Screen View: Interactive Portfolio */}
-      <div className="print:hidden max-w-4xl mx-auto bg-card shadow-xl min-h-screen border-x border-border/40">
+      <div className="print:hidden mx-auto min-h-screen max-w-6xl overflow-hidden border-x border-border/50 bg-card shadow-2xl shadow-slate-950/10">
         <Header
           onPrintCV={handlePrintCV}
           onNavigateToProjects={handleNavigateToProjects}
@@ -80,7 +80,7 @@ const Index = () => {
           id={`panel-${activeTab}`}
           role="tabpanel"
           aria-labelledby={`tab-${activeTab}`}
-          className="p-3 sm:p-6 md:p-8"
+          className="px-4 py-8 sm:px-7 sm:py-10 lg:px-12 lg:py-12"
         >
           <AnimatePresence mode="wait">
             <motion.div
@@ -99,7 +99,7 @@ const Index = () => {
           </AnimatePresence>
         </main>
 
-        <footer className="border-t border-border py-6 px-4 sm:px-8 text-center text-xs sm:text-sm text-muted-foreground space-y-1">
+        <footer className="space-y-1 border-t border-border bg-muted/30 px-4 py-7 text-center text-xs text-muted-foreground sm:px-8 sm:text-sm">
           <p>© {new Date().getFullYear()} Nassim Hassani</p>
           <p className="text-xs text-muted-foreground/70">{t.footer}</p>
         </footer>
