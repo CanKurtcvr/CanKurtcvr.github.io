@@ -75,10 +75,17 @@ const WeatherSection = () => {
           variant="outline"
           size="sm"
           className="gap-2"
+          aria-label="Opdater vejrudsigt"
+          aria-busy={loading}
         >
-          <RefreshCw className={`w-4 h-4 ${loading ? "animate-spin" : ""}`} />
+          <RefreshCw className={`w-4 h-4 ${loading ? "animate-spin" : ""}`} aria-hidden="true" />
           Opdater
         </Button>
+      </div>
+
+      {/* Screen reader live announcement */}
+      <div className="sr-only" aria-live="polite" aria-atomic="true">
+        {loading ? "Henter seneste vejrdata..." : error ? error : "Vejrdata opdateret"}
       </div>
 
       {error ? (
