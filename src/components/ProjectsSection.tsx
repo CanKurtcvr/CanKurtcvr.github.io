@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from "react";
+import React, { useState, useMemo, lazy, Suspense } from "react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -21,9 +21,17 @@ import {
 
 import { projectsData, ProjectItem } from "@/data/projectsData";
 import { ProjectModal } from "@/components/projects/ProjectModal";
-import { DebtSimulator } from "@/components/projects/DebtSimulator";
-import { ProcessVisualizer } from "@/components/projects/ProcessVisualizer";
-import { ComplianceInspector } from "@/components/projects/ComplianceInspector";
+
+// ⚡ Bolt: Lazy load interactive project demos (e.g. DebtSimulator with Recharts charting library) on demand
+const DebtSimulator = lazy(() => import("@/components/projects/DebtSimulator").then(m => ({ default: m.DebtSimulator })));
+const ProcessVisualizer = lazy(() => import("@/components/projects/ProcessVisualizer").then(m => ({ default: m.ProcessVisualizer })));
+const ComplianceInspector = lazy(() => import("@/components/projects/ComplianceInspector").then(m => ({ default: m.ComplianceInspector })));
+
+const DemoFallback = () => (
+  <div className="flex items-center justify-center py-12 text-muted-foreground text-sm animate-pulse">
+    Indlæser interaktiv demo...
+  </div>
+);
 
 const iconMap = {
   Sparkles,
@@ -213,9 +221,11 @@ export default function ProjectsSection({ onNavigateToGame }: ProjectsSectionPro
           category={activeProjectDemo.category}
           description={activeProjectDemo.description}
         >
-          {activeProjectDemo.demoId === "debt-simulator" && <DebtSimulator />}
-          {activeProjectDemo.demoId === "process-visualizer" && <ProcessVisualizer />}
-          {activeProjectDemo.demoId === "compliance-inspector" && <ComplianceInspector />}
+          <Suspense fallback={<DemoFallback />}>
+            {activeProjectDemo.demoId === "debt-simulator" && <DebtSimulator />}
+            {activeProjectDemo.demoId === "process-visualizer" && <ProcessVisualizer />}
+            {activeProjectDemo.demoId === "compliance-inspector" && <ComplianceInspector />}
+          </Suspense>
         </ProjectModal>
       )}
     </section>
