@@ -27,13 +27,21 @@ export default function PrintCVDocument() {
         <div className="flex flex-wrap gap-x-3 gap-y-1 mt-2 text-[8.5pt] text-slate-600 font-medium">
           <span>København, Danmark</span>
           <span>•</span>
-          <span>+45 28 70 12 13</span>
+          <a href="tel:+4528701213" className="hover:underline text-slate-700" aria-label="Telefon: +45 28 70 12 13">
+            +45 28 70 12 13
+          </a>
           <span>•</span>
-          <span>cankurtcvr@gmail.com</span>
+          <a href="mailto:cankurtcvr@gmail.com" className="hover:underline text-slate-700" aria-label="Email: cankurtcvr@gmail.com">
+            cankurtcvr@gmail.com
+          </a>
           <span>•</span>
-          <span>linkedin.com/in/canxkurt</span>
+          <a href="https://linkedin.com/in/canxkurt" target="_blank" rel="noopener noreferrer" className="hover:underline text-slate-700" aria-label="LinkedIn profil">
+            linkedin.com/in/canxkurt
+          </a>
           <span>•</span>
-          <span>github.com/CanKurtcvr</span>
+          <a href="https://github.com/CanKurtcvr" target="_blank" rel="noopener noreferrer" className="hover:underline text-slate-700" aria-label="GitHub profil">
+            github.com/CanKurtcvr
+          </a>
         </div>
       </header>
 

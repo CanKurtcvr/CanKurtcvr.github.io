@@ -51,8 +51,9 @@ export default function CVSection() {
               size="sm"
               onClick={() => window.print()}
               className="gap-2 rounded-full border-primary/30 hover:border-primary text-xs md:text-sm hover:bg-primary/5 shadow-xs"
+              aria-label="Hent eller udskriv CV som PDF"
             >
-              <Printer className="w-3.5 h-3.5 text-primary" />
+              <Printer className="w-3.5 h-3.5 text-primary" aria-hidden="true" />
               <span>Hent / Print CV (PDF)</span>
             </Button>
           </div>
