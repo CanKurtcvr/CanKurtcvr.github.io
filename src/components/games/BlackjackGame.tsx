@@ -48,18 +48,18 @@ const CardComponent = ({ card, hidden = false }: { card: Card; hidden?: boolean 
   <motion.div
     initial={{ scale: 0.8, rotateY: 180 }}
     animate={{ scale: 1, rotateY: 0 }}
-    className={`w-14 h-20 rounded-lg flex flex-col items-center justify-center font-bold shadow-md ${
+    className={`w-11 h-16 sm:w-14 sm:h-20 rounded-lg flex flex-col items-center justify-center font-bold shadow-md shrink-0 ${
       hidden
         ? "bg-header text-header-foreground border-2 border-accent"
         : "bg-card border border-border"
     } ${!hidden && card.color === "red" ? "text-destructive" : "text-foreground"}`}
   >
     {hidden ? (
-      <span className="text-2xl">?</span>
+      <span className="text-xl sm:text-2xl">?</span>
     ) : (
       <>
-        <span className="text-lg">{card.value}</span>
-        <span className="text-xl">{card.suit}</span>
+        <span className="text-sm sm:text-lg leading-none">{card.value}</span>
+        <span className="text-base sm:text-xl leading-none">{card.suit}</span>
       </>
     )}
   </motion.div>
@@ -70,7 +70,7 @@ const BlackjackGame = () => {
   const [playerHand, setPlayerHand] = useState<Card[]>([]);
   const [dealerHand, setDealerHand] = useState<Card[]>([]);
   const [gameState, setGameState] = useState<"idle" | "playing" | "ended">("idle");
-  const [message, setMessage] = useState("Press 'Deal' to start");
+  const [message, setMessage] = useState("Tryk 'Giv kort' for at starte");
   const [showDealerCards, setShowDealerCards] = useState(false);
 
   const startGame = useCallback(() => {
@@ -83,10 +83,10 @@ const BlackjackGame = () => {
     setDealerHand(dHand);
     setGameState("playing");
     setShowDealerCards(false);
-    setMessage("Hit or Stand?");
+    setMessage("Kort eller Stå? / Hit or Stand?");
 
     if (getPoints(pHand) === 21) {
-      setMessage("Blackjack! You win! 🎉");
+      setMessage("Blackjack! Du vinder! 🎉");
       setGameState("ended");
       setShowDealerCards(true);
     }
@@ -101,7 +101,7 @@ const BlackjackGame = () => {
     setDeck([...deck]);
 
     if (getPoints(newHand) > 21) {
-      setMessage("Bust! Dealer wins 😢");
+      setMessage("Bust! Dealer vinder 😢");
       setGameState("ended");
       setShowDealerCards(true);
     }
@@ -126,13 +126,13 @@ const BlackjackGame = () => {
     const playerScore = getPoints(playerHand);
 
     if (dealerScore > 21) {
-      setMessage("Dealer busts! You win! 🎉");
+      setMessage("Dealer bust! Du vinder! 🎉");
     } else if (playerScore > dealerScore) {
-      setMessage("You win! 🎉");
+      setMessage("Du vinder! 🎉");
     } else if (dealerScore > playerScore) {
-      setMessage("Dealer wins 😢");
+      setMessage("Dealer vinder 😢");
     } else {
-      setMessage("Push! It's a tie 🤝");
+      setMessage("Uafgjort! 🤝");
     }
   }, [gameState, deck, dealerHand, playerHand]);
 
@@ -140,14 +140,14 @@ const BlackjackGame = () => {
     <motion.div
       initial={{ opacity: 0, scale: 0.95 }}
       animate={{ opacity: 1, scale: 1 }}
-      className="flex flex-col items-center gap-6"
+      className="flex flex-col items-center gap-5 w-full max-w-md mx-auto px-2"
     >
       {/* Table */}
-      <div className="w-full max-w-md bg-success/90 rounded-2xl p-6 border-4 border-success shadow-xl">
+      <div className="w-full bg-success/90 rounded-2xl p-4 sm:p-6 border-4 border-success shadow-xl">
         {/* Dealer */}
-        <div className="mb-6">
-          <p className="text-accent-foreground/80 text-sm mb-2">Dealer</p>
-          <div className="flex gap-2 min-h-[80px] items-center">
+        <div className="mb-4 sm:mb-6">
+          <p className="text-accent-foreground/80 text-xs sm:text-sm mb-2 font-medium">Dealer</p>
+          <div className="flex flex-wrap gap-1.5 sm:gap-2 min-h-[70px] sm:min-h-[80px] items-center">
             <AnimatePresence>
               {dealerHand.map((card, i) => (
                 <CardComponent
@@ -158,25 +158,25 @@ const BlackjackGame = () => {
               ))}
             </AnimatePresence>
           </div>
-          <p className="text-accent-foreground/60 text-sm mt-2">
-            Score: {showDealerCards ? getPoints(dealerHand) : `${dealerHand[0]?.weight || 0} + ?`}
+          <p className="text-accent-foreground/70 text-xs sm:text-sm mt-2 font-semibold">
+            Point: {showDealerCards ? getPoints(dealerHand) : `${dealerHand[0]?.weight || 0} + ?`}
           </p>
         </div>
 
-        <div className="border-t border-accent-foreground/20 my-4" />
+        <div className="border-t border-accent-foreground/20 my-3 sm:my-4" />
 
         {/* Player */}
         <div>
-          <p className="text-accent-foreground/80 text-sm mb-2">You</p>
-          <div className="flex gap-2 min-h-[80px] items-center">
+          <p className="text-accent-foreground/80 text-xs sm:text-sm mb-2 font-medium">Dig / You</p>
+          <div className="flex flex-wrap gap-1.5 sm:gap-2 min-h-[70px] sm:min-h-[80px] items-center">
             <AnimatePresence>
               {playerHand.map((card, i) => (
                 <CardComponent key={`player-${i}`} card={card} />
               ))}
             </AnimatePresence>
           </div>
-          <p className="text-accent-foreground/60 text-sm mt-2">
-            Score: {getPoints(playerHand)}
+          <p className="text-accent-foreground/70 text-xs sm:text-sm mt-2 font-semibold">
+            Point: {getPoints(playerHand)}
           </p>
         </div>
 
@@ -185,34 +185,37 @@ const BlackjackGame = () => {
           key={message}
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
-          className="text-center text-accent-foreground font-display font-bold text-lg mt-4"
+          className="text-center text-accent-foreground font-display font-bold text-base sm:text-lg mt-4"
         >
           {message}
         </motion.div>
       </div>
 
       {/* Controls */}
-      <div className="flex gap-3">
+      <div className="flex gap-2 sm:gap-3 w-full justify-center">
         <button
+          type="button"
           onClick={startGame}
           disabled={gameState === "playing"}
-          className="px-6 py-2 bg-weather-warm text-foreground rounded-lg font-medium hover:bg-weather-warm/90 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+          className="flex-1 max-w-[120px] py-2.5 sm:py-3 bg-weather-warm text-foreground rounded-xl font-bold text-sm sm:text-base hover:bg-weather-warm/90 transition-colors disabled:opacity-50 disabled:cursor-not-allowed shadow-md active:scale-95"
         >
-          Deal
+          Giv kort
         </button>
         <button
+          type="button"
           onClick={hit}
           disabled={gameState !== "playing"}
-          className="px-6 py-2 bg-weather-cool text-accent-foreground rounded-lg font-medium hover:bg-weather-cool/90 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+          className="flex-1 max-w-[120px] py-2.5 sm:py-3 bg-weather-cool text-accent-foreground rounded-xl font-bold text-sm sm:text-base hover:bg-weather-cool/90 transition-colors disabled:opacity-50 disabled:cursor-not-allowed shadow-md active:scale-95"
         >
-          Hit
+          Tag kort
         </button>
         <button
+          type="button"
           onClick={stand}
           disabled={gameState !== "playing"}
-          className="px-6 py-2 bg-destructive text-destructive-foreground rounded-lg font-medium hover:bg-destructive/90 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+          className="flex-1 max-w-[120px] py-2.5 sm:py-3 bg-destructive text-destructive-foreground rounded-xl font-bold text-sm sm:text-base hover:bg-destructive/90 transition-colors disabled:opacity-50 disabled:cursor-not-allowed shadow-md active:scale-95"
         >
-          Stand
+          Stå
         </button>
       </div>
     </motion.div>
