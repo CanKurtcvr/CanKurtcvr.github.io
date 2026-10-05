@@ -1,10 +1,18 @@
-import { useState } from "react";
+import { useState, lazy, Suspense } from "react";
 import { ArrowLeft, CircleDot, Gamepad2, Grid3X3, Target } from "lucide-react";
-import BlackjackGame from "./games/BlackjackGame";
-import PongGame from "./games/PongGame";
-import SnakeGame from "./games/SnakeGame";
-import WebShooterGame from "./games/WebShooterGame";
-import { AscensionGame } from "./ascension/AscensionGame";
+
+// ⚡ Bolt: Lazy load individual games so heavy dependencies (e.g. AscensionGame assets, 3D engines) are loaded only when played
+const BlackjackGame = lazy(() => import("./games/BlackjackGame"));
+const PongGame = lazy(() => import("./games/PongGame"));
+const SnakeGame = lazy(() => import("./games/SnakeGame"));
+const WebShooterGame = lazy(() => import("./games/WebShooterGame"));
+const AscensionGame = lazy(() => import("./ascension/AscensionGame").then(m => ({ default: m.AscensionGame })));
+
+const GameFallback = () => (
+  <div className="flex items-center justify-center py-20 text-muted-foreground text-sm animate-pulse">
+    Indlæser spil...
+  </div>
+);
 
 const games = [
   { id: "ascension-cards", title: "Ascension Cards", description: "Turn daily habits into collectible cards, quests, and character progress.", icon: Gamepad2, tone: "from-amber-500/20 to-indigo-500/20" },
@@ -56,7 +64,9 @@ export default function GamesSection({ selectedGame: controlledGame, onSelectGam
           </button>
           <h2 className="mb-2 text-3xl font-bold text-center">{game?.title}</h2>
           <p className="mb-8 text-center text-muted-foreground">{game?.description}</p>
-          {renderGame()}
+          <Suspense fallback={<GameFallback />}>
+            {renderGame()}
+          </Suspense>
         </div>
       </section>
     );

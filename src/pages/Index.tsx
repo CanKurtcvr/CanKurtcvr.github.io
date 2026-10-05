@@ -1,14 +1,21 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, lazy, Suspense } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import Header from "@/components/Header";
 import TabNavigation from "@/components/TabNavigation";
 import CVSection from "@/components/CVSection";
-import WeatherSection from "@/components/WeatherSection";
-import NewsSection from "@/components/NewsSection";
-import GamesSection from "@/components/GamesSection";
-import ProjectsSection from "@/components/ProjectsSection";
 
-import PrintCVDocument from "@/components/PrintCVDocument";
+// ⚡ Bolt: Lazy load heavy non-default tabs to drastically reduce initial JS bundle size & improve initial page load time
+const ProjectsSection = lazy(() => import("@/components/ProjectsSection"));
+const GamesSection = lazy(() => import("@/components/GamesSection"));
+const WeatherSection = lazy(() => import("@/components/WeatherSection"));
+const NewsSection = lazy(() => import("@/components/NewsSection"));
+const PrintCVDocument = lazy(() => import("@/components/PrintCVDocument"));
+
+const TabFallback = () => (
+  <div className="flex items-center justify-center py-16 text-muted-foreground text-sm animate-pulse">
+    Henter indhold...
+  </div>
+);
 
 type TabType = "cv" | "weather" | "news" | "games" | "projects";
 
@@ -69,11 +76,13 @@ const Index = () => {
               exit={{ opacity: 0, y: -12 }}
               transition={{ duration: 0.25 }}
             >
-              {activeTab === "cv" && <CVSection />}
-              {activeTab === "projects" && <ProjectsSection onNavigateToGame={handleNavigateToGame} />}
-              {activeTab === "games" && <GamesSection selectedGame={selectedGame} onSelectGame={setSelectedGame} />}
-              {activeTab === "weather" && <WeatherSection />}
-              {activeTab === "news" && <NewsSection />}
+              <Suspense fallback={<TabFallback />}>
+                {activeTab === "cv" && <CVSection />}
+                {activeTab === "projects" && <ProjectsSection onNavigateToGame={handleNavigateToGame} />}
+                {activeTab === "games" && <GamesSection selectedGame={selectedGame} onSelectGame={setSelectedGame} />}
+                {activeTab === "weather" && <WeatherSection />}
+                {activeTab === "news" && <NewsSection />}
+              </Suspense>
             </motion.div>
           </AnimatePresence>
         </main>
@@ -86,7 +95,9 @@ const Index = () => {
 
       {/* Print View: Complete In-Depth Curriculum Vitae Document */}
       <div className="hidden print:block w-full">
-        <PrintCVDocument />
+        <Suspense fallback={null}>
+          <PrintCVDocument />
+        </Suspense>
       </div>
     </div>
   );
