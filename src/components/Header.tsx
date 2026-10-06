@@ -1,29 +1,30 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { MapPin, Phone, Mail, Linkedin, Github, Printer, Copy, Check } from "lucide-react";
+import { MapPin, Phone, Mail, Linkedin, Github, Printer, Copy, Check, Download } from "lucide-react";
 import { ThemeToggle } from "./ThemeToggle";
 import { toast } from "sonner";
 import { Button } from "@/components/ui/button";
-
+import { useLanguage } from "@/context/LanguageContext";
 import ContactDialog from "./ContactDialog";
 
 interface HeaderProps {
-  onPrintCV?: () => void;
+  onPrintCV?: (lang?: "da" | "en") => void;
 }
 
 const Header = ({ onPrintCV }: HeaderProps = {}) => {
   const [copiedField, setCopiedField] = useState<string | null>(null);
+  const { language, setLanguage, t } = useLanguage();
 
   const copyToClipboard = (text: string, label: string) => {
     navigator.clipboard.writeText(text);
     setCopiedField(label);
-    toast.success(`${label} kopieret til udklipsholder!`);
+    toast.success(`${label} ${t("header.copied", "kopieret til udklipsholder!")}`);
     setTimeout(() => setCopiedField(null), 2000);
   };
 
-  const handlePrint = () => {
+  const handlePrint = (printLang: "da" | "en" = language) => {
     if (onPrintCV) {
-      onPrintCV();
+      onPrintCV(printLang);
     } else {
       window.print();
     }
@@ -45,18 +46,66 @@ const Header = ({ onPrintCV }: HeaderProps = {}) => {
         }} />
       </div>
 
-      {/* Top action bar: Theme toggle & Print */}
-      <div className="relative z-20 flex justify-end items-center gap-2 px-6 pt-4 max-w-4xl mx-auto">
+      {/* Top action bar: Language Switcher, Theme toggle & Print Buttons */}
+      <div className="relative z-20 flex flex-wrap justify-end items-center gap-2 px-4 sm:px-6 pt-4 max-w-4xl mx-auto">
+        {/* Flag Language Switcher */}
+        <div className="flex items-center bg-black/20 backdrop-blur-md rounded-full p-1 border border-white/10 mr-auto sm:mr-0">
+          <button
+            type="button"
+            onClick={() => setLanguage("da")}
+            className={`px-2.5 py-1 rounded-full text-xs font-bold transition-all flex items-center gap-1.5 cursor-pointer ${
+              language === "da"
+                ? "bg-accent text-accent-foreground shadow-sm scale-105"
+                : "text-header-foreground/70 hover:text-header-foreground hover:bg-white/10"
+            }`}
+            title="Skift til dansk"
+            aria-label="Skift til dansk"
+          >
+            <span className="text-sm">🇩🇰</span>
+            <span>DA</span>
+          </button>
+
+          <button
+            type="button"
+            onClick={() => setLanguage("en")}
+            className={`px-2.5 py-1 rounded-full text-xs font-bold transition-all flex items-center gap-1.5 cursor-pointer ${
+              language === "en"
+                ? "bg-accent text-accent-foreground shadow-sm scale-105"
+                : "text-header-foreground/70 hover:text-header-foreground hover:bg-white/10"
+            }`}
+            title="Switch to English"
+            aria-label="Switch to English"
+          >
+            <span className="text-sm">🇬🇧</span>
+            <span>EN</span>
+          </button>
+        </div>
+
+        {/* Print / Download Buttons */}
         <Button
           variant="ghost"
           size="sm"
-          onClick={handlePrint}
-          className="text-header-foreground/70 hover:text-header-foreground hover:bg-white/10 gap-1.5 text-xs md:text-sm"
-          title="Udskriv eller gem som PDF"
+          onClick={() => handlePrint("da")}
+          className="text-header-foreground/80 hover:text-header-foreground hover:bg-white/10 gap-1.5 text-xs"
+          title="Print eller gem dansk CV som PDF"
         >
-          <Printer className="w-3.5 h-3.5" />
-          <span className="hidden sm:inline">Hent / Print CV</span>
+          <Printer className="w-3.5 h-3.5 text-accent" />
+          <span className="hidden md:inline">{t("header.printDanish", "CV (Dansk)")}</span>
+          <span className="inline md:hidden">CV 🇩🇰</span>
         </Button>
+
+        <Button
+          variant="ghost"
+          size="sm"
+          onClick={() => handlePrint("en")}
+          className="text-header-foreground/80 hover:text-header-foreground hover:bg-white/10 gap-1.5 text-xs"
+          title="Download or print English CV as PDF"
+        >
+          <Download className="w-3.5 h-3.5 text-accent" />
+          <span className="hidden md:inline">{t("header.printEnglish", "CV (English)")}</span>
+          <span className="inline md:hidden">CV 🇬🇧</span>
+        </Button>
+
         <ThemeToggle />
       </div>
       
@@ -92,7 +141,7 @@ const Header = ({ onPrintCV }: HeaderProps = {}) => {
           transition={{ delay: 0.4, duration: 0.5 }}
           className="text-base md:text-lg text-header-foreground/80 mb-2 font-medium max-w-2xl mx-auto"
         >
-          Kandidatstuderende i Digital Transformation & IT-konsulent
+          {t("header.title", "Kandidatstuderende i Digital Transformation & IT-konsulent")}
         </motion.p>
         <motion.p
           initial={{ opacity: 0, y: 10 }}
@@ -100,7 +149,7 @@ const Header = ({ onPrintCV }: HeaderProps = {}) => {
           transition={{ delay: 0.45, duration: 0.5 }}
           className="text-sm md:text-base text-header-foreground/60 mb-5 italic"
         >
-          "Udvikling er mit mindset – IT og forretning er mine værktøjer."
+          {t("header.quote", '"Udvikling er mit mindset – IT og forretning er mine værktøjer."')}
         </motion.p>
 
         {/* Contact CTA */}
@@ -122,7 +171,7 @@ const Header = ({ onPrintCV }: HeaderProps = {}) => {
         >
           <span className="flex items-center gap-1.5 text-header-foreground/60">
             <MapPin className="w-4 h-4 text-accent/80" />
-            København, Danmark
+            {t("header.location", "København, Danmark")}
           </span>
           
           <div className="flex items-center gap-1">

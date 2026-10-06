@@ -1,6 +1,7 @@
 import React, { useRef } from "react";
 import { motion } from "framer-motion";
 import { FileText, Cloud, Newspaper, Gamepad2, Briefcase } from "lucide-react";
+import { useLanguage } from "@/context/LanguageContext";
 
 type TabType = "cv" | "weather" | "news" | "games" | "projects";
 
@@ -9,16 +10,17 @@ interface TabNavigationProps {
   onTabChange: (tab: TabType) => void;
 }
 
-const tabs = [
-  { id: "cv" as TabType, label: "Mit CV", icon: FileText },
-  { id: "projects" as TabType, label: "Projekter", icon: Briefcase },
-  { id: "games" as TabType, label: "Spil & Arcade", icon: Gamepad2 },
-  { id: "weather" as TabType, label: "Vejret", icon: Cloud },
-  { id: "news" as TabType, label: "Nyheder", icon: Newspaper },
-];
-
 const TabNavigation = ({ activeTab, onTabChange }: TabNavigationProps) => {
   const tabRefs = useRef<(HTMLButtonElement | null)[]>([]);
+  const { t } = useLanguage();
+
+  const tabs = [
+    { id: "cv" as TabType, label: t("nav.cv", "CV & Erfaring"), icon: FileText },
+    { id: "projects" as TabType, label: t("nav.projects", "Projekter"), icon: Briefcase },
+    { id: "games" as TabType, label: t("nav.games", "Spil & Arcade"), icon: Gamepad2 },
+    { id: "weather" as TabType, label: t("nav.weather", "Vejret"), icon: Cloud },
+    { id: "news" as TabType, label: t("nav.news", "Nyheder"), icon: Newspaper },
+  ];
 
   const handleKeyDown = (e: React.KeyboardEvent, index: number) => {
     let newIndex = index;

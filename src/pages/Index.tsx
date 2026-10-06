@@ -3,6 +3,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import Header from "@/components/Header";
 import TabNavigation from "@/components/TabNavigation";
 import CVSection from "@/components/CVSection";
+import { useLanguage } from "@/context/LanguageContext";
 
 // ⚡ Bolt: Lazy load heavy non-default tabs to drastically reduce initial JS bundle size & improve initial page load time
 const ProjectsSection = lazy(() => import("@/components/ProjectsSection"));
@@ -22,6 +23,8 @@ type TabType = "cv" | "weather" | "news" | "games" | "projects";
 const Index = () => {
   const [activeTab, setActiveTab] = useState<TabType>("cv");
   const [selectedGame, setSelectedGame] = useState<string | null>(null);
+  const [printLang, setPrintLang] = useState<"da" | "en">("da");
+  const { language, t } = useLanguage();
 
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
@@ -48,7 +51,8 @@ const Index = () => {
     }
   };
 
-  const handlePrintCV = () => {
+  const handlePrintCV = (lang: "da" | "en" = language) => {
+    setPrintLang(lang);
     setActiveTab("cv");
     setTimeout(() => {
       window.print();
@@ -88,15 +92,15 @@ const Index = () => {
         </main>
 
         <footer className="border-t border-border py-6 px-8 text-center text-xs sm:text-sm text-muted-foreground space-y-1">
-          <p>© {new Date().getFullYear()} Can Kurt</p>
-          <p className="text-xs text-muted-foreground/70">Kandidatstuderende i Digital Transformation · Roskilde Universitet</p>
+          <p>{t("footer.rights", "© 2026 Can Kurt")}</p>
+          <p className="text-xs text-muted-foreground/70">{t("footer.subtitle", "Kandidatstuderende i Digital Transformation · Roskilde Universitet")}</p>
         </footer>
       </div>
 
       {/* Print View: Complete In-Depth Curriculum Vitae Document */}
       <div className="hidden print:block w-full">
         <Suspense fallback={null}>
-          <PrintCVDocument />
+          <PrintCVDocument language={printLang} />
         </Suspense>
       </div>
     </div>

@@ -176,6 +176,13 @@ const SnakeGame = () => {
     touchStartRef.current = { x: touch.clientX, y: touch.clientY };
   };
 
+  const handleTouchMove = (e: React.TouchEvent) => {
+    // Prevent page scrolling while dragging across the snake canvas
+    if (touchStartRef.current) {
+      e.preventDefault();
+    }
+  };
+
   const handleTouchEnd = (e: React.TouchEvent) => {
     if (!touchStartRef.current) return;
     const touch = e.changedTouches[0];
@@ -184,7 +191,7 @@ const SnakeGame = () => {
     const absX = Math.abs(dx);
     const absY = Math.abs(dy);
 
-    if (Math.max(absX, absY) > 20) {
+    if (Math.max(absX, absY) > 15) {
       if (absX > absY) {
         handleDirection(dx > 0 ? 1 : -1, 0);
       } else {
@@ -204,9 +211,9 @@ const SnakeGame = () => {
       }
 
       switch (e.key) {
-        case "ArrowLeft": handleDirection(-1, 0); break;
+        case "ArrowLeft": handleDirection(-1, 0); e.preventDefault(); break;
         case "ArrowUp": handleDirection(0, -1); e.preventDefault(); break;
-        case "ArrowRight": handleDirection(1, 0); break;
+        case "ArrowRight": handleDirection(1, 0); e.preventDefault(); break;
         case "ArrowDown": handleDirection(0, 1); e.preventDefault(); break;
         default: return;
       }
@@ -228,15 +235,16 @@ const SnakeGame = () => {
     ctx.fillRect(0, 0, CANVAS_SIZE, CANVAS_SIZE);
 
     if (isGameOver) {
-      ctx.fillStyle = "rgba(0, 0, 0, 0.7)";
+      ctx.fillStyle = "rgba(0, 0, 0, 0.75)";
       ctx.fillRect(0, 0, CANVAS_SIZE, CANVAS_SIZE);
       ctx.fillStyle = "white";
-      ctx.font = "bold 28px 'Space Grotesk', sans-serif";
+      ctx.font = "bold 26px 'Space Grotesk', sans-serif";
       ctx.textAlign = "center";
-      ctx.fillText("Game Over!", CANVAS_SIZE / 2, CANVAS_SIZE / 2 - 10);
+      ctx.fillText("Game Over!", CANVAS_SIZE / 2, CANVAS_SIZE / 2 - 15);
       ctx.font = "16px Inter, sans-serif";
-      ctx.fillText(`Score: ${score}`, CANVAS_SIZE / 2, CANVAS_SIZE / 2 + 20);
-      ctx.fillText("Tryk på en piletast for at genstarte", CANVAS_SIZE / 2, CANVAS_SIZE / 2 + 50);
+      ctx.fillText(`Score: ${score}`, CANVAS_SIZE / 2, CANVAS_SIZE / 2 + 15);
+      ctx.font = "14px Inter, sans-serif";
+      ctx.fillText("Tryk 'Spil igen' / Swipe for at starte", CANVAS_SIZE / 2, CANVAS_SIZE / 2 + 45);
     } else if (!isPlaying) {
       ctx.fillStyle = "hsl(32, 95%, 55%)";
       ctx.font = "bold 20px 'Space Grotesk', sans-serif";
@@ -249,59 +257,61 @@ const SnakeGame = () => {
     <motion.div
       initial={{ opacity: 0, scale: 0.95 }}
       animate={{ opacity: 1, scale: 1 }}
-      className="flex flex-col items-center gap-4 w-full max-w-md mx-auto"
+      className="flex flex-col items-center gap-4 w-full max-w-md mx-auto touch-manipulation"
     >
       <div className="flex items-center justify-between w-full px-2 text-base md:text-lg font-display font-semibold">
-        <span className="text-emerald-500 font-bold">Point: {score}</span>
-        <span className="text-muted-foreground">Bedste score: {highScore}</span>
+        <span className="text-emerald-500 font-bold">Point / Score: {score}</span>
+        <span className="text-muted-foreground">High Score: {highScore}</span>
       </div>
 
-      <div className="relative w-full flex justify-center">
+      <div className="relative w-full flex justify-center px-1">
         <canvas
           ref={canvasRef}
           width={CANVAS_SIZE}
           height={CANVAS_SIZE}
           onTouchStart={handleTouchStart}
+          onTouchMove={handleTouchMove}
           onTouchEnd={handleTouchEnd}
-          className="rounded-xl border-4 border-border shadow-xl max-w-full h-auto touch-none bg-slate-950"
+          className="rounded-xl border-4 border-border shadow-xl w-full max-w-[360px] aspect-square h-auto touch-none bg-slate-950"
         />
       </div>
 
       <div className="flex items-center gap-4">
         <button
+          type="button"
           onClick={resetGame}
-          className="px-6 py-2 bg-accent text-accent-foreground rounded-lg font-semibold hover:bg-accent/90 transition-colors shadow-sm"
+          className="px-8 py-3 bg-accent text-accent-foreground rounded-xl font-bold hover:bg-accent/90 transition-colors shadow-md text-base active:scale-95"
         >
-          {isGameOver ? "Spil igen" : isPlaying ? "Genstart" : "Start Spil"}
+          {isGameOver ? "Spil igen / Play again" : isPlaying ? "Genstart / Restart" : "Start Spil / Start Game"}
         </button>
       </div>
 
-      {/* Touch D-Pad for mobile */}
-      <div className="flex flex-col items-center gap-1.5 pt-2 select-none sm:hidden">
+      {/* Responsive Touch D-Pad for mobile */}
+      <div className="flex flex-col items-center gap-2 pt-2 select-none w-full max-w-xs sm:hidden">
         <button
           type="button"
           onClick={() => handleDirection(0, -1)}
-          className="w-14 h-12 rounded-lg bg-card border border-border flex items-center justify-center active:bg-accent active:text-accent-foreground text-foreground shadow-xs"
+          className="w-16 h-14 rounded-xl bg-card border-2 border-border flex items-center justify-center active:bg-accent active:text-accent-foreground text-foreground shadow-sm text-lg font-bold"
           aria-label="Op"
         >
           ▲
         </button>
-        <div className="flex items-center gap-3">
+        <div className="flex items-center justify-center gap-4 w-full">
           <button
             type="button"
             onClick={() => handleDirection(-1, 0)}
-            className="w-14 h-12 rounded-lg bg-card border border-border flex items-center justify-center active:bg-accent active:text-accent-foreground text-foreground shadow-xs"
+            className="w-16 h-14 rounded-xl bg-card border-2 border-border flex items-center justify-center active:bg-accent active:text-accent-foreground text-foreground shadow-sm text-lg font-bold"
             aria-label="Venstre"
           >
             ◀
           </button>
-          <div className="w-14 h-12 rounded-lg border border-dashed border-border/60 flex items-center justify-center text-xs text-muted-foreground font-mono">
-            D-Pad
+          <div className="w-16 h-14 rounded-xl border border-dashed border-border/80 flex items-center justify-center text-xs text-muted-foreground font-mono font-semibold">
+            D-PAD
           </div>
           <button
             type="button"
             onClick={() => handleDirection(1, 0)}
-            className="w-14 h-12 rounded-lg bg-card border border-border flex items-center justify-center active:bg-accent active:text-accent-foreground text-foreground shadow-xs"
+            className="w-16 h-14 rounded-xl bg-card border-2 border-border flex items-center justify-center active:bg-accent active:text-accent-foreground text-foreground shadow-sm text-lg font-bold"
             aria-label="Højre"
           >
             ▶
@@ -310,15 +320,15 @@ const SnakeGame = () => {
         <button
           type="button"
           onClick={() => handleDirection(0, 1)}
-          className="w-14 h-12 rounded-lg bg-card border border-border flex items-center justify-center active:bg-accent active:text-accent-foreground text-foreground shadow-xs"
+          className="w-16 h-14 rounded-xl bg-card border-2 border-border flex items-center justify-center active:bg-accent active:text-accent-foreground text-foreground shadow-sm text-lg font-bold"
           aria-label="Ned"
         >
           ▼
         </button>
       </div>
 
-      <p className="text-xs text-muted-foreground text-center">
-        Styr med <kbd className="px-1.5 py-0.5 bg-muted rounded text-[11px] font-mono">Piletaster</kbd> eller swipe / D-Pad på mobil
+      <p className="text-xs text-muted-foreground text-center px-2">
+        Swipe på skærmen, brug D-Pad eller <kbd className="px-1.5 py-0.5 bg-muted rounded text-[11px] font-mono">Piletaster</kbd>
       </p>
     </motion.div>
   );
