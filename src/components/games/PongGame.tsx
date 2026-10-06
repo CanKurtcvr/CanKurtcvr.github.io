@@ -1,8 +1,9 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import p5 from "p5";
 
 export default function PongGame() {
   const containerRef = useRef<HTMLDivElement>(null);
+  const [touchActive, setTouchActive] = useState(false);
 
   useEffect(() => {
     if (!containerRef.current) return;
@@ -19,9 +20,9 @@ export default function PongGame() {
       // Paddles
       const paddleWidth = 14;
       const paddleHeight = 85;
-      const paddleOffset = 36;
+      const paddleOffset = 30;
       let playerY: number, aiY: number;
-      const aiSpeed = 5.2;
+      const aiSpeed = 5.0;
 
       // Score & VFX State
       let playerScore = 0;
@@ -45,8 +46,8 @@ export default function PongGame() {
         ballX = p.width / 2;
         ballY = p.height / 2;
         ballTrail = [];
-        ballSpeedX = p.random() > 0.5 ? 7 : -7;
-        ballSpeedY = p.random(-3, 3);
+        ballSpeedX = p.random() > 0.5 ? 6.5 : -6.5;
+        ballSpeedY = p.random(-2.5, 2.5);
         serveDelayTimer = 40;
       };
 
@@ -87,7 +88,6 @@ export default function PongGame() {
 
       p.draw = () => {
         p.push();
-        // Keep the court stable so movement feedback never shifts the controls.
         if (screenShakeTimer > 0) {
           screenShakeTimer *= 0.85;
           if (screenShakeTimer < 0.5) screenShakeTimer = 0;
@@ -104,17 +104,17 @@ export default function PongGame() {
         p.noFill();
         p.stroke(30, 38, 58);
         p.strokeWeight(2);
-        p.ellipse(p.width / 2, p.height / 2, 140, 140);
+        p.ellipse(p.width / 2, p.height / 2, Math.min(140, p.width * 0.35), Math.min(140, p.width * 0.35));
 
         // Scores
         p.noStroke();
         p.textStyle(p.BOLD);
         p.textAlign(p.CENTER, p.TOP);
-        p.textSize(48);
+        p.textSize(Math.min(48, p.width * 0.12));
         p.fill(56, 189, 248, 140);
-        p.text(playerScore, p.width / 2 - 70, 30);
+        p.text(playerScore, p.width / 2 - 60, 20);
         p.fill(244, 63, 94, 140);
-        p.text(aiScore, p.width / 2 + 70, 30);
+        p.text(aiScore, p.width / 2 + 60, 20);
 
         // Particles
         for (let i = particles.length - 1; i >= 0; i--) {
@@ -138,7 +138,7 @@ export default function PongGame() {
           targetTouchY = null;
         }
         if (targetTouchY !== null) {
-          playerY += (targetTouchY - playerY) * 0.35;
+          playerY += (targetTouchY - playerY) * 0.4;
         }
         playerY = p.constrain(playerY, paddleHeight / 2, p.height - paddleHeight / 2);
 
@@ -238,14 +238,16 @@ export default function PongGame() {
 
       p.touchStarted = () => {
         if (p.touches && p.touches.length > 0) {
-          targetTouchY = (p.touches[0] as { x: number; y: number }).y;
+          targetTouchY = (p.touches[0] as { y: number }).y;
+          setTouchActive(true);
         }
       };
 
       p.touchMoved = () => {
         if (p.touches && p.touches.length > 0) {
-          targetTouchY = (p.touches[0] as { x: number; y: number }).y;
-          return false;
+          targetTouchY = (p.touches[0] as { y: number }).y;
+          setTouchActive(true);
+          return false; // Prevent page scrolling while dragging touch on p5 canvas
         }
       };
 
@@ -272,13 +274,16 @@ export default function PongGame() {
   }, []);
 
   return (
-    <div className="w-full overflow-hidden rounded-xl border border-border shadow-xl bg-slate-950">
-      <div ref={containerRef} className="aspect-video max-h-[70vh] min-h-[320px] touch-none" />
+    <div className="w-full max-w-2xl mx-auto overflow-hidden rounded-xl border border-border shadow-xl bg-slate-950 touch-none">
+      <div
+        ref={containerRef}
+        className="w-full aspect-[16/9] min-h-[280px] max-h-[60vh] touch-none select-none bg-slate-950"
+      />
       <div className="flex flex-wrap items-center justify-between gap-2 border-t border-slate-800 bg-slate-950 px-4 py-3 text-xs sm:text-sm text-slate-300">
-        <div className="flex items-center gap-3">
-          <span><strong className="text-cyan-400 font-mono">W / S</strong> eller <strong className="text-cyan-400 font-mono">↑ / ↓</strong></span>
+        <div className="flex items-center gap-2">
+          <span><strong className="text-cyan-400 font-mono">W / S</strong> / <strong className="text-cyan-400 font-mono">↑ / ↓</strong></span>
           <span className="text-slate-500">|</span>
-          <span className="text-muted-foreground sm:inline">Træk med fingeren på mobil</span>
+          <span className="text-slate-300">Træk fingeren op/ned på skærmen</span>
         </div>
         <div>
           <span className="text-rose-400 font-semibold">Først til 10 vinder</span>

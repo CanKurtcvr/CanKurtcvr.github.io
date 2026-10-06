@@ -9,7 +9,7 @@ const ITEMS = [
   { id: "cards" as const, label: "Cards", Icon: Layers },
   { id: "world" as const, label: "3D World", Icon: Globe2 },
   { id: "campaign" as const, label: "Campaign", Icon: ScrollText },
-  { id: "character" as const, label: "Character", Icon: Sparkles },
+  { id: "character" as const, label: "Hero", Icon: Sparkles },
   { id: "progress" as const, label: "Progress", Icon: LineChart },
 ] as const;
 
@@ -23,27 +23,27 @@ export function BottomNav({
   return (
     <nav
       aria-label="Ascension Navigation"
-      className="sticky bottom-0 z-30 border-t border-border/70 bg-card/95 py-1.5 backdrop-blur-md mt-6 rounded-b-xl shadow-lg"
+      className="sticky bottom-0 z-30 border-t border-border/80 bg-card/98 py-1 backdrop-blur-md mt-4 rounded-b-xl shadow-lg"
     >
-      <ul className="mx-auto flex max-w-lg items-stretch justify-around px-1">
+      <ul className="mx-auto flex max-w-xl items-center justify-between px-1 gap-0.5 overflow-x-auto">
         {ITEMS.map(({ id, label, Icon }) => {
           const active = activeTab === id;
           return (
-            <li key={id} className="flex-1">
+            <li key={id} className="flex-1 min-w-[50px]">
               <button
                 type="button"
                 onClick={() => {
                   haptic("tick");
                   onSelectTab(id);
                 }}
-                className={`press-pop flex min-h-12 w-full flex-col items-center justify-center gap-1 rounded-md px-1 py-1 text-[11px] font-medium transition-colors ${
+                className={`press-pop flex min-h-[44px] w-full flex-col items-center justify-center gap-0.5 rounded-lg px-1 py-1 text-[10px] sm:text-[11px] font-medium transition-colors ${
                   active
                     ? "text-primary font-bold bg-primary/10 shadow-xs"
                     : "text-muted-foreground hover:text-foreground hover:bg-muted/40"
                 }`}
               >
-                <Icon className={`size-4.5 transition-transform ${active ? "scale-110 text-primary" : ""}`} aria-hidden="true" />
-                <span>{label}</span>
+                <Icon className={`size-4 sm:size-4.5 transition-transform ${active ? "scale-110 text-primary" : ""}`} aria-hidden="true" />
+                <span className="truncate max-w-[56px] text-center">{label}</span>
               </button>
             </li>
           );
