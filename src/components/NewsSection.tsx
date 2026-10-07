@@ -316,7 +316,11 @@ export default function NewsSection() {
       {/* Category Pills & Search Filter */}
       <div className="flex flex-col md:flex-row md:items-center justify-between gap-3">
         {/* Categories */}
-        <div className="flex flex-wrap items-center gap-1.5">
+        <div
+          className="flex flex-wrap items-center gap-1.5"
+          role="group"
+          aria-label="Filtrer nyheder efter kategori"
+        >
           {CATEGORIES.map((cat) => {
             const Icon = cat.icon;
             const active = selectedCategory === cat.id;
@@ -324,14 +328,15 @@ export default function NewsSection() {
               <button
                 key={cat.id}
                 type="button"
+                aria-pressed={active}
                 onClick={() => setSelectedCategory(cat.id)}
-                className={`press-pop inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-semibold transition-all ${
+                className={`press-pop inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-semibold transition-all focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-primary ${
                   active
                     ? "bg-primary text-primary-foreground shadow-xs scale-105"
                     : "bg-muted/70 hover:bg-muted text-muted-foreground hover:text-foreground border border-border/40"
                 }`}
               >
-                <Icon className={`size-3.5 ${active ? "text-primary-foreground" : cat.textColor}`} />
+                <Icon className={`size-3.5 ${active ? "text-primary-foreground" : cat.textColor}`} aria-hidden="true" />
                 <span>{cat.label}</span>
               </button>
             );
@@ -340,12 +345,13 @@ export default function NewsSection() {
 
         {/* Live Search Input */}
         <div className="relative w-full md:w-64">
-          <Search className="absolute left-3 top-1/2 -translate-y-1/2 size-3.5 text-muted-foreground" />
+          <Search className="absolute left-3 top-1/2 -translate-y-1/2 size-3.5 text-muted-foreground" aria-hidden="true" />
           <input
             type="text"
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
             placeholder="Filtrer overskrifter..."
+            aria-label="Filtrer overskrifter"
             className="w-full pl-8 pr-3 py-1.5 text-xs rounded-full border border-border/80 bg-background/80 placeholder:text-muted-foreground focus:outline-none focus:ring-1 focus:ring-primary"
           />
         </div>
