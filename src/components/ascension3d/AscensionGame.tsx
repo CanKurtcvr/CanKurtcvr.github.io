@@ -1,13 +1,17 @@
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useState, lazy, Suspense } from "react";
 import { Play, Swords, X, Check, BookOpen, Lock } from "lucide-react";
 import {
-  FlightWorld3D,
   applyNpcDialogue,
   applyIslandUnlocks,
   ISLAND_NPCS,
   type IslandNPC,
-  type PetType,
-} from "./FlightWorld3D";
+} from "./npcData";
+import type { PetType } from "./FlightWorld3D";
+
+// ⚡ Bolt: Lazy load heavy 3D canvas and Three.js engine (FlightWorld3D) on demand when the user enters flight mode
+const FlightWorld3D = lazy(() =>
+  import("./FlightWorld3D").then((m) => ({ default: m.FlightWorld3D }))
+);
 import { campaignState, ARC_TWO_LINE, ARC_TWO_NAME, type QuestProgress } from "@/lib/ascension/campaign";
 import { artFor } from "@/lib/ascension/art";
 import { BattleArena } from "./BattleArena";
@@ -163,7 +167,6 @@ export function AscensionGame() {
     });
     unlocks['nexus'] = 5;
     applyIslandUnlocks(unlocks);
-
 
     const lines: Record<string, string[]> = {};
     ISLAND_NPCS.forEach((npc) => {
@@ -450,18 +453,26 @@ export function AscensionGame() {
   return (
     <div className="relative isolate overflow-hidden rounded-2xl border border-primary/20 bg-[#07111d] shadow-[0_30px_90px_-40px] shadow-primary/50">
       <div className="relative h-[min(80vh,860px)] min-h-[520px]">
-        <FlightWorld3D
-          character={character}
-          quests={quests}
-          petType={stored.petType}
-          timeOfDay={timeOfDay}
-          onTimeOfDayChange={setTimeOfDay}
-          onEnterArea={(area, island) => setSelectedArea({ area, island })}
-          onAscendGear={ascendGear}
-          onDialogueComplete={(npc) =>
-            setNpcChallenge({ npc, cards: cardsForIsland(npc.islandId) })
+        <Suspense
+          fallback={
+            <div className="flex h-full w-full items-center justify-center bg-[#07111d] text-sm text-muted-foreground animate-pulse">
+              Indlæser 3D-verden...
+            </div>
           }
-        />
+        >
+          <FlightWorld3D
+            character={character}
+            quests={quests}
+            petType={stored.petType}
+            timeOfDay={timeOfDay}
+            onTimeOfDayChange={setTimeOfDay}
+            onEnterArea={(area, island) => setSelectedArea({ area, island })}
+            onAscendGear={ascendGear}
+            onDialogueComplete={(npc) =>
+              setNpcChallenge({ npc, cards: cardsForIsland(npc.islandId) })
+            }
+          />
+        </Suspense>
 
         {/* cinematic grade: vignette, warm bloom veil and a fine grain */}
         <div
