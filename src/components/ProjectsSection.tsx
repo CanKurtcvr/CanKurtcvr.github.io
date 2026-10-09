@@ -78,25 +78,28 @@ export default function ProjectsSection({ onNavigateToGame }: ProjectsSectionPro
 
       {/* Category Filter Chips */}
       <div
-        className="flex flex-wrap items-center justify-center gap-1.5 md:gap-2"
         role="group"
         aria-label="Filtrer projekter efter kategori"
+        className="flex flex-wrap items-center justify-center gap-1.5 md:gap-2"
       >
-        {categories.map((cat) => (
-          <button
-            key={cat}
-            type="button"
-            aria-pressed={selectedCategory === cat}
-            onClick={() => setSelectedCategory(cat)}
-            className={`px-3.5 py-1.5 rounded-full text-xs font-medium transition-all focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-primary ${
-              selectedCategory === cat
-                ? "bg-primary text-primary-foreground shadow-sm"
-                : "bg-muted/70 hover:bg-muted text-muted-foreground hover:text-foreground border border-border/50"
-            }`}
-          >
-            {cat}
-          </button>
-        ))}
+        {categories.map((cat) => {
+          const isSelected = selectedCategory === cat;
+          return (
+            <button
+              key={cat}
+              type="button"
+              aria-pressed={isSelected}
+              onClick={() => setSelectedCategory(cat)}
+              className={`px-3.5 py-1.5 rounded-full text-xs font-medium transition-all focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-accent ${
+                isSelected
+                  ? "bg-primary text-primary-foreground shadow-sm"
+                  : "bg-muted/70 hover:bg-muted text-muted-foreground hover:text-foreground border border-border/50"
+              }`}
+            >
+              {cat}
+            </button>
+          );
+        })}
       </div>
 
       {/* Projects Grid */}

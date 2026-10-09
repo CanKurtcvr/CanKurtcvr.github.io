@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState } from "react";
+import React, { createContext, useContext, useState, useCallback, useMemo } from "react";
 
 export type Language = "da" | "en";
 
@@ -103,17 +103,24 @@ export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ chil
     return saved === "en" || saved === "da" ? saved : "da";
   });
 
-  const setLanguage = (lang: Language) => {
+  // ⚡ Bolt: Memoize context handlers & translation helper to ensure stable referential equality
+  const setLanguage = useCallback((lang: Language) => {
     setLanguageState(lang);
     localStorage.setItem("preferredLanguage", lang);
-  };
+  }, []);
 
-  const t = (key: string, defaultText?: string): string => {
+  const t = useCallback((key: string, defaultText?: string): string => {
     return translations[language]?.[key] || defaultText || key;
-  };
+  }, [language]);
+
+  // ⚡ Bolt: Memoize context value object to prevent re-rendering all consumers on parent re-renders
+  const value = useMemo(
+    () => ({ language, setLanguage, t }),
+    [language, setLanguage, t]
+  );
 
   return (
-    <LanguageContext.Provider value={{ language, setLanguage, t }}>
+    <LanguageContext.Provider value={value}>
       {children}
     </LanguageContext.Provider>
   );
