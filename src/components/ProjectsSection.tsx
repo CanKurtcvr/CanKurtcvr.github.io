@@ -209,6 +209,7 @@ export default function ProjectsSection({ onNavigateToGame }: ProjectsSectionPro
                       target="_blank"
                       rel="noopener noreferrer"
                       title="Se kildekode på GitHub"
+                      aria-label={`Se kildekode for ${project.title} på GitHub`}
                     >
                       <Github className="w-4 h-4" />
                       <span className="hidden sm:inline">GitHub</span>
