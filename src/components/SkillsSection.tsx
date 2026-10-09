@@ -1,3 +1,4 @@
+import { memo } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Code2, Database, Cpu, Languages, GraduationCap } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
@@ -77,7 +78,8 @@ export const skillCategories: SkillCategory[] = [
   }
 ];
 
-export default function SkillsSection() {
+// ⚡ Bolt: Memoize SkillsSection to prevent unnecessary re-renders when switching category filters in parent CVSection
+const SkillsSection = memo(function SkillsSection() {
   return (
     <div className="mb-12 space-y-6">
       <div className="text-center max-w-xl mx-auto space-y-2">
@@ -160,4 +162,6 @@ export default function SkillsSection() {
       </div>
     </div>
   );
-}
+});
+
+export default SkillsSection;
