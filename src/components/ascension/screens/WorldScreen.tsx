@@ -1,8 +1,11 @@
+import { lazy, Suspense } from "react";
 import { ScrollText } from "lucide-react";
 import { useAscension } from "@/lib/ascension/store";
 import { XpHeader } from "@/components/ascension/XpHeader";
-import { AscensionGame } from "@/components/ascension3d/AscensionGame";
 import type { AscensionSubTab } from "../BottomNav";
+
+// ⚡ Bolt: Lazy load heavy 3D AscensionGame (Three.js world) on demand so 2D habit card screens load instantly without downloading 3D assets
+const AscensionGame3D = lazy(() => import("@/components/ascension3d/AscensionGame").then(m => ({ default: m.AscensionGame })));
 
 interface WorldScreenProps {
   onNavigate: (tab: AscensionSubTab) => void;
@@ -34,7 +37,15 @@ export function WorldScreen({ onNavigate }: WorldScreenProps) {
 
         {ready ? (
           <div className="rounded-xl overflow-hidden border border-border/80 shadow-lg bg-slate-950 min-h-[580px]">
-            <AscensionGame />
+            <Suspense
+              fallback={
+                <div className="grid min-h-[580px] place-items-center text-sm text-muted-foreground animate-pulse">
+                  Indlæser 3D verdenen...
+                </div>
+              }
+            >
+              <AscensionGame3D />
+            </Suspense>
           </div>
         ) : (
           <div className="grid min-h-[560px] place-items-center rounded-xl border border-border text-sm text-muted-foreground">
