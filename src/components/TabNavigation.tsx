@@ -48,7 +48,7 @@ const TabNavigation = ({ activeTab, onTabChange }: TabNavigationProps) => {
           {tabs.map((tab, index) => {
             const Icon = tab.icon;
             const isActive = activeTab === tab.id;
-            
+
             return (
               <button
                 key={tab.id}
@@ -62,15 +62,15 @@ const TabNavigation = ({ activeTab, onTabChange }: TabNavigationProps) => {
                 tabIndex={isActive ? 0 : -1}
                 onClick={() => onTabChange(tab.id)}
                 onKeyDown={(e) => handleKeyDown(e, index)}
-                className={"relative flex-1 flex items-center justify-center gap-2 px-3 sm:px-4 py-4 text-xs sm:text-sm md:text-base font-medium transition-colors focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-accent " + (
+                className={`relative flex-1 flex items-center justify-center gap-2 px-3 sm:px-4 py-4 text-xs sm:text-sm md:text-base font-medium transition-colors focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-accent ${
                   isActive
                     ? "text-accent font-semibold"
                     : "text-muted-foreground hover:text-foreground"
-                )}
+                }`}
               >
                 <Icon className="w-4 h-4 shrink-0" />
                 <span className="truncate">{tab.label}</span>
-                
+
                 {isActive && (
                   <motion.div
                     layoutId="activeTab"
