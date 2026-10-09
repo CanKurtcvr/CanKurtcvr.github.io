@@ -184,9 +184,9 @@ const Header = ({ onPrintCV }: HeaderProps = {}) => {
             </a>
             <button
               onClick={() => copyToClipboard("+4528701213", "Telefonnummer")}
-              className="p-1 text-header-foreground/40 hover:text-accent transition-colors"
-              title="Kopiér telefonnummer"
-              aria-label="Kopiér telefonnummer"
+              className="p-1 text-header-foreground/40 hover:text-accent transition-colors focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-accent rounded-sm"
+              title={copiedField === "Telefonnummer" ? "Telefonnummer kopieret!" : "Kopiér telefonnummer"}
+              aria-label={copiedField === "Telefonnummer" ? "Telefonnummer kopieret!" : "Kopiér telefonnummer"}
             >
               {copiedField === "Telefonnummer" ? <Check className="w-3.5 h-3.5 text-green-400" /> : <Copy className="w-3.5 h-3.5" />}
             </button>
@@ -202,9 +202,9 @@ const Header = ({ onPrintCV }: HeaderProps = {}) => {
             </a>
             <button
               onClick={() => copyToClipboard("cankurtcvr@gmail.com", "Email")}
-              className="p-1 text-header-foreground/40 hover:text-accent transition-colors"
-              title="Kopiér email"
-              aria-label="Kopiér email"
+              className="p-1 text-header-foreground/40 hover:text-accent transition-colors focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-accent rounded-sm"
+              title={copiedField === "Email" ? "Email kopieret!" : "Kopiér email"}
+              aria-label={copiedField === "Email" ? "Email kopieret!" : "Kopiér email"}
             >
               {copiedField === "Email" ? <Check className="w-3.5 h-3.5 text-green-400" /> : <Copy className="w-3.5 h-3.5" />}
             </button>
@@ -218,6 +218,7 @@ const Header = ({ onPrintCV }: HeaderProps = {}) => {
           >
             <Linkedin className="w-4 h-4" />
             LinkedIn
+            <span className="sr-only"> (åbner i et nyt vindue)</span>
           </a>
 
           <a
@@ -228,6 +229,7 @@ const Header = ({ onPrintCV }: HeaderProps = {}) => {
           >
             <Github className="w-4 h-4" />
             GitHub
+            <span className="sr-only"> (åbner i et nyt vindue)</span>
           </a>
         </motion.div>
       </div>
