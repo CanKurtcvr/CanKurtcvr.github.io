@@ -61,6 +61,20 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-background text-foreground print:bg-white print:min-h-0 transition-colors duration-300">
+      {/* Skip to Main Content Link (Accessibility) */}
+      <a
+        href={`#panel-${activeTab}`}
+        onClick={(e) => {
+          const mainTarget = document.getElementById(`panel-${activeTab}`);
+          if (mainTarget) {
+            mainTarget.focus();
+          }
+        }}
+        className="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-50 focus:px-4 focus:py-2.5 focus:bg-accent focus:text-accent-foreground focus:font-semibold focus:rounded-lg focus:shadow-xl focus:ring-2 focus:ring-primary focus:outline-hidden transition-all"
+      >
+        {t("nav.skipToContent", "Spring til hovedindhold")}
+      </a>
+
       {/* Screen View: Interactive Portfolio */}
       <div className="print:hidden max-w-4xl mx-auto bg-card shadow-xl min-h-screen border-x border-border/40">
         <Header onPrintCV={handlePrintCV} />
@@ -68,9 +82,10 @@ const Index = () => {
         
         <main 
           id={`panel-${activeTab}`}
+          tabIndex={-1}
           role="tabpanel"
           aria-labelledby={`tab-${activeTab}`}
-          className="p-4 sm:p-6 md:p-8"
+          className="p-4 sm:p-6 md:p-8 focus:outline-hidden"
         >
           <AnimatePresence mode="wait">
             <motion.div

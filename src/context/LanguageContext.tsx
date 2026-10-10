@@ -19,7 +19,8 @@ const translations: Record<Language, Record<string, string>> = {
     "header.contact": "Kontakt mig",
     "header.copied": "kopieret til udklipsholder!",
 
-    // Tabs
+    // Navigation & A11y
+    "nav.skipToContent": "Spring til hovedindhold",
     "nav.cv": "CV & Erfaring",
     "nav.projects": "Projekter & Tools",
     "nav.games": "Spil & Arkade",
@@ -61,7 +62,8 @@ const translations: Record<Language, Record<string, string>> = {
     "header.contact": "Contact Me",
     "header.copied": "copied to clipboard!",
 
-    // Tabs
+    // Navigation & A11y
+    "nav.skipToContent": "Skip to main content",
     "nav.cv": "CV & Experience",
     "nav.projects": "Projects & Tools",
     "nav.games": "Games & Arcade",

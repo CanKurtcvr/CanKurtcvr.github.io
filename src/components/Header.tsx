@@ -53,6 +53,7 @@ const Header = ({ onPrintCV }: HeaderProps = {}) => {
           <button
             type="button"
             onClick={() => setLanguage("da")}
+            aria-pressed={language === "da"}
             className={`px-2.5 py-1 rounded-full text-xs font-bold transition-all flex items-center gap-1.5 cursor-pointer ${
               language === "da"
                 ? "bg-accent text-accent-foreground shadow-sm scale-105"
@@ -68,6 +69,7 @@ const Header = ({ onPrintCV }: HeaderProps = {}) => {
           <button
             type="button"
             onClick={() => setLanguage("en")}
+            aria-pressed={language === "en"}
             className={`px-2.5 py-1 rounded-full text-xs font-bold transition-all flex items-center gap-1.5 cursor-pointer ${
               language === "en"
                 ? "bg-accent text-accent-foreground shadow-sm scale-105"
