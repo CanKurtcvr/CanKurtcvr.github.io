@@ -196,7 +196,7 @@ export default function PrintCVDocument({ language = "da" }: PrintCVDocumentProp
       {/* Udvalgte Projekter */}
       <section className="mb-3 break-inside-avoid">
         <h2 className="text-[9.5pt] font-bold text-slate-950 uppercase tracking-wider border-b border-slate-300 pb-0.5 mb-1.5">
-          {isEn ? "Featured Projects & Technical Showcases" : "Udvalgte Projekter & Tekniske Showcases"}
+          {isEn ? "Featured Projects & Technical Showcases" : "Udvalgte Projekter \& Tekniske Showcases"}
         </h2>
 
         <div className="grid grid-cols-2 gap-x-3 gap-y-1.5">
@@ -238,7 +238,7 @@ export default function PrintCVDocument({ language = "da" }: PrintCVDocumentProp
         <p>
           <strong>{isEn ? "References:" : "Referencer:"}</strong>{" "}
           {isEn
-            ? "Formal recommendations and referee contact information from Danske Bank, EY / M-Networks, TolkDanmark, etc. are available upon request."
+            ? "Formal recommendations and referee contact information from Danske Bank, EY / M-Networks, Interpreter Denmark, etc., are available upon request."
             : "Udtalelser og kontaktpersoner fra Danske Bank, EY / M-Networks, TolkDanmark m.fl. fremsendes gerne ved henvendelse."}
         </p>
       </footer>
