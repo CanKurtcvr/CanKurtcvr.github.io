@@ -25,6 +25,16 @@ const getWeatherIcon = (code: number) => {
   return Cloud;
 };
 
+const getWeatherDescription = (code: number) => {
+  if (code === 0) return "Klart vejr";
+  if (code === 1) return "Nogen sol";
+  if (code === 2) return "Halvskyet";
+  if (code === 3) return "Skyet";
+  if (code >= 51 && code <= 67) return "Regnvejr";
+  if (code >= 71 && code <= 77) return "Snedække / Snebyger";
+  return "Skyet";
+};
+
 const WeatherSection = () => {
   const [weather, setWeather] = useState<WeatherData | null>(null);
   const [loading, setLoading] = useState(true);
@@ -124,23 +134,34 @@ const WeatherSection = () => {
             <div className="grid grid-cols-5 gap-2 sm:gap-3">
               {weather?.daily.time.slice(0, 5).map((date, index) => {
                 const dayName = new Date(date).toLocaleDateString("da-DK", { weekday: "short" });
-                const WeatherIcon = getWeatherIcon(weather.daily.weathercode[index]);
-                
+                const fullDayName = new Date(date).toLocaleDateString("da-DK", { weekday: "long" });
+                const weatherCode = weather.daily.weathercode[index];
+                const WeatherIcon = getWeatherIcon(weatherCode);
+                const weatherDesc = getWeatherDescription(weatherCode);
+                const maxTemp = weather.daily.temperature_2m_max[index];
+                const minTemp = weather.daily.temperature_2m_min[index];
+                const forecastLabel = `${fullDayName}: ${weatherDesc}, højeste ${maxTemp} grader, laveste ${minTemp} grader`;
+
                 return (
                   <motion.div
                     key={date}
+                    tabIndex={0}
+                    role="article"
+                    aria-label={forecastLabel}
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.2 + index * 0.1 }}
-                    className="bg-card rounded-xl p-3 sm:p-4 text-center border border-border shadow-xs hover:shadow-md transition-shadow"
+                    className="bg-card rounded-xl p-3 sm:p-4 text-center border border-border shadow-xs hover:shadow-md transition-shadow focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
                   >
-                    <p className="text-xs sm:text-sm font-medium text-muted-foreground mb-2 capitalize">{dayName}</p>
-                    <WeatherIcon className="w-6 h-6 sm:w-8 sm:h-8 mx-auto text-blue-500 mb-2" />
-                    <p className="text-base sm:text-lg font-bold text-amber-600 dark:text-amber-400">
-                      {weather.daily.temperature_2m_max[index]}°
+                    <p className="text-xs sm:text-sm font-medium text-muted-foreground mb-2 capitalize" aria-hidden="true">
+                      {dayName}
                     </p>
-                    <p className="text-xs sm:text-sm text-muted-foreground">
-                      {weather.daily.temperature_2m_min[index]}°
+                    <WeatherIcon className="w-6 h-6 sm:w-8 sm:h-8 mx-auto text-blue-500 mb-2" aria-hidden="true" />
+                    <p className="text-base sm:text-lg font-bold text-amber-600 dark:text-amber-400" aria-hidden="true">
+                      {maxTemp}°
+                    </p>
+                    <p className="text-xs sm:text-sm text-muted-foreground" aria-hidden="true">
+                      {minTemp}°
                     </p>
                   </motion.div>
                 );
