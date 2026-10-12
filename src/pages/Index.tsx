@@ -81,7 +81,7 @@ const Index = () => {
               transition={{ duration: 0.25 }}
             >
               <Suspense fallback={<TabFallback />}>
-                {activeTab === "cv" && <CVSection />}
+                {activeTab === "cv" && <CVSection onPrintCV={handlePrintCV} />}
                 {activeTab === "projects" && <ProjectsSection onNavigateToGame={handleNavigateToGame} />}
                 {activeTab === "games" && <GamesSection selectedGame={selectedGame} onSelectGame={setSelectedGame} />}
                 {activeTab === "weather" && <WeatherSection />}
