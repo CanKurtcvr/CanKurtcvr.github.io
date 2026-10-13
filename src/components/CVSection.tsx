@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button";
 import { cvItems, CVCategory } from "@/data/cvData";
 import SkillsSection from "./SkillsSection";
 import { motion, AnimatePresence } from "framer-motion";
-import { Sparkles, Briefcase, GraduationCap, HeartHandshake, Printer, Download } from "lucide-react";
+import { Sparkles, Briefcase, GraduationCap, HeartHandshake, Printer, Download, ArrowRight } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
 
 export default function CVSection() {
@@ -132,25 +132,28 @@ export default function CVSection() {
                   <Link
                     to={`/cv/${item.id}`}
                     state={{ cvData: item }}
-                    className="block h-full transition-transform hover:-translate-y-1 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-accent rounded-xl"
+                    className="group block h-full transition-transform hover:-translate-y-1 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-accent rounded-xl"
                   >
                     <Card className="h-full hover:border-primary/50 hover:shadow-md cursor-pointer transition-colors flex flex-col justify-between">
                       <CardHeader className="space-y-2">
                         <div className="flex justify-between items-start">
-                          <Badge variant="secondary" className="text-xs">
+                          <Badge variant="secondary" className="text-xs font-semibold">
                             {type}
                           </Badge>
-                          <span className="text-xs text-muted-foreground font-medium">
+                          <span className="text-xs text-muted-foreground font-mono font-medium">
                             {period}
                           </span>
                         </div>
-                        <CardTitle className="text-lg md:text-xl font-bold">
-                          {title}
-                        </CardTitle>
-                        <CardDescription className="text-sm font-medium text-foreground/80">
+                        <div className="flex items-center justify-between gap-2">
+                          <CardTitle className="text-lg md:text-xl font-bold group-hover:text-accent transition-colors">
+                            {title}
+                          </CardTitle>
+                          <ArrowRight className="w-4 h-4 text-muted-foreground opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all shrink-0" />
+                        </div>
+                        <CardDescription className="text-sm font-semibold text-foreground/80">
                           {org}
                         </CardDescription>
-                        <p className="text-xs md:text-sm text-muted-foreground line-clamp-2 leading-relaxed pt-1">
+                        <p className="text-xs md:text-sm text-muted-foreground line-clamp-3 leading-relaxed pt-1">
                           {desc}
                         </p>
                       </CardHeader>
@@ -159,7 +162,7 @@ export default function CVSection() {
                           {tags.map((tag) => (
                             <span
                               key={tag}
-                              className="text-[11px] bg-slate-100 dark:bg-slate-800 px-2 py-0.5 rounded-md font-medium text-muted-foreground"
+                              className="text-[11px] bg-slate-100 dark:bg-slate-800 px-2.5 py-0.5 rounded-md font-medium text-muted-foreground group-hover:text-foreground transition-colors"
                             >
                               {tag}
                             </span>
