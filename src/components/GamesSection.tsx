@@ -58,9 +58,9 @@ export default function GamesSection({ selectedGame: controlledGame, onSelectGam
           <button
             type="button"
             onClick={() => setSelectedGame(null)}
-            className="mb-6 inline-flex items-center gap-2 rounded-lg px-3 py-2 text-sm text-muted-foreground transition hover:bg-muted hover:text-foreground"
+            className="mb-6 inline-flex items-center gap-2 rounded-lg px-3 py-2 text-sm text-muted-foreground transition hover:bg-muted hover:text-foreground focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
           >
-            <ArrowLeft className="h-4 w-4" /> Back to games
+            <ArrowLeft className="h-4 w-4" aria-hidden="true" /> Back to games
           </button>
           <h2 className="mb-2 text-3xl font-bold text-center">{game?.title}</h2>
           <p className="mb-8 text-center text-muted-foreground">{game?.description}</p>
@@ -90,9 +90,9 @@ export default function GamesSection({ selectedGame: controlledGame, onSelectGam
               key={id}
               type="button"
               onClick={() => setSelectedGame(id)}
-              className={`group rounded-2xl border border-border bg-gradient-to-br ${tone} p-6 text-left shadow-sm transition hover:-translate-y-1 hover:shadow-xl`}
+              className={`group rounded-2xl border border-border bg-gradient-to-br ${tone} p-6 text-left shadow-sm transition hover:-translate-y-1 hover:shadow-xl focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2`}
             >
-              <Icon className="mb-8 h-8 w-8 text-foreground transition group-hover:scale-110" />
+              <Icon className="mb-8 h-8 w-8 text-foreground transition group-hover:scale-110" aria-hidden="true" />
               <h3 className="text-xl font-semibold">{title}</h3>
               <p className="mt-2 text-sm leading-6 text-muted-foreground">{description}</p>
               <span className="mt-6 inline-block text-sm font-semibold text-primary">Play now →</span>
