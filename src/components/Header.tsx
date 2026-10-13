@@ -220,7 +220,7 @@ const Header = ({ onPrintCV }: HeaderProps = {}) => {
             href="https://linkedin.com/in/canxkurt"
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-1.5 text-accent hover:text-accent/80 transition-colors"
+            className="flex items-center gap-1.5 text-accent hover:text-accent/80 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded-sm"
           >
             <Linkedin className="w-4 h-4" />
             LinkedIn
@@ -230,7 +230,7 @@ const Header = ({ onPrintCV }: HeaderProps = {}) => {
             href="https://github.com/CanKurtcvr"
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-1.5 text-accent hover:text-accent/80 transition-colors"
+            className="flex items-center gap-1.5 text-accent hover:text-accent/80 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded-sm"
           >
             <Github className="w-4 h-4" />
             GitHub
