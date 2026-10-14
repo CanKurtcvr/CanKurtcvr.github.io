@@ -1,0 +1,64 @@
+{
+  "agents": {
+    "portfolio-architect": {
+      "agentId": "portfolio-architect",
+      "agentType": "architect",
+      "status": "idle",
+      "health": 1,
+      "taskCount": 0,
+      "config": {
+        "model": "inherit"
+      },
+      "createdAt": "2026-10-12T07:06:39.874Z",
+      "domain": "frontend-architecture",
+      "model": "inherit",
+      "modelRoutedBy": "explicit"
+    },
+    "projects-specialist": {
+      "agentId": "projects-specialist",
+      "agentType": "coder",
+      "status": "idle",
+      "health": 1,
+      "taskCount": 1,
+      "config": {
+        "model": "inherit"
+      },
+      "createdAt": "2026-10-12T07:06:41.546Z",
+      "domain": "projects-showcase",
+      "model": "inherit",
+      "modelRoutedBy": "explicit",
+      "currentTask": null
+    },
+    "skills-cv-specialist": {
+      "agentId": "skills-cv-specialist",
+      "agentType": "coder",
+      "status": "idle",
+      "health": 1,
+      "taskCount": 1,
+      "config": {
+        "model": "inherit"
+      },
+      "createdAt": "2026-10-12T07:06:42.435Z",
+      "domain": "skills-and-cv",
+      "model": "inherit",
+      "modelRoutedBy": "explicit",
+      "currentTask": null
+    },
+    "docs-specialist": {
+      "agentId": "docs-specialist",
+      "agentType": "documenter",
+      "status": "idle",
+      "health": 1,
+      "taskCount": 1,
+      "config": {
+        "model": "inherit"
+      },
+      "createdAt": "2026-10-12T07:06:43.666Z",
+      "domain": "documentation",
+      "model": "inherit",
+      "modelRoutedBy": "explicit",
+      "currentTask": null
+    }
+  },
+  "version": "3.0.0"
+}

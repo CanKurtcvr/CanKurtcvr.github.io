@@ -1,6 +1,6 @@
 import { memo, useMemo } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Code2, Database, Cpu, Languages, GraduationCap } from "lucide-react";
+import { Code2, Database, Cpu, Languages, GraduationCap, Brain, Gamepad2, CheckCircle2, Target } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { useLanguage } from "@/context/LanguageContext";
 
@@ -14,75 +14,74 @@ export interface SkillCategory {
 
 export const getSkillCategories = (isEn: boolean): SkillCategory[] => [
   {
-    title: isEn ? "Development & Programming" : "Udvikling & Programmering",
+    title: isEn ? "Fullstack & Frontend Architecture" : "Fullstack & Frontend-udvikling",
     icon: Code2,
     color: "text-blue-500",
     description: isEn
-      ? "Modern web engineering, frontend architecture, and interactive web applications."
-      : "Moderne webudvikling, frontend-arkitektur og interaktive systemer.",
+      ? "Modern React architecture with TypeScript, responsive UI design, and performance optimization."
+      : "Moderne React-arkitektur med TypeScript, komponent-baseret UI/UX design og performance-optimering.",
     skills: [
       "TypeScript",
-      "JavaScript (ES6+)",
       "React",
+      "JavaScript (ES6+)",
       "Tailwind CSS",
-      "Python",
-      "SQL & Databases",
-      "Three.js (WebGL)",
+      "shadcn-ui",
+      "Vite",
       "HTML5 & CSS3",
-      "Git & GitHub"
+      "Git & GitHub",
+      "Clean Code"
     ]
   },
   {
-    title: isEn ? "Data Analysis & Systems" : "Dataanalyse & Systemer",
+    title: isEn ? "AI, Prompt Engineering & Agent Systems" : "AI, Prompt Engineering & Agent-Systemer",
+    icon: Brain,
+    color: "text-violet-500",
+    description: isEn
+      ? "Multi-agent orchestration, Claude AI workflows, Vector RAG, and intelligent automation."
+      : "Integration af Claude AI i komplekse workflows, multi-agent swarms (Ruflo), Vector RAG og automatisering.",
+    skills: [
+      "Claude & Claude Code",
+      "Prompt Engineering",
+      "Multi-agent Systems (Ruflo)",
+      "LLM Workflows",
+      "Vector RAG",
+      "n8n Automation",
+      "Lovable",
+      isEn ? "Conversational AI" : "Konversations-AI"
+    ]
+  },
+  {
+    title: isEn ? "Game Development & 3D Graphics" : "Game Development & 3D-Grafik",
+    icon: Gamepad2,
+    color: "text-amber-500",
+    description: isEn
+      ? "Interactive 3D graphics in browser environments, game mechanics, and Java mobile game development."
+      : "3D-grafik i browseren med WebGL/Three.js, spilmekanikker og Java-baseret mobil spiludvikling.",
+    skills: [
+      "WebGL",
+      "Three.js (3D-grafik)",
+      "Java (Mobile Game Dev)",
+      "HTML5 Canvas API",
+      "Game Mechanics & Loops",
+      isEn ? "Interactive 3D Design" : "Interaktivt 3D-design"
+    ]
+  },
+  {
+    title: isEn ? "Banking Systems, Data & Project Leadership" : "Banksystemer, Data & Projektledelse",
     icon: Database,
     color: "text-emerald-500",
     description: isEn
-      ? "Data validation, troubleshooting, and financial case reconstruction."
-      : "Datavalidering, fejlretning og håndtering af komplekse datasæt.",
+      ? "Secure financial data processing, SQL databases, compliance, and agile project management."
+      : "Sikker databehandling fra banksystemer, SQL-databaser, compliance, Agile workflow og teknisk projektstyring.",
     skills: [
-      isEn ? "Advanced Excel" : "Avanceret Excel",
-      isEn ? "Data Modeling" : "Datamodellering",
-      isEn ? "Big Data Troubleshooting" : "Fejlretning i stordata",
-      isEn ? "KPI & Budgeting" : "KPI & Budgetstyring",
-      "REST APIs",
-      isEn ? "Case Reconstruction" : "Sagsrekonstruktion",
-      isEn ? "Quality Assurance" : "Kvalitetssikring"
-    ]
-  },
-  {
-    title: isEn ? "Digitalization & Strategy" : "Digitalisering & Strategi",
-    icon: Cpu,
-    color: "text-amber-500",
-    description: isEn
-      ? "IT strategy, digital transformation, and bridging technology with business strategy."
-      : "IT-strategi, digital omstilling og bindeled mellem forretning og teknik.",
-    skills: [
-      isEn ? "MSc: Digital Transformation (RUC)" : "Kandidat: Digital Transformation (RUC)",
-      isEn ? "BSc: Computer Science & Business (RUC)" : "Bachelor: Informatik & Virksomhedsstudier (RUC)",
-      "Digital Transformation",
-      isEn ? "IT Strategy & Leadership" : "IT-strategi & Ledelse",
-      "UX/UI Research",
-      isEn ? "Business Analysis" : "Forretningsanalyse",
-      isEn ? "Process Optimization" : "Procesoptimering",
-      isEn ? "Onboarding & Training" : "Onboarding & Oplæring",
-      isEn ? "Socio-technical Systems" : "Systemisk tænkning"
-    ]
-  },
-  {
-    title: isEn ? "Communication & Languages" : "Formidling & Sprog",
-    icon: Languages,
-    color: "text-purple-500",
-    description: isEn
-      ? "Professional interpretation, stakeholder relations, and high ethical standards."
-      : "Præcis tolkning, relationsopbygning og professionel etik.",
-    skills: [
-      isEn ? "Danish (Native)" : "Dansk (Modersmål)",
-      isEn ? "English (Fluent)" : "Engelsk (Flydende)",
-      isEn ? "Professional Interpreting" : "Professionel tolkning",
-      isEn ? "Cross-disciplinary Dialogue" : "Tværfaglig dialog",
-      isEn ? "Empathetic Leadership" : "Empatisk ledelse",
-      isEn ? "Conflict De-escalation" : "Konfliktnedtrapning",
-      isEn ? "Presentation Skills" : "Præsentationsteknik"
+      "SQL & Databases",
+      isEn ? "Banking & Transaction Systems" : "Banksystemer & Transaktioner",
+      isEn ? "Financial Compliance" : "Finansiel Compliance",
+      isEn ? "Advanced Excel Modeling" : "Avanceret Excel-modellering",
+      "Project Management",
+      "Agile & Code Review",
+      isEn ? "Onboarding & Mentoring" : "Onboarding & Mentoring",
+      isEn ? "Danish & English (Fluent)" : "Dansk & Engelsk (Flydende)"
     ]
   }
 ];
@@ -96,16 +95,58 @@ const SkillsSection = memo(function SkillsSection() {
 
   const categories = useMemo(() => getSkillCategories(isEn), [isEn]);
 
+  const rolePreferences = useMemo(
+    () =>
+      isEn
+        ? [
+            {
+              title: "Full-stack Frontend Development",
+              desc: "Modern React/TypeScript applications with clean architecture"
+            },
+            {
+              title: "AI Integration & Automation",
+              desc: "Implementing Claude, LLM workflows, and multi-agent solutions in products"
+            },
+            {
+              title: "Game Development",
+              desc: "Browser-based 3D/WebGL experiences or mobile games in Java/TypeScript"
+            },
+            {
+              title: "Project Leadership",
+              desc: "Mentoring, technical coordination, and agile management of engineering teams"
+            }
+          ]
+        : [
+            {
+              title: "Full-stack Frontend Development",
+              desc: "Moderne React/TypeScript applikationer med fokus på arkitektur og UX"
+            },
+            {
+              title: "AI Integration & Automation",
+              desc: "Implementering af AI-løsninger, LLM-workflows og multi-agent systemer i produkter"
+            },
+            {
+              title: "Game Development",
+              desc: "Browser-baserede (WebGL/Three.js) eller mobile spil i TypeScript og Java"
+            },
+            {
+              title: "Project Leadership",
+              desc: "Mentoring, onboarding og projektstyring af udviklerhold"
+            }
+          ],
+    [isEn]
+  );
+
   return (
     <div className="mb-12 space-y-6">
-      <div className="text-center max-w-xl mx-auto space-y-2">
+      <div className="text-center max-w-2xl mx-auto space-y-2">
         <h3 className="text-2xl font-display font-bold text-foreground">
-          {isEn ? "Core Competencies & Tools" : "Faglige Kompetencer & Værktøjer"}
+          {isEn ? "Core Competencies & Tech Stack" : "Faglige Kompetencer & Teknologier"}
         </h3>
-        <p className="text-sm text-muted-foreground">
+        <p className="text-sm text-muted-foreground leading-relaxed">
           {isEn
-            ? "An overview of my technical toolkit, analytical background, and business acumen."
-            : "Et overblik over min tekniske værktøjskasse, analytiske profil og forretningsforståelse."}
+            ? "Fullstack developer focused on frontend architecture, AI integrations, and game development — backed by experience from banking systems and digital transformation."
+            : "Fullstack-udvikler med fokus på frontend-udvikling, AI-integrationer og game development — kombineret med erfaring fra banksystemer og digital transformation."}
         </p>
       </div>
 
@@ -156,6 +197,7 @@ const SkillsSection = memo(function SkillsSection() {
         </div>
       </div>
 
+      {/* Kompetencekategorier */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         {categories.map((category) => {
           const Icon = category.icon;
@@ -187,6 +229,31 @@ const SkillsSection = memo(function SkillsSection() {
             </Card>
           );
         })}
+      </div>
+
+      {/* Hvad jeg søger / Role Preferences */}
+      <div className="p-4 md:p-5 rounded-xl border border-border/70 bg-muted/30 space-y-3">
+        <div className="flex items-center gap-2 text-foreground font-semibold text-sm md:text-base">
+          <div className="p-1.5 rounded-md bg-accent/15 text-accent">
+            <Target className="w-4 h-4" />
+          </div>
+          <span>{isEn ? "What I Am Looking For — Focus Roles" : "Hvad jeg søger — Fokusområder & Roller"}</span>
+        </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 pt-1">
+          {rolePreferences.map((role) => (
+            <div
+              key={role.title}
+              className="flex items-start gap-2.5 p-3 rounded-lg bg-background/80 border border-border/50"
+            >
+              <CheckCircle2 className="w-4 h-4 text-emerald-500 shrink-0 mt-0.5" />
+              <div className="space-y-0.5">
+                <p className="text-xs font-bold text-foreground">{role.title}</p>
+                <p className="text-[11px] text-muted-foreground leading-snug">{role.desc}</p>
+              </div>
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );

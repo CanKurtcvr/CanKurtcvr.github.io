@@ -1,0 +1,28 @@
+{
+  "swarms": {
+    "swarm-1791788775524-79s8zh": {
+      "swarmId": "swarm-1791788775524-79s8zh",
+      "topology": "hierarchical",
+      "maxAgents": 6,
+      "status": "running",
+      "agents": [
+        "portfolio-architect",
+        "projects-specialist",
+        "skills-cv-specialist",
+        "docs-specialist"
+      ],
+      "tasks": [],
+      "config": {
+        "topology": "hierarchical",
+        "maxAgents": 6,
+        "strategy": "specialized",
+        "communicationProtocol": "message-bus",
+        "autoScaling": true,
+        "consensusMechanism": "majority"
+      },
+      "createdAt": "2026-10-12T07:06:15.524Z",
+      "updatedAt": "2026-10-12T07:06:15.524Z"
+    }
+  },
+  "version": "3.0.0"
+}

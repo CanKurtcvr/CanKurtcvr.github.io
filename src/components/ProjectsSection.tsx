@@ -16,7 +16,11 @@ import {
   Workflow,
   Scale,
   Play,
-  SlidersHorizontal,
+  Brain,
+  Bot,
+  Compass,
+  Smartphone,
+  Globe,
 } from "lucide-react";
 
 import { projectsData, ProjectItem } from "@/data/projectsData";
@@ -42,6 +46,11 @@ const iconMap = {
   TrendingDown,
   Workflow,
   Scale,
+  Brain,
+  Bot,
+  Compass,
+  Smartphone,
+  Globe,
 };
 
 interface ProjectsSectionProps {
@@ -54,10 +63,11 @@ export default function ProjectsSection({ onNavigateToGame }: ProjectsSectionPro
 
   const categories = [
     "Alle",
+    "AI & Agent Systems",
+    "Game Dev & 3D",
+    "Full Stack & Web App",
     "FinTech & Dataanalyse",
     "Digital Transformation",
-    "Legal Tech & AI",
-    "Full Stack & Web App",
   ];
 
   const filteredProjects = useMemo(() => {
@@ -72,7 +82,7 @@ export default function ProjectsSection({ onNavigateToGame }: ProjectsSectionPro
           Projekter & Tekniske Showcases
         </h2>
         <p className="text-muted-foreground text-sm md:text-base leading-relaxed">
-          Udforsk mine interaktive løsninger inden for FinTech, procesoptimering, AI compliance og moderne webapplikationer.
+          Udforsk mine projekter inden for multi-agent AI-systemer (Ruflo), Claude workflows, 3D/game development, moderne React/TypeScript webapplikationer og FinTech-simulering.
         </p>
       </div>
 
