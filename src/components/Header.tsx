@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { MapPin, Phone, Mail, Linkedin, Github, Printer, Copy, Check, Download } from "lucide-react";
+import { MapPin, Phone, Mail, Linkedin, Github, Printer, Copy, Check, Download, ExternalLink } from "lucide-react";
 import { ThemeToggle } from "./ThemeToggle";
 import { toast } from "sonner";
 import { Button } from "@/components/ui/button";
@@ -220,20 +220,26 @@ const Header = ({ onPrintCV }: HeaderProps = {}) => {
             href="https://linkedin.com/in/canxkurt"
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-1.5 text-accent hover:text-accent/80 transition-colors"
+            className="flex items-center gap-1.5 text-accent hover:text-accent/80 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded-sm"
+            aria-label={language === "en" ? "LinkedIn profile (opens in new tab)" : "LinkedIn profil (åbner i et nyt vindue)"}
+            title={language === "en" ? "LinkedIn profile (opens in new tab)" : "LinkedIn profil (åbner i et nyt vindue)"}
           >
             <Linkedin className="w-4 h-4" />
-            LinkedIn
+            <span>LinkedIn</span>
+            <ExternalLink className="w-3 h-3 opacity-70" aria-hidden="true" />
           </a>
 
           <a
             href="https://github.com/CanKurtcvr"
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-1.5 text-accent hover:text-accent/80 transition-colors"
+            className="flex items-center gap-1.5 text-accent hover:text-accent/80 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded-sm"
+            aria-label={language === "en" ? "GitHub profile (opens in new tab)" : "GitHub profil (åbner i et nyt vindue)"}
+            title={language === "en" ? "GitHub profile (opens in new tab)" : "GitHub profil (åbner i et nyt vindue)"}
           >
             <Github className="w-4 h-4" />
-            GitHub
+            <span>GitHub</span>
+            <ExternalLink className="w-3 h-3 opacity-70" aria-hidden="true" />
           </a>
         </motion.div>
       </div>
