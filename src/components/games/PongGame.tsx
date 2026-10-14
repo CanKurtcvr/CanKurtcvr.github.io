@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
-import p5 from "p5";
+import type p5 from "p5";
 
+// ⚡ Bolt: Dynamically load p5 library on component mount so its heavy ~1MB footprint is isolated to its own async chunk
 export default function PongGame() {
   const containerRef = useRef<HTMLDivElement>(null);
   const [touchActive, setTouchActive] = useState(false);
@@ -9,8 +10,15 @@ export default function PongGame() {
     if (!containerRef.current) return;
     const container = containerRef.current;
     let resizeGame: (() => void) | undefined;
+    let p5Instance: p5 | null = null;
+    let isMounted = true;
 
-    const sketch = (p: p5) => {
+    const initP5 = async () => {
+      const p5Module = await import("p5");
+      if (!isMounted || !containerRef.current) return;
+      const P5 = p5Module.default;
+
+      const sketch = (p: p5) => {
       // Ball
       let ballX: number, ballY: number;
       let ballSpeedX = 0, ballSpeedY = 0;
@@ -263,13 +271,18 @@ export default function PongGame() {
       p.windowResized = resizeGame;
     };
 
-    const instance = new p5(sketch);
+      p5Instance = new P5(sketch);
+    };
+
+    initP5();
+
     const resizeObserver = new ResizeObserver(() => {
       resizeGame?.();
     });
     return () => {
+      isMounted = false;
       resizeObserver.disconnect();
-      instance.remove();
+      p5Instance?.remove();
     };
   }, []);
 
