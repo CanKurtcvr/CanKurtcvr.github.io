@@ -9,7 +9,11 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Sparkles, Briefcase, GraduationCap, HeartHandshake, Printer, Download } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
 
-export default function CVSection() {
+interface CVSectionProps {
+  onPrintCV?: (lang: "da" | "en") => void;
+}
+
+export default function CVSection({ onPrintCV }: CVSectionProps) {
   const [selectedCategory, setSelectedCategory] = useState<CVCategory>("all");
   const { language, t } = useLanguage();
 
@@ -35,8 +39,12 @@ export default function CVSection() {
     return cvItems.filter(item => item.category === selectedCategory);
   }, [selectedCategory]);
 
-  const handlePrint = (lang: "da" | "en") => {
-    window.print();
+  const handlePrintClick = (lang: "da" | "en") => {
+    if (onPrintCV) {
+      onPrintCV(lang);
+    } else {
+      window.print();
+    }
   };
 
   return (
@@ -57,7 +65,7 @@ export default function CVSection() {
             <Button
               variant="outline"
               size="sm"
-              onClick={() => handlePrint("da")}
+              onClick={() => handlePrintClick("da")}
               className="gap-2 rounded-full border-primary/30 hover:border-primary text-xs md:text-sm hover:bg-primary/5 shadow-xs"
             >
               <Printer className="w-3.5 h-3.5 text-primary" />
@@ -67,7 +75,7 @@ export default function CVSection() {
             <Button
               variant="outline"
               size="sm"
-              onClick={() => handlePrint("en")}
+              onClick={() => handlePrintClick("en")}
               className="gap-2 rounded-full border-primary/30 hover:border-primary text-xs md:text-sm hover:bg-primary/5 shadow-xs"
             >
               <Download className="w-3.5 h-3.5 text-primary" />
