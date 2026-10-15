@@ -15,42 +15,43 @@ export default function PrintCVDocument({ language = "da" }: PrintCVDocumentProp
   const skillCategories = getSkillCategories(isEn);
 
   return (
-    <div className="bg-white text-slate-900 font-sans p-6 text-[9pt] leading-relaxed max-w-[210mm] mx-auto print:p-0 print:max-w-none print:text-[8.5pt]">
+    <div className="bg-white text-slate-900 font-sans p-8 text-[9.5pt] leading-relaxed max-w-[210mm] mx-auto print:p-0 print:max-w-none print:text-[9pt]">
       {/* Header */}
-      <header className="border-b-2 border-slate-900 pb-3 mb-3">
+      <header className="border-b-2 border-slate-900 pb-3 mb-4">
         <div className="flex justify-between items-baseline">
-          <h1 className="text-2xl sm:text-3xl font-bold tracking-tight text-slate-950 font-serif">
-            Can Kurt
-          </h1>
-          <span className="text-xs font-semibold text-slate-600 tracking-wider uppercase bg-slate-100 px-2 py-0.5 rounded border border-slate-200">
+          <div>
+            <h1 className="text-3xl font-bold tracking-tight text-slate-950 font-serif">
+              Can Kurt
+            </h1>
+            <p className="text-sm font-semibold text-slate-800 mt-1">
+              {isEn
+                ? "MSc Student in Digital Transformation & IT Consultant"
+                : "Kandidatstuderende i Digital Transformation & IT-konsulent"}
+            </p>
+          </div>
+          <span className="text-xs font-semibold text-slate-600 tracking-wider uppercase bg-slate-100 px-2.5 py-1 rounded border border-slate-200">
             Curriculum Vitae ({isEn ? "English" : "Dansk"})
           </span>
         </div>
-        
-        <p className="text-xs sm:text-sm font-semibold text-slate-800 mt-0.5">
-          {isEn
-            ? "MSc Student in Digital Transformation & IT Consultant"
-            : "Kandidatstuderende i Digital Transformation & IT-konsulent"}
-        </p>
 
-        <div className="flex flex-wrap gap-x-2.5 gap-y-1 mt-2 text-[8pt] text-slate-600 font-medium">
+        <div className="flex flex-wrap gap-x-3 gap-y-1 mt-3 text-[8.5pt] text-slate-600 font-medium border-t border-slate-100 pt-2">
           <span>{isEn ? "Copenhagen, Denmark" : "København, Danmark"}</span>
           <span>•</span>
           <span>+45 28 70 12 13</span>
           <span>•</span>
-          <a href="mailto:cankurtcvr@gmail.com" className="text-slate-800 underline">cankurtcvr@gmail.com</a>
+          <a href="mailto:cankurtcvr@gmail.com" className="text-slate-900 underline font-semibold">cankurtcvr@gmail.com</a>
           <span>•</span>
-          <a href="https://linkedin.com/in/canxkurt" className="text-slate-800 underline">linkedin.com/in/canxkurt</a>
+          <a href="https://linkedin.com/in/canxkurt" className="text-slate-900 underline font-semibold">linkedin.com/in/canxkurt</a>
           <span>•</span>
-          <a href="https://github.com/CanKurtcvr" className="text-slate-800 underline">github.com/CanKurtcvr</a>
+          <a href="https://github.com/CanKurtcvr" className="text-slate-900 underline font-semibold">github.com/CanKurtcvr</a>
           <span>•</span>
-          <a href="https://cankurtcvr.github.io" className="text-slate-800 underline">cankurtcvr.github.io</a>
+          <a href="https://cankurtcvr.github.io" className="text-slate-900 underline font-semibold">cankurtcvr.github.io</a>
         </div>
       </header>
 
       {/* Profil Resumé */}
-      <section className="mb-3.5 break-inside-avoid">
-        <h2 className="text-[9.5pt] font-bold text-slate-950 uppercase tracking-wider border-b border-slate-300 pb-0.5 mb-1">
+      <section className="mb-4 break-inside-avoid">
+        <h2 className="text-[10pt] font-bold text-slate-950 uppercase tracking-wider border-b border-slate-300 pb-0.5 mb-1.5">
           {isEn ? "Profile & Professional Focus" : "Profil & Fagligt Fokus"}
         </h2>
         <p className="text-[8.5pt] text-slate-800 text-justify leading-relaxed">
@@ -61,15 +62,15 @@ export default function PrintCVDocument({ language = "da" }: PrintCVDocumentProp
       </section>
 
       {/* Faglige Nøglekompetencer & IT-Uddannelse */}
-      <section className="mb-3.5 break-inside-avoid">
-        <h2 className="text-[9.5pt] font-bold text-slate-950 uppercase tracking-wider border-b border-slate-300 pb-0.5 mb-1.5">
+      <section className="mb-4 break-inside-avoid">
+        <h2 className="text-[10pt] font-bold text-slate-950 uppercase tracking-wider border-b border-slate-300 pb-0.5 mb-2">
           {isEn ? "Core Competencies & Academic IT Foundation" : "Faglige Nøglekompetencer & IT-Uddannelse"}
         </h2>
 
-        <div className="mb-2 bg-slate-50 px-2.5 py-1.5 rounded border border-slate-200 text-[8pt]">
-          <div className="grid grid-cols-2 gap-2">
+        <div className="mb-2 bg-slate-50 px-3 py-2 rounded border border-slate-200 text-[8.5pt]">
+          <div className="grid grid-cols-2 gap-3">
             <div>
-              <span className="font-bold text-slate-950">{isEn ? "Master's Degree (MSc):" : "Kandidatuddannelse (Kand.):"}</span>{" "}
+              <span className="font-bold text-slate-950">{isEn ? "Master's Degree (MSc):" : "Kandidatuddannelse (MSc):"}</span>{" "}
               <span className="text-slate-800 font-medium">{isEn ? "Digital Transformation" : "Digital Transformation"}</span>{" "}
               <span className="text-slate-500 font-mono text-[7.5pt]">(RUC, 2026 - {isEn ? "Now" : "Nu"})</span>
             </div>
@@ -81,13 +82,13 @@ export default function PrintCVDocument({ language = "da" }: PrintCVDocumentProp
           </div>
         </div>
 
-        <div className="grid grid-cols-2 gap-x-3 gap-y-1.5 text-[8pt]">
+        <div className="grid grid-cols-2 gap-x-3 gap-y-2 text-[8pt]">
           {skillCategories.map((cat) => (
-            <div key={cat.title} className="bg-slate-50 p-1.5 rounded border border-slate-200">
-              <p className="font-bold text-slate-950 text-[8pt] mb-0.5">
+            <div key={cat.title} className="bg-slate-50 p-2 rounded border border-slate-200">
+              <p className="font-bold text-slate-950 text-[8.5pt] mb-0.5">
                 {cat.title}
               </p>
-              <p className="text-slate-700 leading-snug text-[7.5pt]">
+              <p className="text-slate-700 leading-snug text-[8pt]">
                 {cat.skills.join(", ")}.
               </p>
             </div>
@@ -96,12 +97,12 @@ export default function PrintCVDocument({ language = "da" }: PrintCVDocumentProp
       </section>
 
       {/* Erhvervserfaring */}
-      <section className="mb-3.5">
-        <h2 className="text-[9.5pt] font-bold text-slate-950 uppercase tracking-wider border-b border-slate-300 pb-0.5 mb-2">
+      <section className="mb-4">
+        <h2 className="text-[10pt] font-bold text-slate-950 uppercase tracking-wider border-b border-slate-300 pb-0.5 mb-2.5">
           {isEn ? "Professional Experience" : "Erhvervserfaring"}
         </h2>
         
-        <div className="space-y-2.5">
+        <div className="space-y-3">
           {erhverv.map((item) => {
             const title = isEn && item.titleEn ? item.titleEn : item.title;
             const org = isEn && item.organizationEn ? item.organizationEn : item.organization;
@@ -112,10 +113,10 @@ export default function PrintCVDocument({ language = "da" }: PrintCVDocumentProp
             return (
               <article
                 key={item.id}
-                className="break-inside-avoid border-b border-slate-200/80 pb-2 last:border-b-0"
+                className="break-inside-avoid border-b border-slate-200/80 pb-2.5 last:border-b-0"
               >
                 <div className="flex justify-between items-baseline">
-                  <h3 className="font-bold text-slate-950 text-[9pt]">
+                  <h3 className="font-bold text-slate-950 text-[9.5pt]">
                     {title}
                   </h3>
                   <span className="text-[8pt] font-semibold text-slate-600 font-mono">
@@ -123,16 +124,16 @@ export default function PrintCVDocument({ language = "da" }: PrintCVDocumentProp
                   </span>
                 </div>
 
-                <div className="text-[8pt] font-semibold text-slate-700 mb-0.5">
+                <div className="text-[8.5pt] font-semibold text-slate-700 mb-1">
                   {org}
                 </div>
 
-                <p className="text-[8pt] text-slate-800 leading-snug mb-1">
+                <p className="text-[8.5pt] text-slate-800 leading-snug mb-1">
                   {desc}
                 </p>
 
                 {bullets && bullets.length > 0 && (
-                  <ul className="list-disc pl-3.5 space-y-0.5 text-[7.5pt] text-slate-700">
+                  <ul className="list-disc pl-4 space-y-0.5 text-[8pt] text-slate-700">
                     {bullets.map((b, idx) => (
                       <li key={idx} className="leading-tight">{b}</li>
                     ))}
@@ -145,12 +146,12 @@ export default function PrintCVDocument({ language = "da" }: PrintCVDocumentProp
       </section>
 
       {/* Uddannelse */}
-      <section className="mb-3.5 break-inside-avoid">
-        <h2 className="text-[9.5pt] font-bold text-slate-950 uppercase tracking-wider border-b border-slate-300 pb-0.5 mb-2">
+      <section className="mb-4 break-inside-avoid">
+        <h2 className="text-[10pt] font-bold text-slate-950 uppercase tracking-wider border-b border-slate-300 pb-0.5 mb-2.5">
           {isEn ? "Education" : "Uddannelse"}
         </h2>
 
-        <div className="space-y-2.5">
+        <div className="space-y-3">
           {uddannelser.map((edu) => {
             const title = isEn && edu.titleEn ? edu.titleEn : edu.title;
             const org = isEn && edu.organizationEn ? edu.organizationEn : edu.organization;
@@ -161,10 +162,10 @@ export default function PrintCVDocument({ language = "da" }: PrintCVDocumentProp
             return (
               <article
                 key={edu.id}
-                className="break-inside-avoid border-b border-slate-200/80 pb-2 last:border-b-0"
+                className="break-inside-avoid border-b border-slate-200/80 pb-2.5 last:border-b-0"
               >
                 <div className="flex justify-between items-baseline">
-                  <h3 className="font-bold text-slate-950 text-[9pt]">
+                  <h3 className="font-bold text-slate-950 text-[9.5pt]">
                     {title}
                   </h3>
                   <span className="text-[8pt] font-semibold text-slate-600 font-mono">
@@ -172,16 +173,16 @@ export default function PrintCVDocument({ language = "da" }: PrintCVDocumentProp
                   </span>
                 </div>
 
-                <div className="text-[8pt] font-semibold text-slate-700 mb-0.5">
+                <div className="text-[8.5pt] font-semibold text-slate-700 mb-1">
                   {org}
                 </div>
 
-                <p className="text-[8pt] text-slate-800 leading-snug mb-1">
+                <p className="text-[8.5pt] text-slate-800 leading-snug mb-1">
                   {desc}
                 </p>
 
                 {bullets && bullets.length > 0 && (
-                  <ul className="list-disc pl-3.5 space-y-0.5 text-[7.5pt] text-slate-700">
+                  <ul className="list-disc pl-4 space-y-0.5 text-[8pt] text-slate-700">
                     {bullets.map((bullet, idx) => (
                       <li key={idx} className="leading-tight">{bullet}</li>
                     ))}
@@ -194,35 +195,35 @@ export default function PrintCVDocument({ language = "da" }: PrintCVDocumentProp
       </section>
 
       {/* Udvalgte Projekter */}
-      <section className="mb-3 break-inside-avoid">
-        <h2 className="text-[9.5pt] font-bold text-slate-950 uppercase tracking-wider border-b border-slate-300 pb-0.5 mb-1.5">
-          {isEn ? "Featured Projects & Technical Showcases" : "Udvalgte Projekter & Tekniske Showcases"}
+      <section className="mb-4 break-inside-avoid">
+        <h2 className="text-[10pt] font-bold text-slate-950 uppercase tracking-wider border-b border-slate-300 pb-0.5 mb-2">
+          {isEn ? "Featured Projects & Technical Showcases" : "Udvalgte Projekter \& Tekniske Showcases"}
         </h2>
 
-        <div className="grid grid-cols-2 gap-x-3 gap-y-1.5">
+        <div className="grid grid-cols-2 gap-x-4 gap-y-2">
           {projectsData.slice(0, 4).map((proj) => (
             <article 
               key={proj.id} 
-              className="break-inside-avoid pb-1 border-b border-slate-100"
+              className="break-inside-avoid pb-1.5 border-b border-slate-100"
             >
               <div className="flex justify-between items-baseline">
-                <h3 className="font-bold text-slate-900 text-[8pt] truncate max-w-[190px]">
+                <h3 className="font-bold text-slate-900 text-[8.5pt] truncate max-w-[200px]">
                   {proj.shortTitle || proj.title}
                 </h3>
-                <span className="text-[6.5pt] text-slate-500 font-medium">
+                <span className="text-[7pt] text-slate-500 font-medium">
                   {proj.category.split(" ")[0]}
                 </span>
               </div>
 
-              <p className="text-[7.5pt] text-slate-700 leading-tight mt-0.5 line-clamp-2">
+              <p className="text-[8pt] text-slate-700 leading-tight mt-0.5 line-clamp-2">
                 {proj.description}
               </p>
 
-              <div className="flex flex-wrap gap-1 mt-0.5">
+              <div className="flex flex-wrap gap-1 mt-1">
                 {proj.tags.slice(0, 3).map((tag) => (
                   <span 
                     key={tag} 
-                    className="text-[6pt] bg-slate-100 text-slate-600 font-mono px-1 py-0.2 rounded border border-slate-200"
+                    className="text-[6.5pt] bg-slate-100 text-slate-600 font-mono px-1 py-0.2 rounded border border-slate-200"
                   >
                     {tag}
                   </span>
@@ -234,7 +235,7 @@ export default function PrintCVDocument({ language = "da" }: PrintCVDocumentProp
       </section>
 
       {/* Referencer */}
-      <footer className="pt-2 border-t border-slate-300 text-[7.5pt] text-slate-600 flex justify-between items-center break-inside-avoid">
+      <footer className="pt-2.5 border-t border-slate-300 text-[8pt] text-slate-600 flex justify-between items-center break-inside-avoid">
         <p>
           <strong>{isEn ? "References:" : "Referencer:"}</strong>{" "}
           {isEn
