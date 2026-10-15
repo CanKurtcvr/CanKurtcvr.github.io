@@ -1,4 +1,4 @@
-import { useState, useMemo } from "react";
+import { useState, useMemo, memo } from "react";
 import { Link } from "react-router-dom";
 import { Card, CardHeader, CardTitle, CardDescription, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -9,22 +9,26 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Sparkles, Briefcase, GraduationCap, HeartHandshake, Printer, Download } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
 
-export default function CVSection() {
+// ⚡ Bolt: Pre-calculate static item counts for CV categories once outside component render
+const staticCounts = {
+  all: cvItems.length,
+  it: cvItems.filter(i => i.category === "it" || i.tags.includes("Informatik") || i.tags.includes("Digital Transformation")).length,
+  uddannelse: cvItems.filter(i => i.category === "uddannelse").length,
+  omsorg: cvItems.filter(i => i.category === "omsorg").length,
+};
+
+// ⚡ Bolt: Memoize CVSection to skip re-rendering the heavy landing section when unrelated parent state changes
+export const CVSection = memo(function CVSection() {
   const [selectedCategory, setSelectedCategory] = useState<CVCategory>("all");
   const { language, t } = useLanguage();
 
   const isEn = language === "en";
 
   const categories = useMemo(() => [
-    { id: "all" as CVCategory, label: t("cv.catAll", "Alle"), icon: Sparkles, count: cvItems.length },
-    { 
-      id: "it" as CVCategory, 
-      label: t("cv.catIT", "IT & Digitalisering"),
-      icon: Briefcase, 
-      count: cvItems.filter(i => i.category === "it" || i.tags.includes("Informatik") || i.tags.includes("Digital Transformation")).length 
-    },
-    { id: "uddannelse" as CVCategory, label: t("cv.catEdu", "Uddannelse"), icon: GraduationCap, count: cvItems.filter(i => i.category === "uddannelse").length },
-    { id: "omsorg" as CVCategory, label: t("cv.catCare", "Omsorg & Formidling"), icon: HeartHandshake, count: cvItems.filter(i => i.category === "omsorg").length },
+    { id: "all" as CVCategory, label: t("cv.catAll", "Alle"), icon: Sparkles, count: staticCounts.all },
+    { id: "it" as CVCategory, label: t("cv.catIT", "IT & Digitalisering"), icon: Briefcase, count: staticCounts.it },
+    { id: "uddannelse" as CVCategory, label: t("cv.catEdu", "Uddannelse"), icon: GraduationCap, count: staticCounts.uddannelse },
+    { id: "omsorg" as CVCategory, label: t("cv.catCare", "Omsorg & Formidling"), icon: HeartHandshake, count: staticCounts.omsorg },
   ], [t]);
 
   const filteredItems = useMemo(() => {
@@ -176,4 +180,6 @@ export default function CVSection() {
       </div>
     </section>
   );
-}
+});
+
+export default CVSection;
