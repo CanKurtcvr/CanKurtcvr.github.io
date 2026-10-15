@@ -220,7 +220,9 @@ const Header = ({ onPrintCV }: HeaderProps = {}) => {
             href="https://linkedin.com/in/canxkurt"
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-1.5 text-accent hover:text-accent/80 transition-colors"
+            className="flex items-center gap-1.5 text-accent hover:text-accent/80 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded-sm"
+            title={language === "da" ? "LinkedIn profil (åbner i et nyt vindue)" : "LinkedIn profile (opens in a new tab)"}
+            aria-label={language === "da" ? "LinkedIn profil (åbner i et nyt vindue)" : "LinkedIn profile (opens in a new tab)"}
           >
             <Linkedin className="w-4 h-4" />
             LinkedIn
@@ -230,7 +232,9 @@ const Header = ({ onPrintCV }: HeaderProps = {}) => {
             href="https://github.com/CanKurtcvr"
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-1.5 text-accent hover:text-accent/80 transition-colors"
+            className="flex items-center gap-1.5 text-accent hover:text-accent/80 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded-sm"
+            title={language === "da" ? "GitHub profil (åbner i et nyt vindue)" : "GitHub profile (opens in a new tab)"}
+            aria-label={language === "da" ? "GitHub profil (åbner i et nyt vindue)" : "GitHub profile (opens in a new tab)"}
           >
             <Github className="w-4 h-4" />
             GitHub
