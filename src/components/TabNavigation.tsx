@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useRef, memo } from "react";
 import { motion } from "framer-motion";
 import { FileText, Cloud, Newspaper, Gamepad2, Briefcase } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
@@ -10,7 +10,8 @@ interface TabNavigationProps {
   onTabChange: (tab: TabType) => void;
 }
 
-const TabNavigation = ({ activeTab, onTabChange }: TabNavigationProps) => {
+// ⚡ Bolt: Memoize TabNavigation to prevent re-rendering tab buttons when active tab or games selection changes
+const TabNavigation = memo(function TabNavigation({ activeTab, onTabChange }: TabNavigationProps) {
   const tabRefs = useRef<(HTMLButtonElement | null)[]>([]);
   const { t } = useLanguage();
 
@@ -85,6 +86,6 @@ const TabNavigation = ({ activeTab, onTabChange }: TabNavigationProps) => {
       </div>
     </nav>
   );
-};
+});
 
 export default TabNavigation;

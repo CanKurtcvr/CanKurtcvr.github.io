@@ -1,4 +1,4 @@
-import { useState, useMemo } from "react";
+import { useState, useMemo, memo } from "react";
 import { Link } from "react-router-dom";
 import { Card, CardHeader, CardTitle, CardDescription, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -9,7 +9,8 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Sparkles, Briefcase, GraduationCap, HeartHandshake, Printer, Download } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
 
-export default function CVSection() {
+// ⚡ Bolt: Memoize CVSection component to eliminate re-renders when parent state updates without CVSection props changing
+const CVSection = memo(function CVSection() {
   const [selectedCategory, setSelectedCategory] = useState<CVCategory>("all");
   const { language, t } = useLanguage();
 
@@ -176,4 +177,6 @@ export default function CVSection() {
       </div>
     </section>
   );
-}
+});
+
+export default CVSection;
