@@ -9,7 +9,11 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Sparkles, Briefcase, GraduationCap, HeartHandshake, Printer, Download } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
 
-export default function CVSection() {
+interface CVSectionProps {
+  onPrintCV?: (lang?: "da" | "en") => void;
+}
+
+export default function CVSection({ onPrintCV }: CVSectionProps = {}) {
   const [selectedCategory, setSelectedCategory] = useState<CVCategory>("all");
   const { language, t } = useLanguage();
 
@@ -36,7 +40,11 @@ export default function CVSection() {
   }, [selectedCategory]);
 
   const handlePrint = (lang: "da" | "en") => {
-    window.print();
+    if (onPrintCV) {
+      onPrintCV(lang);
+    } else {
+      window.print();
+    }
   };
 
   return (
