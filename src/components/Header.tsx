@@ -63,7 +63,7 @@ const Header = ({ onPrintCV }: HeaderProps = {}) => {
                 ? "bg-accent text-accent-foreground shadow-sm scale-105"
                 : "text-header-foreground/70 hover:text-header-foreground hover:bg-white/10"
             }`}
-            title="Skift til dansk"
+            title={language === "da" ? "Dansk sprog valgt" : "Skift til dansk"}
             aria-label="Dansk (DA)"
           >
             <span className="text-sm" aria-hidden="true">🇩🇰</span>
@@ -79,7 +79,7 @@ const Header = ({ onPrintCV }: HeaderProps = {}) => {
                 ? "bg-accent text-accent-foreground shadow-sm scale-105"
                 : "text-header-foreground/70 hover:text-header-foreground hover:bg-white/10"
             }`}
-            title="Switch to English"
+            title={language === "en" ? "English language selected" : "Switch to English"}
             aria-label="English (EN)"
           >
             <span className="text-sm" aria-hidden="true">🇬🇧</span>
@@ -95,9 +95,10 @@ const Header = ({ onPrintCV }: HeaderProps = {}) => {
           className="text-header-foreground/80 hover:text-header-foreground hover:bg-white/10 gap-1.5 text-xs"
           title="Print eller gem dansk CV som PDF"
         >
-          <Printer className="w-3.5 h-3.5 text-accent" />
+          <Printer className="w-3.5 h-3.5 text-accent" aria-hidden="true" />
           <span className="hidden md:inline">{t("header.printDanish", "CV (Dansk)")}</span>
-          <span className="inline md:hidden">CV 🇩🇰</span>
+          <span className="inline md:hidden" aria-hidden="true">CV 🇩🇰</span>
+          <span className="sr-only md:hidden">{t("header.printDanish", "CV (Dansk)")}</span>
         </Button>
 
         <Button
@@ -107,9 +108,10 @@ const Header = ({ onPrintCV }: HeaderProps = {}) => {
           className="text-header-foreground/80 hover:text-header-foreground hover:bg-white/10 gap-1.5 text-xs"
           title="Download or print English CV as PDF"
         >
-          <Download className="w-3.5 h-3.5 text-accent" />
+          <Download className="w-3.5 h-3.5 text-accent" aria-hidden="true" />
           <span className="hidden md:inline">{t("header.printEnglish", "CV (English)")}</span>
-          <span className="inline md:hidden">CV 🇬🇧</span>
+          <span className="inline md:hidden" aria-hidden="true">CV 🇬🇧</span>
+          <span className="sr-only md:hidden">{t("header.printEnglish", "CV (English)")}</span>
         </Button>
 
         <ThemeToggle />
@@ -220,9 +222,10 @@ const Header = ({ onPrintCV }: HeaderProps = {}) => {
             href="https://linkedin.com/in/canxkurt"
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-1.5 text-accent hover:text-accent/80 transition-colors"
+            className="flex items-center gap-1.5 text-accent hover:text-accent/80 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded-sm"
+            aria-label="LinkedIn profil (åbner i et nyt vindue)"
           >
-            <Linkedin className="w-4 h-4" />
+            <Linkedin className="w-4 h-4" aria-hidden="true" />
             LinkedIn
           </a>
 
@@ -230,9 +233,10 @@ const Header = ({ onPrintCV }: HeaderProps = {}) => {
             href="https://github.com/CanKurtcvr"
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-1.5 text-accent hover:text-accent/80 transition-colors"
+            className="flex items-center gap-1.5 text-accent hover:text-accent/80 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded-sm"
+            aria-label="GitHub profil (åbner i et nyt vindue)"
           >
-            <Github className="w-4 h-4" />
+            <Github className="w-4 h-4" aria-hidden="true" />
             GitHub
           </a>
         </motion.div>
