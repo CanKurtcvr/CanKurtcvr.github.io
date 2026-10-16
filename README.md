@@ -56,24 +56,7 @@ En praktisk demonstration af hvordan man integrerer AI i komplekse workflows.
 
 ---
 
-### 4. 🧠 **Ruflo - Intelligent Agent Framework**
-**Repository:** [ruflo](https://github.com/CanKurtcvr/ruflo)  
-**Tech Stack:** Multi-agent Systems, Claude Integration
-
-En avanceret agent-rammeværk til deployment af intelligente multi-player swarms med fokus på:
-
-**Key Features:**
-- Adaptive hukommelse og selv-lærende intelligens
-- Agentkoordination og autonome workflows
-- Vector RAG (Retrieval Augmented Generation) integration
-- Native integration med Claude, Codex, Hermes og flere LLM'er
-- Konversations-AI systemer
-
-Et ambitiøst projekt der viser min dybdegående forståelse af moderne AI-arkitektur.
-
----
-
-### 5. 🎮 **Spil Projekter**
+### 4. 🎮 **Spil Projekter**
 
 #### Snake
 **Repository:** [snake](https://github.com/CanKurtcvr/snake)
@@ -97,9 +80,9 @@ Mobil game development projekt i Java.
 - Responsive design og accessibility
 
 ### AI & Prompt Engineering
-- Integration af Claude AI i komplekse workflows
-- Multi-agent systems og orchestration
-- LLM-baserede løsninger til automatisering
+- Integration af Claude AI og Claude Code i praktiske workflows
+- Automatiseret dokumentgenerering og analyse med LLM'er
+- LLM-baserede løsninger til procesautomatisering
 - RAG-systemer og intelligent søgning
 
 ### Game Development

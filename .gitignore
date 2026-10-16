@@ -22,3 +22,9 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Local AI / Swarm artifacts
+.claude-flow/
+.swarm/
+ruvector.db
+

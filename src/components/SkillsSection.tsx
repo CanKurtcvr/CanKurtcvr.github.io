@@ -33,21 +33,20 @@ export const getSkillCategories = (isEn: boolean): SkillCategory[] => [
     ]
   },
   {
-    title: isEn ? "AI, Prompt Engineering & Agent Systems" : "AI, Prompt Engineering & Agent-Systemer",
+    title: isEn ? "AI, Prompt Engineering & Automation" : "AI, Prompt Engineering & Automatisering",
     icon: Brain,
     color: "text-violet-500",
     description: isEn
-      ? "Multi-agent orchestration, Claude AI workflows, Vector RAG, and intelligent automation."
-      : "Integration af Claude AI i komplekse workflows, multi-agent swarms (Ruflo), Vector RAG og automatisering.",
+      ? "Claude AI workflows, prompt engineering, RAG systems, and intelligent process automation."
+      : "Integration af Claude AI i komplekse workflows, prompt engineering, RAG-systemer og automatisering.",
     skills: [
       "Claude & Claude Code",
       "Prompt Engineering",
-      "Multi-agent Systems (Ruflo)",
       "LLM Workflows",
-      "Vector RAG",
+      "RAG Systems",
       "n8n Automation",
       "Lovable",
-      isEn ? "Conversational AI" : "Konversations-AI"
+      isEn ? "AI Workflow Integration" : "AI-Workflow Integration"
     ]
   },
   {
@@ -105,7 +104,7 @@ const SkillsSection = memo(function SkillsSection() {
             },
             {
               title: "AI Integration & Automation",
-              desc: "Implementing Claude, LLM workflows, and multi-agent solutions in products"
+              desc: "Implementing Claude and LLM workflows into digital products"
             },
             {
               title: "Game Development",
@@ -123,7 +122,7 @@ const SkillsSection = memo(function SkillsSection() {
             },
             {
               title: "AI Integration & Automation",
-              desc: "Implementering af AI-løsninger, LLM-workflows og multi-agent systemer i produkter"
+              desc: "Implementering af AI-løsninger og LLM-workflows i digitale produkter"
             },
             {
               title: "Game Development",

@@ -31,28 +31,10 @@ export interface ProjectItem {
 
 export const projectsData: ProjectItem[] = [
   {
-    id: "ruflo",
-    title: "Ruflo — Intelligent Multi-Agent Swarm Framework",
-    shortTitle: "Ruflo (Multi-Agent Framework)",
-    category: "AI & Agent Systems",
-    description: "Avanceret agent-rammeværk til deployment af intelligente multi-player swarms med adaptiv hukommelse, Vector RAG og autonom koordinering på tværs af flere LLM'er.",
-    tags: ["Multi-agent Systems", "Claude Integration", "Vector RAG", "LLM Orchestration", "TypeScript"],
-    highlights: [
-      "Adaptiv hukommelse og selv-lærende intelligens på tværs af sessioner",
-      "Agentkoordination, autonome workflows og Vector RAG-integration",
-      "Native integration med Claude, Codex, Hermes og konversations-AI systemer"
-    ],
-    actionText: "Se Ruflo på GitHub",
-    href: "https://github.com/CanKurtcvr/ruflo",
-    githubUrl: "https://github.com/CanKurtcvr/ruflo",
-    iconName: "Brain",
-    iconColor: "text-violet-500"
-  },
-  {
     id: "ai-job-search",
     title: "AI Job Search Framework — Claude Code Workflows",
     shortTitle: "AI Job Search Framework",
-    category: "AI & Agent Systems",
+    category: "AI & Automation",
     description: "AI-powered jobansøgningsrammeværk bygget på Claude Code. Demonstrerer praktisk integration af LLM-workflows til automatiseret analyse, dokumentgenerering og interviewtræning.",
     tags: ["Claude Code", "AI Workflows", "Prompt Engineering", "LLM Automation"],
     highlights: [
@@ -142,7 +124,7 @@ export const projectsData: ProjectItem[] = [
     id: "compliance-inspector",
     title: "AI Legal Compliance & Contract Clause Auditor",
     shortTitle: "AI Kontrakt- & Compliance Auditor",
-    category: "AI & Agent Systems",
+    category: "AI & Automation",
     description: "Intelligent kontrakt- og klausulinspektor der screener juridiske dokumenter mod præceptive regler i dansk ret (Forældelsesloven, Kreditaftaleloven, GDPR/DPA). Tilbyder live risikoscoring og 1-klik remediation.",
     tags: ["Legal Tech", "Compliance & GDPR", "Forældelsesloven", "Kreditaftaleloven", "Klausul Remediation"],
     highlights: [
@@ -179,7 +161,7 @@ export const projectsData: ProjectItem[] = [
     id: "web-shooter",
     title: "Superhero Hand Powers — Browser Computer Vision",
     shortTitle: "Superhero Hand Powers (Vision AI)",
-    category: "AI & Agent Systems",
+    category: "AI & Automation",
     description: "Real-time gestusgenkendelse direkte via webkameraet uden krav om ekstern backend. Algoritmen genkender håndbevægelser med lav latency til at affyre Spider-Man spindelvæv eller aktivere Wolverine-kløer.",
     tags: ["Computer Vision", "Camera API", "HTML5 Canvas", "WebGL", "MediaPipe"],
     highlights: [
