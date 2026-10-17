@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, memo } from "react";
 import { motion } from "framer-motion";
 import { MapPin, Phone, Mail, Linkedin, Github, Printer, Copy, Check, Download } from "lucide-react";
 import { ThemeToggle } from "./ThemeToggle";
@@ -11,7 +11,8 @@ interface HeaderProps {
   onPrintCV?: (lang?: "da" | "en") => void;
 }
 
-const Header = ({ onPrintCV }: HeaderProps = {}) => {
+// ⚡ Bolt: Memoize Header component to skip unnecessary re-renders during tab switching in Index page
+const Header = memo(function Header({ onPrintCV }: HeaderProps = {}) {
   const [copiedField, setCopiedField] = useState<string | null>(null);
   const { language, setLanguage, t } = useLanguage();
 
@@ -239,6 +240,6 @@ const Header = ({ onPrintCV }: HeaderProps = {}) => {
       </div>
     </motion.header>
   );
-};
+});
 
 export default Header;
