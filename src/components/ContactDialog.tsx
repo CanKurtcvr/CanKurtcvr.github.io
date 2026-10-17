@@ -118,13 +118,13 @@ export default function ContactDialog({ triggerClassName }: ContactDialogProps) 
           {/* Social Links */}
           <div className="grid grid-cols-2 gap-2 pt-1">
             <Button asChild variant="outline" className="w-full gap-2 justify-start h-11 text-xs sm:text-sm">
-              <a href="https://linkedin.com/in/canxkurt" target="_blank" rel="noopener noreferrer">
+              <a href="https://linkedin.com/in/canxkurt" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn profil (åbner i nyt vindue)" title="LinkedIn profil (åbner i nyt vindue)">
                 <Linkedin className="w-4 h-4 text-blue-600 shrink-0" />
                 <span>LinkedIn profil</span>
               </a>
             </Button>
             <Button asChild variant="outline" className="w-full gap-2 justify-start h-11 text-xs sm:text-sm">
-              <a href="https://github.com/CanKurtcvr" target="_blank" rel="noopener noreferrer">
+              <a href="https://github.com/CanKurtcvr" target="_blank" rel="noopener noreferrer" aria-label="GitHub profil (åbner i nyt vindue)" title="GitHub profil (åbner i nyt vindue)">
                 <Github className="w-4 h-4 shrink-0" />
                 <span>GitHub profil</span>
               </a>

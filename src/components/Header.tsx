@@ -189,6 +189,7 @@ const Header = ({ onPrintCV }: HeaderProps = {}) => {
               +45 28 70 12 13
             </a>
             <button
+              type="button"
               onClick={() => copyToClipboard("+4528701213", "Telefonnummer")}
               className="p-1 text-header-foreground/40 hover:text-accent transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded-sm"
               title={copiedField === "Telefonnummer" ? "Telefonnummer kopieret!" : "Kopiér telefonnummer"}
@@ -207,6 +208,7 @@ const Header = ({ onPrintCV }: HeaderProps = {}) => {
               cankurtcvr@gmail.com
             </a>
             <button
+              type="button"
               onClick={() => copyToClipboard("cankurtcvr@gmail.com", "Email")}
               className="p-1 text-header-foreground/40 hover:text-accent transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded-sm"
               title={copiedField === "Email" ? "Email kopieret!" : "Kopiér email"}
@@ -220,7 +222,9 @@ const Header = ({ onPrintCV }: HeaderProps = {}) => {
             href="https://linkedin.com/in/canxkurt"
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-1.5 text-accent hover:text-accent/80 transition-colors"
+            className="flex items-center gap-1.5 text-accent hover:text-accent/80 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded-sm"
+            aria-label={language === "da" ? "LinkedIn profil (åbner i nyt vindue)" : "LinkedIn profile (opens in new window)"}
+            title={language === "da" ? "LinkedIn profil (åbner i nyt vindue)" : "LinkedIn profile (opens in new window)"}
           >
             <Linkedin className="w-4 h-4" />
             LinkedIn
@@ -230,7 +234,9 @@ const Header = ({ onPrintCV }: HeaderProps = {}) => {
             href="https://github.com/CanKurtcvr"
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-1.5 text-accent hover:text-accent/80 transition-colors"
+            className="flex items-center gap-1.5 text-accent hover:text-accent/80 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded-sm"
+            aria-label={language === "da" ? "GitHub profil (åbner i nyt vindue)" : "GitHub profile (opens in new window)"}
+            title={language === "da" ? "GitHub profil (åbner i nyt vindue)" : "GitHub profile (opens in new window)"}
           >
             <Github className="w-4 h-4" />
             GitHub
