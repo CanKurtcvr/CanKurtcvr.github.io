@@ -76,9 +76,9 @@ export default function ContactDialog({ triggerClassName }: ContactDialogProps) 
                 {copiedKey === "Email" ? <Check className="w-4 h-4 text-green-500" /> : <Copy className="w-4 h-4" />}
               </Button>
               <Button asChild size="sm" variant="outline" className="h-8 gap-1 text-xs">
-                <a href={mailtoUrl}>
+                <a href={mailtoUrl} aria-label="Send email til cankurtcvr@gmail.com">
                   Send mail
-                  <ExternalLink className="w-3 h-3" />
+                  <ExternalLink className="w-3 h-3" aria-hidden="true" />
                 </a>
               </Button>
             </div>
@@ -107,9 +107,9 @@ export default function ContactDialog({ triggerClassName }: ContactDialogProps) 
                 {copiedKey === "Telefonnummer" ? <Check className="w-4 h-4 text-green-500" /> : <Copy className="w-4 h-4" />}
               </Button>
               <Button asChild size="sm" variant="outline" className="h-8 gap-1 text-xs">
-                <a href="tel:+4528701213">
+                <a href="tel:+4528701213" aria-label="Ring op til +45 28 70 12 13">
                   Ring op
-                  <ExternalLink className="w-3 h-3" />
+                  <ExternalLink className="w-3 h-3" aria-hidden="true" />
                 </a>
               </Button>
             </div>
@@ -118,15 +118,29 @@ export default function ContactDialog({ triggerClassName }: ContactDialogProps) 
           {/* Social Links */}
           <div className="grid grid-cols-2 gap-2 pt-1">
             <Button asChild variant="outline" className="w-full gap-2 justify-start h-11 text-xs sm:text-sm">
-              <a href="https://linkedin.com/in/canxkurt" target="_blank" rel="noopener noreferrer">
-                <Linkedin className="w-4 h-4 text-blue-600 shrink-0" />
+              <a
+                href="https://linkedin.com/in/canxkurt"
+                target="_blank"
+                rel="noopener noreferrer"
+                title="Besøg Can Kurts LinkedIn-profil (åbner i ny fane)"
+                aria-label="LinkedIn profil (åbner i ny fane)"
+              >
+                <Linkedin className="w-4 h-4 text-blue-600 shrink-0" aria-hidden="true" />
                 <span>LinkedIn profil</span>
+                <ExternalLink className="w-3 h-3 ml-auto text-muted-foreground shrink-0" aria-hidden="true" />
               </a>
             </Button>
             <Button asChild variant="outline" className="w-full gap-2 justify-start h-11 text-xs sm:text-sm">
-              <a href="https://github.com/CanKurtcvr" target="_blank" rel="noopener noreferrer">
-                <Github className="w-4 h-4 shrink-0" />
+              <a
+                href="https://github.com/CanKurtcvr"
+                target="_blank"
+                rel="noopener noreferrer"
+                title="Besøg Can Kurts GitHub-profil (åbner i ny fane)"
+                aria-label="GitHub profil (åbner i ny fane)"
+              >
+                <Github className="w-4 h-4 shrink-0" aria-hidden="true" />
                 <span>GitHub profil</span>
+                <ExternalLink className="w-3 h-3 ml-auto text-muted-foreground shrink-0" aria-hidden="true" />
               </a>
             </Button>
           </div>
