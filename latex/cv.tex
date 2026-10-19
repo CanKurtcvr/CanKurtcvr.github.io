@@ -10,7 +10,7 @@
 \renewcommand{\familydefault}{\sfdefault}
 
 % --- Sidelayout og marginer ---
-\usepackage[a4paper, top=1.6cm, bottom=1.6cm, left=1.8cm, right=1.8cm]{geometry}
+\usepackage[a4paper, top=1.5cm, bottom=1.5cm, left=1.6cm, right=1.6cm]{geometry}
 \usepackage{parskip}
 \usepackage{xcolor}
 \usepackage{hyperref}
@@ -35,15 +35,15 @@
 }
 
 % --- Listeindstillinger ---
-\setlist[itemize]{leftmargin=14pt, itemsep=1.5pt, topsep=2pt, parsep=0pt}
+\setlist[itemize]{leftmargin=12pt, itemsep=1.5pt, topsep=2pt, parsep=0pt}
 
 % --- Sektionstitel formatering ---
 \titleformat{\section}
-  {\fontsize{10.5}{13}\selectfont\bfseries\color{primary}\uppercase}
+  {\fontsize{10}{12.5}\selectfont\bfseries\color{primary}\uppercase}
   {}{0em}
-  {}[\vspace{-2pt}{\color{boxborder}\rule{\linewidth}{0.8pt}}\vspace{-2pt}]
+  {}[\vspace{-2pt}{\color{accent}\rule{\linewidth}{1pt}}\vspace{-2pt}]
 
-\titlespacing*{\section}{0pt}{10pt}{5pt}
+\titlespacing*{\section}{0pt}{9pt}{4pt}
 
 \pagestyle{empty} % Fjerner sidetal for et stilrent CV-look
 
@@ -52,14 +52,15 @@
 % =========================================================================
 % HEADER
 % =========================================================================
-\begin{minipage}[t]{0.70\textwidth}
-    {\fontsize{22}{26}\selectfont\textbf{\color{primary}Can Kurt}} \\[2pt]
-    {\fontsize{10}{13}\selectfont\textbf{\color{accent}Kandidatstuderende i Digital Transformation \& IT-konsulent}}
+\begin{minipage}[t]{0.68\textwidth}
+    {\fontsize{22}{25}\selectfont\textbf{\color{primary}Can Kurt}} \\[2pt]
+    {\fontsize{10}{12.5}\selectfont\textbf{\color{accent}Kandidatstuderende i Digital Transformation \& IT-konsulent}}
 \end{minipage}
 \hfill
-\begin{minipage}[t]{0.28\textwidth}
+\begin{minipage}[t]{0.30\textwidth}
     \raggedleft
-    {\fontsize{8.5}{11}\selectfont\color{mutedgray}\textbf{CURRICULUM VITAE}}
+    {\fontsize{8.5}{11}\selectfont\color{mutedgray}\textbf{CURRICULUM VITAE}} \\
+    {\fontsize{8}{10}\selectfont\color{mutedgray}Dansk udgave}
 \end{minipage}
 
 \vspace{6pt}
@@ -80,7 +81,7 @@ København, Danmark \ $\cdot$ \
 % 1. PROFIL & FAGLIGT FOKUS
 % =========================================================================
 \section{Profil \& Fagligt Fokus}
-{\fontsize{9}{12.5}\selectfont\color{darkslate}
+{\fontsize{8.8}{12}\selectfont\color{darkslate}
 Ambitiøs IT-konsulent og kandidatstuderende med en stærk profil i krydsfeltet mellem digitalisering, dataanalyse og forretningsprocesser. Dokumenteret erfaring fra komplekse datasaneringsprojekter i den finansielle sektor (Danske Bank / EY), praktisk erfaring med moderne webarkitektur samt veludviklede formidlingsevner og situationsfornemmelse opbygget gennem certificeret tolkevirksomhed og omsorgsarbejde.
 }
 
@@ -92,18 +93,18 @@ Ambitiøs IT-konsulent og kandidatstuderende med en stærk profil i krydsfeltet 
 % Akademisk IT-fundament boks
 \colorbox{boxbg}{%
     \parbox{\dimexpr\linewidth-2\fboxsep}{%
-        \vspace{3pt}
+        \vspace{2pt}
         \begin{tabular*}{\linewidth}{@{\extracolsep{\fill}} p{0.48\linewidth} p{0.48\linewidth} @{}}
             \textbf{\fontsize{8.5}{11}\selectfont\color{primary}Kandidatuddannelse (Kand.):} \newline
             \fontsize{8.5}{11}\selectfont Digital Transformation \color{mutedgray}(RUC, 2026 -- Nu) & 
             \textbf{\fontsize{8.5}{11}\selectfont\color{primary}Bacheloruddannelse (BSc):} \newline
             \fontsize{8.5}{11}\selectfont Informatik \& Virksomhedsstudier \color{mutedgray}(RUC, 2021 -- 2024)
         \end{tabular*}
-        \vspace{3pt}
+        \vspace{2pt}
     }%
 }
 
-\vspace{4pt}
+\vspace{3pt}
 
 % 4 Kompetence-blokke
 \begin{tabular*}{\linewidth}{@{\extracolsep{\fill}} p{0.485\linewidth} p{0.485\linewidth} @{}}
@@ -175,6 +176,10 @@ Formidler præcis tolkning og kommunikation ved kritiske møder med fokus på et
 {\fontsize{8.5}{11}\selectfont\textbf{\color{accent}Forsorgshjemmet Absalon}} \\[2pt]
 {\fontsize{8.5}{11}\selectfont\color{darkslate}
 Yder administrativ støtte og personlig omsorg til socialt udsatte borgere og håndterer komplekse sociale situationer med ro, empati, de-eskalering og præcis dokumentation i fagsystemer.
+\begin{itemize}
+    \item \textbf{Krise- \& Konflikthåndtering:} De-eskalering af tilspidsede situationer med høj grad af ro, empati og professionel dømmekraft.
+    \item \textbf{Digital journalføring:} Præcis rapportering og administrative opfølgninger i kommunale og sociale fagsystemer.
+\end{itemize}
 }
 
 \vspace{3pt}
@@ -183,7 +188,7 @@ Yder administrativ støtte og personlig omsorg til socialt udsatte borgere og h�
 \textbf{\fontsize{9.5}{12}\selectfont Plejehjælper} \hfill {\fontsize{8.5}{11}\selectfont\color{mutedgray}Jun. 2024 -- Sep. 2024} \\
 {\fontsize{8.5}{11}\selectfont\textbf{\color{accent}Kærbo Omsorgscenter, Ishøj}} \\[2pt]
 {\fontsize{8.5}{11}\selectfont\color{darkslate}
-Hjælp til ældre borgere med daglige rutiner, personlig pleje, aktivisering og digital journalføring med høj grad af situationsfornemmelse.
+Hjælp til ældre borgere med daglige rutiner, personlig pleje, aktivisering og digital journalføring med høj grad af situationsfornemmelse og omsorg.
 }
 
 \vspace{3pt}

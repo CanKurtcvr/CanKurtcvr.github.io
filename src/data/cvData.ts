@@ -51,8 +51,8 @@ export const cvItems: CVItem[] = [
     id: "ruc-bachelor",
     title: "Bachelor i Informatik og Virksomhedsstudier",
     titleEn: "BSc in Computer Science & Business Studies",
-    organization: "Roskilde Universitet",
-    organizationEn: "Roskilde University",
+    organization: "Roskilde Universitet (RUC)",
+    organizationEn: "Roskilde University (RUC)",
     period: "Sep. 2021 - Jun. 2024",
     periodEn: "Sep. 2021 - Jun. 2024",
     type: "Uddannelse",
@@ -63,7 +63,7 @@ export const cvItems: CVItem[] = [
     tags: ["Informatik", "Virksomhedsstudier", "Programmering", "UX-design", "Dataanalyse"],
     tagsEn: ["Computer Science", "Business Studies", "Programming", "UX Design", "Data Analysis"],
     bullets: [
-      "Softwareudvikling (Python, JavaScript, SQL), datamodellering og relational databasedesign.",
+      "Softwareudvikling (Python, JavaScript, SQL), datamodellering og relationelt databasedesign.",
       "Projektstyring, bogholderi, økonomistyring, forretningsforståelse og kvantitativ dataanalyse.",
       "Menneske-maskine interaktion (HCI), brugertest, UX-design og socio-teknisk brugerforskning."
     ],
@@ -104,60 +104,6 @@ export const cvItems: CVItem[] = [
 
   // --- PLEJE & OMSORG ---
   {
-    id: "kaerbo-omsorgscenter",
-    title: "Plejehjælper",
-    titleEn: "Care Assistant",
-    organization: "Kærbo Omsorgscenter, Ishøj",
-    organizationEn: "Kærbo Care Center, Ishøj",
-    period: "Jun. 2024 - Sep. 2024",
-    periodEn: "Jun. 2024 - Sep. 2024",
-    type: "Erfaring",
-    typeEn: "Experience",
-    category: "omsorg",
-    description: "Hjælp til ældre borgere med daglige rutiner, personlig pleje, aktivisering og digital journalføring.",
-    descriptionEn: "Assisting elderly residents with daily care, personal assistance, social activities, and digital healthcare documentation.",
-    tags: ["Ældrepleje", "Journalføring", "Omsorg", "Empati"],
-    tagsEn: ["Elderly Care", "Documentation", "Caregiving", "Empathy"],
-    bullets: [
-      "Strukturering af daglige plejerutiner og skabelse af trygge rammer for beboerne med høj situationsfornemmelse.",
-      "Præcis digital journalføring og tværfaglig overlevering til sygeplejersker og sundhedsfagligt personale.",
-      "Høj grad af tålmodighed, empati og professionel borgerkontakt i udfordrende situationer."
-    ],
-    bulletsEn: [
-      "Structured daily care routines to maintain a calm, secure environment for residents with high situational awareness.",
-      "Accurate digital medical journal documentation and interdisciplinary handovers to nurses and healthcare staff.",
-      "Demonstrated patience, empathy, and professional resident interaction in challenging health situations."
-    ]
-  },
-  {
-    id: "forsorgshjemmet-absalon",
-    title: "Omsorgsmedarbejder (Vikariat)",
-    titleEn: "Care & Support Worker (Temporary)",
-    organization: "Forsorgshjemmet Absalon",
-    organizationEn: "Absalon Care Shelter",
-    period: "Jan. 2024 - Nuværende",
-    periodEn: "Jan. 2024 - Present",
-    type: "Erfaring",
-    typeEn: "Experience",
-    category: "omsorg",
-    description: "Yder administrativ støtte og personlig omsorg til socialt udsatte borgere og håndterer komplekse sociale situationer med ro og empati.",
-    descriptionEn: "Provides administrative support and personal care for vulnerable citizens, de-escalating complex social situations with calm professionalism.",
-    tags: ["Socialt arbejde", "Administration", "Empati", "Konfliktnedtrapning"],
-    tagsEn: ["Social Work", "Administration", "Empathy", "De-escalation"],
-    bullets: [
-      "Relationsarbejde og konfliktnedtrapning med borgere i sårbare og uforudsigelige livssituationer.",
-      "Fastholdelse af trygge, rolige rammer under tilspidsede episoder.",
-      "Dokumentation, journalføring og administrativ opfølgning i fagsystemer."
-    ],
-    bulletsEn: [
-      "Built trust and de-escalated conflicts with residents experiencing complex social and personal crises.",
-      "Maintained a secure, stable environment during high-stress situations through active listening and de-escalation.",
-      "Conducted digital recordkeeping and administrative follow-up in institutional care software."
-    ]
-  },
-
-  // --- ØVRIGE ERFARINGER ---
-  {
     id: "tolk-danmark",
     title: "Tolk (Vikariat)",
     titleEn: "Interpreter (Freelance)",
@@ -183,6 +129,60 @@ export const cvItems: CVItem[] = [
       "Demonstrated rapid adaptability to complex legal, technical, and social context settings."
     ]
   },
+  {
+    id: "forsorgshjemmet-absalon",
+    title: "Omsorgsmedarbejder (Vikariat)",
+    titleEn: "Care & Support Worker (Temporary)",
+    organization: "Forsorgshjemmet Absalon",
+    organizationEn: "Absalon Care Shelter",
+    period: "Jan. 2024 - Nuværende",
+    periodEn: "Jan. 2024 - Present",
+    type: "Erfaring",
+    typeEn: "Experience",
+    category: "omsorg",
+    description: "Yder administrativ støtte og personlig omsorg til socialt udsatte borgere og håndterer komplekse sociale situationer med ro og empati.",
+    descriptionEn: "Provides administrative support and personal care for vulnerable citizens, de-escalating complex social situations with calm professionalism.",
+    tags: ["Socialt arbejde", "Administration", "Empati", "Konfliktnedtrapning"],
+    tagsEn: ["Social Work", "Administration", "Empathy", "De-escalation"],
+    bullets: [
+      "Relationsarbejde og konfliktnedtrapning med borgere i sårbare og uforudsigelige livssituationer.",
+      "De-eskalering af tilspidsede situationer med høj grad af ro, empati og professionel dømmekraft.",
+      "Dokumentation, journalføring og administrativ opfølgning i fagsystemer."
+    ],
+    bulletsEn: [
+      "Built trust and de-escalated conflicts with residents experiencing complex social and personal crises.",
+      "Maintained a secure, stable environment during high-stress situations through active listening and de-escalation.",
+      "Conducted digital recordkeeping and administrative follow-up in institutional care software."
+    ]
+  },
+  {
+    id: "kaerbo-omsorgscenter",
+    title: "Plejehjælper",
+    titleEn: "Care Assistant",
+    organization: "Kærbo Omsorgscenter, Ishøj",
+    organizationEn: "Kærbo Care Center, Ishøj",
+    period: "Jun. 2024 - Sep. 2024",
+    periodEn: "Jun. 2024 - Sep. 2024",
+    type: "Erfaring",
+    typeEn: "Experience",
+    category: "omsorg",
+    description: "Hjælp til ældre borgere med daglige rutiner, personlig pleje, aktivisering og digital journalføring.",
+    descriptionEn: "Assisting elderly residents with daily care, personal assistance, social activities, and digital healthcare documentation.",
+    tags: ["Ældrepleje", "Journalføring", "Omsorg", "Empati"],
+    tagsEn: ["Elderly Care", "Documentation", "Caregiving", "Empathy"],
+    bullets: [
+      "Strukturering af daglige plejerutiner og skabelse af trygge rammer for beboerne med høj situationsfornemmelse.",
+      "Præcis digital journalføring og tværfaglig overlevering til sygeplejersker og sundhedsfagligt personale.",
+      "Høj grad af tålmodighed, empati og professionel borgerkontakt i udfordrende situationer."
+    ],
+    bulletsEn: [
+      "Structured daily care routines to maintain a calm, secure environment for residents with high situational awareness.",
+      "Accurate digital medical journal documentation and interdisciplinary handovers to nurses and healthcare staff.",
+      "Demonstrated patience, empathy, and professional resident interaction in challenging health situations."
+    ]
+  },
+
+  // --- ØVRIGE ERFARINGER ---
   {
     id: "ole-romer-skole",
     title: "Pædagogmedhjælper",
