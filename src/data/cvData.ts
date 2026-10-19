@@ -33,8 +33,8 @@ export const cvItems: CVItem[] = [
     typeEn: "Education",
     category: "uddannelse",
     description: "Videreuddannelse med fokus på digital omstilling, IT-strategi, socio-teknisk systemdesign og forretningsmæssig procesoptimering.",
-    descriptionEn: "Master's program focusing on digital transformation, IT strategy, socio-technical systems design, and business process optimization.",
-    tags: ["Digital Transformation", "It-strategi", "Socio-teknisk Design", "RUC"],
+    descriptionEn: "Master's program focusing on digital transformation, IT strategy, socio-technical systems design, and business process engineering.",
+    tags: ["Digital Transformation", "IT-strategi", "Socio-teknisk Design", "RUC"],
     tagsEn: ["Digital Transformation", "IT Strategy", "Socio-technical Design", "RUC"],
     bullets: [
       "Strategisk planlægning og styring af digitale omstillingsprocesser i private og offentlige organisationer.",
@@ -51,15 +51,15 @@ export const cvItems: CVItem[] = [
     id: "ruc-bachelor",
     title: "Bachelor i Informatik og Virksomhedsstudier",
     titleEn: "BSc in Computer Science & Business Studies",
-    organization: "Roskilde Universitet",
-    organizationEn: "Roskilde University",
+    organization: "Roskilde Universitet (RUC)",
+    organizationEn: "Roskilde University (RUC)",
     period: "Sep. 2021 - Jun. 2024",
     periodEn: "Sep. 2021 - Jun. 2024",
     type: "Uddannelse",
     typeEn: "Education",
     category: "uddannelse",
     description: "Tværfaglig uddannelse der kombinerer datalogi, programmering, databasedesign, regnskab og organisatorisk udvikling.",
-    descriptionEn: "Interdisciplinary degree combining computer science, software programming, database design, corporate finance, and business administration.",
+    descriptionEn: "Interdisciplinary degree combining computer science, software engineering, database design, corporate finance, and business strategy.",
     tags: ["Informatik", "Virksomhedsstudier", "Programmering", "UX-design", "Dataanalyse"],
     tagsEn: ["Computer Science", "Business Studies", "Programming", "UX Design", "Data Analysis"],
     bullets: [
@@ -86,7 +86,7 @@ export const cvItems: CVItem[] = [
     type: "Erfaring",
     typeEn: "Experience",
     category: "it",
-    description: "Ansvarlig for fejlretning og rekonstruktion af komplekse kundesager, analyse af stordata i Excel samt onboarding i forbindelse med gældssanering og inkasso-oprydning.",
+    description: "Ansvarlig for fejlretning i komplekse kundesager, analyse af store datamængder i Excel og onboarding i forbindelse med bankdækkende gældssanering og inkasso-oprydning.",
     descriptionEn: "Responsible for complex financial case reconstruction, large-scale data analysis in Excel, and consultant onboarding during bank-wide debt and collections remediation projects.",
     tags: ["Dataanalyse", "Sagsrekonstruktion", "Excel", "Onboarding", "FinTech"],
     tagsEn: ["Data Analysis", "Case Reconstruction", "Excel", "Onboarding", "FinTech"],
@@ -104,35 +104,35 @@ export const cvItems: CVItem[] = [
 
   // --- PLEJE & OMSORG ---
   {
-    id: "kaerbo-omsorgscenter",
-    title: "Plejehjælper",
-    titleEn: "Care Assistant",
-    organization: "Kærbo Omsorgscenter, Ishøj",
-    organizationEn: "Kærbo Care Center, Ishøj",
-    period: "Jun. 2024 - Sep. 2024",
-    periodEn: "Jun. 2024 - Sep. 2024",
+    id: "tolk-danmark",
+    title: "Tolk (Vikariat / Freelance)",
+    titleEn: "Certified Interpreter (Freelance / Contract)",
+    organization: "Tolk Danmark",
+    organizationEn: "Interpreter Denmark (Tolk Danmark)",
+    period: "Feb. 2024 - Nuværende",
+    periodEn: "Feb. 2024 - Present",
     type: "Erfaring",
     typeEn: "Experience",
     category: "omsorg",
-    description: "Hjælp til ældre borgere med daglige rutiner, personlig pleje, aktivisering og digital journalføring.",
-    descriptionEn: "Assisting elderly residents with daily care, personal assistance, social activities, and digital healthcare documentation.",
-    tags: ["Ældrepleje", "Journalføring", "Omsorg", "Empati"],
-    tagsEn: ["Elderly Care", "Documentation", "Caregiving", "Empathy"],
+    description: "Formidler præcis tolkning og kommunikation ved kritiske møder med høj fokus på etik, diskretion og faglig neutralitet.",
+    descriptionEn: "Delivering precise interpretation and high-stakes communication across legal, municipal, and healthcare sectors with strict ethics and confidentiality.",
+    tags: ["Sprog", "Kommunikation", "Etik", "Diskretion"],
+    tagsEn: ["Languages", "Communication", "Ethics", "Discretion"],
     bullets: [
-      "Strukturering af daglige plejerutiner og skabelse af trygge rammer for beboerne med høj situationsfornemmelse.",
-      "Præcis digital journalføring og tværfaglig overlevering til sygeplejersker og sundhedsfagligt personale.",
-      "Høj grad af tålmodighed, empati og professionel borgerkontakt i udfordrende situationer."
+      "Simultan- og konsekutiv tolkning for offentlige myndigheder, retssager og sundhedssektoren under højt pres.",
+      "Sikring af fuldstændig neutralitet, tavshedspligt og terminologisk nøjagtighed i juridiske og sociale kontekster.",
+      "Hurtig omstillingsevne til komplekse juridiske, tekniske og sociale kontekster."
     ],
     bulletsEn: [
-      "Structured daily care routines to maintain a calm, secure environment for residents with high situational awareness.",
-      "Accurate digital medical journal documentation and interdisciplinary handovers to nurses and healthcare staff.",
-      "Demonstrated patience, empathy, and professional resident interaction in challenging health situations."
+      "Simultaneous and consecutive interpretation across municipal agencies, court proceedings, and complex medical consultations.",
+      "Ensured total neutrality, strict confidentiality, and exact domain terminology under pressure.",
+      "Demonstrated rapid adaptability to complex legal, technical, and social context settings."
     ]
   },
   {
     id: "forsorgshjemmet-absalon",
     title: "Omsorgsmedarbejder (Vikariat)",
-    titleEn: "Care & Support Worker (Temporary)",
+    titleEn: "Care & Support Specialist (Contract)",
     organization: "Forsorgshjemmet Absalon",
     organizationEn: "Absalon Care Shelter",
     period: "Jan. 2024 - Nuværende",
@@ -140,8 +140,8 @@ export const cvItems: CVItem[] = [
     type: "Erfaring",
     typeEn: "Experience",
     category: "omsorg",
-    description: "Yder administrativ støtte og personlig omsorg til socialt udsatte borgere og håndterer komplekse sociale situationer med ro og empati.",
-    descriptionEn: "Provides administrative support and personal care for vulnerable citizens, de-escalating complex social situations with calm professionalism.",
+    description: "Yder administrativ støtte og personlig omsorg til socialt udsatte borgere, håndterer tilspidsede situationer med ro og de-eskalering samt varetager digital journalføring.",
+    descriptionEn: "Provides administrative support and personal care for vulnerable individuals, de-escalating complex social situations with calm professionalism.",
     tags: ["Socialt arbejde", "Administration", "Empati", "Konfliktnedtrapning"],
     tagsEn: ["Social Work", "Administration", "Empathy", "De-escalation"],
     bullets: [
@@ -155,38 +155,38 @@ export const cvItems: CVItem[] = [
       "Conducted digital recordkeeping and administrative follow-up in institutional care software."
     ]
   },
-
-  // --- ØVRIGE ERFARINGER ---
   {
-    id: "tolk-danmark",
-    title: "Tolk (Vikariat)",
-    titleEn: "Interpreter (Freelance)",
-    organization: "Tolk Danmark",
-    organizationEn: "Interpreter Denmark",
-    period: "Feb. 2024 - Nuværende",
-    periodEn: "Feb. 2024 - Present",
+    id: "kaerbo-omsorgscenter",
+    title: "Plejehjælper",
+    titleEn: "Healthcare Assistant",
+    organization: "Kærbo Omsorgscenter, Ishøj",
+    organizationEn: "Kærbo Care Center, Ishøj",
+    period: "Jun. 2024 - Sep. 2024",
+    periodEn: "Jun. 2024 - Sep. 2024",
     type: "Erfaring",
     typeEn: "Experience",
     category: "omsorg",
-    description: "Formidler præcis tolkning og kommunikation ved kritiske møder med fokus på etik, diskretion og professionalisme.",
-    descriptionEn: "Delivering precise interpretation and communication in critical public and private meetings with strict adherence to ethics and confidentiality.",
-    tags: ["Sprog", "Kommunikation", "Etik", "Diskretion"],
-    tagsEn: ["Languages", "Communication", "Ethics", "Discretion"],
+    description: "Strukturering af daglige plejerutiner for ældre borgere, tværfaglig overlevering til sundhedspersonale og præcis digital journalføring.",
+    descriptionEn: "Assisting elderly residents with daily care routines, interdisciplinary handovers to nursing staff, and precise digital medical documentation.",
+    tags: ["Ældrepleje", "Journalføring", "Omsorg", "Empati"],
+    tagsEn: ["Elderly Care", "Documentation", "Caregiving", "Empathy"],
     bullets: [
-      "Simultan- og konsekutiv tolkning mellem parter i offentlige myndigheder, retssager og sundhedssektoren.",
-      "Sikring af fuldstændig neutralitet, tavshedspligt og terminologisk præcision under pres.",
-      "Hurtig omstillingsevne til komplekse juridiske, tekniske og sociale kontekster."
+      "Strukturering af daglige plejerutiner og skabelse af trygge rammer for beboerne med høj situationsfornemmelse.",
+      "Præcis digital journalføring og tværfaglig overlevering til sygeplejersker og sundhedsfagligt personale.",
+      "Høj grad af tålmodighed, empati og professionel borgerkontakt i udfordrende situationer."
     ],
     bulletsEn: [
-      "Simultaneous and consecutive interpretation across municipal agencies, legal proceedings, and medical consultations.",
-      "Ensured total neutrality, strict confidentiality, and precise domain terminology under pressure.",
-      "Demonstrated rapid adaptability to complex legal, technical, and social context settings."
+      "Structured daily care routines to maintain a calm, secure environment for residents with high situational awareness.",
+      "Accurate digital medical journal documentation and interdisciplinary handovers to nurses and healthcare staff.",
+      "Demonstrated patience, empathy, and professional resident interaction in challenging health situations."
     ]
   },
+
+  // --- ØVRIGE ERFARINGER ---
   {
     id: "ole-romer-skole",
-    title: "Pædagogmedhjælper",
-    titleEn: "Teaching Assistant",
+    title: "Pædagogmedhjælper \& Støttepædagog",
+    titleEn: "Teaching Assistant \& Support Educator",
     organization: "Ole-Rømer skolen - Høje Taastrup",
     organizationEn: "Ole-Rømer School - Høje Taastrup",
     period: "Aug. 2019 - Okt. 2021",
@@ -209,8 +209,8 @@ export const cvItems: CVItem[] = [
   },
   {
     id: "red-barnet-ungdom",
-    title: "Lektiehjælper",
-    titleEn: "Volunteer Homework Tutor",
+    title: "Lektiehjælper \& Mentor",
+    titleEn: "Volunteer Homework Tutor \& Mentor",
     organization: "Red Barnet Ungdom",
     organizationEn: "Save the Children Youth",
     period: "Mar. 2025 - Nuværende",

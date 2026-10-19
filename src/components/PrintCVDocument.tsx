@@ -22,12 +22,12 @@ export default function PrintCVDocument({ language = "da" }: PrintCVDocumentProp
           <h1 className="text-2xl sm:text-3xl font-bold tracking-tight text-slate-950 font-serif">
             Can Kurt
           </h1>
-          <span className="text-xs font-semibold text-slate-600 tracking-wider uppercase bg-slate-100 px-2 py-0.5 rounded border border-slate-200">
-            Curriculum Vitae ({isEn ? "English" : "Dansk"})
+          <span className="text-xs font-semibold text-slate-700 tracking-wider uppercase bg-slate-100 px-2.5 py-0.5 rounded border border-slate-200">
+            Curriculum Vitae ({isEn ? "English Version" : "Dansk Version"})
           </span>
         </div>
         
-        <p className="text-xs sm:text-sm font-semibold text-slate-800 mt-0.5">
+        <p className="text-xs sm:text-sm font-bold text-blue-900 mt-1">
           {isEn
             ? "MSc Student in Digital Transformation & IT Consultant"
             : "Kandidatstuderende i Digital Transformation & IT-konsulent"}
@@ -38,31 +38,31 @@ export default function PrintCVDocument({ language = "da" }: PrintCVDocumentProp
           <span>•</span>
           <span>+45 28 70 12 13</span>
           <span>•</span>
-          <a href="mailto:cankurtcvr@gmail.com" className="text-slate-800 underline">cankurtcvr@gmail.com</a>
+          <a href="mailto:cankurtcvr@gmail.com" className="text-slate-900 underline font-semibold">cankurtcvr@gmail.com</a>
           <span>•</span>
-          <a href="https://linkedin.com/in/canxkurt" className="text-slate-800 underline">linkedin.com/in/canxkurt</a>
+          <a href="https://linkedin.com/in/canxkurt" className="text-slate-900 underline font-semibold">linkedin.com/in/canxkurt</a>
           <span>•</span>
-          <a href="https://github.com/CanKurtcvr" className="text-slate-800 underline">github.com/CanKurtcvr</a>
+          <a href="https://github.com/CanKurtcvr" className="text-slate-900 underline font-semibold">github.com/CanKurtcvr</a>
           <span>•</span>
-          <a href="https://cankurtcvr.github.io" className="text-slate-800 underline">cankurtcvr.github.io</a>
+          <a href="https://cankurtcvr.github.io" className="text-slate-900 underline font-semibold">cankurtcvr.github.io</a>
         </div>
       </header>
 
       {/* Profil Resumé */}
       <section className="mb-3.5 break-inside-avoid">
-        <h2 className="text-[9.5pt] font-bold text-slate-950 uppercase tracking-wider border-b border-slate-300 pb-0.5 mb-1">
+        <h2 className="text-[9.5pt] font-bold text-slate-950 uppercase tracking-wider border-b border-blue-900 pb-0.5 mb-1.5">
           {isEn ? "Profile & Professional Focus" : "Profil & Fagligt Fokus"}
         </h2>
         <p className="text-[8.5pt] text-slate-800 text-justify leading-relaxed">
           {isEn
-            ? "Ambitious IT consultant and master's student with a strong interdisciplinary profile combining digital transformation, data analysis, and business process engineering. Proven track record from complex debt remediation and collections projects in the financial sector (Danske Bank / EY), hands-on software development skills with modern web technologies, and exceptionally developed communication skills built through certified interpretation and healthcare support."
-            : "Ambitiøs IT-konsulent og kandidatstuderende med en stærk profil i krydsfeltet mellem digitalisering, dataanalyse og forretningsprocesser. Dokumenteret erfaring fra komplekse datasaneringsprojekter i den finansielle sektor (Danske Bank / EY), praktisk erfaring med moderne webarkitektur samt veludviklede formidlingsevner og situationsfornemmelse opbygget gennem certificeret tolkevirksomhed og omsorgsarbejde."}
+            ? "Ambitious IT consultant and master's student with a strong interdisciplinary profile combining digital transformation, data analysis, and business process engineering. Proven track record from complex debt remediation and collections projects in the financial sector (Danske Bank / EY), hands-on software engineering skills with modern web technologies (TypeScript, React, Python, SQL), and highly developed communication skills and high ethical integrity built through certified interpreting and healthcare support."
+            : "Ambitiøs IT-konsulent og kandidatstuderende med en stærk tværfaglig profil i krydsfeltet mellem digital omstilling, dataanalyse og forretningsprocesser. Dokumenteret erfaring fra komplekse datasanerings- og gældssaneringsprojekter i den finansielle sektor (Danske Bank / EY), praktisk erfaring med moderne webarkitektur (TypeScript, React, Python, SQL) samt veludviklede formidlingsevner og etisk integritet opbygget gennem certificeret tolkevirksomhed og omsorgsarbejde."}
         </p>
       </section>
 
       {/* Faglige Nøglekompetencer & IT-Uddannelse */}
       <section className="mb-3.5 break-inside-avoid">
-        <h2 className="text-[9.5pt] font-bold text-slate-950 uppercase tracking-wider border-b border-slate-300 pb-0.5 mb-1.5">
+        <h2 className="text-[9.5pt] font-bold text-slate-950 uppercase tracking-wider border-b border-blue-900 pb-0.5 mb-1.5">
           {isEn ? "Core Competencies & Academic IT Foundation" : "Faglige Nøglekompetencer & IT-Uddannelse"}
         </h2>
 
@@ -71,7 +71,7 @@ export default function PrintCVDocument({ language = "da" }: PrintCVDocumentProp
             <div>
               <span className="font-bold text-slate-950">{isEn ? "Master's Degree (MSc):" : "Kandidatuddannelse (Kand.):"}</span>{" "}
               <span className="text-slate-800 font-medium">{isEn ? "Digital Transformation" : "Digital Transformation"}</span>{" "}
-              <span className="text-slate-500 font-mono text-[7.5pt]">(RUC, 2026 - {isEn ? "Now" : "Nu"})</span>
+              <span className="text-slate-500 font-mono text-[7.5pt]">(RUC, 2026 - {isEn ? "Present" : "Nu"})</span>
             </div>
             <div>
               <span className="font-bold text-slate-950">{isEn ? "Bachelor's Degree (BSc):" : "Bacheloruddannelse (BSc):"}</span>{" "}
@@ -97,7 +97,7 @@ export default function PrintCVDocument({ language = "da" }: PrintCVDocumentProp
 
       {/* Erhvervserfaring */}
       <section className="mb-3.5">
-        <h2 className="text-[9.5pt] font-bold text-slate-950 uppercase tracking-wider border-b border-slate-300 pb-0.5 mb-2">
+        <h2 className="text-[9.5pt] font-bold text-slate-950 uppercase tracking-wider border-b border-blue-900 pb-0.5 mb-2">
           {isEn ? "Professional Experience" : "Erhvervserfaring"}
         </h2>
         
@@ -123,7 +123,7 @@ export default function PrintCVDocument({ language = "da" }: PrintCVDocumentProp
                   </span>
                 </div>
 
-                <div className="text-[8pt] font-semibold text-slate-700 mb-0.5">
+                <div className="text-[8pt] font-semibold text-blue-900 mb-0.5">
                   {org}
                 </div>
 
@@ -146,7 +146,7 @@ export default function PrintCVDocument({ language = "da" }: PrintCVDocumentProp
 
       {/* Uddannelse */}
       <section className="mb-3.5 break-inside-avoid">
-        <h2 className="text-[9.5pt] font-bold text-slate-950 uppercase tracking-wider border-b border-slate-300 pb-0.5 mb-2">
+        <h2 className="text-[9.5pt] font-bold text-slate-950 uppercase tracking-wider border-b border-blue-900 pb-0.5 mb-2">
           {isEn ? "Education" : "Uddannelse"}
         </h2>
 
@@ -172,7 +172,7 @@ export default function PrintCVDocument({ language = "da" }: PrintCVDocumentProp
                   </span>
                 </div>
 
-                <div className="text-[8pt] font-semibold text-slate-700 mb-0.5">
+                <div className="text-[8pt] font-semibold text-blue-900 mb-0.5">
                   {org}
                 </div>
 
@@ -195,8 +195,8 @@ export default function PrintCVDocument({ language = "da" }: PrintCVDocumentProp
 
       {/* Udvalgte Projekter */}
       <section className="mb-3 break-inside-avoid">
-        <h2 className="text-[9.5pt] font-bold text-slate-950 uppercase tracking-wider border-b border-slate-300 pb-0.5 mb-1.5">
-          {isEn ? "Featured Projects & Technical Showcases" : "Udvalgte Projekter & Tekniske Showcases"}
+        <h2 className="text-[9.5pt] font-bold text-slate-950 uppercase tracking-wider border-b border-blue-900 pb-0.5 mb-1.5">
+          {isEn ? "Featured Projects & Technical Showcases" : "Udvalgte Projekter \& Tekniske Showcases"}
         </h2>
 
         <div className="grid grid-cols-2 gap-x-3 gap-y-1.5">
@@ -238,7 +238,7 @@ export default function PrintCVDocument({ language = "da" }: PrintCVDocumentProp
         <p>
           <strong>{isEn ? "References:" : "Referencer:"}</strong>{" "}
           {isEn
-            ? "Formal recommendations and referee contact information from Danske Bank, EY / M-Networks, TolkDanmark, etc. are available upon request."
+            ? "Formal recommendations and referee contact information from Danske Bank, EY / M-Networks, TolkDanmark, etc., are available upon request."
             : "Udtalelser og kontaktpersoner fra Danske Bank, EY / M-Networks, TolkDanmark m.fl. fremsendes gerne ved henvendelse."}
         </p>
       </footer>
