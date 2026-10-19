@@ -1,0 +1,249 @@
+\documentclass[9.5pt,a4paper]{article}
+
+% --- Language and character encoding ---
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[english]{babel}
+
+% --- Font: Modern, clean and professional sans-serif (Helvetica) ---
+\usepackage{helvet}
+\renewcommand{\familydefault}{\sfdefault}
+
+% --- Page layout and margins ---
+\usepackage[a4paper, top=1.6cm, bottom=1.6cm, left=1.8cm, right=1.8cm]{geometry}
+\usepackage{parskip}
+\usepackage{xcolor}
+\usepackage{hyperref}
+\usepackage{enumitem}
+\usepackage{titlesec}
+
+% --- Color Definitions ---
+\definecolor{primary}{RGB}{15, 23, 42}       % Deep slate/black for headers
+\definecolor{accent}{RGB}{30, 58, 138}       % Deep blue for section borders
+\definecolor{darkslate}{RGB}{51, 65, 85}     % Dark gray body text
+\definecolor{mutedgray}{RGB}{100, 116, 139}  % Muted gray for dates & meta
+\definecolor{boxbg}{RGB}{248, 250, 252}      % Light gray background for boxes
+\definecolor{boxborder}{RGB}{226, 232, 240}  % Border color for boxes
+\definecolor{tagbg}{RGB}{241, 245, 249}      % Tag background
+
+% --- Hyperlink Formatting ---
+\hypersetup{
+    colorlinks=true,
+    linkcolor=accent,
+    urlcolor=accent,
+    citecolor=accent
+}
+
+% --- List Settings ---
+\setlist[itemize]{leftmargin=14pt, itemsep=1.5pt, topsep=2pt, parsep=0pt}
+
+% --- Section Title Formatting ---
+\titleformat{\section}
+  {\fontsize{10.5}{13}\selectfont\bfseries\color{primary}\uppercase}
+  {}{0em}
+  {}[\vspace{-2pt}{\color{boxborder}\rule{\linewidth}{0.8pt}}\vspace{-2pt}]
+
+\titlespacing*{\section}{0pt}{10pt}{5pt}
+
+\pagestyle{empty} % Removes page numbers for a clean CV layout
+
+\begin{document}
+
+% =========================================================================
+% HEADER
+% =========================================================================
+\begin{minipage}[t]{0.70\textwidth}
+    {\fontsize{22}{26}\selectfont\textbf{\color{primary}Can Kurt}} \\[2pt]
+    {\fontsize{10}{13}\selectfont\textbf{\color{accent}MSc Student in Digital Transformation \& IT Consultant}}
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.28\textwidth}
+    \raggedleft
+    {\fontsize{8.5}{11}\selectfont\color{mutedgray}\textbf{CURRICULUM VITAE}}
+\end{minipage}
+
+\vspace{6pt}
+{\fontsize{8.5}{11}\selectfont\color{darkslate}
+Copenhagen, Denmark \ $\cdot$ \
++45 28 70 12 13 \ $\cdot$ \
+\href{mailto:cankurtcvr@gmail.com}{cankurtcvr@gmail.com} \ $\cdot$ \
+\href{https://linkedin.com/in/canxkurt}{linkedin.com/in/canxkurt} \ $\cdot$ \
+\href{https://github.com/CanKurtcvr}{github.com/CanKurtcvr} \ $\cdot$ \
+\href{https://cankurtcvr.github.io}{cankurtcvr.github.io}
+}
+
+\vspace{4pt}
+{\color{primary}\rule{\linewidth}{1.5pt}}
+\vspace{2pt}
+
+% =========================================================================
+% 1. PROFILE & PROFESSIONAL FOCUS
+% =========================================================================
+\section{Profile \& Professional Focus}
+{\fontsize{9}{12.5}\selectfont\color{darkslate}
+Ambitious IT consultant and master's student with a strong interdisciplinary profile combining digital transformation, data analysis, and business process engineering. Proven track record from complex debt remediation and collections projects in the financial sector (Danske Bank / EY), hands-on software development skills with modern web technologies, and exceptionally developed communication skills built through certified interpretation and healthcare support.
+}
+
+% =========================================================================
+% 2. CORE COMPETENCIES & ACADEMIC IT FOUNDATION
+% =========================================================================
+\section{Core Competencies \& Academic IT Foundation}
+
+% Academic IT Foundation Box
+\colorbox{boxbg}{%
+    \parbox{\dimexpr\linewidth-2\fboxsep}{%
+        \vspace{3pt}
+        \begin{tabular*}{\linewidth}{@{\extracolsep{\fill}} p{0.48\linewidth} p{0.48\linewidth} @{}}
+            \textbf{\fontsize{8.5}{11}\selectfont\color{primary}Master's Degree (MSc):} \newline
+            \fontsize{8.5}{11}\selectfont Digital Transformation \color{mutedgray}(RUC, 2026 -- Present) &
+            \textbf{\fontsize{8.5}{11}\selectfont\color{primary}Bachelor's Degree (BSc):} \newline
+            \fontsize{8.5}{11}\selectfont Computer Science \& Business Studies \color{mutedgray}(RUC, 2021 -- 2024)
+        \end{tabular*}
+        \vspace{3pt}
+    }%
+}
+
+\vspace{4pt}
+
+% 4 Competency Blocks
+\begin{tabular*}{\linewidth}{@{\extracolsep{\fill}} p{0.485\linewidth} p{0.485\linewidth} @{}}
+    % Block 1
+    \colorbox{boxbg}{%
+        \parbox{\dimexpr\linewidth-2\fboxsep}{%
+            \textbf{\fontsize{8.5}{11}\selectfont\color{primary}Development \& Engineering} \newline
+            {\fontsize{8}{10.5}\selectfont\color{darkslate}TypeScript, JavaScript (ES6+), React, Tailwind CSS, Python, SQL \& Databases, Three.js (WebGL), HTML5 \& CSS3, Git \& GitHub.}
+        }%
+    } &
+    % Block 2
+    \colorbox{boxbg}{%
+        \parbox{\dimexpr\linewidth-2\fboxsep}{%
+            \textbf{\fontsize{8.5}{11}\selectfont\color{primary}Data Analysis \& Systems} \newline
+            {\fontsize{8}{10.5}\selectfont\color{darkslate}Advanced Excel, Data Modeling, Large-Scale Remediation, KPI \& Financial Modeling, REST APIs, Case Reconstruction, Quality Assurance.}
+        }%
+    } \\
+    \vspace{1pt} & \vspace{1pt} \\
+    % Block 3
+    \colorbox{boxbg}{%
+        \parbox{\dimexpr\linewidth-2\fboxsep}{%
+            \textbf{\fontsize{8.5}{11}\selectfont\color{primary}Digitalization \& Strategy} \newline
+            {\fontsize{8}{10.5}\selectfont\color{darkslate}Digital Transformation, IT Strategy \& Leadership, UX/UI Research, Business Analysis, Process Optimization, Onboarding \& Mentoring.}
+        }%
+    } &
+    % Block 4
+    \colorbox{boxbg}{%
+        \parbox{\dimexpr\linewidth-2\fboxsep}{%
+            \textbf{\fontsize{8.5}{11}\selectfont\color{primary}Communication \& Languages} \newline
+            {\fontsize{8}{10.5}\selectfont\color{darkslate}Danish (Native), English (Fluent), Professional Interpretation, Interdisciplinary Dialogue, Empathetic Leadership, De-escalation.}
+        }%
+    }
+\end{tabular*}
+
+% =========================================================================
+% 3. PROFESSIONAL EXPERIENCE
+% =========================================================================
+\section{Professional Experience}
+
+% Danske Bank
+\textbf{\fontsize{9.5}{12}\selectfont IT Consultant (Full-time)} \hfill {\fontsize{8.5}{11}\selectfont\color{mutedgray}Jun. 2022 -- Dec. 2023} \\
+{\fontsize{8.5}{11}\selectfont\textbf{\color{accent}Danske Bank (via EY / M Networks)}} \\[2pt]
+{\fontsize{8.5}{11}\selectfont\color{darkslate}
+Responsible for financial case reconstruction, large-scale data analysis in Excel, and consultant onboarding during bank-wide debt and collections remediation projects.
+\begin{itemize}
+    \item \textbf{Case Reconstruction:} Reconstructed complete financial histories for over 400 debt collection cases through rigorous audits of legal filings, court records, and ledger statements.
+    \item \textbf{Complex Data Validation:} Validated payments, interest calculations, and moratorium periods in advanced Excel models with zero error tolerance.
+    \item \textbf{Onboarding \& Knowledge Sharing:} Acted as \textit{floorwalker}, creating process manuals and training 10+ new team members during project scaling.
+\end{itemize}
+}
+
+\vspace{3pt}
+
+% Tolk Danmark
+\textbf{\fontsize{9.5}{12}\selectfont Interpreter (Freelance)} \hfill {\fontsize{8.5}{11}\selectfont\color{mutedgray}Feb. 2024 -- Present} \\
+{\fontsize{8.5}{11}\selectfont\textbf{\color{accent}Tolk Danmark}} \\[2pt]
+{\fontsize{8.5}{11}\selectfont\color{darkslate}
+Delivering precise interpretation and communication in critical public and private meetings with strict adherence to ethics, confidentiality, and domain terminology.
+\begin{itemize}
+    \item \textbf{Certified Interpretation:} Simultaneous and consecutive interpretation across municipal agencies, legal proceedings, and healthcare consultations.
+    \item \textbf{Ethics \& Confidentiality:} Ensured absolute neutrality, strict discretion, and terminology accuracy under high-pressure scenarios.
+\end{itemize}
+}
+
+\vspace{3pt}
+
+% Forsorgshjemmet Absalon
+\textbf{\fontsize{9.5}{12}\selectfont Care \& Support Worker (Temporary)} \hfill {\fontsize{8.5}{11}\selectfont\color{mutedgray}Jan. 2024 -- Present} \\
+{\fontsize{8.5}{11}\selectfont\textbf{\color{accent}Absalon Care Shelter}} \\[2pt]
+{\fontsize{8.5}{11}\selectfont\color{darkslate}
+Provides administrative support and personal care for vulnerable citizens, de-escalating complex social situations with calm professionalism and precise digital journal documentation.
+}
+
+\vspace{3pt}
+
+% Kærbo Omsorgscenter
+\textbf{\fontsize{9.5}{12}\selectfont Care Assistant} \hfill {\fontsize{8.5}{11}\selectfont\color{mutedgray}Jun. 2024 -- Sep. 2024} \\
+{\fontsize{8.5}{11}\selectfont\textbf{\color{accent}Kærbo Care Center, Ishøj}} \\[2pt]
+{\fontsize{8.5}{11}\selectfont\color{darkslate}
+Assisted elderly residents with daily care, personal assistance, social activities, and digital healthcare journal documentation with high situational awareness.
+}
+
+\vspace{3pt}
+
+% Teaching Assistant & Homework Mentor
+\textbf{\fontsize{9.5}{12}\selectfont Teaching Assistant \& Volunteer Mentor} \hfill {\fontsize{8.5}{11}\selectfont\color{mutedgray}2019 -- Present} \\
+{\fontsize{8.5}{11}\selectfont\textbf{\color{accent}Ole-Rømer School (2019--2021) \ $\cdot$ \ Save the Children Youth (2025--Present)}} \\[2pt]
+{\fontsize{8.5}{11}\selectfont\color{darkslate}
+Provided academic support and inclusion efforts for students in mathematics, languages, and study habits, building academic confidence and motivation.
+}
+
+% =========================================================================
+% 4. EDUCATION
+% =========================================================================
+\section{Education}
+
+\textbf{\fontsize{9.5}{12}\selectfont MSc in Digital Transformation} \hfill {\fontsize{8.5}{11}\selectfont\color{mutedgray}Starts Sep. 2026} \\
+{\fontsize{8.5}{11}\selectfont\textbf{\color{accent}Roskilde University (RUC)}} \\[2pt]
+{\fontsize{8.5}{11}\selectfont\color{darkslate}
+Master's program focusing on strategic planning and governance of digital transformation initiatives, enterprise architecture, business process optimization, and socio-technical systems design.
+}
+
+\vspace{3pt}
+
+\textbf{\fontsize{9.5}{12}\selectfont BSc in Computer Science \& Business Studies} \hfill {\fontsize{8.5}{11}\selectfont\color{mutedgray}Sep. 2021 -- Jun. 2024} \\
+{\fontsize{8.5}{11}\selectfont\textbf{\color{accent}Roskilde University (RUC)}} \\[2pt]
+{\fontsize{8.5}{11}\selectfont\color{darkslate}
+Interdisciplinary degree combining computer science and programming (Python, JavaScript, SQL), data modeling, relational database design, corporate finance, managerial accounting, and human-computer interaction (HCI/UX).
+}
+
+% =========================================================================
+% 5. FEATURED PROJECTS & TECHNICAL SHOWCASES
+% =========================================================================
+\section{Featured Projects \& Technical Showcases}
+
+\begin{tabular*}{\linewidth}{@{\extracolsep{\fill}} p{0.485\linewidth} p{0.485\linewidth} @{}}
+    \textbf{\fontsize{8.5}{11}\selectfont FinTech Debt Simulator} \hfill {\fontsize{7.5}{10}\selectfont\color{mutedgray}FinTech} \newline
+    {\fontsize{8}{10.5}\selectfont\color{darkslate}Interactive model calculating debt settlement, moratorium periods, haircut discounts, and creditor recovery rates.} \newline
+    {\fontsize{7}{9}\selectfont\color{accent}TypeScript $\cdot$ Recharts $\cdot$ Financial Modeling} &
+
+    \textbf{\fontsize{8.5}{11}\selectfont Process Value Stream Visualizer} \hfill {\fontsize{7.5}{10}\selectfont\color{mutedgray}Digitalization} \newline
+    {\fontsize{8}{10.5}\selectfont\color{darkslate}BPMN architecture comparing As-Is manual case handling with automated To-Be Straight-Through Processing (STP) workflows.} \newline
+    {\fontsize{7}{9}\selectfont\color{accent}Digital Transformation $\cdot$ STP $\cdot$ ROI Analysis} \\
+
+    \vspace{2pt} & \vspace{2pt} \\
+
+    \textbf{\fontsize{8.5}{11}\selectfont AI Legal Compliance Auditor} \hfill {\fontsize{7.5}{10}\selectfont\color{mutedgray}Legal Tech} \newline
+    {\fontsize{8}{10.5}\selectfont\color{darkslate}Scans financial contracts against statutory limitation periods, consumer credit acts, and GDPR compliance.} \newline
+    {\fontsize{7}{9}\selectfont\color{accent}Legal Tech $\cdot$ Compliance $\cdot$ Contract Audit} &
+
+    \textbf{\fontsize{8.5}{11}\selectfont Ascension Cards (Habit RPG)} \hfill {\fontsize{7.5}{10}\selectfont\color{mutedgray}Web App} \newline
+    {\fontsize{8}{10.5}\selectfont\color{darkslate}Immersive habit tracking RPG built with modern web technologies, collectible cards, streak tracking, and 3D WebGL graphics.} \newline
+    {\fontsize{7}{9}\selectfont\color{accent}React 19 $\cdot$ TanStack $\cdot$ Three.js $\cdot$ TypeScript}
+\end{tabular*}
+
+% =========================================================================
+% 6. REFERENCES
+% =========================================================================
+\vspace{6pt}
+{\color{boxborder}\rule{\linewidth}{0.5pt}}\vspace{2pt}
+{\fontsize{7.5}{10}\selectfont\color{mutedgray}\textit{\textbf{References:} Written recommendations and contact information for referees from Danske Bank, EY / M-Networks, TolkDanmark, etc. are available upon request.}}
+
+\end{document}
