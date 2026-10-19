@@ -20,7 +20,7 @@ export default function CVDetail() {
         <div className="inline-flex h-16 w-16 items-center justify-center rounded-full bg-muted text-muted-foreground">
           <FileQuestion className="h-8 w-8" />
         </div>
-        <h1 className="text-3xl font-bold">
+        <h1 className="text-3xl font-bold tracking-tight">
           {isEn ? "Experience not found" : "Erfaring ikke fundet"}
         </h1>
         <p className="text-muted-foreground">
@@ -28,7 +28,7 @@ export default function CVDetail() {
             ? "The requested experience entry could not be found."
             : "Den ønskede profil eller erfaring kunne desværre ikke findes."}
         </p>
-        <Button asChild>
+        <Button asChild variant="outline">
           <Link to="/">
             <ArrowLeft className="mr-2 h-4 w-4" />
             {isEn ? "Back to overview" : "Tilbage til oversigten"}
@@ -44,11 +44,12 @@ export default function CVDetail() {
   const type = isEn && rawCvData.typeEn ? rawCvData.typeEn : rawCvData.type;
   const description = isEn && rawCvData.descriptionEn ? rawCvData.descriptionEn : rawCvData.description;
   const bullets = isEn && rawCvData.bulletsEn ? rawCvData.bulletsEn : rawCvData.bullets;
+  const tags = isEn && rawCvData.tagsEn ? rawCvData.tagsEn : rawCvData.tags;
 
   // Specielt indhold for Kandidatuddannelsen (RUC)
   const renderKandidatContent = () => (
     <div className="space-y-6 mt-8 animate-in fade-in slide-in-from-bottom-4 duration-500">
-      <Card>
+      <Card className="border shadow-sm">
         <CardHeader>
           <CardTitle className="text-xl flex items-center gap-2">
             <BookOpen className="h-5 w-5 text-primary" />
@@ -61,7 +62,7 @@ export default function CVDetail() {
           </CardDescription>
         </CardHeader>
         <CardContent>
-          <div className="overflow-hidden rounded-lg border bg-slate-100 dark:bg-slate-800/50 flex items-center justify-center p-2">
+          <div className="overflow-hidden rounded-lg border bg-slate-100 dark:bg-slate-900/60 flex items-center justify-center p-2">
             <img 
               src="/Screenshot 2026-08-05 at 21.00.42.png" 
               alt="Kursusbeskrivelse for Digital Transformation på RUC" 
@@ -76,10 +77,10 @@ export default function CVDetail() {
   // Specielt indhold for Tolk Danmark
   const renderTolkContent = () => (
     <div className="space-y-6 mt-8 animate-in fade-in slide-in-from-bottom-4 duration-500">
-      <Card>
+      <Card className="border shadow-sm">
         <CardHeader>
           <CardTitle className="text-xl flex items-center gap-2">
-            <BadgeCheck className="h-5 w-5 text-blue-600" />
+            <BadgeCheck className="h-5 w-5 text-blue-600 dark:text-blue-400" />
             {isEn ? "Official Interpreter ID" : "Officielt Tolke-ID"}
           </CardTitle>
           <CardDescription>
@@ -89,7 +90,7 @@ export default function CVDetail() {
           </CardDescription>
         </CardHeader>
         <CardContent>
-          <div className="overflow-hidden rounded-lg border bg-slate-100 dark:bg-slate-800/50 flex items-center justify-center p-6">
+          <div className="overflow-hidden rounded-lg border bg-slate-100 dark:bg-slate-900/60 flex items-center justify-center p-6">
             <img 
               src="/TOLK.jpg" 
               alt="Mit officielle Tolke-ID fra TolkDanmark" 
@@ -104,7 +105,7 @@ export default function CVDetail() {
   // Specielt indhold for Kærbo Omsorgscenter
   const renderKaerboContent = () => (
     <div className="space-y-6 mt-8 animate-in fade-in slide-in-from-bottom-4 duration-500">
-      <Card>
+      <Card className="border shadow-sm">
         <CardHeader>
           <CardTitle className="text-xl flex items-center gap-2">
             <Film className="h-5 w-5 text-primary" />
@@ -154,10 +155,10 @@ export default function CVDetail() {
   // Specielt indhold for Danske Bank
   const renderDanskeBankContent = () => (
     <div className="space-y-6 mt-8 animate-in fade-in slide-in-from-bottom-4 duration-500">
-      <Card className="border-l-4 border-l-blue-600 dark:border-l-blue-500">
+      <Card className="border-l-4 border-l-blue-600 dark:border-l-blue-500 shadow-sm">
         <CardHeader>
           <CardTitle className="text-xl flex items-center gap-2">
-            <Briefcase className="h-5 w-5 text-blue-600" />
+            <Briefcase className="h-5 w-5 text-blue-600 dark:text-blue-400" />
             {isEn ? "Project Scope: Debt Remediation" : "Sagens Kerne: Inkasso-oprydningen"}
           </CardTitle>
           <CardDescription>
@@ -167,11 +168,11 @@ export default function CVDetail() {
           </CardDescription>
         </CardHeader>
         <CardContent className="space-y-4 text-sm text-slate-700 dark:text-slate-300">
-          <div className="bg-slate-100 dark:bg-slate-800 p-4 rounded-md">
+          <div className="bg-slate-100 dark:bg-slate-900/60 p-4 rounded-lg border">
             <p className="font-semibold mb-2">
               {isEn ? "Project Background:" : "Baggrund for projektet:"}
             </p>
-            <p className="mb-3">
+            <p className="mb-3 leading-relaxed">
               {isEn
                 ? "In 2022, system errors were identified in legacy debt collection software. As part of the remediation effort, the bank canceled over DKK 20 billion in debt for collection clients."
                 : "I 2022 kom det frem, at systemfejl havde ført til uretmæssig inddrivelse af gæld. Som følge af oprydningsarbejdet slettede banken gæld for over 20 milliarder kroner hos inkassokunder."}
@@ -182,48 +183,48 @@ export default function CVDetail() {
               rel="noopener noreferrer"
               className="inline-flex items-center text-blue-600 dark:text-blue-400 hover:underline font-medium"
             >
-              {isEn ? "Read news coverage of the case here" : "Læs TV2's dækning af sagen her"} <ExternalLink className="ml-1 h-3 w-3" />
+              {isEn ? "Read news coverage of the case here" : "Læs TV2's dækning af sagen her"} <ExternalLink className="ml-1 h-3.5 w-3.5" />
             </a>
           </div>
         </CardContent>
       </Card>
 
-      <Card>
+      <Card className="border shadow-sm">
         <CardHeader>
           <CardTitle className="text-lg flex items-center gap-2">
-            <CheckCircle2 className="h-5 w-5 text-green-600" />
+            <CheckCircle2 className="h-5 w-5 text-emerald-600 dark:text-emerald-400" />
             {isEn ? "Key Responsibilities & Highlights" : "Nøgleopgaver & Ansvarsområder"}
           </CardTitle>
         </CardHeader>
         <CardContent>
-          <ul className="space-y-3 text-sm text-slate-700 dark:text-slate-300 list-disc pl-5 marker:text-slate-400">
+          <ul className="space-y-3 text-sm text-slate-700 dark:text-slate-300 list-disc pl-5 marker:text-emerald-500">
             {isEn ? (
               <>
-                <li>
+                <li className="leading-relaxed">
                   <strong>Case Reconstruction:</strong> Reconstructed full financial histories for 400+ debt collection clients by analyzing legal filings, court records, and ledger statements.
                 </li>
-                <li>
+                <li className="leading-relaxed">
                   <strong>Complex Data Validation:</strong> Handled data entry and validation of payments, interest rates, and interest freezes in advanced Excel models with zero error tolerance.
                 </li>
-                <li>
+                <li className="leading-relaxed">
                   <strong>Onboarding & Floorwalking:</strong> Authored training guides and served as floorwalker, onboarding and training 10+ new consultants on the project.
                 </li>
-                <li>
+                <li className="leading-relaxed">
                   <strong>Digital Workflow:</strong> Managed fully digitized cases requiring secure remote handling and legal verification.
                 </li>
               </>
             ) : (
               <>
-                <li>
+                <li className="leading-relaxed">
                   <strong>Sagsrekonstruktion:</strong> Opbyggede det fulde sagsforløb for kunden med dyb indsigt i bankdokumenter, juridiske aktstykker, forlig og retsmøder for at sikre en korrekt sagsbehandling.
                 </li>
-                <li>
+                <li className="leading-relaxed">
                   <strong>Kompleks databehandling:</strong> Håndterede manuel indtastning og validering af indbetalinger, udbetalinger, renter og rentepauser i avancerede Excel-ark for mere end 400 kunder.
                 </li>
-                <li>
+                <li className="leading-relaxed">
                   <strong>Onboarding & Præsentation:</strong> Udarbejdede og fremlagde præsentationer samt fungerede som <em>floorwalker</em> for at sikre en effektiv og tryg oplæring af nyansatte kollegaer.
                 </li>
-                <li>
+                <li className="leading-relaxed">
                   <strong>Fleksibel opgaveløsning:</strong> Udførte selvstændigt hjemmearbejde med de sager, der udelukkende kunne behandles digitalt og ikke krævede fysisk dokumentation.
                 </li>
               </>
@@ -233,14 +234,14 @@ export default function CVDetail() {
       </Card>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <Card>
+        <Card className="border shadow-sm">
           <CardHeader>
             <CardTitle className="text-lg">
               {isEn ? "Employment Structure" : "Ansættelsesstruktur"}
             </CardTitle>
           </CardHeader>
           <CardContent className="space-y-4">
-            <p className="text-sm text-muted-foreground">
+            <p className="text-sm text-muted-foreground leading-relaxed">
               {isEn
                 ? "The project required external expertise and operated through a tripartite structure to ensure independent audit and consulting."
                 : "Projektet krævede ekstern ekspertise og blev faciliteret gennem en treparts-struktur for at sikre uafhængig databehandling og konsulentbistand."}
@@ -259,16 +260,16 @@ export default function CVDetail() {
           </CardContent>
         </Card>
 
-        <Card>
+        <Card className="border shadow-sm">
           <CardHeader>
             <CardTitle className="text-lg flex items-center gap-2">
-              <User className="h-5 w-5" />
+              <User className="h-5 w-5 text-primary" />
               {isEn ? "References & Contact" : "Referencer & Kontakt"}
             </CardTitle>
           </CardHeader>
           <CardContent>
             <div className="space-y-3">
-              <p className="text-sm text-muted-foreground">
+              <p className="text-sm text-muted-foreground leading-relaxed">
                 {isEn
                   ? "Detailed documentation and contact details for managers and colleagues are available upon request."
                   : "Uddybende dokumentation for sagsarbejdet samt kontaktinformation til tidligere kollegaer og ledere fremsendes gerne efter aftale."}
@@ -286,7 +287,7 @@ export default function CVDetail() {
 
   return (
     <div className="container mx-auto px-4 py-12 max-w-4xl">
-      <Button variant="ghost" asChild className="mb-8">
+      <Button variant="ghost" asChild className="mb-8 hover:bg-slate-100 dark:hover:bg-slate-800">
         <Link to="/">
           <ArrowLeft className="mr-2 h-4 w-4" /> {isEn ? "Back to home" : "Tilbage til forsiden"}
         </Link>
@@ -295,16 +296,27 @@ export default function CVDetail() {
       <div className="space-y-8">
         <div>
           <div className="flex flex-wrap items-center gap-2 mb-3">
-            <Badge variant="secondary">{type}</Badge>
+            <Badge variant="secondary" className="px-3 py-1 text-xs font-semibold">{type}</Badge>
             <span className="text-sm text-muted-foreground font-medium">{period}</span>
           </div>
-          <h1 className="text-3xl md:text-4xl font-bold text-slate-900 dark:text-slate-100 mb-2">
+          <h1 className="text-3xl md:text-4xl font-bold tracking-tight text-slate-900 dark:text-slate-100 mb-2">
             {title}
           </h1>
-          <h2 className="text-xl md:text-2xl text-muted-foreground mb-4">
+          <h2 className="text-xl md:text-2xl font-medium text-muted-foreground mb-4">
             {organization}
           </h2>
-          <p className="text-base md:text-lg leading-relaxed text-slate-700 dark:text-slate-300 bg-slate-50 dark:bg-slate-900/50 p-6 rounded-lg border">
+
+          {tags && tags.length > 0 && (
+            <div className="flex flex-wrap gap-1.5 mb-6">
+              {tags.map((tag, idx) => (
+                <Badge key={idx} variant="outline" className="text-xs bg-slate-50 dark:bg-slate-900/50">
+                  {tag}
+                </Badge>
+              ))}
+            </div>
+          )}
+
+          <p className="text-base md:text-lg leading-relaxed text-slate-700 dark:text-slate-300 bg-slate-50 dark:bg-slate-900/40 p-6 rounded-xl border shadow-sm">
             {description}
           </p>
         </div>
@@ -320,7 +332,7 @@ export default function CVDetail() {
           renderKandidatContent()
         ) : bullets && bullets.length > 0 ? (
           <div className="space-y-6 mt-8 animate-in fade-in slide-in-from-bottom-4 duration-500">
-            <Card>
+            <Card className="border shadow-sm">
               <CardHeader>
                 <CardTitle className="text-xl flex items-center gap-2">
                   <CheckCircle2 className="h-5 w-5 text-primary" />
@@ -344,7 +356,7 @@ export default function CVDetail() {
             </Card>
           </div>
         ) : (
-          <div className="border-2 border-dashed border-slate-300 dark:border-slate-700 rounded-xl p-12 text-center flex flex-col items-center justify-center min-h-[250px] bg-slate-50/50 dark:bg-slate-900/20 mt-8">
+          <div className="border-2 border-dashed border-slate-300 dark:border-slate-800 rounded-xl p-12 text-center flex flex-col items-center justify-center min-h-[250px] bg-slate-50/50 dark:bg-slate-900/20 mt-8">
             <h3 className="text-xl font-semibold mb-2 text-slate-700 dark:text-slate-300">
               {isEn ? "Additional Documentation" : "Yderligere Dokumentation"}
             </h3>
