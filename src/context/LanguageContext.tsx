@@ -103,14 +103,19 @@ export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ chil
     return saved === "en" || saved === "da" ? saved : "da";
   });
 
-  const setLanguage = (lang: Language) => {
+  const setLanguage = useCallback((lang: Language) => {
     setLanguageState(lang);
     localStorage.setItem("preferredLanguage", lang);
   }, []);
 
-  const t = (key: string, defaultText?: string): string => {
+  const t = useCallback((key: string, defaultText?: string): string => {
     return translations[language]?.[key] || defaultText || key;
-  };
+  }, [language]);
+
+  const value = useMemo(
+    () => ({ language, setLanguage, t }),
+    [language, setLanguage, t]
+  );
 
   return (
     <LanguageContext.Provider value={value}>
