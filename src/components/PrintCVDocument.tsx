@@ -22,7 +22,7 @@ export default function PrintCVDocument({ language = "da" }: PrintCVDocumentProp
           <h1 className="text-2xl sm:text-3xl font-bold tracking-tight text-slate-950 font-serif">
             Can Kurt
           </h1>
-          <span className="text-xs font-semibold text-slate-600 tracking-wider uppercase bg-slate-100 px-2 py-0.5 rounded border border-slate-200">
+          <span className="text-xs font-semibold text-slate-700 tracking-wider uppercase bg-slate-100 px-2 py-0.5 rounded border border-slate-300">
             Curriculum Vitae ({isEn ? "English" : "Dansk"})
           </span>
         </div>
@@ -55,8 +55,8 @@ export default function PrintCVDocument({ language = "da" }: PrintCVDocumentProp
         </h2>
         <p className="text-[8.5pt] text-slate-800 text-justify leading-relaxed">
           {isEn
-            ? "Ambitious IT consultant and master's student with a strong interdisciplinary profile combining digital transformation, data analysis, and business process engineering. Proven track record from complex debt remediation and collections projects in the financial sector (Danske Bank / EY), hands-on software development skills with modern web technologies, and exceptionally developed communication skills built through certified interpretation and healthcare support."
-            : "Ambitiøs IT-konsulent og kandidatstuderende med en stærk profil i krydsfeltet mellem digitalisering, dataanalyse og forretningsprocesser. Dokumenteret erfaring fra komplekse datasaneringsprojekter i den finansielle sektor (Danske Bank / EY), praktisk erfaring med moderne webarkitektur samt veludviklede formidlingsevner og situationsfornemmelse opbygget gennem certificeret tolkevirksomhed og omsorgsarbejde."}
+            ? "Ambitious IT consultant and master's student with a strong interdisciplinary profile combining digital transformation, data analysis, and business process engineering. Proven track record from complex debt remediation and collections projects in the financial sector (Danske Bank / EY), hands-on software development skills with modern web technologies (TypeScript, React, Python, SQL), and exceptionally developed communication skills built through certified interpretation and healthcare support."
+            : "Ambitiøs IT-konsulent og kandidatstuderende med en stærk profil i krydsfeltet mellem digitalisering, dataanalyse og forretningsprocesser. Dokumenteret erfaring fra komplekse datasaneringsprojekter i den finansielle sektor (Danske Bank / EY), praktisk erfaring med moderne webarkitektur (TypeScript, React, Python, SQL) samt veludviklede formidlingsevner og situationsfornemmelse opbygget gennem certificeret tolkevirksomhed og omsorgsarbejde."}
         </p>
       </section>
 

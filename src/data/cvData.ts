@@ -32,18 +32,18 @@ export const cvItems: CVItem[] = [
     type: "Uddannelse",
     typeEn: "Education",
     category: "uddannelse",
-    description: "Videreuddannelse med fokus på digital omstilling, IT-strategi, socio-teknisk systemdesign og forretningsmæssig procesoptimering.",
-    descriptionEn: "Master's program focusing on digital transformation, IT strategy, socio-technical systems design, and business process optimization.",
-    tags: ["Digital Transformation", "It-strategi", "Socio-teknisk Design", "RUC"],
-    tagsEn: ["Digital Transformation", "IT Strategy", "Socio-technical Design", "RUC"],
+    description: "Kandidatuddannelse med fokus på strategisk ledelse af digitale omstilling, IT-arkitektur, socio-teknisk systemdesign og procesoptimering i komplekse organisationer.",
+    descriptionEn: "Master's degree specializing in strategic digital transformation, enterprise IT architecture, socio-technical systems design, and business process optimization.",
+    tags: ["Digital Transformation", "It-strategi", "Socio-teknisk Design", "Procesoptimering", "RUC"],
+    tagsEn: ["Digital Transformation", "IT Strategy", "Socio-technical Design", "Process Optimization", "RUC"],
     bullets: [
-      "Strategisk planlægning og styring af digitale omstillingsprocesser i private og offentlige organisationer.",
-      "Analyse, modellering og integration af komplekse IT-systemer, enterprise-arkitektur og forretningsprocesser.",
-      "Teknologiledelse, UX/UI research, socio-teknisk systemdesign og digital forandringsledelse."
+      "Strategisk planlægning, governance og implementering af digitale transformationer i både private og offentlige virksomheder.",
+      "Analyse, kravspecifikation og modellering af komplekse IT-systemer, enterprise-arkitektur og kerneforretningsgange.",
+      "Teknologiledelse, UX/UI research, socio-teknisk systemdesign og organisatorisk forandringsledelse."
     ],
     bulletsEn: [
-      "Strategic planning and governance of digital transformation initiatives in public and private sector organizations.",
-      "Analysis, modeling, and integration of complex IT systems, enterprise architecture, and core business workflows.",
+      "Strategic planning, governance, and execution of digital transformation initiatives across enterprise and public sector contexts.",
+      "Analysis, requirements engineering, and modeling of complex IT systems, enterprise architecture, and operational workflows.",
       "Technology management, UX/UI research, socio-technical systems design, and organizational change management."
     ]
   },
@@ -51,26 +51,26 @@ export const cvItems: CVItem[] = [
     id: "ruc-bachelor",
     title: "Bachelor i Informatik og Virksomhedsstudier",
     titleEn: "BSc in Computer Science & Business Studies",
-    organization: "Roskilde Universitet",
-    organizationEn: "Roskilde University",
+    organization: "Roskilde Universitet (RUC)",
+    organizationEn: "Roskilde University (RUC)",
     period: "Sep. 2021 - Jun. 2024",
     periodEn: "Sep. 2021 - Jun. 2024",
     type: "Uddannelse",
     typeEn: "Education",
     category: "uddannelse",
-    description: "Tværfaglig uddannelse der kombinerer datalogi, programmering, databasedesign, regnskab og organisatorisk udvikling.",
-    descriptionEn: "Interdisciplinary degree combining computer science, software programming, database design, corporate finance, and business administration.",
-    tags: ["Informatik", "Virksomhedsstudier", "Programmering", "UX-design", "Dataanalyse"],
-    tagsEn: ["Computer Science", "Business Studies", "Programming", "UX Design", "Data Analysis"],
+    description: "Tværfaglig kombinationsuddannelse i datalogi, softwareudvikling, databasedesign, regnskab, økonomistyring og organisatorisk analyse.",
+    descriptionEn: "Interdisciplinary combined degree bridging computer science, software engineering, database architecture, corporate finance, and business management.",
+    tags: ["Informatik", "Virksomhedsstudier", "Programmering", "UX-design", "Dataanalyse", "SQL"],
+    tagsEn: ["Computer Science", "Business Studies", "Programming", "UX Design", "Data Analysis", "SQL"],
     bullets: [
-      "Softwareudvikling (Python, JavaScript, SQL), datamodellering og relational databasedesign.",
-      "Projektstyring, bogholderi, økonomistyring, forretningsforståelse og kvantitativ dataanalyse.",
-      "Menneske-maskine interaktion (HCI), brugertest, UX-design og socio-teknisk brugerforskning."
+      "Softwareudvikling (Python, JavaScript, SQL), datamodellering og relationelt databasedesign.",
+      "Projektstyring, bogholderi, økonomistyring, forretningsforståelse og kvantitativ datadrevet analyse.",
+      "Menneske-maskine interaktion (HCI), brugertest, UX-design og brugercentreret systemudvikling."
     ],
     bulletsEn: [
-      "Software engineering (Python, JavaScript, SQL), data modeling, and relational database design.",
-      "Project management, managerial accounting, corporate finance, business strategy, and quantitative analysis.",
-      "Human-Computer Interaction (HCI), usability testing, UX design, and user-centered system design."
+      "Software engineering (Python, JavaScript, SQL), data modeling, and relational database system design.",
+      "Project management, managerial accounting, corporate finance, business strategy, and quantitative data analysis.",
+      "Human-Computer Interaction (HCI), usability engineering, UX design, and user-centered systems development."
     ]
   },
 
@@ -86,19 +86,19 @@ export const cvItems: CVItem[] = [
     type: "Erfaring",
     typeEn: "Experience",
     category: "it",
-    description: "Ansvarlig for fejlretning og rekonstruktion af komplekse kundesager, analyse af stordata i Excel samt onboarding i forbindelse med gældssanering og inkasso-oprydning.",
-    descriptionEn: "Responsible for complex financial case reconstruction, large-scale data analysis in Excel, and consultant onboarding during bank-wide debt and collections remediation projects.",
-    tags: ["Dataanalyse", "Sagsrekonstruktion", "Excel", "Onboarding", "FinTech"],
-    tagsEn: ["Data Analysis", "Case Reconstruction", "Excel", "Onboarding", "FinTech"],
+    description: "Ansvarlig for rekonstruktion af komplekse finansielle kundesager, stordataanalyse i Excel og Onboarding/Sidemandsoplæring på bankens forretningskritiske gældssanerings- og inkassoprojekt.",
+    descriptionEn: "Key responsible for complex financial case reconstruction, large-scale data analysis in Excel, and consultant onboarding during bank-wide debt and collections remediation projects.",
+    tags: ["Dataanalyse", "Sagsrekonstruktion", "Excel", "Onboarding", "FinTech", "Processer"],
+    tagsEn: ["Data Analysis", "Case Reconstruction", "Excel", "Onboarding", "FinTech", "Processes"],
     bullets: [
-      "Sagsrekonstruktion af over 400 komplekse gældssager gennem analyse af juridiske aktstykker, retsbøger og bankudskrifter.",
-      "Validering og opbygning af finansielle beregningsmodeller i Excel med nul-tolerance over for fejl i renter og afdrag.",
-      "Udarbejdelse af procesvejledninger samt onboarding og sidemandsoplæring af 10+ nye konsulenter i teamet (floorwalker)."
+      "Genopbygning og sagsrekonstruktion af over 400 komplekse gældssager gennem analyse af juridiske aktstykker, retsbøger og kontoudskrifter.",
+      "Validering og opbygning af finansielle beregningsmodeller i Excel med nul-tolerance over for fejl i renter, amortisering og afdrag.",
+      "Udarbejdelse af procesvejledninger samt onboarding og sidemandsoplæring af 10+ nye konsulenter som faglig 'floorwalker'."
     ],
     bulletsEn: [
-      "Reconstructed financial histories for 400+ complex debt cases through rigorous audit of legal filings, court records, and ledger statements.",
-      "Validated and constructed financial calculation models in Excel with zero tolerance for errors in interest and principal amortization.",
-      "Authored process guides and served as floorwalker, onboarding and training 10+ new consultants on the project."
+      "Reconstructed full financial and legal histories for 400+ complex debt cases through rigorous audit of court records, agreements, and bank ledgers.",
+      "Validated and built financial calculation models in Excel with zero tolerance for errors in interest, amortization schedules, and principal calculations.",
+      "Authored standard operating procedures and served as floorwalker, onboarding and training 10+ new consultants into the project team."
     ]
   },
 
@@ -114,19 +114,19 @@ export const cvItems: CVItem[] = [
     type: "Erfaring",
     typeEn: "Experience",
     category: "omsorg",
-    description: "Hjælp til ældre borgere med daglige rutiner, personlig pleje, aktivisering og digital journalføring.",
-    descriptionEn: "Assisting elderly residents with daily care, personal assistance, social activities, and digital healthcare documentation.",
-    tags: ["Ældrepleje", "Journalføring", "Omsorg", "Empati"],
-    tagsEn: ["Elderly Care", "Documentation", "Caregiving", "Empathy"],
+    description: "Strukturering af daglige plejerutiner, personlig omsorg og præcis digital journalføring i sundhedsfaglige systemer.",
+    descriptionEn: "Structuring daily care routines, personal caregiving, and accurate digital recordkeeping in healthcare management systems.",
+    tags: ["Ældrepleje", "Journalføring", "Omsorg", "Empati", "Situationsfornemmelse"],
+    tagsEn: ["Elderly Care", "Documentation", "Caregiving", "Empathy", "Situational Awareness"],
     bullets: [
-      "Strukturering af daglige plejerutiner og skabelse af trygge rammer for beboerne med høj situationsfornemmelse.",
+      "Skabelse af trygge, strukturerede rammer for beboerne med høj grad af nærvær og situationsfornemmelse.",
       "Præcis digital journalføring og tværfaglig overlevering til sygeplejersker og sundhedsfagligt personale.",
-      "Høj grad af tålmodighed, empati og professionel borgerkontakt i udfordrende situationer."
+      "Høj grad af tålmodighed, empati og professionel borgerkontakt i pressede eller komplicerede situationer."
     ],
     bulletsEn: [
-      "Structured daily care routines to maintain a calm, secure environment for residents with high situational awareness.",
-      "Accurate digital medical journal documentation and interdisciplinary handovers to nurses and healthcare staff.",
-      "Demonstrated patience, empathy, and professional resident interaction in challenging health situations."
+      "Established structured and calm environments for residents through active presence and high situational awareness.",
+      "Accurate digital medical journal documentation and interdisciplinary handovers to nursing and healthcare teams.",
+      "Demonstrated patience, empathy, and professional resident engagement under demanding clinical conditions."
     ]
   },
   {
@@ -140,18 +140,18 @@ export const cvItems: CVItem[] = [
     type: "Erfaring",
     typeEn: "Experience",
     category: "omsorg",
-    description: "Yder administrativ støtte og personlig omsorg til socialt udsatte borgere og håndterer komplekse sociale situationer med ro og empati.",
-    descriptionEn: "Provides administrative support and personal care for vulnerable citizens, de-escalating complex social situations with calm professionalism.",
-    tags: ["Socialt arbejde", "Administration", "Empati", "Konfliktnedtrapning"],
-    tagsEn: ["Social Work", "Administration", "Empathy", "De-escalation"],
+    description: "Yder administrativ støtte og personlig omsorg til socialt udsatte borgere, håndterer tilspidsede episoder med konfliktnedtrapning og sikrer fyldestgørende sagsdokumentation.",
+    descriptionEn: "Provides administrative support and personal care for vulnerable citizens, de-escalates high-stress social conflicts, and maintains precise case documentation in specialized platforms.",
+    tags: ["Socialt Arbejde", "Administration", "Empati", "Konfliktnedtrapning", "Sagsbehandling"],
+    tagsEn: ["Social Work", "Administration", "Empathy", "De-escalation", "Case Management"],
     bullets: [
-      "Relationsarbejde og konfliktnedtrapning med borgere i sårbare og uforudsigelige livssituationer.",
-      "Fastholdelse af trygge, rolige rammer under tilspidsede episoder.",
-      "Dokumentation, journalføring og administrativ opfølgning i fagsystemer."
+      "Relationsarbejde og konfliktnedtrapning i samarbejde med borgere i sårbare og uforudsigelige livssituationer.",
+      "Fastholdelse af trygge, rolige rammer under tilspidsede episoder gennem aktiv lytning og de-eskalering.",
+      "Dokumentation, journalføring og administrativ opfølgning i fagsystemer med fokus på retsstilling og borgerens trivsel."
     ],
     bulletsEn: [
-      "Built trust and de-escalated conflicts with residents experiencing complex social and personal crises.",
-      "Maintained a secure, stable environment during high-stress situations through active listening and de-escalation.",
+      "Built trust and de-escalated conflicts with residents experiencing severe personal and socio-economic crises.",
+      "Maintained a calm, secure institutional environment during high-stress situations using proven de-escalation methods.",
       "Conducted digital recordkeeping and administrative follow-up in institutional care software."
     ]
   },
@@ -159,7 +159,7 @@ export const cvItems: CVItem[] = [
   // --- ØVRIGE ERFARINGER ---
   {
     id: "tolk-danmark",
-    title: "Tolk (Vikariat)",
+    title: "Tolk (Vikariat / Freelance)",
     titleEn: "Interpreter (Freelance)",
     organization: "Tolk Danmark",
     organizationEn: "Interpreter Denmark",
@@ -168,14 +168,14 @@ export const cvItems: CVItem[] = [
     type: "Erfaring",
     typeEn: "Experience",
     category: "omsorg",
-    description: "Formidler præcis tolkning og kommunikation ved kritiske møder med fokus på etik, diskretion og professionalisme.",
-    descriptionEn: "Delivering precise interpretation and communication in critical public and private meetings with strict adherence to ethics and confidentiality.",
-    tags: ["Sprog", "Kommunikation", "Etik", "Diskretion"],
-    tagsEn: ["Languages", "Communication", "Ethics", "Discretion"],
+    description: "Formidler præcis simultan- og konsekutiv tolkning ved kritiske møder med fuldstændig etik, neutralitet og juridisk/medicinsk terminologisk præcision.",
+    descriptionEn: "Delivering precise simultaneous and consecutive interpretation in high-stakes settings with strict ethics, neutrality, and exact legal/medical terminology.",
+    tags: ["Sprog", "Kommunikation", "Etik", "Diskretion", "Konsekutiv Tolkning"],
+    tagsEn: ["Languages", "Communication", "Ethics", "Discretion", "Consecutive Interpreting"],
     bullets: [
-      "Simultan- og konsekutiv tolkning mellem parter i offentlige myndigheder, retssager og sundhedssektoren.",
-      "Sikring af fuldstændig neutralitet, tavshedspligt og terminologisk præcision under pres.",
-      "Hurtig omstillingsevne til komplekse juridiske, tekniske og sociale kontekster."
+      "Simultan- og konsekutiv tolkning mellem parter i offentlige myndigheder, retssager, kommuner og sundhedssektoren.",
+      "Sikring af fuldstændig neutralitet, tavshedspligt og terminologisk præcision under højt pres.",
+      "Hurtig omstillingsevne til komplekse juridiske, tekniske og socialfaglige kontekster."
     ],
     bulletsEn: [
       "Simultaneous and consecutive interpretation across municipal agencies, legal proceedings, and medical consultations.",
@@ -194,23 +194,23 @@ export const cvItems: CVItem[] = [
     type: "Erfaring",
     typeEn: "Experience",
     category: "omsorg",
-    description: "Understøttede undervisning og agerede støttepædagog for elever med faglige og sociale udfordringer.",
-    descriptionEn: "Supported classroom teaching and acted as dedicated support educator for students with academic and social challenges.",
-    tags: ["Undervisning", "Pædagogik", "Klasseledelse"],
-    tagsEn: ["Teaching", "Pedagogy", "Classroom Management"],
+    description: "Understøttede undervisning og agerede dedikeret støttepædagog for elever med faglige, sociale og trivselsmæssige udfordringer.",
+    descriptionEn: "Supported classroom teaching and acted as dedicated support educator for students facing academic, social, or behavioral challenges.",
+    tags: ["Undervisning", "Pædagogik", "Klasseledelse", "Inklusion"],
+    tagsEn: ["Teaching", "Pedagogy", "Classroom Management", "Inclusion"],
     bullets: [
-      "Individuel faglig støtte, differentieret undervisning og inklusionsarbejde i folkeskolen.",
-      "Tæt samarbejde med lærere, pædagoger og forældre om elevernes faglige og sociale trivsel."
+      "Individuel faglig støtte, differentieret undervisning og målrettet inklusionsarbejde i folkeskolen.",
+      "Tæt samarbejde med lærere, pædagoger og forældre om elevernes faglige progression og sociale trivsel."
     ],
     bulletsEn: [
-      "Provided targeted academic support and inclusion efforts for students requiring special assistance.",
-      "Collaborated closely with teachers, parents, and school management to foster student well-being."
+      "Provided targeted academic support and inclusion efforts for students requiring specialized assistance.",
+      "Collaborated closely with teachers, parents, and school management to foster student well-being and development."
     ]
   },
   {
     id: "red-barnet-ungdom",
-    title: "Lektiehjælper",
-    titleEn: "Volunteer Homework Tutor",
+    title: "Lektiehjælper & Mentor",
+    titleEn: "Volunteer Homework Tutor & Mentor",
     organization: "Red Barnet Ungdom",
     organizationEn: "Save the Children Youth",
     period: "Mar. 2025 - Nuværende",
@@ -218,16 +218,16 @@ export const cvItems: CVItem[] = [
     type: "Frivilligt arbejde",
     typeEn: "Volunteer Work",
     category: "omsorg",
-    description: "Frivillig mentor med fokus på faglig indlæring, motivation og selvtillid hos skoleelever.",
-    descriptionEn: "Volunteer mentor focusing on academic support, learning motivation, and confidence building for young students.",
-    tags: ["Frivilligt", "Mentorskab", "Formidling"],
-    tagsEn: ["Volunteer", "Mentorship", "Teaching"],
+    description: "Frivillig mentor med fokus på faglig indlæring i matematik, dansk og sprogfag samt opbygning af selvtillid og studieteknik hos børn og unge.",
+    descriptionEn: "Volunteer mentor focusing on academic proficiency in mathematics, languages, and study habits, building self-confidence in youth.",
+    tags: ["Frivilligt", "Mentorskab", "Formidling", "Matematik"],
+    tagsEn: ["Volunteer", "Mentorship", "Teaching", "Mathematics"],
     bullets: [
-      "Styrkelse af elevers faglige niveau i matematik, dansk og sprogfag.",
-      "Opbygning af strukturerede studievaner, motivation og faglig selvtillid."
+      "Styrkelse af elevers faglige niveau i matematik, dansk og engelsk.",
+      "Opbygning af strukturerede studievaner, lyst til læring og faglig selvtillid."
     ],
     bulletsEn: [
-      "Strengthened students' core proficiencies in mathematics, Danish, and languages.",
+      "Strengthened students' core proficiencies in mathematics, Danish, and English.",
       "Helped students develop structured study habits, academic motivation, and confidence."
     ]
   }
