@@ -1,16 +1,22 @@
 import React, { useEffect, useRef, useState } from "react";
-import p5 from "p5";
+import type p5 from "p5";
 
 export default function PongGame() {
   const containerRef = useRef<HTMLDivElement>(null);
-  const [touchActive, setTouchActive] = useState(false);
+  const [_touchActive, setTouchActive] = useState(false);
 
   useEffect(() => {
     if (!containerRef.current) return;
     const container = containerRef.current;
     let resizeGame: (() => void) | undefined;
+    let instance: p5 | undefined;
+    let isMounted = true;
 
-    const sketch = (p: p5) => {
+    // ⚡ Bolt: Dynamically import p5 so the ~1MB engine is code-split and loaded asynchronously on demand
+    import("p5").then(({ default: P5 }) => {
+      if (!isMounted || !containerRef.current) return;
+
+      const sketch = (p: p5) => {
       // Ball
       let ballX: number, ballY: number;
       let ballSpeedX = 0, ballSpeedY = 0;
@@ -27,7 +33,7 @@ export default function PongGame() {
       // Score & VFX State
       let playerScore = 0;
       let aiScore = 0;
-      let particles: {
+      const particles: {
         x: number;
         y: number;
         vx: number;
@@ -263,13 +269,18 @@ export default function PongGame() {
       p.windowResized = resizeGame;
     };
 
-    const instance = new p5(sketch);
+      instance = new P5(sketch);
+    });
+
     const resizeObserver = new ResizeObserver(() => {
       resizeGame?.();
     });
+    resizeObserver.observe(container);
+
     return () => {
+      isMounted = false;
       resizeObserver.disconnect();
-      instance.remove();
+      instance?.remove();
     };
   }, []);
 
