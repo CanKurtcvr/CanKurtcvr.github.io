@@ -10,7 +10,8 @@ interface TabNavigationProps {
   onTabChange: (tab: TabType) => void;
 }
 
-const TabNavigation = ({ activeTab, onTabChange }: TabNavigationProps) => {
+// ⚡ Bolt: Memoize TabNavigation to prevent unnecessary re-renders when parent states unrelated to tab switching change
+const TabNavigation = memo(function TabNavigation({ activeTab, onTabChange }: TabNavigationProps) {
   const tabRefs = useRef<(HTMLButtonElement | null)[]>([]);
   const { t } = useLanguage();
 
@@ -86,6 +87,6 @@ const TabNavigation = ({ activeTab, onTabChange }: TabNavigationProps) => {
       </div>
     </nav>
   );
-};
+});
 
 export default TabNavigation;
