@@ -103,19 +103,14 @@ export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ chil
     return saved === "en" || saved === "da" ? saved : "da";
   });
 
-  // ⚡ Bolt: Memoize setLanguage callback to preserve referential stability across renders
-  const setLanguage = useCallback((lang: Language) => {
+  const setLanguage = (lang: Language) => {
     setLanguageState(lang);
     localStorage.setItem("preferredLanguage", lang);
   }, []);
 
-  // ⚡ Bolt: Memoize translation function so child hooks with [t] dependencies don't invalidate on every render
-  const t = useCallback((key: string, defaultText?: string): string => {
+  const t = (key: string, defaultText?: string): string => {
     return translations[language]?.[key] || defaultText || key;
-  }, [language]);
-
-  // ⚡ Bolt: Memoize context value object to prevent cascading re-renders in all useLanguage() consumer components
-  const value = useMemo(() => ({ language, setLanguage, t }), [language, setLanguage, t]);
+  };
 
   return (
     <LanguageContext.Provider value={value}>

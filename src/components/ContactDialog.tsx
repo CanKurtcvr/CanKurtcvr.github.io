@@ -68,9 +68,10 @@ export default function ContactDialog({ triggerClassName }: ContactDialogProps) 
               <Button
                 variant="ghost"
                 size="icon"
-                className="h-8 w-8 text-muted-foreground hover:text-foreground"
+                className="h-8 w-8 text-muted-foreground hover:text-foreground focus-visible:ring-2 focus-visible:ring-accent"
                 onClick={() => copyToClipboard("cankurtcvr@gmail.com", "Email")}
-                title="Kopiér email"
+                title={copiedKey === "Email" ? "Email kopieret!" : "Kopiér email"}
+                aria-label={copiedKey === "Email" ? "Email kopieret til udklipsholderen" : "Kopiér email"}
               >
                 {copiedKey === "Email" ? <Check className="w-4 h-4 text-green-500" /> : <Copy className="w-4 h-4" />}
               </Button>
@@ -98,9 +99,10 @@ export default function ContactDialog({ triggerClassName }: ContactDialogProps) 
               <Button
                 variant="ghost"
                 size="icon"
-                className="h-8 w-8 text-muted-foreground hover:text-foreground"
+                className="h-8 w-8 text-muted-foreground hover:text-foreground focus-visible:ring-2 focus-visible:ring-accent"
                 onClick={() => copyToClipboard("+4528701213", "Telefonnummer")}
-                title="Kopiér telefonnummer"
+                title={copiedKey === "Telefonnummer" ? "Telefonnummer kopieret!" : "Kopiér telefonnummer"}
+                aria-label={copiedKey === "Telefonnummer" ? "Telefonnummer kopieret til udklipsholderen" : "Kopiér telefonnummer"}
               >
                 {copiedKey === "Telefonnummer" ? <Check className="w-4 h-4 text-green-500" /> : <Copy className="w-4 h-4" />}
               </Button>

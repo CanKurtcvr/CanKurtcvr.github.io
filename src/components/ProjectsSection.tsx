@@ -16,7 +16,11 @@ import {
   Workflow,
   Scale,
   Play,
-  SlidersHorizontal,
+  Brain,
+  Bot,
+  Compass,
+  Smartphone,
+  Globe,
 } from "lucide-react";
 
 import { projectsData, ProjectItem } from "@/data/projectsData";
@@ -42,6 +46,11 @@ const iconMap = {
   TrendingDown,
   Workflow,
   Scale,
+  Brain,
+  Bot,
+  Compass,
+  Smartphone,
+  Globe,
 };
 
 interface ProjectsSectionProps {
@@ -54,10 +63,11 @@ export default function ProjectsSection({ onNavigateToGame }: ProjectsSectionPro
 
   const categories = [
     "Alle",
+    "AI & Automation",
+    "Game Dev & 3D",
+    "Full Stack & Web App",
     "FinTech & Dataanalyse",
     "Digital Transformation",
-    "Legal Tech & AI",
-    "Full Stack & Web App",
   ];
 
   const filteredProjects = useMemo(() => {
@@ -72,25 +82,34 @@ export default function ProjectsSection({ onNavigateToGame }: ProjectsSectionPro
           Projekter & Tekniske Showcases
         </h2>
         <p className="text-muted-foreground text-sm md:text-base leading-relaxed">
-          Udforsk mine interaktive løsninger inden for FinTech, procesoptimering, AI compliance og moderne webapplikationer.
+          Udforsk mine projekter inden for AI-workflows, 3D/game development, moderne React/TypeScript webapplikationer og FinTech-simulering.
         </p>
       </div>
 
       {/* Category Filter Chips */}
-      <div className="flex flex-wrap items-center justify-center gap-1.5 md:gap-2">
-        {categories.map((cat) => (
-          <button
-            key={cat}
-            onClick={() => setSelectedCategory(cat)}
-            className={`px-3.5 py-1.5 rounded-full text-xs font-medium transition-all ${
-              selectedCategory === cat
-                ? "bg-primary text-primary-foreground shadow-sm"
-                : "bg-muted/70 hover:bg-muted text-muted-foreground hover:text-foreground border border-border/50"
-            }`}
-          >
-            {cat}
-          </button>
-        ))}
+      <div
+        role="group"
+        aria-label="Filtrér projekter efter kategori"
+        className="flex flex-wrap items-center justify-center gap-1.5 md:gap-2"
+      >
+        {categories.map((cat) => {
+          const isSelected = selectedCategory === cat;
+          return (
+            <button
+              key={cat}
+              type="button"
+              aria-pressed={isSelected}
+              onClick={() => setSelectedCategory(cat)}
+              className={`px-3.5 py-1.5 rounded-full text-xs font-medium transition-all focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-primary ${
+                isSelected
+                  ? "bg-primary text-primary-foreground shadow-sm"
+                  : "bg-muted/70 hover:bg-muted text-muted-foreground hover:text-foreground border border-border/50"
+              }`}
+            >
+              {cat}
+            </button>
+          );
+        })}
       </div>
 
       {/* Projects Grid */}
@@ -200,6 +219,7 @@ export default function ProjectsSection({ onNavigateToGame }: ProjectsSectionPro
                       target="_blank"
                       rel="noopener noreferrer"
                       title="Se kildekode på GitHub"
+                      aria-label={`Se kildekode for ${project.title} på GitHub`}
                     >
                       <Github className="w-4 h-4" />
                       <span className="hidden sm:inline">GitHub</span>

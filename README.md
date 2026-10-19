@@ -1,74 +1,142 @@
-# Welcome to your Lovable project
+# Programmørportfølje - Can Kurt Çavuş
 
-## Project info
+## 📋 Introduktion
 
-**URL**: https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID
+Jeg er en fullstack-udvikler med fokus på **frontend-udvikling, AI-integrationer og game development**. Jeg har erfaring med moderne webteknologier og erfaringer fra banksystemer. Jeg er passioneret omkring at løse komplekse problemer med elegant kode og gode brugeroplevelser.
 
-## How can I edit this code?
+**Vigtigste kompetencer:**
+- TypeScript, React, JavaScript, SQL, Java
+- WebGL / Three.js (3D-grafik)
+- AI & Prompt Engineering (Claude, LLM-workflows)
+- Frontend-arkitektur & UI-design
+- Git & versionskontrol
+- Project Management
 
-There are several ways of editing your application.
+---
 
-**Use Lovable**
+## 🎯 Projekt Highlights
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and start prompting.
+### 1. 🌐 **Personlig Portfolio Website** 
+**Repository:** [CanKurtcvr.github.io](https://github.com/CanKurtcvr/CanKurtcvr.github.io)  
+**Tech Stack:** TypeScript, React, Vite, Tailwind CSS, shadcn-ui
 
-Changes made via Lovable will be committed automatically to this repo.
+En moderne portfolio-hjemmeside bygget med React og TypeScript. Viser mine projekter, kompetencer og er fuldt responsiv.
 
-**Use your preferred IDE**
+**Key Features:**
+- Responsive design med Tailwind CSS
+- Komponent-baseret arkitektur med React
+- Modern UI med shadcn-ui komponenter
+- Optimeret performance med Vite
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+---
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+### 2. 🎮 **The Straight Path (TSP)**
+**Repository:** [The-Straight-Path](https://github.com/CanKurtcvr/The-Straight-Path)  
+**Tech Stack:** TypeScript
 
-Follow these steps:
+Et game development projekt, der demonstrerer min interesse inden for interaktive oplevelser og 3D-grafik.
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+**Status:** 1 Star ⭐ - under aktivt udvikling
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+---
 
-# Step 3: Install the necessary dependencies.
-npm i
+### 3. 🤖 **AI Job Search Framework**
+**Repository:** [ai-job-search](https://github.com/CanKurtcvr/ai-job-search)  
+**Tech Stack:** Claude Code, AI Workflows
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
-```
+En AI-powered jobansøgningsrammeværk bygget på Claude Code. Funktionaliteten inkluderer:
 
-**Edit a file directly in GitHub**
+**Key Features:**
+- Automatisk vurdering af jobopslags relevans
+- Tilpasning af CV til specifikke jobstillinger
+- Automatisk skrivning af ansøgningsbreve
+- Interviewforberedelse med AI-vejledning
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+En praktisk demonstration af hvordan man integrerer AI i komplekse workflows.
 
-**Use GitHub Codespaces**
+---
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+### 4. 🎮 **Spil Projekter**
 
-## What technologies are used for this project?
+#### Snake
+**Repository:** [snake](https://github.com/CanKurtcvr/snake)
 
-This project is built with:
+Et klassisk snake-spil som demonstration af game mechanics implementering.
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+#### Got Games On Your Phone
+**Repository:** [gotgamesonyourphone-](https://github.com/CanKurtcvr/gotgamesonyourphone-)  
+**Tech Stack:** Java
 
-## How can I deploy this project?
+Mobil game development projekt i Java.
 
-Simply open [Lovable](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and click on Share -> Publish.
+---
 
-## Can I connect a custom domain to my Lovable project?
- abyb
+## 💼 Erfaring & Fokusområder
 
-Yes, you can!
+### Frontend Development
+- Moderne React-arkitektur med TypeScript
+- UI/UX design med Tailwind CSS og komponentbiblioteker
+- State management og performance optimering
+- Responsive design og accessibility
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+### AI & Prompt Engineering
+- Integration af Claude AI og Claude Code i praktiske workflows
+- Automatiseret dokumentgenerering og analyse med LLM'er
+- LLM-baserede løsninger til procesautomatisering
+- RAG-systemer og intelligent søgning
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+### Game Development
+- 3D-grafik med WebGL/Three.js
+- Game mechanics og interaktiv design
+- Java-baseret mobile game development
+
+### Banksystemer (tidligere erfaring)
+- Sikker databehandling
+- Komplekse transaktionssystemer
+- Compliance og best practices inden for finansiel software
+
+---
+
+## 🛠️ Teknologier & Tools
+
+| Kategori | Teknologier |
+|----------|-------------|
+| **Frontend** | React, TypeScript, JavaScript, Tailwind CSS, shadcn-ui |
+| **Game Dev** | WebGL, Three.js, Java |
+| **Database** | SQL |
+| **AI/ML** | Claude, Prompt Engineering, LLM Workflows, RAG |
+| **Tools** | Git, GitHub, Lovable, n8n |
+| **Metodologi** | Agile, Git workflow, Code review |
+
+---
+
+## 📈 Hvad jeg søger
+
+Jeg er interesseret i roller inden for:
+- ✅ **Full-stack Frontend Development** - moderne React/TypeScript applications
+- ✅ **AI Integration & Automation** - implementering af AI-løsninger i produkter
+- ✅ **Game Development** - browser-baserede eller mobile spil
+- ✅ **Project Leadership** - mentoring og projektstyring af udviklerhold
+
+---
+
+## 🔗 Links
+
+- **GitHub:** [github.com/CanKurtcvr](https://github.com/CanKurtcvr)
+- **Portfolio:** [CanKurtcvr.github.io](https://cankurtcvr.github.io)
+- **Email:** [cankurtcvr@gmail.com](mailto:cankurtcvr@gmail.com)
+- **LinkedIn:** [linkedin.com/in/canxkurt](https://linkedin.com/in/canxkurt)
+
+---
+
+## 📝 Kodekvalitet & Bedste Praksis
+
+- Fokus på læsbar og vedligeholdelig kode
+- TypeScript for type-sikkerhed
+- Git commits med klare meddelelser
+- Responsive design og accessibility
+- Clean code principles
+
+---
+
+*Senest opdateret: Oktober 2026*

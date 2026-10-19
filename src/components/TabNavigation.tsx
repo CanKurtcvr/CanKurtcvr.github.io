@@ -49,7 +49,7 @@ const TabNavigation = ({ activeTab, onTabChange }: TabNavigationProps) => {
           {tabs.map((tab, index) => {
             const Icon = tab.icon;
             const isActive = activeTab === tab.id;
-            
+
             return (
               <button
                 key={tab.id}
@@ -57,9 +57,9 @@ const TabNavigation = ({ activeTab, onTabChange }: TabNavigationProps) => {
                   tabRefs.current[index] = el;
                 }}
                 role="tab"
-                id={`tab-${tab.id}`}
+                id={"tab-" + tab.id}
                 aria-selected={isActive}
-                aria-controls={`panel-${tab.id}`}
+                aria-controls={"panel-" + tab.id}
                 tabIndex={isActive ? 0 : -1}
                 onClick={() => onTabChange(tab.id)}
                 onKeyDown={(e) => handleKeyDown(e, index)}
@@ -71,7 +71,7 @@ const TabNavigation = ({ activeTab, onTabChange }: TabNavigationProps) => {
               >
                 <Icon className="w-4 h-4 shrink-0" />
                 <span className="truncate">{tab.label}</span>
-                
+
                 {isActive && (
                   <motion.div
                     layoutId="activeTab"
@@ -88,5 +88,4 @@ const TabNavigation = ({ activeTab, onTabChange }: TabNavigationProps) => {
   );
 };
 
-// ⚡ Bolt: Wrap TabNavigation in React.memo to prevent unnecessary re-renders when parent state changes
-export default memo(TabNavigation);
+export default TabNavigation;

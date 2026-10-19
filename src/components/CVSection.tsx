@@ -77,7 +77,11 @@ export default function CVSection() {
         </div>
 
         {/* Filter Chips */}
-        <div className="flex flex-wrap items-center justify-center gap-2 pt-2">
+        <div
+          className="flex flex-wrap items-center justify-center gap-2 pt-2"
+          role="group"
+          aria-label="Filtrer CV efter kategori"
+        >
           {categories.map((cat) => {
             const Icon = cat.icon;
             const isActive = selectedCategory === cat.id;
@@ -86,12 +90,13 @@ export default function CVSection() {
                 key={cat.id}
                 variant={isActive ? "default" : "outline"}
                 size="sm"
+                aria-pressed={isActive}
                 onClick={() => setSelectedCategory(cat.id)}
                 className={`gap-2 rounded-full text-xs md:text-sm transition-all ${
                   isActive ? "bg-accent text-accent-foreground hover:bg-accent/90" : "hover:bg-muted"
                 }`}
               >
-                <Icon className="w-3.5 h-3.5" />
+                <Icon className="w-3.5 h-3.5" aria-hidden="true" />
                 <span>{cat.label}</span>
                 <span className={`text-[11px] px-1.5 py-0.2 rounded-full font-bold ${
                   isActive ? "bg-black/20 text-white" : "bg-muted text-muted-foreground"

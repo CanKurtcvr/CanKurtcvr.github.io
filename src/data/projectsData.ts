@@ -12,18 +12,85 @@ export interface ProjectItem {
   href?: string;
   downloadUrl?: string;
   githubUrl?: string;
-  iconName: "TrendingDown" | "Workflow" | "Scale" | "Sparkles" | "Eye" | "Box" | "FileSpreadsheet" | "Gamepad2";
+  iconName:
+    | "TrendingDown"
+    | "Workflow"
+    | "Scale"
+    | "Sparkles"
+    | "Eye"
+    | "Box"
+    | "FileSpreadsheet"
+    | "Gamepad2"
+    | "Brain"
+    | "Bot"
+    | "Compass"
+    | "Smartphone"
+    | "Globe";
   iconColor: string;
 }
 
 export const projectsData: ProjectItem[] = [
+  {
+    id: "ai-job-search",
+    title: "AI Job Search Framework — Claude Code Workflows",
+    shortTitle: "AI Job Search Framework",
+    category: "AI & Automation",
+    description: "AI-powered jobansøgningsrammeværk bygget på Claude Code. Demonstrerer praktisk integration af LLM-workflows til automatiseret analyse, dokumentgenerering og interviewtræning.",
+    tags: ["Claude Code", "AI Workflows", "Prompt Engineering", "LLM Automation"],
+    highlights: [
+      "Automatisk vurdering og relevansscoring af jobopslag",
+      "Skræddersyet tilpasning af CV og automatisk skrivning af ansøgningsbreve",
+      "Struktureret interviewforberedelse med AI-vejledning"
+    ],
+    actionText: "Udforsk AI-workflow",
+    href: "https://github.com/CanKurtcvr/ai-job-search",
+    githubUrl: "https://github.com/CanKurtcvr/ai-job-search",
+    iconName: "Bot",
+    iconColor: "text-indigo-500"
+  },
+  {
+    id: "the-straight-path",
+    title: "The Straight Path (TSP) — 3D Game Development",
+    shortTitle: "The Straight Path (TSP)",
+    category: "Game Dev & 3D",
+    description: "Game development projekt i TypeScript, der demonstrerer interaktive oplevelser, 3D-grafik og moderne spilarkitektur. (1 Star ⭐ – under aktiv udvikling)",
+    tags: ["TypeScript", "3D Grafik", "WebGL", "Game Development", "Interactive Design"],
+    highlights: [
+      "Type-sikker spilarkitektur og tilstandsstyring i TypeScript",
+      "Fokus på 3D-grafik, rumlig navigation og interaktive oplevelser",
+      "Open-source repository under aktiv udvikling på GitHub"
+    ],
+    actionText: "Se projekt på GitHub",
+    href: "https://github.com/CanKurtcvr/The-Straight-Path",
+    githubUrl: "https://github.com/CanKurtcvr/The-Straight-Path",
+    iconName: "Compass",
+    iconColor: "text-amber-500"
+  },
+  {
+    id: "portfolio-website",
+    title: "Personlig Portfolio & Interaktiv Showcase Website",
+    shortTitle: "Personlig Portfolio (React/TS)",
+    category: "Full Stack & Web App",
+    description: "Moderne, fuldt responsiv portfolio-hjemmeside bygget med React, TypeScript, Vite, Tailwind CSS og shadcn-ui. Forener interaktive simulatorer, 3D/Canvas-spil og dynamisk CV.",
+    tags: ["TypeScript", "React", "Vite", "Tailwind CSS", "shadcn-ui"],
+    highlights: [
+      "Komponent-baseret arkitektur med React 18, TypeScript og lazy-loaded bundles",
+      "Modern UI med Tailwind CSS, shadcn-ui og tosproget (DA/EN) understøttelse",
+      "Optimeret performance med Vite og integrerede live-demos"
+    ],
+    actionText: "Se kildekode",
+    href: "https://github.com/CanKurtcvr/CanKurtcvr.github.io",
+    githubUrl: "https://github.com/CanKurtcvr/CanKurtcvr.github.io",
+    iconName: "Globe",
+    iconColor: "text-sky-500"
+  },
   {
     id: "debt-simulator",
     title: "FinTech Debt Restructuring & Cash Flow Simulator",
     shortTitle: "Gældssanering & Akkord Simulator",
     category: "FinTech & Dataanalyse",
     description: "Interaktiv finansiel beregningsmodel til simulering af komplekse gældssanerings- og akkordforhandlinger. Modellerer amortisation, rentepauser (moratorium), akkordnedslag og kreditors genvindingsgrad i realtid.",
-    tags: ["FinTech", "Recharts", "Finansiel Modellering", "Amortisation", "TypeScript", "Danske Bank Kontekst"],
+    tags: ["FinTech", "Recharts", "Finansiel Modellering", "Amortisation", "TypeScript", "Banksystemer"],
     highlights: [
       "Realtids kalkulation af renteakkumulering, akkordnedslag og henstandsperioder",
       "Advarselssystem mod negativ amortisation og uholdbare gældsspiraler",
@@ -31,7 +98,7 @@ export const projectsData: ProjectItem[] = [
     ],
     actionText: "Åbn interaktiv simulator",
     demoId: "debt-simulator",
-    githubUrl: "https://github.com/CanKurtcvr",
+    githubUrl: "https://github.com/CanKurtcvr/CanKurtcvr.github.io",
     iconName: "TrendingDown",
     iconColor: "text-emerald-500"
   },
@@ -49,7 +116,7 @@ export const projectsData: ProjectItem[] = [
     ],
     actionText: "Kør procesvisualisering",
     demoId: "process-visualizer",
-    githubUrl: "https://github.com/CanKurtcvr",
+    githubUrl: "https://github.com/CanKurtcvr/CanKurtcvr.github.io",
     iconName: "Workflow",
     iconColor: "text-blue-500"
   },
@@ -57,7 +124,7 @@ export const projectsData: ProjectItem[] = [
     id: "compliance-inspector",
     title: "AI Legal Compliance & Contract Clause Auditor",
     shortTitle: "AI Kontrakt- & Compliance Auditor",
-    category: "Legal Tech & AI",
+    category: "AI & Automation",
     description: "Intelligent kontrakt- og klausulinspektor der screener juridiske dokumenter mod præceptive regler i dansk ret (Forældelsesloven, Kreditaftaleloven, GDPR/DPA). Tilbyder live risikoscoring og 1-klik remediation.",
     tags: ["Legal Tech", "Compliance & GDPR", "Forældelsesloven", "Kreditaftaleloven", "Klausul Remediation"],
     highlights: [
@@ -67,7 +134,7 @@ export const projectsData: ProjectItem[] = [
     ],
     actionText: "Test compliance audit",
     demoId: "compliance-inspector",
-    githubUrl: "https://github.com/CanKurtcvr",
+    githubUrl: "https://github.com/CanKurtcvr/CanKurtcvr.github.io",
     iconName: "Scale",
     iconColor: "text-indigo-500"
   },
@@ -94,7 +161,7 @@ export const projectsData: ProjectItem[] = [
     id: "web-shooter",
     title: "Superhero Hand Powers — Browser Computer Vision",
     shortTitle: "Superhero Hand Powers (Vision AI)",
-    category: "AI & Computer Vision",
+    category: "AI & Automation",
     description: "Real-time gestusgenkendelse direkte via webkameraet uden krav om ekstern backend. Algoritmen genkender håndbevægelser med lav latency til at affyre Spider-Man spindelvæv eller aktivere Wolverine-kløer.",
     tags: ["Computer Vision", "Camera API", "HTML5 Canvas", "WebGL", "MediaPipe"],
     highlights: [
@@ -104,7 +171,7 @@ export const projectsData: ProjectItem[] = [
     ],
     actionText: "Test kamerastyring live",
     gameId: "web-shooter",
-    githubUrl: "https://github.com/CanKurtcvr",
+    githubUrl: "https://github.com/CanKurtcvr/CanKurtcvr.github.io",
     iconName: "Eye",
     iconColor: "text-rose-500"
   },
@@ -112,7 +179,7 @@ export const projectsData: ProjectItem[] = [
     id: "flight-world-3d",
     title: "FlightWorld 3D — Procedural WebGL Simulation",
     shortTitle: "FlightWorld 3D (WebGL Sim)",
-    category: "3D Grafik & WebGL",
+    category: "Game Dev & 3D",
     description: "Interaktiv 3D-flyvesimulation med Three.js. Indeholder dynamisk tredjepersons kameraføring, svævende procedurale øer, stemningsfulde lyskilder og partikelsystemer optimeret til høj performance.",
     tags: ["Three.js", "WebGL", "3D Matematik", "TypeScript", "Shaders"],
     highlights: [
@@ -122,9 +189,45 @@ export const projectsData: ProjectItem[] = [
     ],
     actionText: "Se 3D simulation",
     gameId: "ascension-cards",
-    githubUrl: "https://github.com/CanKurtcvr",
+    githubUrl: "https://github.com/CanKurtcvr/CanKurtcvr.github.io",
     iconName: "Box",
     iconColor: "text-cyan-500"
+  },
+  {
+    id: "arcade-games",
+    title: "Snake & Canvas Arcade State Machines",
+    shortTitle: "Snake & Canvas Arcade (TS)",
+    category: "Game Dev & 3D",
+    description: "Klassisk Snake-spil og arkadespil (Blackjack med casinoregler, Snake med input-kø og collision detection, Pong med vektor-refleksion) bygget til demonstration af game mechanics i TypeScript og HTML5 Canvas.",
+    tags: ["TypeScript", "Game Mechanics", "Canvas API", "Framer Motion", "State Management"],
+    highlights: [
+      "Deterministiske spil-loops uafhængige af framerate og præcis collision detection",
+      "Lokale highscore-systemer med localStorage-persistens",
+      "Dedikeret Snake-repository samt integreret spilarkade til mobil og desktop"
+    ],
+    actionText: "Spil Snake i arkaden",
+    gameId: "snake",
+    githubUrl: "https://github.com/CanKurtcvr/snake",
+    iconName: "Gamepad2",
+    iconColor: "text-purple-500"
+  },
+  {
+    id: "got-games-on-your-phone",
+    title: "Got Games On Your Phone — Java Mobile Game Dev",
+    shortTitle: "Got Games On Your Phone (Java)",
+    category: "Game Dev & 3D",
+    description: "Mobil game development projekt udviklet i Java med fokus på objektorienteret spilarkitektur, mobile game mechanics og interaktivt design.",
+    tags: ["Java", "Mobile Game Dev", "OOP", "Game Mechanics"],
+    highlights: [
+      "Objektorienteret spilarkitektur og tilstandsstyring i Java",
+      "Implementering af mobile spilmekanikker og responsive kontroller",
+      "Open-source spilkildekode tilgængelig på GitHub"
+    ],
+    actionText: "Se Java-projekt på GitHub",
+    href: "https://github.com/CanKurtcvr/gotgamesonyourphone-",
+    githubUrl: "https://github.com/CanKurtcvr/gotgamesonyourphone-",
+    iconName: "Smartphone",
+    iconColor: "text-orange-500"
   },
   {
     id: "budget-model",
@@ -143,23 +246,5 @@ export const projectsData: ProjectItem[] = [
     githubUrl: "https://github.com/CanKurtcvr",
     iconName: "FileSpreadsheet",
     iconColor: "text-emerald-500"
-  },
-  {
-    id: "arcade-games",
-    title: "Canvas Arcade State Machines",
-    shortTitle: "Canvas Arcade (TypeScript)",
-    category: "Full Stack & Web App",
-    description: "En række klassiske arkadespil (Blackjack med casinoregler, Snake med input-kø og collision detection, Pong med vektor-refleksion) bygget fra bunden med ren TypeScript og HTML5 Canvas.",
-    tags: ["TypeScript", "Canvas API", "Framer Motion", "State Management"],
-    highlights: [
-      "Deterministiske spil-loops uafhængige af framerate",
-      "Lokale highscore-systemer med localStorage-persistens",
-      "Responsive canvas-layouts tilpasset mobil og desktop"
-    ],
-    actionText: "Gå til spilarkaden",
-    gameId: "snake",
-    githubUrl: "https://github.com/CanKurtcvr",
-    iconName: "Gamepad2",
-    iconColor: "text-purple-500"
   }
 ];
