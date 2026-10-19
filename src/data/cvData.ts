@@ -23,7 +23,7 @@ export const cvItems: CVItem[] = [
   // --- UDDANNELSER ---
   {
     id: "ruc-kandidat",
-    title: "Kandidat i Digital Transformation",
+    title: "Kandidat i Digital Transformation (MSc)",
     titleEn: "MSc in Digital Transformation",
     organization: "Roskilde Universitet (RUC)",
     organizationEn: "Roskilde University (RUC)",
@@ -32,36 +32,36 @@ export const cvItems: CVItem[] = [
     type: "Uddannelse",
     typeEn: "Education",
     category: "uddannelse",
-    description: "Videreuddannelse med fokus på digital omstilling, IT-strategi, socio-teknisk systemdesign og forretningsmæssig procesoptimering.",
-    descriptionEn: "Master's program focusing on digital transformation, IT strategy, socio-technical systems design, and business process optimization.",
-    tags: ["Digital Transformation", "It-strategi", "Socio-teknisk Design", "RUC"],
-    tagsEn: ["Digital Transformation", "IT Strategy", "Socio-technical Design", "RUC"],
+    description: "Videreuddannelse med fokus på strategisk planlægning og governance af digitale omstillingsprocesser, enterprise architecture, analysering af komplekse IT-systemer og socio-teknisk systemdesign.",
+    descriptionEn: "Master's program focusing on strategic governance of digital transformation, enterprise architecture, complex IT systems integration, and socio-technical system design.",
+    tags: ["Digital Transformation", "IT-strategi", "Enterprise Architecture", "Socio-teknisk Design", "RUC"],
+    tagsEn: ["Digital Transformation", "IT Strategy", "Enterprise Architecture", "Socio-technical Design", "RUC"],
     bullets: [
-      "Strategisk planlægning og styring af digitale omstillingsprocesser i private og offentlige organisationer.",
-      "Analyse, modellering og integration af komplekse IT-systemer, enterprise-arkitektur og forretningsprocesser.",
+      "Strategisk planlægning og governance af digitale omstillingsprocesser i private og offentlige organisationer.",
+      "Analyse, datamodellering og integration af komplekse IT-systemer, enterprise-arkitektur og forretningsprocesser.",
       "Teknologiledelse, UX/UI research, socio-teknisk systemdesign og digital forandringsledelse."
     ],
     bulletsEn: [
       "Strategic planning and governance of digital transformation initiatives in public and private sector organizations.",
-      "Analysis, modeling, and integration of complex IT systems, enterprise architecture, and core business workflows.",
+      "Analysis, data modeling, and integration of complex IT systems, enterprise architecture, and core business workflows.",
       "Technology management, UX/UI research, socio-technical systems design, and organizational change management."
     ]
   },
   {
     id: "ruc-bachelor",
-    title: "Bachelor i Informatik og Virksomhedsstudier",
+    title: "Bachelor i Informatik og Virksomhedsstudier (BSc)",
     titleEn: "BSc in Computer Science & Business Studies",
-    organization: "Roskilde Universitet",
-    organizationEn: "Roskilde University",
+    organization: "Roskilde Universitet (RUC)",
+    organizationEn: "Roskilde University (RUC)",
     period: "Sep. 2021 - Jun. 2024",
     periodEn: "Sep. 2021 - Jun. 2024",
     type: "Uddannelse",
     typeEn: "Education",
     category: "uddannelse",
-    description: "Tværfaglig uddannelse der kombinerer datalogi, programmering, databasedesign, regnskab og organisatorisk udvikling.",
-    descriptionEn: "Interdisciplinary degree combining computer science, software programming, database design, corporate finance, and business administration.",
-    tags: ["Informatik", "Virksomhedsstudier", "Programmering", "UX-design", "Dataanalyse"],
-    tagsEn: ["Computer Science", "Business Studies", "Programming", "UX Design", "Data Analysis"],
+    description: "Tværfaglig uddannelse der kombinerer datalogi og programmering, datamodellering, regnskab, økonomistyring, projektledelse og HCI/UX-design.",
+    descriptionEn: "Interdisciplinary degree combining computer science and software development, data modeling, financial accounting, corporate finance, project management, and HCI/UX design.",
+    tags: ["Informatik", "Virksomhedsstudier", "Programmering", "UX-design", "Dataanalyse", "SQL"],
+    tagsEn: ["Computer Science", "Business Studies", "Programming", "UX Design", "Data Analysis", "SQL"],
     bullets: [
       "Softwareudvikling (Python, JavaScript, SQL), datamodellering og relational databasedesign.",
       "Projektstyring, bogholderi, økonomistyring, forretningsforståelse og kvantitativ dataanalyse.",
@@ -86,92 +86,38 @@ export const cvItems: CVItem[] = [
     type: "Erfaring",
     typeEn: "Experience",
     category: "it",
-    description: "Ansvarlig for fejlretning og rekonstruktion af komplekse kundesager, analyse af stordata i Excel samt onboarding i forbindelse med gældssanering og inkasso-oprydning.",
-    descriptionEn: "Responsible for complex financial case reconstruction, large-scale data analysis in Excel, and consultant onboarding during bank-wide debt and collections remediation projects.",
-    tags: ["Dataanalyse", "Sagsrekonstruktion", "Excel", "Onboarding", "FinTech"],
-    tagsEn: ["Data Analysis", "Case Reconstruction", "Excel", "Onboarding", "FinTech"],
+    description: "Drev kompleks sagsrekonstruktion, stordatanalyse og onboarding i forbindelse med bankdækkende gældssanering og inkasso-oprydning.",
+    descriptionEn: "Led complex financial case reconstruction, large-scale data auditing, and consultant onboarding during a bank-wide debt and collections remediation program.",
+    tags: ["Dataanalyse", "Sagsrekonstruktion", "Excel", "Onboarding", "FinTech", "Procesoptimering"],
+    tagsEn: ["Data Analysis", "Case Reconstruction", "Excel", "Onboarding", "FinTech", "Process Optimization"],
     bullets: [
-      "Sagsrekonstruktion af over 400 komplekse gældssager gennem analyse af juridiske aktstykker, retsbøger og bankudskrifter.",
-      "Validering og opbygning af finansielle beregningsmodeller i Excel med nul-tolerance over for fejl i renter og afdrag.",
-      "Udarbejdelse af procesvejledninger samt onboarding og sidemandsoplæring af 10+ nye konsulenter i teamet (floorwalker)."
+      "Sagsrekonstruktion af over 400 komplekse gældssager gennem dybdegående analyse af juridiske aktstykker, retsbøger, renteberegninger og bankudskrifter.",
+      "Opbygning og validering af finansielle beregningsmodeller i Excel til opgørelse af rentepauser (moratorium) med nul-tolerance over for fejl.",
+      "Agerede floorwalker med ansvar for faglig support, udarbejdelse af procesvejledninger samt onboarding og sidemandsoplæring af 10+ nye konsulenter."
     ],
     bulletsEn: [
-      "Reconstructed financial histories for 400+ complex debt cases through rigorous audit of legal filings, court records, and ledger statements.",
-      "Validated and constructed financial calculation models in Excel with zero tolerance for errors in interest and principal amortization.",
-      "Authored process guides and served as floorwalker, onboarding and training 10+ new consultants on the project."
+      "Reconstructed complete financial histories for 400+ complex debt cases through rigorous audit of court filings, settlements, interest calculations, and ledger statements.",
+      "Built and verified financial calculation models in Excel to evaluate interest moratoriums and repayment schedules with zero tolerance for errors.",
+      "Served as floorwalker, authoring standard operating procedures, training 10+ new consultants, and facilitating team knowledge transfer."
     ]
   },
 
-  // --- PLEJE & OMSORG ---
-  {
-    id: "kaerbo-omsorgscenter",
-    title: "Plejehjælper",
-    titleEn: "Care Assistant",
-    organization: "Kærbo Omsorgscenter, Ishøj",
-    organizationEn: "Kærbo Care Center, Ishøj",
-    period: "Jun. 2024 - Sep. 2024",
-    periodEn: "Jun. 2024 - Sep. 2024",
-    type: "Erfaring",
-    typeEn: "Experience",
-    category: "omsorg",
-    description: "Hjælp til ældre borgere med daglige rutiner, personlig pleje, aktivisering og digital journalføring.",
-    descriptionEn: "Assisting elderly residents with daily care, personal assistance, social activities, and digital healthcare documentation.",
-    tags: ["Ældrepleje", "Journalføring", "Omsorg", "Empati"],
-    tagsEn: ["Elderly Care", "Documentation", "Caregiving", "Empathy"],
-    bullets: [
-      "Strukturering af daglige plejerutiner og skabelse af trygge rammer for beboerne med høj situationsfornemmelse.",
-      "Præcis digital journalføring og tværfaglig overlevering til sygeplejersker og sundhedsfagligt personale.",
-      "Høj grad af tålmodighed, empati og professionel borgerkontakt i udfordrende situationer."
-    ],
-    bulletsEn: [
-      "Structured daily care routines to maintain a calm, secure environment for residents with high situational awareness.",
-      "Accurate digital medical journal documentation and interdisciplinary handovers to nurses and healthcare staff.",
-      "Demonstrated patience, empathy, and professional resident interaction in challenging health situations."
-    ]
-  },
-  {
-    id: "forsorgshjemmet-absalon",
-    title: "Omsorgsmedarbejder (Vikariat)",
-    titleEn: "Care & Support Worker (Temporary)",
-    organization: "Forsorgshjemmet Absalon",
-    organizationEn: "Absalon Care Shelter",
-    period: "Jan. 2024 - Nuværende",
-    periodEn: "Jan. 2024 - Present",
-    type: "Erfaring",
-    typeEn: "Experience",
-    category: "omsorg",
-    description: "Yder administrativ støtte og personlig omsorg til socialt udsatte borgere og håndterer komplekse sociale situationer med ro og empati.",
-    descriptionEn: "Provides administrative support and personal care for vulnerable citizens, de-escalating complex social situations with calm professionalism.",
-    tags: ["Socialt arbejde", "Administration", "Empati", "Konfliktnedtrapning"],
-    tagsEn: ["Social Work", "Administration", "Empathy", "De-escalation"],
-    bullets: [
-      "Relationsarbejde og konfliktnedtrapning med borgere i sårbare og uforudsigelige livssituationer.",
-      "Fastholdelse af trygge, rolige rammer under tilspidsede episoder.",
-      "Dokumentation, journalføring og administrativ opfølgning i fagsystemer."
-    ],
-    bulletsEn: [
-      "Built trust and de-escalated conflicts with residents experiencing complex social and personal crises.",
-      "Maintained a secure, stable environment during high-stress situations through active listening and de-escalation.",
-      "Conducted digital recordkeeping and administrative follow-up in institutional care software."
-    ]
-  },
-
-  // --- ØVRIGE ERFARINGER ---
+  // --- PLEJE & OMSORG / ØVRIGE ---
   {
     id: "tolk-danmark",
     title: "Tolk (Vikariat)",
-    titleEn: "Interpreter (Freelance)",
+    titleEn: "Certified Interpreter (Freelance / Temporary)",
     organization: "Tolk Danmark",
-    organizationEn: "Interpreter Denmark",
+    organizationEn: "Interpreter Denmark (Tolk Danmark)",
     period: "Feb. 2024 - Nuværende",
     periodEn: "Feb. 2024 - Present",
     type: "Erfaring",
     typeEn: "Experience",
     category: "omsorg",
-    description: "Formidler præcis tolkning og kommunikation ved kritiske møder med fokus på etik, diskretion og professionalisme.",
-    descriptionEn: "Delivering precise interpretation and communication in critical public and private meetings with strict adherence to ethics and confidentiality.",
-    tags: ["Sprog", "Kommunikation", "Etik", "Diskretion"],
-    tagsEn: ["Languages", "Communication", "Ethics", "Discretion"],
+    description: "Leverer præcis simultan- og konsekutiv tolkning i offentlige myndigheder, retssager og sundhedssektoren med fokus på juridisk/faglig terminologi, diskretion og absolut neutralitet.",
+    descriptionEn: "Delivering precise simultaneous and consecutive interpretation across municipal agencies, legal court proceedings, and healthcare consultations with strict confidentiality and terminology precision.",
+    tags: ["Simultantolkning", "Kommunikation", "Juridisk Terminologi", "Etik \& Diskretion"],
+    tagsEn: ["Simultaneous Interpretation", "Communication", "Legal Terminology", "Ethics \& Discretion"],
     bullets: [
       "Simultan- og konsekutiv tolkning mellem parter i offentlige myndigheder, retssager og sundhedssektoren.",
       "Sikring af fuldstændig neutralitet, tavshedspligt og terminologisk præcision under pres.",
@@ -184,51 +130,81 @@ export const cvItems: CVItem[] = [
     ]
   },
   {
-    id: "ole-romer-skole",
-    title: "Pædagogmedhjælper",
-    titleEn: "Teaching Assistant",
-    organization: "Ole-Rømer skolen - Høje Taastrup",
-    organizationEn: "Ole-Rømer School - Høje Taastrup",
-    period: "Aug. 2019 - Okt. 2021",
-    periodEn: "Aug. 2019 - Oct. 2021",
+    id: "forsorgshjemmet-absalon",
+    title: "Omsorgsmedarbejder (Vikariat)",
+    titleEn: "Care & Support Worker (Temporary)",
+    organization: "Forsorgshjemmet Absalon",
+    organizationEn: "Absalon Care Shelter (Forsorgshjemmet Absalon)",
+    period: "Jan. 2024 - Nuværende",
+    periodEn: "Jan. 2024 - Present",
     type: "Erfaring",
     typeEn: "Experience",
     category: "omsorg",
-    description: "Understøttede undervisning og agerede støttepædagog for elever med faglige og sociale udfordringer.",
-    descriptionEn: "Supported classroom teaching and acted as dedicated support educator for students with academic and social challenges.",
-    tags: ["Undervisning", "Pædagogik", "Klasseledelse"],
-    tagsEn: ["Teaching", "Pedagogy", "Classroom Management"],
+    description: "Yder administrativ og social støtte til udsatte borgere, håndterer akutte situationer med de-eskalering og sikrer struktureret digital sagsjournalføring i fagsystemer.",
+    descriptionEn: "Providing administrative support and personal care for vulnerable individuals, managing crisis situations through active de-escalation, and maintaining structured digital casework records.",
+    tags: ["Socialt arbejde", "Konfliktnedtrapning", "Digital Journalføring", "Empati"],
+    tagsEn: ["Social Work", "De-escalation", "Digital Documentation", "Empathy"],
     bullets: [
-      "Individuel faglig støtte, differentieret undervisning og inklusionsarbejde i folkeskolen.",
-      "Tæt samarbejde med lærere, pædagoger og forældre om elevernes faglige og sociale trivsel."
+      "Relationsarbejde og konfliktnedtrapning med borgere i sårbare og uforudsigelige livssituationer.",
+      "Fastholdelse af trygge, rolige rammer under tilspidsede episoder.",
+      "Dokumentation, journalføring og administrativ opfølgning i fagsystemer."
     ],
     bulletsEn: [
-      "Provided targeted academic support and inclusion efforts for students requiring special assistance.",
-      "Collaborated closely with teachers, parents, and school management to foster student well-being."
+      "Built trust and de-escalated conflicts with residents experiencing complex social and personal crises.",
+      "Maintained a secure, stable environment during high-stress situations through active listening and de-escalation.",
+      "Conducted digital recordkeeping and administrative follow-up in institutional care software."
     ]
   },
   {
-    id: "red-barnet-ungdom",
-    title: "Lektiehjælper",
-    titleEn: "Volunteer Homework Tutor",
-    organization: "Red Barnet Ungdom",
-    organizationEn: "Save the Children Youth",
-    period: "Mar. 2025 - Nuværende",
-    periodEn: "Mar. 2025 - Present",
-    type: "Frivilligt arbejde",
-    typeEn: "Volunteer Work",
+    id: "kaerbo-omsorgscenter",
+    title: "Plejehjælper",
+    titleEn: "Care Assistant",
+    organization: "Kærbo Omsorgscenter, Ishøj",
+    organizationEn: "Kærbo Care Center, Ishøj",
+    period: "Jun. 2024 - Sep. 2024",
+    periodEn: "Jun. 2024 - Sep. 2024",
+    type: "Erfaring",
+    typeEn: "Experience",
     category: "omsorg",
-    description: "Frivillig mentor med fokus på faglig indlæring, motivation og selvtillid hos skoleelever.",
-    descriptionEn: "Volunteer mentor focusing on academic support, learning motivation, and confidence building for young students.",
-    tags: ["Frivilligt", "Mentorskab", "Formidling"],
-    tagsEn: ["Volunteer", "Mentorship", "Teaching"],
+    description: "Sikrede trygge rammer for ældre borgere gennem daglig omsorg, aktivisering og præcis digital sundhedsjournalføring og tværfaglig overlevering.",
+    descriptionEn: "Supported elderly residents with daily care, structured routines, electronic health record (EHR) documentation, and interdisciplinary handovers.",
+    tags: ["Ældrepleje", "EHR Journalføring", "Omsorg", "Empati"],
+    tagsEn: ["Elderly Care", "EHR Documentation", "Caregiving", "Empathy"],
     bullets: [
-      "Styrkelse af elevers faglige niveau i matematik, dansk og sprogfag.",
-      "Opbygning af strukturerede studievaner, motivation og faglig selvtillid."
+      "Strukturering af daglige plejerutiner og skabelse af trygge rammer for beboerne med høj situationsfornemmelse.",
+      "Præcis digital journalføring og tværfaglig overlevering til sygeplejersker og sundhedsfagligt personale.",
+      "Høj grad af tålmodighed, empati og professionel borgerkontakt i udfordrende situationer."
     ],
     bulletsEn: [
-      "Strengthened students' core proficiencies in mathematics, Danish, and languages.",
-      "Helped students develop structured study habits, academic motivation, and confidence."
+      "Structured daily care routines to maintain a calm, secure environment for residents with high situational awareness.",
+      "Accurate digital medical journal documentation and interdisciplinary handovers to nurses and healthcare staff.",
+      "Demonstrated patience, empathy, and professional resident interaction in challenging health situations."
+    ]
+  },
+  {
+    id: "ole-romer-skole",
+    title: "Pædagogmedhjælper \& Mentor",
+    titleEn: "Teaching Assistant \& Volunteer Mentor",
+    organization: "Ole-Rømer skolen / Red Barnet Ungdom",
+    organizationEn: "Ole-Rømer School / Save the Children Youth",
+    period: "2019 - Nuværende",
+    periodEn: "2019 - Present",
+    type: "Erfaring",
+    typeEn: "Experience",
+    category: "omsorg",
+    description: "Faglig støttepædagog og frivillig lektiehjælper med fokus på matematik, dansk og opbygning af strukturerede studievaner og selvtillid hos børn og unge.",
+    descriptionEn: "Provided targeted academic support in mathematics and Danish, helping young students develop structured study habits and academic confidence.",
+    tags: ["Undervisning", "Pædagogik", "Mentorskab", "Formidling"],
+    tagsEn: ["Teaching", "Pedagogy", "Mentorship", "Communication"],
+    bullets: [
+      "Individuel faglig støtte, differentieret undervisning og inklusionsarbejde i folkeskolen.",
+      "Frivillig mentor hos Red Barnet Ungdom med fokus på matematik, dansk og opbygning af studievaner.",
+      "Tæt samarbejde med lærere, pædagoger og forældre om elevers faglige og sociale trivsel."
+    ],
+    bulletsEn: [
+      "Provided targeted academic support and inclusion efforts for students requiring special assistance.",
+      "Volunteer mentor at Save the Children Youth focusing on core proficiencies and study techniques.",
+      "Collaborated closely with teachers, parents, and school management to foster student well-being."
     ]
   }
 ];
