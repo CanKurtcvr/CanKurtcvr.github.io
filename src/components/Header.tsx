@@ -87,29 +87,33 @@ const Header = ({ onPrintCV }: HeaderProps = {}) => {
           </button>
         </div>
 
-        {/* Print / Download Buttons */}
+        {/* Download CV Buttons (Danish & English PDF) */}
         <Button
+          asChild
           variant="ghost"
           size="sm"
-          onClick={() => handlePrint("da")}
           className="text-header-foreground/80 hover:text-header-foreground hover:bg-white/10 gap-1.5 text-xs"
-          title="Print eller gem dansk CV som PDF"
+          title="Hent dansk CV som PDF"
         >
-          <Printer className="w-3.5 h-3.5 text-accent" />
-          <span className="hidden md:inline">{t("header.printDanish", "CV (Dansk)")}</span>
-          <span className="inline md:hidden">CV 🇩🇰</span>
+          <a href="/Can_Kurt_CV_DA.pdf" download="Can_Kurt_CV_DA.pdf">
+            <Download className="w-3.5 h-3.5 text-accent" />
+            <span className="hidden md:inline">{t("header.printDanish", "Hent CV (Dansk)")}</span>
+            <span className="inline md:hidden">CV 🇩🇰</span>
+          </a>
         </Button>
 
         <Button
+          asChild
           variant="ghost"
           size="sm"
-          onClick={() => handlePrint("en")}
           className="text-header-foreground/80 hover:text-header-foreground hover:bg-white/10 gap-1.5 text-xs"
-          title="Download or print English CV as PDF"
+          title="Download English CV as PDF"
         >
-          <Download className="w-3.5 h-3.5 text-accent" />
-          <span className="hidden md:inline">{t("header.printEnglish", "CV (English)")}</span>
-          <span className="inline md:hidden">CV 🇬🇧</span>
+          <a href="/Can_Kurt_CV_EN.pdf" download="Can_Kurt_CV_EN.pdf">
+            <Download className="w-3.5 h-3.5 text-accent" />
+            <span className="hidden md:inline">{t("header.printEnglish", "Download CV (English)")}</span>
+            <span className="inline md:hidden">CV 🇬🇧</span>
+          </a>
         </Button>
 
         <ThemeToggle />

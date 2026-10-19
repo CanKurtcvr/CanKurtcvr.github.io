@@ -55,23 +55,27 @@ export default function CVSection() {
           </p>
           <div className="pt-2 flex flex-wrap justify-center gap-2">
             <Button
+              asChild
               variant="outline"
               size="sm"
-              onClick={() => handlePrint("da")}
               className="gap-2 rounded-full border-primary/30 hover:border-primary text-xs md:text-sm hover:bg-primary/5 shadow-xs"
             >
-              <Printer className="w-3.5 h-3.5 text-primary" />
-              <span>{t("cv.downloadDa", "Hent / Print CV (Dansk PDF)")}</span>
+              <a href="/Can_Kurt_CV_DA.pdf" download="Can_Kurt_CV_DA.pdf">
+                <Download className="w-3.5 h-3.5 text-primary" />
+                <span>{t("cv.downloadDa", "Hent CV (Dansk PDF)")}</span>
+              </a>
             </Button>
 
             <Button
+              asChild
               variant="outline"
               size="sm"
-              onClick={() => handlePrint("en")}
               className="gap-2 rounded-full border-primary/30 hover:border-primary text-xs md:text-sm hover:bg-primary/5 shadow-xs"
             >
-              <Download className="w-3.5 h-3.5 text-primary" />
-              <span>{t("cv.downloadEn", "Download CV (English PDF)")}</span>
+              <a href="/Can_Kurt_CV_EN.pdf" download="Can_Kurt_CV_EN.pdf">
+                <Download className="w-3.5 h-3.5 text-primary" />
+                <span>{t("cv.downloadEn", "Download CV (English PDF)")}</span>
+              </a>
             </Button>
           </div>
         </div>
