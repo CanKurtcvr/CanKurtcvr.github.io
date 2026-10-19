@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useRef, memo, useMemo } from "react";
 import { motion } from "framer-motion";
 import { FileText, Cloud, Newspaper, Gamepad2, Briefcase } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
@@ -10,17 +10,18 @@ interface TabNavigationProps {
   onTabChange: (tab: TabType) => void;
 }
 
-const TabNavigation = ({ activeTab, onTabChange }: TabNavigationProps) => {
+// ⚡ Bolt: Memoize TabNavigation to avoid unnecessary re-renders when other parent states change
+const TabNavigation = memo(function TabNavigation({ activeTab, onTabChange }: TabNavigationProps) {
   const tabRefs = useRef<(HTMLButtonElement | null)[]>([]);
   const { t } = useLanguage();
 
-  const tabs = [
+  const tabs = useMemo(() => [
     { id: "cv" as TabType, label: t("nav.cv", "CV & Erfaring"), icon: FileText },
     { id: "projects" as TabType, label: t("nav.projects", "Projekter"), icon: Briefcase },
     { id: "games" as TabType, label: t("nav.games", "Spil & Arcade"), icon: Gamepad2 },
     { id: "weather" as TabType, label: t("nav.weather", "Vejret"), icon: Cloud },
     { id: "news" as TabType, label: t("nav.news", "Nyheder"), icon: Newspaper },
-  ];
+  ], [t]);
 
   const handleKeyDown = (e: React.KeyboardEvent, index: number) => {
     let newIndex = index;
@@ -85,6 +86,6 @@ const TabNavigation = ({ activeTab, onTabChange }: TabNavigationProps) => {
       </div>
     </nav>
   );
-};
+});
 
 export default TabNavigation;
