@@ -1,275 +1,289 @@
 import React, { useEffect, useRef, useState } from "react";
-import p5 from "p5";
+import type p5Type from "p5";
 
 export default function PongGame() {
   const containerRef = useRef<HTMLDivElement>(null);
-  const [touchActive, setTouchActive] = useState(false);
+  const [_touchActive, setTouchActive] = useState(false);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     if (!containerRef.current) return;
     const container = containerRef.current;
-    let resizeGame: (() => void) | undefined;
+    let instance: p5Type | undefined;
+    let resizeObserver: ResizeObserver | undefined;
+    let isCancelled = false;
 
-    const sketch = (p: p5) => {
-      // Ball
-      let ballX: number, ballY: number;
-      let ballSpeedX = 0, ballSpeedY = 0;
-      const ballSize = 14;
-      let ballTrail: { x: number; y: number }[] = [];
+    // ⚡ Bolt: Dynamically import p5 so the ~1MB engine is loaded on demand when Pong starts
+    import("p5").then(({ default: P5 }) => {
+      if (isCancelled || !containerRef.current) return;
+      setLoading(false);
 
-      // Paddles
-      const paddleWidth = 14;
-      const paddleHeight = 85;
-      const paddleOffset = 30;
-      let playerY: number, aiY: number;
-      const aiSpeed = 5.0;
+      let resizeGame: (() => void) | undefined;
 
-      // Score & VFX State
-      let playerScore = 0;
-      let aiScore = 0;
-      let particles: {
-        x: number;
-        y: number;
-        vx: number;
-        vy: number;
-        life: number;
-        rgb: number[];
-        size: number;
-      }[] = [];
-      let screenShakeTimer = 0;
-      let goalFlashAlpha = 0;
-      let goalFlashColor = [255, 255, 255];
-      let serveDelayTimer = 45;
-      let targetTouchY: number | null = null;
+      const sketch = (p: p5Type) => {
+        // Ball
+        let ballX: number, ballY: number;
+        let ballSpeedX = 0, ballSpeedY = 0;
+        const ballSize = 14;
+        let ballTrail: { x: number; y: number }[] = [];
 
-      const resetBall = () => {
-        ballX = p.width / 2;
-        ballY = p.height / 2;
-        ballTrail = [];
-        ballSpeedX = p.random() > 0.5 ? 6.5 : -6.5;
-        ballSpeedY = p.random(-2.5, 2.5);
-        serveDelayTimer = 40;
-      };
+        // Paddles
+        const paddleWidth = 14;
+        const paddleHeight = 85;
+        const paddleOffset = 30;
+        let playerY: number, aiY: number;
+        const aiSpeed = 5.0;
 
-      const spawnParticles = (x: number, y: number, rgb: number[], count: number) => {
-        for (let i = 0; i < count; i++) {
-          particles.push({
-            x,
-            y,
-            vx: p.random(-4, 4),
-            vy: p.random(-4, 4),
-            life: 255,
-            rgb,
-            size: p.random(3, 6),
-          });
-        }
-      };
+        // Score & VFX State
+        let playerScore = 0;
+        let aiScore = 0;
+        const particles: {
+          x: number;
+          y: number;
+          vx: number;
+          vy: number;
+          life: number;
+          rgb: number[];
+          size: number;
+        }[] = [];
+        let screenShakeTimer = 0;
+        let goalFlashAlpha = 0;
+        let goalFlashColor = [255, 255, 255];
+        let serveDelayTimer = 45;
+        let targetTouchY: number | null = null;
 
-      const triggerGoal = (col: number[]) => {
-        goalFlashAlpha = 140;
-        goalFlashColor = col;
-        screenShakeTimer = 16;
-        resetBall();
-      };
+        const resetBall = () => {
+          ballX = p.width / 2;
+          ballY = p.height / 2;
+          ballTrail = [];
+          ballSpeedX = p.random() > 0.5 ? 6.5 : -6.5;
+          ballSpeedY = p.random(-2.5, 2.5);
+          serveDelayTimer = 40;
+        };
 
-      const adjustAngle = (paddleCenterY: number) => {
-        const impactOffset = ballY - paddleCenterY;
-        ballSpeedY = impactOffset * 0.22;
-      };
+        const spawnParticles = (x: number, y: number, rgb: number[], count: number) => {
+          for (let i = 0; i < count; i++) {
+            particles.push({
+              x,
+              y,
+              vx: p.random(-4, 4),
+              vy: p.random(-4, 4),
+              life: 255,
+              rgb,
+              size: p.random(3, 6),
+            });
+          }
+        };
 
-      p.setup = () => {
-        p.createCanvas(container.clientWidth, container.clientHeight).parent(container);
-        p.rectMode(p.CENTER);
-        p.ellipseMode(p.CENTER);
-        playerY = p.height / 2;
-        aiY = p.height / 2;
-        resetBall();
-      };
+        const triggerGoal = (col: number[]) => {
+          goalFlashAlpha = 140;
+          goalFlashColor = col;
+          screenShakeTimer = 16;
+          resetBall();
+        };
 
-      p.draw = () => {
-        p.push();
-        if (screenShakeTimer > 0) {
-          screenShakeTimer *= 0.85;
-          if (screenShakeTimer < 0.5) screenShakeTimer = 0;
-        }
+        const adjustAngle = (paddleCenterY: number) => {
+          const impactOffset = ballY - paddleCenterY;
+          ballSpeedY = impactOffset * 0.22;
+        };
 
-        p.background(14, 16, 26);
+        p.setup = () => {
+          p.createCanvas(container.clientWidth, container.clientHeight).parent(container);
+          p.rectMode(p.CENTER);
+          p.ellipseMode(p.CENTER);
+          playerY = p.height / 2;
+          aiY = p.height / 2;
+          resetBall();
+        };
 
-        // Court
-        p.stroke(40, 50, 75);
-        p.strokeWeight(3);
-        for (let y = 15; y < p.height; y += 32) {
-          p.line(p.width / 2, y, p.width / 2, y + 16);
-        }
-        p.noFill();
-        p.stroke(30, 38, 58);
-        p.strokeWeight(2);
-        p.ellipse(p.width / 2, p.height / 2, Math.min(140, p.width * 0.35), Math.min(140, p.width * 0.35));
+        p.draw = () => {
+          p.push();
+          if (screenShakeTimer > 0) {
+            screenShakeTimer *= 0.85;
+            if (screenShakeTimer < 0.5) screenShakeTimer = 0;
+          }
 
-        // Scores
-        p.noStroke();
-        p.textStyle(p.BOLD);
-        p.textAlign(p.CENTER, p.TOP);
-        p.textSize(Math.min(48, p.width * 0.12));
-        p.fill(56, 189, 248, 140);
-        p.text(playerScore, p.width / 2 - 60, 20);
-        p.fill(244, 63, 94, 140);
-        p.text(aiScore, p.width / 2 + 60, 20);
+          p.background(14, 16, 26);
 
-        // Particles
-        for (let i = particles.length - 1; i >= 0; i--) {
-          const pt = particles[i];
-          pt.x += pt.vx;
-          pt.y += pt.vy;
-          pt.life -= 10;
+          // Court
+          p.stroke(40, 50, 75);
+          p.strokeWeight(3);
+          for (let y = 15; y < p.height; y += 32) {
+            p.line(p.width / 2, y, p.width / 2, y + 16);
+          }
+          p.noFill();
+          p.stroke(30, 38, 58);
+          p.strokeWeight(2);
+          p.ellipse(p.width / 2, p.height / 2, Math.min(140, p.width * 0.35), Math.min(140, p.width * 0.35));
+
+          // Scores
           p.noStroke();
-          p.fill(pt.rgb[0], pt.rgb[1], pt.rgb[2], pt.life);
-          p.ellipse(pt.x, pt.y, pt.size, pt.size);
-          if (pt.life <= 0) particles.splice(i, 1);
-        }
+          p.textStyle(p.BOLD);
+          p.textAlign(p.CENTER, p.TOP);
+          p.textSize(Math.min(48, p.width * 0.12));
+          p.fill(56, 189, 248, 140);
+          p.text(playerScore, p.width / 2 - 60, 20);
+          p.fill(244, 63, 94, 140);
+          p.text(aiScore, p.width / 2 + 60, 20);
 
-        // Move Player
-        if (p.keyIsDown(p.UP_ARROW) || p.keyIsDown(87)) {
-          playerY -= 8;
-          targetTouchY = null;
-        }
-        if (p.keyIsDown(p.DOWN_ARROW) || p.keyIsDown(83)) {
-          playerY += 8;
-          targetTouchY = null;
-        }
-        if (targetTouchY !== null) {
-          playerY += (targetTouchY - playerY) * 0.4;
-        }
-        playerY = p.constrain(playerY, paddleHeight / 2, p.height - paddleHeight / 2);
-
-        // Move AI
-        const targetY = ballY + (p.noise(p.frameCount * 0.05) - 0.5) * 20;
-        if (targetY < aiY - 10) aiY -= aiSpeed;
-        else if (targetY > aiY + 10) aiY += aiSpeed;
-        aiY = p.constrain(aiY, paddleHeight / 2, p.height - paddleHeight / 2);
-
-        // Move Ball
-        if (serveDelayTimer > 0) {
-          serveDelayTimer--;
-        } else {
-          ballTrail.push({ x: ballX, y: ballY });
-          if (ballTrail.length > 7) ballTrail.shift();
-
-          ballX += ballSpeedX;
-          ballY += ballSpeedY;
-
-          // Wall bounces
-          if (ballY - ballSize / 2 <= 0) {
-            ballY = ballSize / 2;
-            ballSpeedY *= -1;
-            spawnParticles(ballX, ballY, [200, 200, 200], 6);
-          } else if (ballY + ballSize / 2 >= p.height) {
-            ballY = p.height - ballSize / 2;
-            ballSpeedY *= -1;
-            spawnParticles(ballX, ballY, [200, 200, 200], 6);
+          // Particles
+          for (let i = particles.length - 1; i >= 0; i--) {
+            const pt = particles[i];
+            pt.x += pt.vx;
+            pt.y += pt.vy;
+            pt.life -= 10;
+            p.noStroke();
+            p.fill(pt.rgb[0], pt.rgb[1], pt.rgb[2], pt.life);
+            p.ellipse(pt.x, pt.y, pt.size, pt.size);
+            if (pt.life <= 0) particles.splice(i, 1);
           }
 
-          // Player collision
-          if (
-            ballX - ballSize / 2 <= paddleOffset + paddleWidth / 2 &&
-            ballX + ballSize / 2 >= paddleOffset - paddleWidth / 2 &&
-            ballY >= playerY - paddleHeight / 2 &&
-            ballY <= playerY + paddleHeight / 2
-          ) {
-            ballSpeedX = Math.abs(ballSpeedX) * 1.05;
-            adjustAngle(playerY);
-            screenShakeTimer = 4;
-            spawnParticles(ballX, ballY, [56, 189, 248], 15);
+          // Move Player
+          if (p.keyIsDown(p.UP_ARROW) || p.keyIsDown(87)) {
+            playerY -= 8;
+            targetTouchY = null;
+          }
+          if (p.keyIsDown(p.DOWN_ARROW) || p.keyIsDown(83)) {
+            playerY += 8;
+            targetTouchY = null;
+          }
+          if (targetTouchY !== null) {
+            playerY += (targetTouchY - playerY) * 0.4;
+          }
+          playerY = p.constrain(playerY, paddleHeight / 2, p.height - paddleHeight / 2);
+
+          // Move AI
+          const targetY = ballY + (p.noise(p.frameCount * 0.05) - 0.5) * 20;
+          if (targetY < aiY - 10) aiY -= aiSpeed;
+          else if (targetY > aiY + 10) aiY += aiSpeed;
+          aiY = p.constrain(aiY, paddleHeight / 2, p.height - paddleHeight / 2);
+
+          // Move Ball
+          if (serveDelayTimer > 0) {
+            serveDelayTimer--;
+          } else {
+            ballTrail.push({ x: ballX, y: ballY });
+            if (ballTrail.length > 7) ballTrail.shift();
+
+            ballX += ballSpeedX;
+            ballY += ballSpeedY;
+
+            // Wall bounces
+            if (ballY - ballSize / 2 <= 0) {
+              ballY = ballSize / 2;
+              ballSpeedY *= -1;
+              spawnParticles(ballX, ballY, [200, 200, 200], 6);
+            } else if (ballY + ballSize / 2 >= p.height) {
+              ballY = p.height - ballSize / 2;
+              ballSpeedY *= -1;
+              spawnParticles(ballX, ballY, [200, 200, 200], 6);
+            }
+
+            // Player collision
+            if (
+              ballX - ballSize / 2 <= paddleOffset + paddleWidth / 2 &&
+              ballX + ballSize / 2 >= paddleOffset - paddleWidth / 2 &&
+              ballY >= playerY - paddleHeight / 2 &&
+              ballY <= playerY + paddleHeight / 2
+            ) {
+              ballSpeedX = Math.abs(ballSpeedX) * 1.05;
+              adjustAngle(playerY);
+              screenShakeTimer = 4;
+              spawnParticles(ballX, ballY, [56, 189, 248], 15);
+            }
+
+            // AI collision
+            if (
+              ballX + ballSize / 2 >= p.width - paddleOffset - paddleWidth / 2 &&
+              ballX - ballSize / 2 <= p.width - paddleOffset + paddleWidth / 2 &&
+              ballY >= aiY - paddleHeight / 2 &&
+              ballY <= aiY + paddleHeight / 2
+            ) {
+              ballSpeedX = -Math.abs(ballSpeedX) * 1.05;
+              adjustAngle(aiY);
+              screenShakeTimer = 4;
+              spawnParticles(ballX, ballY, [244, 63, 94], 15);
+            }
+
+            // Goals
+            if (ballX < 0) {
+              aiScore++;
+              triggerGoal([244, 63, 94]);
+            } else if (ballX > p.width) {
+              playerScore++;
+              triggerGoal([56, 189, 248]);
+            }
           }
 
-          // AI collision
-          if (
-            ballX + ballSize / 2 >= p.width - paddleOffset - paddleWidth / 2 &&
-            ballX - ballSize / 2 <= p.width - paddleOffset + paddleWidth / 2 &&
-            ballY >= aiY - paddleHeight / 2 &&
-            ballY <= aiY + paddleHeight / 2
-          ) {
-            ballSpeedX = -Math.abs(ballSpeedX) * 1.05;
-            adjustAngle(aiY);
-            screenShakeTimer = 4;
-            spawnParticles(ballX, ballY, [244, 63, 94], 15);
-          }
-
-          // Goals
-          if (ballX < 0) {
-            aiScore++;
-            triggerGoal([244, 63, 94]);
-          } else if (ballX > p.width) {
-            playerScore++;
-            triggerGoal([56, 189, 248]);
-          }
-        }
-
-        // Draw Trail
-        p.noStroke();
-        for (let i = 0; i < ballTrail.length; i++) {
-          const pt = ballTrail[i];
-          const alpha = p.map(i, 0, ballTrail.length, 20, 120);
-          const size = p.map(i, 0, ballTrail.length, 4, ballSize);
-          p.fill(255, 255, 255, alpha);
-          p.ellipse(pt.x, pt.y, size, size);
-        }
-
-        // Render Paddles & Ball
-        p.fill(56, 189, 248);
-        p.rect(paddleOffset, playerY, paddleWidth, paddleHeight, 6);
-
-        p.fill(244, 63, 94);
-        p.rect(p.width - paddleOffset, aiY, paddleWidth, paddleHeight, 6);
-
-        p.fill(255, 255, 255);
-        p.ellipse(ballX, ballY, ballSize, ballSize);
-
-        p.pop();
-
-        // Screen flash on goal
-        if (goalFlashAlpha > 0) {
+          // Draw Trail
           p.noStroke();
-          p.fill(goalFlashColor[0], goalFlashColor[1], goalFlashColor[2], goalFlashAlpha);
-          p.rect(p.width / 2, p.height / 2, p.width, p.height);
-          goalFlashAlpha -= 12;
-        }
+          for (let i = 0; i < ballTrail.length; i++) {
+            const pt = ballTrail[i];
+            const alpha = p.map(i, 0, ballTrail.length, 20, 120);
+            const size = p.map(i, 0, ballTrail.length, 4, ballSize);
+            p.fill(255, 255, 255, alpha);
+            p.ellipse(pt.x, pt.y, size, size);
+          }
+
+          // Render Paddles & Ball
+          p.fill(56, 189, 248);
+          p.rect(paddleOffset, playerY, paddleWidth, paddleHeight, 6);
+
+          p.fill(244, 63, 94);
+          p.rect(p.width - paddleOffset, aiY, paddleWidth, paddleHeight, 6);
+
+          p.fill(255, 255, 255);
+          p.ellipse(ballX, ballY, ballSize, ballSize);
+
+          p.pop();
+
+          // Screen flash on goal
+          if (goalFlashAlpha > 0) {
+            p.noStroke();
+            p.fill(goalFlashColor[0], goalFlashColor[1], goalFlashColor[2], goalFlashAlpha);
+            p.rect(p.width / 2, p.height / 2, p.width, p.height);
+            goalFlashAlpha -= 12;
+          }
+        };
+
+        p.touchStarted = () => {
+          if (p.touches && p.touches.length > 0) {
+            targetTouchY = (p.touches[0] as { y: number }).y;
+            setTouchActive(true);
+          }
+        };
+
+        p.touchMoved = () => {
+          if (p.touches && p.touches.length > 0) {
+            targetTouchY = (p.touches[0] as { y: number }).y;
+            setTouchActive(true);
+            return false; // Prevent page scrolling while dragging touch on p5 canvas
+          }
+        };
+
+        p.touchEnded = () => {
+          targetTouchY = null;
+        };
+
+        resizeGame = () => {
+          p.resizeCanvas(container.clientWidth, container.clientHeight);
+          playerY = p.constrain(playerY, paddleHeight / 2, p.height - paddleHeight / 2);
+          aiY = p.constrain(aiY, paddleHeight / 2, p.height - paddleHeight / 2);
+        };
+        p.windowResized = resizeGame;
       };
 
-      p.touchStarted = () => {
-        if (p.touches && p.touches.length > 0) {
-          targetTouchY = (p.touches[0] as { y: number }).y;
-          setTouchActive(true);
-        }
-      };
-
-      p.touchMoved = () => {
-        if (p.touches && p.touches.length > 0) {
-          targetTouchY = (p.touches[0] as { y: number }).y;
-          setTouchActive(true);
-          return false; // Prevent page scrolling while dragging touch on p5 canvas
-        }
-      };
-
-      p.touchEnded = () => {
-        targetTouchY = null;
-      };
-
-      resizeGame = () => {
-        p.resizeCanvas(container.clientWidth, container.clientHeight);
-        playerY = p.constrain(playerY, paddleHeight / 2, p.height - paddleHeight / 2);
-        aiY = p.constrain(aiY, paddleHeight / 2, p.height - paddleHeight / 2);
-      };
-      p.windowResized = resizeGame;
-    };
-
-    const instance = new p5(sketch);
-    const resizeObserver = new ResizeObserver(() => {
-      resizeGame?.();
+      instance = new P5(sketch);
+      resizeObserver = new ResizeObserver(() => {
+        resizeGame?.();
+      });
+      resizeObserver.observe(container);
     });
+
     return () => {
-      resizeObserver.disconnect();
-      instance.remove();
+      isCancelled = true;
+      resizeObserver?.disconnect();
+      instance?.remove();
     };
   }, []);
 
@@ -277,8 +291,14 @@ export default function PongGame() {
     <div className="w-full max-w-2xl mx-auto overflow-hidden rounded-xl border border-border shadow-xl bg-slate-950 touch-none">
       <div
         ref={containerRef}
-        className="w-full aspect-[16/9] min-h-[280px] max-h-[60vh] touch-none select-none bg-slate-950"
-      />
+        className="w-full aspect-[16/9] min-h-[280px] max-h-[60vh] touch-none select-none bg-slate-950 relative flex items-center justify-center"
+      >
+        {loading && (
+          <div className="text-slate-400 text-sm animate-pulse">
+            Indlæser Pong 2D engine...
+          </div>
+        )}
+      </div>
       <div className="flex flex-wrap items-center justify-between gap-2 border-t border-slate-800 bg-slate-950 px-4 py-3 text-xs sm:text-sm text-slate-300">
         <div className="flex items-center gap-2">
           <span><strong className="text-cyan-400 font-mono">W / S</strong> / <strong className="text-cyan-400 font-mono">↑ / ↓</strong></span>
