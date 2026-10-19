@@ -20,7 +20,7 @@ export default function PrintCVDocument({ language = "da" }: PrintCVDocumentProp
       <header className="border-b-2 border-slate-900 pb-3 mb-3">
         <div className="flex justify-between items-baseline">
           <h1 className="text-2xl sm:text-3xl font-bold tracking-tight text-slate-950 font-serif">
-            Can Kurt
+            Can Kurt Çavuş
           </h1>
           <span className="text-xs font-semibold text-slate-600 tracking-wider uppercase bg-slate-100 px-2 py-0.5 rounded border border-slate-200">
             Curriculum Vitae ({isEn ? "English" : "Dansk"})
@@ -55,8 +55,8 @@ export default function PrintCVDocument({ language = "da" }: PrintCVDocumentProp
         </h2>
         <p className="text-[8.5pt] text-slate-800 text-justify leading-relaxed">
           {isEn
-            ? "Ambitious IT consultant and master's student with a strong interdisciplinary profile combining digital transformation, data analysis, and business process engineering. Proven track record from complex debt remediation and collections projects in the financial sector (Danske Bank / EY), hands-on software development skills with modern web technologies, and exceptionally developed communication skills built through certified interpretation and healthcare support."
-            : "Ambitiøs IT-konsulent og kandidatstuderende med en stærk profil i krydsfeltet mellem digitalisering, dataanalyse og forretningsprocesser. Dokumenteret erfaring fra komplekse datasaneringsprojekter i den finansielle sektor (Danske Bank / EY), praktisk erfaring med moderne webarkitektur samt veludviklede formidlingsevner og situationsfornemmelse opbygget gennem certificeret tolkevirksomhed og omsorgsarbejde."}
+            ? "Ambitious IT consultant and master's student with a strong interdisciplinary profile combining digital transformation, data analysis, and business process engineering. Proven track record from complex debt remediation and financial case reconstruction projects in the banking sector (Danske Bank / EY), hands-on software development skills with modern web technologies, enterprise architecture knowledge, and exceptionally developed communication skills built through certified interpretation and healthcare support."
+            : "Ambitiøs IT-konsulent og kandidatstuderende med en stærk profil i krydsfeltet mellem digital omstilling, dataanalyse og forretningsprocesser. Dokumenteret erfaring fra komplekse datasanerings- og rekonstruktionsprojekter i den finansielle sektor (Danske Bank / EY), praktisk erfaring med moderne webudvikling og enterprise-arkitektur samt veludviklede formidlingsevner og situationsfornemmelse opbygget gennem tolkevirksomhed og omsorgsarbejde."}
         </p>
       </section>
 
@@ -71,7 +71,7 @@ export default function PrintCVDocument({ language = "da" }: PrintCVDocumentProp
             <div>
               <span className="font-bold text-slate-950">{isEn ? "Master's Degree (MSc):" : "Kandidatuddannelse (Kand.):"}</span>{" "}
               <span className="text-slate-800 font-medium">{isEn ? "Digital Transformation" : "Digital Transformation"}</span>{" "}
-              <span className="text-slate-500 font-mono text-[7.5pt]">(RUC, 2026 - {isEn ? "Now" : "Nu"})</span>
+              <span className="text-slate-500 font-mono text-[7.5pt]">(RUC, {isEn ? "Starts Sep. 2026" : "Start Sep. 2026"})</span>
             </div>
             <div>
               <span className="font-bold text-slate-950">{isEn ? "Bachelor's Degree (BSc):" : "Bacheloruddannelse (BSc):"}</span>{" "}
