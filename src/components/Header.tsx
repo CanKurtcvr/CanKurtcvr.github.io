@@ -176,7 +176,7 @@ const Header = ({ onPrintCV }: HeaderProps = {}) => {
           className="flex flex-wrap justify-center items-center gap-3 md:gap-5 text-sm md:text-base"
         >
           <span className="flex items-center gap-1.5 text-header-foreground/60">
-            <MapPin className="w-4 h-4 text-accent/80" />
+            <MapPin className="w-4 h-4 text-accent/80" aria-hidden="true" />
             {t("header.location", "København, Danmark")}
           </span>
           
@@ -185,7 +185,7 @@ const Header = ({ onPrintCV }: HeaderProps = {}) => {
               href="tel:+4528701213"
               className="flex items-center gap-1.5 text-accent hover:text-accent/80 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded-sm"
             >
-              <Phone className="w-4 h-4" />
+              <Phone className="w-4 h-4" aria-hidden="true" />
               +45 28 70 12 13
             </a>
             <button
@@ -194,7 +194,7 @@ const Header = ({ onPrintCV }: HeaderProps = {}) => {
               title={copiedField === "Telefonnummer" ? "Telefonnummer kopieret!" : "Kopiér telefonnummer"}
               aria-label={copiedField === "Telefonnummer" ? "Telefonnummer kopieret til udklipsholderen" : "Kopiér telefonnummer"}
             >
-              {copiedField === "Telefonnummer" ? <Check className="w-3.5 h-3.5 text-green-400" /> : <Copy className="w-3.5 h-3.5" />}
+              {copiedField === "Telefonnummer" ? <Check className="w-3.5 h-3.5 text-green-400" aria-hidden="true" /> : <Copy className="w-3.5 h-3.5" aria-hidden="true" />}
             </button>
           </div>
           
@@ -203,7 +203,7 @@ const Header = ({ onPrintCV }: HeaderProps = {}) => {
               href="mailto:cankurtcvr@gmail.com"
               className="flex items-center gap-1.5 text-accent hover:text-accent/80 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded-sm"
             >
-              <Mail className="w-4 h-4" />
+              <Mail className="w-4 h-4" aria-hidden="true" />
               cankurtcvr@gmail.com
             </a>
             <button
@@ -212,7 +212,7 @@ const Header = ({ onPrintCV }: HeaderProps = {}) => {
               title={copiedField === "Email" ? "Email kopieret!" : "Kopiér email"}
               aria-label={copiedField === "Email" ? "Email kopieret til udklipsholderen" : "Kopiér email"}
             >
-              {copiedField === "Email" ? <Check className="w-3.5 h-3.5 text-green-400" /> : <Copy className="w-3.5 h-3.5" />}
+              {copiedField === "Email" ? <Check className="w-3.5 h-3.5 text-green-400" aria-hidden="true" /> : <Copy className="w-3.5 h-3.5" aria-hidden="true" />}
             </button>
           </div>
           
@@ -220,9 +220,11 @@ const Header = ({ onPrintCV }: HeaderProps = {}) => {
             href="https://linkedin.com/in/canxkurt"
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-1.5 text-accent hover:text-accent/80 transition-colors"
+            className="flex items-center gap-1.5 text-accent hover:text-accent/80 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded-sm"
+            title={t("header.linkedinTitle", "Besøg Can Kurts LinkedIn-profil (åbner i ny fane)")}
+            aria-label={t("header.linkedinAria", "LinkedIn profil (åbner i ny fane)")}
           >
-            <Linkedin className="w-4 h-4" />
+            <Linkedin className="w-4 h-4" aria-hidden="true" />
             LinkedIn
           </a>
 
@@ -230,9 +232,11 @@ const Header = ({ onPrintCV }: HeaderProps = {}) => {
             href="https://github.com/CanKurtcvr"
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-1.5 text-accent hover:text-accent/80 transition-colors"
+            className="flex items-center gap-1.5 text-accent hover:text-accent/80 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded-sm"
+            title={t("header.githubTitle", "Besøg Can Kurts GitHub-profil (åbner i ny fane)")}
+            aria-label={t("header.githubAria", "GitHub profil (åbner i ny fane)")}
           >
-            <Github className="w-4 h-4" />
+            <Github className="w-4 h-4" aria-hidden="true" />
             GitHub
           </a>
         </motion.div>
