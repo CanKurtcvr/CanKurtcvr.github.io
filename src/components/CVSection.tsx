@@ -1,13 +1,79 @@
-import { useState, useMemo } from "react";
+import { useState, useMemo, memo } from "react";
 import { Link } from "react-router-dom";
 import { Card, CardHeader, CardTitle, CardDescription, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { cvItems, CVCategory } from "@/data/cvData";
+import { cvItems, CVCategory, CVItem } from "@/data/cvData";
 import SkillsSection from "./SkillsSection";
 import { motion, AnimatePresence } from "framer-motion";
-import { Sparkles, Briefcase, GraduationCap, HeartHandshake, Printer, Download } from "lucide-react";
+import { Sparkles, Briefcase, GraduationCap, HeartHandshake, Download } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
+
+interface CVItemCardProps {
+  item: CVItem;
+  isEn: boolean;
+}
+
+// ⚡ Bolt: Memoize individual CV card rendering to prevent unnecessary re-renders when toggling categories or language
+const CVItemCard = memo(function CVItemCard({ item, isEn }: CVItemCardProps) {
+  const title = isEn && item.titleEn ? item.titleEn : item.title;
+  const org = isEn && item.organizationEn ? item.organizationEn : item.organization;
+  const period = isEn && item.periodEn ? item.periodEn : item.period;
+  const type = isEn && item.typeEn ? item.typeEn : item.type;
+  const desc = isEn && item.descriptionEn ? item.descriptionEn : item.description;
+  const tags = isEn && item.tagsEn ? item.tagsEn : item.tags;
+
+  return (
+    <motion.div
+      layout
+      initial={{ opacity: 0, scale: 0.96 }}
+      animate={{ opacity: 1, scale: 1 }}
+      exit={{ opacity: 0, scale: 0.96 }}
+      transition={{ duration: 0.2 }}
+      className="h-full"
+    >
+      <Link
+        to={`/cv/${item.id}`}
+        state={{ cvData: item }}
+        className="block h-full transition-transform hover:-translate-y-1 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-accent rounded-xl"
+      >
+        <Card className="h-full hover:border-primary/50 hover:shadow-md cursor-pointer transition-colors flex flex-col justify-between">
+          <CardHeader className="space-y-2">
+            <div className="flex justify-between items-start">
+              <Badge variant="secondary" className="text-xs">
+                {type}
+              </Badge>
+              <span className="text-xs text-muted-foreground font-medium">
+                {period}
+              </span>
+            </div>
+            <CardTitle className="text-lg md:text-xl font-bold">
+              {title}
+            </CardTitle>
+            <CardDescription className="text-sm font-medium text-foreground/80">
+              {org}
+            </CardDescription>
+            <p className="text-xs md:text-sm text-muted-foreground line-clamp-2 leading-relaxed pt-1">
+              {desc}
+            </p>
+          </CardHeader>
+          <CardContent className="pt-0">
+            <div className="flex flex-wrap gap-1.5">
+              {tags.map((tag) => (
+                <span
+                  key={tag}
+                  className="text-[11px] bg-slate-100 dark:bg-slate-800 px-2 py-0.5 rounded-md font-medium text-muted-foreground"
+                >
+                  {tag}
+                </span>
+              ))}
+            </div>
+          </CardContent>
+        </Card>
+      </Link>
+    </motion.div>
+  );
+});
 
 export default function CVSection() {
   const [selectedCategory, setSelectedCategory] = useState<CVCategory>("all");
@@ -115,66 +181,9 @@ export default function CVSection() {
         {/* Experience Cards Grid */}
         <motion.div layout className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <AnimatePresence mode="popLayout">
-            {filteredItems.map((item) => {
-              const title = isEn && item.titleEn ? item.titleEn : item.title;
-              const org = isEn && item.organizationEn ? item.organizationEn : item.organization;
-              const period = isEn && item.periodEn ? item.periodEn : item.period;
-              const type = isEn && item.typeEn ? item.typeEn : item.type;
-              const desc = isEn && item.descriptionEn ? item.descriptionEn : item.description;
-              const tags = isEn && item.tagsEn ? item.tagsEn : item.tags;
-
-              return (
-                <motion.div
-                  key={item.id}
-                  layout
-                  initial={{ opacity: 0, scale: 0.96 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  exit={{ opacity: 0, scale: 0.96 }}
-                  transition={{ duration: 0.2 }}
-                  className="h-full"
-                >
-                  <Link
-                    to={`/cv/${item.id}`}
-                    state={{ cvData: item }}
-                    className="block h-full transition-transform hover:-translate-y-1 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-accent rounded-xl"
-                  >
-                    <Card className="h-full hover:border-primary/50 hover:shadow-md cursor-pointer transition-colors flex flex-col justify-between">
-                      <CardHeader className="space-y-2">
-                        <div className="flex justify-between items-start">
-                          <Badge variant="secondary" className="text-xs">
-                            {type}
-                          </Badge>
-                          <span className="text-xs text-muted-foreground font-medium">
-                            {period}
-                          </span>
-                        </div>
-                        <CardTitle className="text-lg md:text-xl font-bold">
-                          {title}
-                        </CardTitle>
-                        <CardDescription className="text-sm font-medium text-foreground/80">
-                          {org}
-                        </CardDescription>
-                        <p className="text-xs md:text-sm text-muted-foreground line-clamp-2 leading-relaxed pt-1">
-                          {desc}
-                        </p>
-                      </CardHeader>
-                      <CardContent className="pt-0">
-                        <div className="flex flex-wrap gap-1.5">
-                          {tags.map((tag) => (
-                            <span
-                              key={tag}
-                              className="text-[11px] bg-slate-100 dark:bg-slate-800 px-2 py-0.5 rounded-md font-medium text-muted-foreground"
-                            >
-                              {tag}
-                            </span>
-                          ))}
-                        </div>
-                      </CardContent>
-                    </Card>
-                  </Link>
-                </motion.div>
-              );
-            })}
+            {filteredItems.map((item) => (
+              <CVItemCard key={item.id} item={item} isEn={isEn} />
+            ))}
           </AnimatePresence>
         </motion.div>
       </div>
