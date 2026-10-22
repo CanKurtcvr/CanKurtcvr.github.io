@@ -13,7 +13,8 @@ import {
   Cloud, 
   Code,
   Clock,
-  AlertCircle
+  AlertCircle,
+  X
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
@@ -350,11 +351,33 @@ export default function NewsSection() {
             type="text"
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
+            onKeyDown={(e) => {
+              if (e.key === "Escape" && searchQuery) {
+                setSearchQuery("");
+              }
+            }}
             placeholder="Filtrer overskrifter..."
             aria-label="Filtrer overskrifter"
-            className="w-full pl-8 pr-3 py-1.5 text-xs rounded-full border border-border/80 bg-background/80 placeholder:text-muted-foreground focus:outline-none focus:ring-1 focus:ring-primary"
+            className={`w-full pl-8 ${searchQuery ? "pr-8" : "pr-3"} py-1.5 text-xs rounded-full border border-border/80 bg-background/80 placeholder:text-muted-foreground focus:outline-none focus:ring-1 focus:ring-primary`}
           />
+          {searchQuery && (
+            <button
+              type="button"
+              onClick={() => setSearchQuery("")}
+              aria-label="Ryd søgning"
+              className="absolute right-2.5 top-1/2 -translate-y-1/2 p-0.5 rounded-full text-muted-foreground hover:text-foreground hover:bg-muted focus:outline-none focus:ring-1 focus:ring-primary transition-colors cursor-pointer"
+            >
+              <X className="size-3.5" aria-hidden="true" />
+            </button>
+          )}
         </div>
+      </div>
+
+      {/* Screen reader live region for filter announcements */}
+      <div className="sr-only" aria-live="polite" aria-atomic="true">
+        {loading
+          ? "Henter nyheder..."
+          : `Viser ${filteredNews.length} ${filteredNews.length === 1 ? "artikel" : "artikler"} for ${activeCategoryMeta.label}${searchQuery ? ` matchende "${searchQuery}"` : ""}`}
       </div>
 
       {/* Content Grid */}
