@@ -1,4 +1,4 @@
-import React, { useRef, useMemo, memo } from "react";
+import { useRef, useMemo, memo } from "react";
 import { motion } from "framer-motion";
 import { FileText, Cloud, Newspaper, Gamepad2, Briefcase } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
@@ -10,7 +10,8 @@ interface TabNavigationProps {
   onTabChange: (tab: TabType) => void;
 }
 
-const TabNavigation = ({ activeTab, onTabChange }: TabNavigationProps) => {
+// ⚡ Bolt: Memoize TabNavigation component to skip re-renders when unrelated parent state changes
+const TabNavigation = memo(({ activeTab, onTabChange }: TabNavigationProps) => {
   const tabRefs = useRef<(HTMLButtonElement | null)[]>([]);
   const { t } = useLanguage();
 
@@ -86,6 +87,6 @@ const TabNavigation = ({ activeTab, onTabChange }: TabNavigationProps) => {
       </div>
     </nav>
   );
-};
+});
 
 export default TabNavigation;

@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button";
 import { cvItems, CVCategory, CVItem } from "@/data/cvData";
 import SkillsSection from "./SkillsSection";
 import { motion, AnimatePresence } from "framer-motion";
-import { Sparkles, Briefcase, GraduationCap, HeartHandshake, Download } from "lucide-react";
+import { Sparkles, Briefcase, GraduationCap, HeartHandshake, Download, ArrowRight } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
 
 interface CVItemCardProps {
@@ -35,7 +35,8 @@ const CVItemCard = memo(function CVItemCard({ item, isEn }: CVItemCardProps) {
       <Link
         to={`/cv/${item.id}`}
         state={{ cvData: item }}
-        className="block h-full transition-transform hover:-translate-y-1 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-accent rounded-xl"
+        aria-label={isEn ? `Read details about ${title} at ${org}` : `Læs detaljer om ${title} hos ${org}`}
+        className="group block h-full transition-transform hover:-translate-y-1 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-accent rounded-xl"
       >
         <Card className="h-full hover:border-primary/50 hover:shadow-md cursor-pointer transition-colors flex flex-col justify-between">
           <CardHeader className="space-y-2">
@@ -47,7 +48,7 @@ const CVItemCard = memo(function CVItemCard({ item, isEn }: CVItemCardProps) {
                 {period}
               </span>
             </div>
-            <CardTitle className="text-lg md:text-xl font-bold">
+            <CardTitle className="text-lg md:text-xl font-bold group-hover:text-primary transition-colors">
               {title}
             </CardTitle>
             <CardDescription className="text-sm font-medium text-foreground/80">
@@ -57,7 +58,7 @@ const CVItemCard = memo(function CVItemCard({ item, isEn }: CVItemCardProps) {
               {desc}
             </p>
           </CardHeader>
-          <CardContent className="pt-0">
+          <CardContent className="pt-0 space-y-3">
             <div className="flex flex-wrap gap-1.5">
               {tags.map((tag) => (
                 <span
@@ -67,6 +68,10 @@ const CVItemCard = memo(function CVItemCard({ item, isEn }: CVItemCardProps) {
                   {tag}
                 </span>
               ))}
+            </div>
+            <div className="flex items-center justify-between pt-2 border-t border-border/40 text-xs font-semibold text-primary">
+              <span>{isEn ? "Read details" : "Læs detaljer"}</span>
+              <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-1" aria-hidden="true" />
             </div>
           </CardContent>
         </Card>
@@ -100,10 +105,6 @@ export default function CVSection() {
     }
     return cvItems.filter(item => item.category === selectedCategory);
   }, [selectedCategory]);
-
-  const handlePrint = (lang: "da" | "en") => {
-    window.print();
-  };
 
   return (
     <section id="cv" className="py-6 space-y-12">

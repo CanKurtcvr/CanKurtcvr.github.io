@@ -23,7 +23,7 @@ export const cvItems: CVItem[] = [
   // --- UDDANNELSER ---
   {
     id: "ruc-kandidat",
-    title: "Kandidat i Digital Transformation",
+    title: "Kandidat i Digital Transformation (MSc)",
     titleEn: "MSc in Digital Transformation",
     organization: "Roskilde Universitet (RUC)",
     organizationEn: "Roskilde University (RUC)",
@@ -32,24 +32,24 @@ export const cvItems: CVItem[] = [
     type: "Uddannelse",
     typeEn: "Education",
     category: "uddannelse",
-    description: "Kandidatuddannelse med fokus på strategisk ledelse af digitale omstilling, IT-arkitektur, socio-teknisk systemdesign og procesoptimering i komplekse organisationer.",
-    descriptionEn: "Master's degree specializing in strategic digital transformation, enterprise IT architecture, socio-technical systems design, and business process optimization.",
-    tags: ["Digital Transformation", "It-strategi", "Socio-teknisk Design", "Procesoptimering", "RUC"],
-    tagsEn: ["Digital Transformation", "IT Strategy", "Socio-technical Design", "Process Optimization", "RUC"],
+    description: "Kandidatuddannelse med fokus på strategisk ledelse af digitale omstillingsprocesser, enterprise-arkitektur, forretningsprocesmodellering, IT-governance og socio-teknisk systemdesign.",
+    descriptionEn: "Master's degree specializing in strategic governance of digital transformation, enterprise IT architecture, business process modeling, IT strategy, and socio-technical systems design.",
+    tags: ["Digital Transformation", "IT-strategi", "Enterprise Arkitektur", "Procesoptimering", "RUC"],
+    tagsEn: ["Digital Transformation", "IT Strategy", "Enterprise Architecture", "Process Optimization", "RUC"],
     bullets: [
       "Strategisk planlægning, governance og implementering af digitale transformationer i både private og offentlige virksomheder.",
-      "Analyse, kravspecifikation og modellering af komplekse IT-systemer, enterprise-arkitektur og kerneforretningsgange.",
+      "Analyse, kravspecifikation og modellering af komplekse IT-systemer, enterprise-arkitektur og kerneforretningsgange (BPMN/STP).",
       "Teknologiledelse, UX/UI research, socio-teknisk systemdesign og organisatorisk forandringsledelse."
     ],
     bulletsEn: [
       "Strategic planning, governance, and execution of digital transformation initiatives across enterprise and public sector contexts.",
-      "Analysis, requirements engineering, and modeling of complex IT systems, enterprise architecture, and operational workflows.",
+      "Analysis, requirements engineering, and modeling of complex IT systems, enterprise architecture, and operational workflows (BPMN/STP).",
       "Technology management, UX/UI research, socio-technical systems design, and organizational change management."
     ]
   },
   {
     id: "ruc-bachelor",
-    title: "Bachelor i Informatik og Virksomhedsstudier",
+    title: "Bachelor i Informatik og Virksomhedsstudier (BSc)",
     titleEn: "BSc in Computer Science & Business Studies",
     organization: "Roskilde Universitet (RUC)",
     organizationEn: "Roskilde University (RUC)",
@@ -58,8 +58,8 @@ export const cvItems: CVItem[] = [
     type: "Uddannelse",
     typeEn: "Education",
     category: "uddannelse",
-    description: "Tværfaglig kombinationsuddannelse i datalogi, softwareudvikling, databasedesign, regnskab, økonomistyring og organisatorisk analyse.",
-    descriptionEn: "Interdisciplinary combined degree bridging computer science, software engineering, database architecture, corporate finance, and business management.",
+    description: "Tværfaglig kombinationsuddannelse i datalogi, softwareudvikling (Python, JavaScript, SQL), databasedesign, regnskab, økonomistyring og organisatorisk analyse.",
+    descriptionEn: "Interdisciplinary combined degree bridging computer science, software engineering (Python, JavaScript, SQL), database architecture, corporate finance, and business management.",
     tags: ["Informatik", "Virksomhedsstudier", "Programmering", "UX-design", "Dataanalyse", "SQL"],
     tagsEn: ["Computer Science", "Business Studies", "Programming", "UX Design", "Data Analysis", "SQL"],
     bullets: [
@@ -86,19 +86,19 @@ export const cvItems: CVItem[] = [
     type: "Erfaring",
     typeEn: "Experience",
     category: "it",
-    description: "Ansvarlig for rekonstruktion af komplekse finansielle kundesager, stordataanalyse i Excel og Onboarding/Sidemandsoplæring på bankens forretningskritiske gældssanerings- og inkassoprojekt.",
-    descriptionEn: "Key responsible for complex financial case reconstruction, large-scale data analysis in Excel, and consultant onboarding during bank-wide debt and collections remediation projects.",
+    description: "Nøglemedarbejder på bankens forretningskritiske gældssanerings- og inkassoprojekt med ansvar for komplekse sagsrekonstruktioner, stordatavalidering i Excel og onboarding af nye konsulenter.",
+    descriptionEn: "Key contributor on bank-wide mission-critical debt remediation and collections projects, overseeing complex financial case reconstructions, big data validation in Excel, and consultant onboarding.",
     tags: ["Dataanalyse", "Sagsrekonstruktion", "Excel", "Onboarding", "FinTech", "Processer"],
     tagsEn: ["Data Analysis", "Case Reconstruction", "Excel", "Onboarding", "FinTech", "Processes"],
     bullets: [
       "Genopbygning og sagsrekonstruktion af over 400 komplekse gældssager gennem analyse af juridiske aktstykker, retsbøger og kontoudskrifter.",
       "Validering og opbygning af finansielle beregningsmodeller i Excel med nul-tolerance over for fejl i renter, amortisering og afdrag.",
-      "Udarbejdelse af procesvejledninger samt onboarding og sidemandsoplæring af 10+ nye konsulenter som faglig 'floorwalker'."
+      "Udarbejdelse af standardiserede procesvejledninger samt onboarding og sidemandsoplæring af 10+ nye konsulenter som faglig 'floorwalker'."
     ],
     bulletsEn: [
       "Reconstructed full financial and legal histories for 400+ complex debt cases through rigorous audit of court records, agreements, and bank ledgers.",
       "Validated and built financial calculation models in Excel with zero tolerance for errors in interest, amortization schedules, and principal calculations.",
-      "Authored standard operating procedures and served as floorwalker, onboarding and training 10+ new consultants into the project team."
+      "Authored standard operating procedures and served as project floorwalker, onboarding and training 10+ new consultants into the project team."
     ]
   },
 
@@ -114,8 +114,8 @@ export const cvItems: CVItem[] = [
     type: "Erfaring",
     typeEn: "Experience",
     category: "omsorg",
-    description: "Strukturering af daglige plejerutiner, personlig omsorg og præcis digital journalføring i sundhedsfaglige systemer.",
-    descriptionEn: "Structuring daily care routines, personal caregiving, and accurate digital recordkeeping in healthcare management systems.",
+    description: "Strukturering af daglige plejerutiner, personlig omsorg og præcis sundhedsfaglig digital journalføring med høj grad af nærvær og situationsfornemmelse.",
+    descriptionEn: "Structuring daily care routines, personal caregiving, and accurate digital medical journal recordkeeping with high empathy and situational awareness.",
     tags: ["Ældrepleje", "Journalføring", "Omsorg", "Empati", "Situationsfornemmelse"],
     tagsEn: ["Elderly Care", "Documentation", "Caregiving", "Empathy", "Situational Awareness"],
     bullets: [
@@ -140,8 +140,8 @@ export const cvItems: CVItem[] = [
     type: "Erfaring",
     typeEn: "Experience",
     category: "omsorg",
-    description: "Yder administrativ støtte og personlig omsorg til socialt udsatte borgere, håndterer tilspidsede episoder med konfliktnedtrapning og sikrer fyldestgørende sagsdokumentation.",
-    descriptionEn: "Provides administrative support and personal care for vulnerable citizens, de-escalates high-stress social conflicts, and maintains precise case documentation in specialized platforms.",
+    description: "Yder administrativ støtte og personlig omsorg til socialt udsatte borgere, håndterer tilspidsede episoder med konfliktnedtrapning og sikrer fyldestgørende sagsdokumentation i fagsystemer.",
+    descriptionEn: "Provides administrative support and personal care for vulnerable citizens, de-escalates high-stress social conflicts, and maintains precise case documentation in specialized care platforms.",
     tags: ["Socialt Arbejde", "Administration", "Empati", "Konfliktnedtrapning", "Sagsbehandling"],
     tagsEn: ["Social Work", "Administration", "Empathy", "De-escalation", "Case Management"],
     bullets: [

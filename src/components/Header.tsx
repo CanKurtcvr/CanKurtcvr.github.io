@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, memo } from "react";
 import { motion } from "framer-motion";
 import { MapPin, Phone, Mail, Linkedin, Github, Printer, Copy, Check, Download } from "lucide-react";
 import { ThemeToggle } from "./ThemeToggle";
@@ -11,7 +11,8 @@ interface HeaderProps {
   onPrintCV?: (lang?: "da" | "en") => void;
 }
 
-const Header = ({ onPrintCV }: HeaderProps = {}) => {
+// ⚡ Bolt: Memoize Header component to prevent redundant re-renders when switching tabs or games in Index page
+const Header = memo(({ onPrintCV }: HeaderProps = {}) => {
   const [copiedField, setCopiedField] = useState<string | null>(null);
   const { language, setLanguage, t } = useLanguage();
 
@@ -95,8 +96,8 @@ const Header = ({ onPrintCV }: HeaderProps = {}) => {
           className="text-header-foreground/80 hover:text-header-foreground hover:bg-white/10 gap-1.5 text-xs"
           title="Hent dansk CV som PDF"
         >
-          <a href="/Can_Kurt_CV_DA.pdf" download="Can_Kurt_CV_DA.pdf">
-            <Download className="w-3.5 h-3.5 text-accent" />
+          <a href="/Can_Kurt_CV_DA.pdf" download="Can_Kurt_CV_DA.pdf" aria-label="Hent dansk CV som PDF-fil">
+            <Download className="w-3.5 h-3.5 text-accent" aria-hidden="true" />
             <span className="hidden md:inline">{t("header.printDanish", "Hent CV (Dansk)")}</span>
             <span className="inline md:hidden">CV 🇩🇰</span>
           </a>
@@ -109,8 +110,8 @@ const Header = ({ onPrintCV }: HeaderProps = {}) => {
           className="text-header-foreground/80 hover:text-header-foreground hover:bg-white/10 gap-1.5 text-xs"
           title="Download English CV as PDF"
         >
-          <a href="/Can_Kurt_CV_EN.pdf" download="Can_Kurt_CV_EN.pdf">
-            <Download className="w-3.5 h-3.5 text-accent" />
+          <a href="/Can_Kurt_CV_EN.pdf" download="Can_Kurt_CV_EN.pdf" aria-label="Download English CV as PDF file">
+            <Download className="w-3.5 h-3.5 text-accent" aria-hidden="true" />
             <span className="hidden md:inline">{t("header.printEnglish", "Download CV (English)")}</span>
             <span className="inline md:hidden">CV 🇬🇧</span>
           </a>
@@ -247,6 +248,6 @@ const Header = ({ onPrintCV }: HeaderProps = {}) => {
       </div>
     </motion.header>
   );
-};
+});
 
 export default Header;
