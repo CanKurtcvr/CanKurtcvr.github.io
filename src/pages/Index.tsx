@@ -1,4 +1,4 @@
-import { useState, useEffect, lazy, Suspense } from "react";
+import { useState, useEffect, useCallback, lazy, Suspense } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import Header from "@/components/Header";
 import TabNavigation from "@/components/TabNavigation";
@@ -38,26 +38,27 @@ const Index = () => {
     }
   }, []);
 
-  const handleNavigateToGame = (gameId: string) => {
+  // ⚡ Bolt: Memoize callback handlers to prevent unnecessary re-renders of Header and TabNavigation
+  const handleNavigateToGame = useCallback((gameId: string) => {
     setSelectedGame(gameId);
     setActiveTab("games");
     window.scrollTo({ top: 0, behavior: "smooth" });
-  };
+  }, []);
 
-  const handleTabChange = (tab: TabType) => {
+  const handleTabChange = useCallback((tab: TabType) => {
     setActiveTab(tab);
     if (tab !== "games") {
       setSelectedGame(null);
     }
-  };
+  }, []);
 
-  const handlePrintCV = (lang: "da" | "en" = language) => {
+  const handlePrintCV = useCallback((lang: "da" | "en" = language) => {
     setPrintLang(lang);
     setActiveTab("cv");
     setTimeout(() => {
       window.print();
     }, 100);
-  };
+  }, [language]);
 
   return (
     <div className="min-h-screen bg-background text-foreground print:bg-white print:min-h-0 transition-colors duration-300">
